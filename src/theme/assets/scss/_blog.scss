@@ -1,0 +1,19 @@
+/* === BLOG PAGE STYLES === */
+
+.blog {
+    &__posts {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+    }
+    &__pagination {
+        display:flex;
+        justify-content:end;
+    }
+    &__filters {
+        display:flex;
+        flex-direction:row;
+        justify-content: space-between;
+        padding:80px 0;
+    }
+}

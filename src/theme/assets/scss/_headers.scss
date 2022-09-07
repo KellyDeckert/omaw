@@ -1,0 +1,17 @@
+.page__header {
+    &--fancy {
+        position: relative; /* for the child pseudo-elements */
+        background: rgb(1,15,58);
+        background: linear-gradient(90deg, $brand-primary, rgba(1,111,185,0.5) 25%, rgba(1,111,185,0) 50%); 
+        // margin: 0 -9999rem;
+        // /* add back negative margin value */
+        // padding-left: 9999rem;
+        // padding-right: 9999rem;
+        &:after { 
+            width: 320px;
+            left: 100%;
+            /* you're free to do something totally different here */
+            background: rgba(1,111,185,0);
+        }
+    }
+}

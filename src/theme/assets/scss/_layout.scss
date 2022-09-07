@@ -1,0 +1,66 @@
+/* monitors only */
+@media not screen and (max-width:960px) and (orientation: portrait){
+    body {
+        max-width:1920px;
+    }
+    .layout {
+        &--100 {
+            max-width:100%;
+        }
+        &--1920 {
+            margin:0 auto;
+            max-width:1920px;
+        }
+        &--1440 {
+            margin:0 auto;
+            max-width:1440px;
+        }
+        &--1080 {
+            margin:0 auto;
+            max-width:1080px;
+        }
+        &--860 {
+            margin:0 auto;
+            max-width:860px;
+        }
+    }
+
+    .page {
+        margin:0 auto;
+        width:100%;
+        &__header {
+            padding-top:120px;
+            padding-bottom:60px;
+        }
+    }
+}
+/* small monitors only */
+@media screen and (min-width:960px) and (max-width:1440px){
+    .layout {
+        &--1920,
+        &--1440,
+        &--1080,
+        &--860 {
+            padding-left:3.125%;
+            padding-right:3.125%;
+        }
+    }
+}
+/* small screens only */
+@media screen and (max-width:767px) and (orientation: portrait){
+    .page {
+        position: relative;
+        &__header {
+            padding-top:100px;
+            padding-bottom:48px;
+        }
+        &__header,
+        &__content {
+            padding-right:20px;
+            padding-left:20px;
+        }
+        &__content {
+            padding-bottom:80px;
+        }
+    }
+}

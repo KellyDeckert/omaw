@@ -1,0 +1,13 @@
+/* === GLOBAL CARD STYLES === */
+
+@use "@material/card";
+
+@include card.core-styles;
+
+.post-card {
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+    width:32%;
+}
+/* REFERENCE: BLOG */

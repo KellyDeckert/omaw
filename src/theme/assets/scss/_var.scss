@@ -1,0 +1,14 @@
+$brand-primary:#010F3A;
+$brand-secondary:#016FB9;
+$brand-secondary-accent:#FECA30;
+$brand-neutral-dark:#C3D7D9;
+$brand-neutral-med:#E8F1F2;
+$brand-neutral-light:#F4F4F4;
+$text-grey: #747474;
+
+@use "@material/theme" with (
+  $primary: $brand-primary,
+  $secondary: $brand-secondary,
+  $on-primary: $brand-secondary-accent,
+  $on-secondary: $brand-neutral-light,
+);

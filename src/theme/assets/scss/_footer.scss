@@ -1,0 +1,115 @@
+footer {
+    border-top:3px solid $brand-secondary-accent;
+    position:relative;
+    /* monitors only */
+    @media not screen and (max-width:960px) and (orientation: portrait){
+        padding-top:60px;
+    }
+    /* small screens only */
+    @media screen and (max-width:767px) and (orientation: portrait){
+        padding-top:44px;
+    }
+    .omaw-logo-link {
+        display:block;
+        margin-bottom:32px;
+        img.omaw-logo {
+            /* monitors only */
+            @media not screen and (max-width:960px) and (orientation: portrait){
+                max-width:142px;
+            }
+            /* small screens only */
+            @media screen and (max-width:767px) and (orientation: portrait){
+                max-width:110px;
+            }
+        }
+    }
+    .footer {
+        /* small screens only */
+        @media screen and (max-width:767px) and (orientation: portrait){
+            &__col {
+                display:flex;
+                &.footer__nav {
+                    .menu {
+                        flex-direction:column;
+                        flex-wrap:wrap;
+                    }
+                }
+            }
+        }
+        &__inner {
+            display:flex;
+            justify-content:space-between;
+            padding-bottom:60px;
+            /* small screens only */
+            @media screen and (max-width:767px) and (orientation: portrait){
+                flex-direction:column;
+                padding-right:20px;
+                padding-left:20px;
+            }
+        }
+        &__copyright {
+            background-color:$brand-neutral-light;
+            padding:28px;
+            width:100%;
+        }
+        &__nav {
+            .menu,
+            .sub-menu {
+                display:flex;
+                list-style-type:none;
+                margin:0;
+                padding:0;
+                .menu-item {
+                    padding-left:0;
+                    &-link {
+                        color:$brand-primary;
+                        font-size:14px;
+                        font-weight:400;
+                        line-height:22px;
+                        text-decoration:none;
+                    }
+                    &-has-children {
+                        padding-left:60px;
+                        margin-bottom:16px;
+                        > .menu-item-link {
+                            cursor:default;
+                            display:block;
+                            font-size:18px;
+                            font-weight:600;
+                            margin-bottom:16px;
+                        }
+                    }
+                    &.menu-button {
+                        position:relative;
+                        a.menu-item-link { 
+                            @extend .button, .button--secondary;
+                            font-size:14px;
+                            margin-left:60px;
+                        }
+                    }
+                } 
+            }
+            .sub-menu {
+                flex-direction:column;
+                .menu-item {
+                    transition:.3s all ease-in-out;
+                    &:hover {
+                        text-decoration: underline;
+                        transition:.3s all ease-in-out;
+                    }
+                }
+            }
+            /* small monitors only */
+            @media screen and (min-width:960px) and (max-width:1440px){
+                padding-left:3.125%;
+                flex:1;
+                .menu {
+                    justify-content: space-between;
+                    .menu-item-has-children {
+                        padding-left:0;
+                    }
+                }
+            }
+        }
+    }
+}
