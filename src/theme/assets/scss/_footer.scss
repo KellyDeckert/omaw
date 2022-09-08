@@ -1,57 +1,20 @@
+/* all bps */
 footer {
     border-top:3px solid $brand-secondary-accent;
     clear:both;
     position:relative;
-    /* monitors only */
-    @media not screen and (max-width:960px) and (orientation: portrait){
-        padding-top:60px;
-    }
-    /* small screens only */
-    @media screen and (max-width:767px) and (orientation: portrait){
-        padding-top:44px;
-    }
     .omaw-logo-link {
         display:block;
-        margin-bottom:32px;
-        img.omaw-logo {
-            /* monitors only */
-            @media not screen and (max-width:960px) and (orientation: portrait){
-                max-width:142px;
-            }
-            /* small screens only */
-            @media screen and (max-width:767px) and (orientation: portrait){
-                max-width:110px;
-            }
-        }
     }
     .footer {
-        /* small screens only */
-        @media screen and (max-width:767px) and (orientation: portrait){
-            &__col {
-                display:flex;
-                &.footer__nav {
-                    .menu {
-                        flex-direction:column;
-                        flex-wrap:wrap;
-                    }
-                }
-            }
-        }
-        &__inner {
-            display:flex;
-            justify-content:space-between;
-            padding-bottom:60px;
-            /* small screens only */
-            @media screen and (max-width:767px) and (orientation: portrait){
-                flex-direction:column;
-                padding-right:20px;
-                padding-left:20px;
-            }
-        }
         &__copyright {
             background-color:$brand-neutral-light;
             padding:28px;
             width:100%;
+        }
+        &__inner {
+            display:flex;
+            justify-content:space-between;
         }
         &__nav {
             .menu,
@@ -62,16 +25,15 @@ footer {
                 padding:0;
                 .menu-item {
                     padding-left:0;
-                    &-link {
-                        color:$brand-primary;
-                        font-size:14px;
-                        font-weight:400;
-                        line-height:22px;
-                        text-decoration:none;
+                    &.menu-button {
+                        position:relative;
+                        a.menu-item-link { 
+                            @extend .button, .button--secondary;
+                            font-size:14px;
+                            margin-left:0;
+                        }
                     }
                     &-has-children {
-                        padding-left:60px;
-                        margin-bottom:16px;
                         > .menu-item-link {
                             cursor:default;
                             display:block;
@@ -80,34 +42,140 @@ footer {
                             margin-bottom:16px;
                         }
                     }
-                    &.menu-button {
-                        position:relative;
-                        a.menu-item-link { 
-                            @extend .button, .button--secondary;
-                            font-size:14px;
-                            margin-left:60px;
-                        }
-                    }
-                } 
-            }
-            .sub-menu {
-                flex-direction:column;
-                .menu-item {
-                    transition:.3s all ease-in-out;
-                    &:hover {
-                        text-decoration: underline;
-                        transition:.3s all ease-in-out;
+                    &-link {
+                        color:$brand-primary;
+                        font-size:14px;
+                        font-weight:400;
+                        line-height:22px;
+                        text-decoration:none;
                     }
                 }
             }
-            /* small monitors only */
-            @media screen and (min-width:960px) and (max-width:1440px){
+        }
+    }
+}
+
+/* monitors only */
+@media not screen and (max-width:$mq-sm-desktop) and (orientation: portrait){
+    footer {
+        padding-top:60px;
+        .omaw-logo-link {
+            margin-bottom:32px;
+            img.omaw-logo {
+                max-width:142px;
+            }
+        }
+        .footer {
+            &__inner {
+                padding-bottom:60px;
+            }
+            &__membership {
+                display:none;
+            }
+            &__nav {
+                .menu {
+                    .menu-item {
+                        &-has-children {
+                            margin-bottom:16px;
+                            padding-left:60px;
+                        }
+                    }
+                }
+                .sub-menu {
+                    flex-direction:column;
+                    .menu-item {
+                        transition:.3s all ease-in-out;
+                        &:hover {
+                            text-decoration: underline;
+                            transition:.3s all ease-in-out;
+                        }
+                    }
+                }
+            }               
+        }
+    }
+}
+
+/* small monitors only */
+@media screen and (min-width:$mq-sm-desktop) and (max-width:$mq-laptop){
+}
+
+/* small screens only */
+@media screen and (max-width:$mq-tablet) and (orientation: portrait){
+    footer {
+        padding-top:44px;
+        .omaw-logo-link {
+            img.omaw-logo {
+                max-width:110px;
+            }
+        }
+        .footer {
+            &__col {
+                display:flex;
+                justify-content:space-between;
+                &.footer__nav {
+                    .menu {
+                        flex-direction:column;
+                        flex-wrap:wrap;
+                    }
+                }
+            }
+            &__inner {
+                flex-direction:column;
+                padding-right:20px;
+                padding-left:20px;
+            }
+            &__nav {
                 padding-left:3.125%;
                 flex:1;
                 .menu {
                     justify-content: space-between;
                     .menu-item-has-children {
                         padding-left:0;
+                    }
+                }
+                .menu-main-menu-container .menu-item.menu-button {
+                    display:none;
+                }
+            }
+        }
+    }
+}
+/* xs screens only */
+@media screen and (min-width:$mq-xs-device) and (max-width:$mq-sm-device) and (orientation: portrait){
+    footer {
+        .omaw-logo-link {
+            .omaw-logo {
+                margin-bottom:16px;
+                max-width:none !important;
+            }
+        }
+        .footer {
+            &__col,
+            &__nav .sub-menu {
+                flex-direction:column;
+                align-items:center;
+            }
+            &__links {
+                padding-bottom:24px;
+                a {
+                    display:block;
+                    + a {
+                        margin-top:16px;
+                    }
+                }
+            }
+            &__nav {
+                padding-left:0;
+                .menu {
+                    &-item-link {
+                        text-align:center;
+                    }
+                    &-item-has-children {
+                        margin-bottom:16px;
+                    }
+                    .sub-menu-wrapper {
+                        display:none;
                     }
                 }
             }

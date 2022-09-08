@@ -4,9 +4,13 @@
         </script> -->
         <footer>
             <div class="footer__inner layout--1080">
-                <div class="footer__col">
+                <div class="footer__col footer__links">
                     <?php get_template_part( 'snippets/omaw-logo' ); ?>
-                    <a href="#" class="button button--alt">Contact Us</a>
+                    <a href="#" class="button button--accent button--accent-dark">Contact Us</a>
+                    <a href="/become-a-member/" class="button button--secondary">Become a Member</a>
+                    <!-- <div class="footer__membership">
+                        <?php //wp_nav_menu(['theme_location' => 'footer']); ?>
+                    </div> -->
                 </div>
                 <div class="footer__col footer__nav">
                     <?php wp_nav_menu(['Main Menu','walker' => new submenu_wrap()]); ?>

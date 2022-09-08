@@ -6,6 +6,13 @@ $brand-neutral-med:#E8F1F2;
 $brand-neutral-light:#F4F4F4;
 $text-grey: #747474;
 
+// media query (mq) breakpoints //
+$mq-xs-device: 360px;
+$mq-sm-device: 411px;
+$mq-tablet: 767px;
+$mq-sm-desktop: 960px;
+$mq-laptop: 1440px;
+
 @use "@material/theme" with (
   $primary: $brand-primary,
   $secondary: $brand-secondary,
