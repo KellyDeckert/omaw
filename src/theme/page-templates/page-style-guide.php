@@ -347,32 +347,5 @@
         });
     });
 </script>
-<!-- <script>
-    const swiperV = new Swiper('.swiper.swiper--v', {
-        // Optional parameters
-        direction: 'vertical',
-
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination.swiper--v',
-            clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + (index + 1) + "</span>";
-            },
-        },
-
-        // // Navigation arrows
-        // navigation: {
-        //     nextEl: '.swiper-button-next',
-        //     prevEl: '.swiper-button-prev',
-        // },
-
-        // // And if we need scrollbar
-        // scrollbar: {
-        //     el: '.swiper-scrollbar',
-        // },
-    });
-
-</script> -->
 
 <?php get_footer(); ?>

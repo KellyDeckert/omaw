@@ -7,6 +7,9 @@ body.wip {
     /* monitors only */
     @media not screen and (max-width:960px) and (orientation: portrait){
         border-right-color:blueviolet;
+        &.logged-in {
+            padding-bottom: 28px;
+        }
     }
     /* small monitors only */
     @media screen and (min-width:960px) and (max-width:1440px){

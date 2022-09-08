@@ -1,3 +1,4 @@
+<?php /* Template Name: Become a Member */ ?>
 <?php get_header(); ?>
 
 <div class="page layout--100">

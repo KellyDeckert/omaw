@@ -1,3 +1,4 @@
+<?php /* Template Name: Page - Custom */ ?>
 <?php get_header(); ?>
 
 <div class="page layout--100">

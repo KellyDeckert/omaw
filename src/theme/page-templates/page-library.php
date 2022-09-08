@@ -1,3 +1,4 @@
+<?php /* Template Name: Publication Library */ ?>
 <?php get_header(); ?>
 
 <div class="page layout--100">
