@@ -3,20 +3,23 @@
         max-width:100%;
         width:100%;
         display:block;
-        &.alignright {
-            float:right;
-            max-width:50%;
-            padding: 3.125% 0 3.25% 3.25%;  
-        }
-        &.alignleft {
-            float:left;
-            max-width:50%;
-            padding: 3.125% 3.25% 3.25% 0;
-        }
-        &.aligncenter {
-            margin:0 auto;
-            max-width:80%;
-            padding:3.25%;
-        }
+
+        /*  WORDPRESS WYSIWYG IMAGE STYLES
+            ============================= */
+            &.alignright {
+                float:right;
+                max-width:50%;
+                padding: 3.125% 0 3.25% 3.25%;  
+            }
+            &.alignleft {
+                float:left;
+                max-width:50%;
+                padding: 3.125% 3.25% 3.25% 0;
+            }
+            &.aligncenter {
+                margin:0 auto;
+                max-width:80%;
+                padding:3.25%;
+            }
     }
 }

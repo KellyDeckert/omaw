@@ -1,13 +1,6 @@
-@mixin extend-bg-color($color) {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -9999px;
-    right: 0;
-    box-shadow: 9999px 0 0 $color;
-}
-
 @mixin css-box-shadow{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+@mixin nav-shadow {
+    box-shadow:rgba(1,15,58,0.12) 0px 2px 8px;
 }

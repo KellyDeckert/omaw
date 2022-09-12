@@ -62,15 +62,13 @@ function google_fonts() {
 }
 add_action( 'wp_enqueue_scripts', 'google_fonts' );
 
-// // Remove jQuery
 // function deregister_scripts() {
 // 	wp_deregister_script('jquery'); 
 // 	wp_register_script('jquery', '', '', '', true);
+// 	// jQuery
+// 	wp_enqueue_script("jquery");
 // }
 // add_action( 'wp_enqueue_scripts', 'deregister_scripts' );
-
-// // jQuery
-// wp_enqueue_script("jquery");
 
 // Image sizes
 add_image_size('small-thumbnail', 640, 640);

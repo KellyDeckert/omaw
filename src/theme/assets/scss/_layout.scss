@@ -1,5 +1,28 @@
+/*  HIDERS
+    ============================= */
+    /* monitors only */
+    @media not screen and (max-width:$mq-sm-desktop) and (orientation: portrait){
+        .devices {
+            display:none !important;
+        }
+    }
+    /* small screens only */
+    @media screen and (max-width:$mq-sm-desktop) and (orientation: portrait){
+        .monitors {
+            display:none !important;
+        }
+    }
+
+/*  OMAW LOGO
+    ============================= */
+    .omaw-logo {
+        display:block;
+        position:relative;
+        z-index:1;
+    }
+
 /* monitors only */
-@media not screen and (max-width:960px) and (orientation: portrait){
+@media not screen and (max-width:$mq-sm-desktop) and (orientation: portrait){
     body {
         max-width:1920px;
     }
@@ -13,7 +36,7 @@
         }
         &--1440 {
             margin:0 auto;
-            max-width:1440px;
+            max-width:$mq-laptop;
         }
         &--1080 {
             margin:0 auto;
@@ -38,7 +61,7 @@
     }
 }
 /* small monitors only */
-@media screen and (min-width:960px) and (max-width:1440px){
+@media screen and (min-width:$mq-sm-desktop) and (max-width:$mq-laptop){
     .layout {
         &--1920,
         &--1440,
@@ -50,7 +73,7 @@
     }
 }
 /* small screens only */
-@media screen and (max-width:767px) and (orientation: portrait){
+@media screen and (max-width:$mq-tablet) and (orientation: portrait){
     .page {
         position: relative;
         &__header {

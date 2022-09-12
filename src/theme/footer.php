@@ -1,13 +1,13 @@
         <?php wp_footer(); ?>
-        <!-- <script type="text/javascript">
-            window.mdc.autoInit();
-        </script> -->
         <footer>
             <div class="footer__inner layout--1080">
-                <div class="footer__col footer__links">
+                <div class="footer__col">
                     <?php get_template_part( 'snippets/omaw-logo' ); ?>
-                    <a href="#" class="button button--accent button--accent-dark">Contact Us</a>
-                    <a href="/become-a-member/" class="button button--secondary">Become a Member</a>
+                    <a href="#" class="button button--alt monitors">Contact Us</a>
+                    <div class="footer__links devices">
+                        <a href="/become-a-member/" class="button button--secondary">Become a Member</a>
+                        <!-- <a href="#" class="button button--accent button--accent-dark">Contact Us</a> -->
+                    </div>
                     <!-- <div class="footer__membership">
                         <?php //wp_nav_menu(['theme_location' => 'footer']); ?>
                     </div> -->

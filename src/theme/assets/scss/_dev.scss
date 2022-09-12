@@ -1,5 +1,6 @@
 body.wip {
     border-right:3px solid;
+    
     /* small screens only */
     @media screen and (max-width:$mq-sm-desktop) and (orientation: portrait){
         border-right-color:red;
@@ -15,14 +16,18 @@ body.wip {
             padding-bottom: 28px;
         }
     }
+    /* xlarge monitors */
+    @media screen and (min-width:$mq-xl-desktop){
+        border-right-color:hotpink;
+    }
+    
     /* small monitors only */
     @media screen and (min-width:$mq-sm-desktop) and (max-width:$mq-laptop){
         border-right-color:green;
     }
 
-
     /* high dpi devices only --> ipads */
-    @media screen and (min-width:768px) and (-webkit-min-device-pixel-ratio: 1.5){
+    @media screen and (min-width:$mq-tablet) and (-webkit-min-device-pixel-ratio: 1.5){
         border-right-color:orange;
     }   
 }

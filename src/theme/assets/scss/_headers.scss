@@ -2,6 +2,7 @@
     &--fancy {
         position: relative; /* for the child pseudo-elements */
         background: rgb(1,15,58);
+        /* TO BE REPLACED WITH IMAGE */
         background: linear-gradient(90deg, $brand-primary, rgba(1,111,185,0.5) 25%, rgba(1,111,185,0) 50%); 
         // margin: 0 -9999rem;
         // /* add back negative margin value */

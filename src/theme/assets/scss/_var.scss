@@ -1,21 +1,27 @@
-$brand-primary:#010F3A;
-$brand-secondary:#016FB9;
-$brand-secondary-accent:#FECA30;
-$brand-neutral-dark:#C3D7D9;
-$brand-neutral-med:#E8F1F2;
-$brand-neutral-light:#F4F4F4;
-$text-grey: #747474;
+/*  BRAND COLORS
+    ============================= */
+    $brand-primary:#010F3A;
+    $brand-secondary:#016FB9;
+    $brand-secondary-accent:#FECA30;
+    $brand-neutral-dark:#C3D7D9;
+    $brand-neutral-med:#E8F1F2;
+    $brand-neutral-light:#F4F4F4;
+    $text-grey: #747474;
 
-// media query (mq) breakpoints //
-$mq-xs-device: 360px;
-$mq-sm-device: 411px;
-$mq-tablet: 767px;
-$mq-sm-desktop: 960px;
-$mq-laptop: 1440px;
+/*  MEDIA QUERY BREAKPOINTS
+    ============================= */
+    $mq-xs-device: 360px;
+    $mq-sm-device: 411px;
+    $mq-tablet: 767px;
+    $mq-sm-desktop: 960px;
+    $mq-laptop: 1440px;
+    $mq-xl-desktop: 1920px;
 
-@use "@material/theme" with (
-  $primary: $brand-primary,
-  $secondary: $brand-secondary,
-  $on-primary: $brand-secondary-accent,
-  $on-secondary: $brand-neutral-light,
-);
+/*  MATERIAL THEME OVERRIDE
+    ============================= */
+    @use "@material/theme" with (
+        $primary: $brand-primary,
+        $secondary: $brand-secondary,
+        $on-primary: $brand-secondary-accent,
+        $on-secondary: $brand-neutral-light,
+    );

@@ -1,30 +1,45 @@
-jQuery(function() {
-	var Accordion = function(el, multiple) {
-		this.el = el || {};
-		this.multiple = multiple || false;
+var ready = (callback) => {
+	if (document.readyState != "loading") callback();
+	else document.addEventListener("DOMContentLoaded", callback);
+}
 
-		// Variables privadas
-		// var links = this.el.find('.link');
-        var links = this.el.find('.menu-item-has-children .menu-item-link');
-		// Evento
-		links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-	}
-
-	Accordion.prototype.dropdown = function(e) {
-		var $el = e.data.el;
-			$this = jQuery(this),
-			$next = $this.next();
-
-		$next.slideToggle();
-		$this.parent().toggleClass('open');
-
-		if (!e.data.multiple) {
-			$el.find('.sub-menu-wrapper').not($next).slideUp().parent().removeClass('open');
-		};
-        // console.log($this.parent());
-        // console.log($this);
-	}	
-
-	// var accordion = new Accordion($('#accordion'), false);
-    var accordion = new Accordion(jQuery('.footer__nav .menu'), false);
+ready(() => { 
+	console.log('hello from scripts.js!');
+	initMobileFooterAccordions();
 });
+
+function initMobileFooterAccordions(){
+	var accordion = document.querySelectorAll('footer .menu li');
+	
+	for (var i = 0; i<accordion.length; i++){
+        accordion[i].addEventListener("click", (e) => { accordionClick(e) });
+    }
+
+	var accordionClick = (eventHappened) => {
+		eventHappened.preventDefault();
+		var targetClicked = event.currentTarget;
+			if(!targetClicked.classList.contains('open')){
+				targetClicked.classList.add('open');
+			} else {
+				targetClicked.classList.remove('open');
+			}
+		var submenu = targetClicked.children[1];
+		if ( submenu.style.maxHeight ){
+			console.log( "current height: " + submenu.style.maxHeight );
+			submenu.style.maxHeight = null;
+		} else {
+			var allSubMenus = document.querySelectorAll('footer .menu .sub-menu-wrapper');
+			console.log( allSubMenus );
+			for (var i = 0; i < allSubMenus.length; i++){
+				console.log("current menu: " + allSubMenus[i]);
+				var toggle = document.querySelectorAll('footer .menu .menu-item-has-children');
+				if (allSubMenus[i].style.maxHeight){
+						console.log("there is a menu already open");
+					allSubMenus[i].style.maxHeight = null;
+					toggle[i].classList.remove('open');
+				}
+			}
+			submenu.style.maxHeight = submenu.scrollHeight + "px";
+		}
+	}
+}
