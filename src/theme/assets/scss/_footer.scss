@@ -80,7 +80,7 @@ footer {
 @media not screen and (max-width:$mq-sm-desktop) and (orientation: portrait){
     footer {
         background-size:525px;
-        background-position:right top;
+        background-position:right -20px top;
         padding-top:60px;
         .omaw-logo-link {
             margin-bottom:32px;
@@ -101,6 +101,9 @@ footer {
                         &-has-children {
                             margin-bottom:16px;
                             padding-left:60px;
+                            .sub-menu-wrapper {
+                                padding-top:16px;
+                            }
                         }
                         &.menu-button {
                             padding-left:60px;
