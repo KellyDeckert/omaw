@@ -6,6 +6,7 @@ footer {
     border-top:3px solid $brand-secondary-accent;
     clear:both;
     position:relative;
+
     .omaw-logo-link {
         display:block;
     }
@@ -16,7 +17,7 @@ footer {
             width:100%;
             &-inner {
                 span {
-                    line-height:1.2;
+                    line-height:1.6;
                     display:inline-block;
                 }
             }
@@ -82,6 +83,11 @@ footer {
         background-size:525px;
         background-position:right -20px top;
         padding-top:60px;
+
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
         .omaw-logo-link {
             margin-bottom:32px;
             img.omaw-logo {

@@ -6,6 +6,7 @@ var ready = (callback) => {
 ready(() => { 
 	console.log('hello from scripts.js!');
 	initMobileFooterAccordions();
+	lockMobileScroll();
 });
 
 function initMobileFooterAccordions(){
@@ -53,3 +54,37 @@ function initMobileFooterAccordions(){
 		}
 	}
 }
+
+function lockMobileScroll(){
+
+	var mobileMenuToggle = document.querySelector('#toggle-mobile-menu');
+
+	mobileMenuToggle.addEventListener("click", (e) => { mobileMenuClick(e) });
+
+	var mobileMenuClick = (eventHappened) => {
+		console.log('MOBILE TOGGLE --> CLICKED!');
+		let body = document.querySelector('body');
+		if(!body.classList.contains('mobile-menu-open')){
+			body.classList.add('mobile-menu-open');
+			console.log('MOBILE MENU --> OPENING');
+		} else {
+			body.classList.remove('mobile-menu-open');
+			console.log('MOBILE MENU --> CLOSING');
+		}
+	}
+
+}
+
+// function initMobileDrawer(){
+
+// 	const listEl = document.querySelector('.mdc-drawer .mdc-list');
+// 	const mainContentEl = document.querySelector('.main-content');
+
+// 	listEl.addEventListener('click', (event) => {
+// 		drawer.open = false;
+// 	});
+
+// 	document.body.addEventListener('MDCDrawer:closed', () => {
+// 		mainContentEl.querySelector('input, button').focus();
+// 	});
+// }
