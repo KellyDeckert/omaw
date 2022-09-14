@@ -11,16 +11,18 @@ footer {
         display:block;
     }
     .footer {
-        &__copyright {
+        &__bottom {
             background-color:$brand-neutral-light;
             padding:28px;
             width:100%;
             &-inner {
-                span {
-                    line-height:1.6;
-                    display:inline-block;
-                }
+                display:flex;
+                justify-content:space-between;
             }
+        }
+        &__copyright span {
+            line-height:1.6;
+            display:inline-block;
         }
         &__inner {
             display:flex;
@@ -94,6 +96,19 @@ footer {
                 max-width:142px;
             }
         }
+        .social-media {
+            &-list {
+                &-item {
+                    &:last-of-type{
+                        padding-right:0;
+                    }
+                }
+            }
+            &-icon {
+                height:auto;
+                width:18px;
+            }
+        }
         .footer {
             &__inner {
                 padding-bottom:60px;
@@ -145,7 +160,7 @@ footer {
 /* small screens only */
 @media screen and (max-width:$mq-sm-desktop) and (orientation: portrait){
     footer {
-        background-position: right -20px bottom 90px;
+        background-position: right -20px bottom 160px;
         background-size: 100%;
         padding-top:44px;
         .omaw-logo-link {
@@ -153,7 +168,23 @@ footer {
                 max-width:110px;
             }
         }
+        .social-media-list {
+            margin-bottom:26px;
+            &-item {
+                &:first-of-type{
+                    padding-left:0;
+                }
+            }
+        }
         .footer {
+            &__bottom {
+                background-color:$brand-neutral-light;
+                padding:28px;
+                width:100%;
+                &-inner {
+                    flex-direction:column-reverse;
+                }
+            }
             &__col {
                 display:flex;
                 justify-content:space-between;
@@ -302,7 +333,7 @@ footer {
 /* high dpi devices only --> ipads */
 @media screen and (min-width:$mq-tablet) and (-webkit-min-device-pixel-ratio: 1.5){
     footer {
-        background-position: right -20px bottom 40px;
+        background-position: right -20px bottom 130px;
         .omaw-logo-link {
             img.omaw-logo {
                 max-width:142px;

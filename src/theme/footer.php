@@ -16,14 +16,19 @@
                     <?php wp_nav_menu(['Main Menu','walker' => new submenu_wrap()]); ?>
                 </div>
             </div>
-            <div class="footer__copyright">
-                <div class="footer__copyright-inner layout--1080">
-                    <?php
-                        $pp = '<a href="/privacy-policy" target="_blank">Privacy Policy</a>';
-                        $cr = '<span>&copy; ' . date('Y') . ' ' . get_bloginfo() . '. All Rights Reserved. | ' . $pp . '</span>';
+            <div class="footer__bottom">
+                <div class="footer__bottom-inner layout--1080">
+                    <div class="footer__copyright">
+                        <?php
+                            $pp = '<a href="/privacy-policy" target="_blank">Privacy Policy</a>';
+                            $cr = '<span>&copy; ' . date('Y') . ' ' . get_bloginfo() . '. All Rights Reserved. | ' . $pp . '</span>';
 
-                        echo $cr;
-                    ?>
+                            echo $cr;
+                        ?>
+                    </div>
+                    <div class="footer__social">
+                        <?php get_template_part( 'sections/section-social-links' ); ?>
+                    </div>
                 </div>
             </div>
         </footer>

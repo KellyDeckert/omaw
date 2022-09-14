@@ -65,7 +65,7 @@
             padding-bottom:60px;
         }
         &__content {
-            min-height:42vh;
+            // min-height:42vh; for development purposes on empty pages
         }
     }
 }
@@ -87,7 +87,7 @@
         position: relative;
         // padding-bottom:600px;
         &__header {
-            padding-top:100px;
+            padding-top:60px;
             padding-bottom:48px;
         }
         &__header,
