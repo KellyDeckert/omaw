@@ -13,6 +13,12 @@
         }
     }
 
+/*  MOBILE MENU SCROLL LOCK
+    ============================= */
+    body.mobile-menu-open {
+        overflow:hidden;
+    }
+
 /*  OMAW LOGO
     ============================= */
     .omaw-logo {
@@ -24,7 +30,9 @@
 /* monitors only */
 @media not screen and (max-width:$mq-sm-desktop) and (orientation: portrait){
     body {
-        max-width:1920px;
+        // max-width:1920px;
+        min-height:100vh;
+        position:relative;
     }
     .layout {
         &--100 {
@@ -50,9 +58,10 @@
 
     .page {
         margin:0 auto;
+        padding-bottom:500px;
         width:100%;
         &__header {
-            padding-top:120px;
+            padding-top:80px;
             padding-bottom:60px;
         }
         &__content {
@@ -76,6 +85,7 @@
 @media screen and (max-width:$mq-tablet) and (orientation: portrait){
     .page {
         position: relative;
+        // padding-bottom:600px;
         &__header {
             padding-top:100px;
             padding-bottom:48px;

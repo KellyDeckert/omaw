@@ -48,8 +48,8 @@
     ol,
     ul {
         all: revert;
-        &:not(.menu) {
-            li + li {
+        &:not(.menu):not(.social-media-list) {
+            li + li:not(.menu-item) {
                 margin-top:8px;
             }
         }
@@ -60,7 +60,7 @@
             padding-left:15px;
         }
     }
-    ul:not(.menu) {
+    ul:not(.menu):not(.social-media-list) {
         padding-left:30px;
         li {
             padding-left:20px;
