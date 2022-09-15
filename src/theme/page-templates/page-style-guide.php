@@ -232,120 +232,81 @@
             <h1 class="header">Slider Toggles</h1>
 
                 <!-- Slider main container -->
-                <div class="swiper swiper-quote-carousel">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide quote-slide">
-                            <div class="quote-slide-inner">
-                                <div class="quote-slide-copy">
-                                    <div class="quote-slide-quote">
-                                        <p>Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco.</p>
+                <div class="quote-slider responsive-font-size">
+                    <div class="swiper quote-slider__slides">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            
+                            <div class="swiper-slide quote-slider__slide">
+                                <div class="quote-slider__slide-inner">
+                                    <div class="quote-slider__content">
+                                        <h4 class="quote-slider__quote">"Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco."</h4>
+                                        <h5 class="quote-slider__author">Lisa Singh, Managing Director, Global Benefits<span class="font-light">Silicon Valley Bank</span></h5>
                                     </div>
-                                    <h5 class="quote-slide-author">Lisa Singh, Managing Director, Global Benefits<span>Silicon Valley Bank</span></h5>
+                                    <div class="quote-slider__image">
+                                        <img srcset="
+                                        http://onemindatwork.local/wp-content/uploads/2022/09/Lisa_Singh_mobile.jpg 600w, 
+                                        http://onemindatwork.local/wp-content/uploads/2022/09/Lisa_Singh.jpg 330w" 
+                                        sizes="(max-width: 767px) 600px, 
+                                        330px" 
+                                        src="http://onemindatwork.local/wp-content/uploads/2022/09/Lisa_Singh.jpg" alt="">
+                                    </div>
                                 </div>
-                                <div class="quote-slide-portrait"></div>
+                            </div>
+
+                            <div class="swiper-slide quote-slider__slide">
+                                <div class="quote-slider__slide-inner">
+                                    <div class="quote-slider__content">
+                                        <h4 class="quote-slider__quote">"Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco."</h4>
+                                        <h5 class="quote-slider__author">Lisa Singh, Managing Director, Global Benefits<span class="font-light">Silicon Valley Bank</span></h5>
+                                    </div>
+                                    <div class="quote-slider__image">
+                                        <img srcset="
+                                        http://onemindatwork.local/wp-content/uploads/2022/09/Lisa_Singh_mobile.jpg 600w, 
+                                        http://onemindatwork.local/wp-content/uploads/2022/09/Lisa_Singh.jpg 330w" 
+                                        sizes="(max-width: 767px) 600px, 
+                                        330px" 
+                                        src="http://onemindatwork.local/wp-content/uploads/2022/09/Lisa_Singh.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide quote-slider__slide">
+                                <div class="quote-slider__slide-inner">
+                                    <div class="quote-slider__content">
+                                        <h4 class="quote-slider__quote">"Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco."</h4>
+                                        <h5 class="quote-slider__author">Lisa Singh, Managing Director, Global Benefits<span class="font-light">Silicon Valley Bank</span></h5>
+                                    </div>
+                                    <div class="quote-slider__image">
+                                        <img srcset="
+                                        http://onemindatwork.local/wp-content/uploads/2022/09/Lisa_Singh_mobile.jpg 600w, 
+                                        http://onemindatwork.local/wp-content/uploads/2022/09/Lisa_Singh.jpg 330w" 
+                                        sizes="(max-width: 767px) 600px, 
+                                        330px" 
+                                        src="http://onemindatwork.local/wp-content/uploads/2022/09/Lisa_Singh.jpg" alt="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="swiper-slide quote-slide">
-                            <div class="quote-slide-inner">
-                                <div class="quote-slide-copy">
-                                    <div class="quote-slide-quote">
-                                        <p>Consectetur pariatur irure sint elit pariatur consectetur amet ea nisi culpa incididunt sint magna. Magna enim ut dolor sunt ipsum elit. Velit culpa et anim et. Reprehenderit anim laboris commodo ad ad officia laborum esse sint irure. Ullamco sunt mollit cupidatat sint consequat minim.</p>
-                                    </div>
-                                    <h5 class="quote-slide-author">Bruce Wayne, Managing Director, Global Benefits<span>Silicon Valley Bank</span></h5>
-                                </div>
-                                <div class="quote-slide-portrait"></div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide quote-slide">
-                            <div class="quote-slide-inner">
-                                <div class="quote-slide-copy">
-                                    <div class="quote-slide-quote">
-                                        <p>Sit aliqua nostrud ad in. Excepteur nostrud commodo pariatur sint ut velit sit minim dolore irure officia consequat tempor. In est aliqua officia quis cillum. Id id laboris cupidatat sit fugiat commodo. Id do et qui commodo magna tempor veniam nostrud incididunt aliqua est aliquip.</p>
-                                    </div>
-                                    <h5 class="quote-slide-author">Robert Red, Managing Director, Global Benefits<span>Silicon Valley Bank</span></h5>
-                                </div>
-                                <div class="quote-slide-portrait"></div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide quote-slide">
-                            <div class="quote-slide-inner">
-                                <div class="quote-slide-copy">
-                                    <div class="quote-slide-quote">
-                                        <p>Irure eu sit nulla adipisicing ex minim consectetur id. Amet aliquip exercitation qui ex excepteur laboris incididunt ex adipisicing. Non veniam in mollit commodo do proident enim adipisicing tempor nostrud labore eu. Velit cupidatat ea laboris incididunt id anim enim.</p>
-                                    </div>
-                                    <h5 class="quote-slide-author">Jane Doe, Assistant Director, Global Benefits<span>Silicon Valley Bank</span></h5>
-                                </div>
-                                <div class="quote-slide-portrait"></div>
-                            </div>
-                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination" data-index="1"></div>
+
+                        <!-- If we need navigation buttons -->
+                        <!-- <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div> -->
+
+                        <!-- If we need scrollbar -->
+                        <!-- <div class="swiper-scrollbar"></div> -->
                     </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
 
-                    <!-- If we need navigation buttons -->
-                    <!-- <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div> -->
-
-                    <!-- If we need scrollbar -->
-                    <!-- <div class="swiper-scrollbar"></div> -->
                 </div>
+                <!-- END: Slider main container -->
         </div>
     </div>
     
 </div>
 
-<script>
-    var swiper = new Swiper(".swiper", {
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        renderBullet: function (index, className) {
-            return '<span data-pager="' + (index + 1) + '" class="bullet-pb-off ' + className + '">' + (index + 1) + '</span>';
-        },
-    },
-    // navigation: {
-    //     nextEl: '.swiper-button-next',
-    //     prevEl: '.swiper-button-prev',
-    // },
-    breakpoints: {
-        // when window width is >= 480px
-        480: {
-            direction: 'horizontal',
-        },
-        // when window width is >= 640px
-        640: {
-            direction: 'vertical',
-        }
-    }
-    });
-    swiper.on('slideChange',function(){
-        // console.log('slide changed:: #' + (swiper.activeIndex + 1));
-        // change bullet-pb-off to bullet-pb-on for current slide
-        var pager = document.querySelector('.bullet-pb-off.swiper-pagination-bullet-active');
-        var current = swiper.activeIndex + 1;
-        if(pager){
-            // console.log(current + ' On');
-            pager.classList.remove('bullet-pb-off');
-            pager.classList.add('bullet-pb-on');
-        } else {
-            var prev = swiper.activeIndex + 2;
-            // console.log(prev + ' Off');
-            pager = document.querySelector('.bullet-pb-on:nth-of-type(' + prev + ')');
-            pager.classList.remove('bullet-pb-on');
-            pager.classList.add('bullet-pb-off');
-        }
-    });
-    swiper.on('reachBeginning',function(){
-        // console.log('last slide::');
-        // reset pager, change bullet-pb-on to bullet-pb-off for all slides
-        var pagers = document.querySelectorAll('.bullet-pb-on');
-        pagers.forEach(el => {
-            el.classList.remove('bullet-pb-on');
-            el.classList.add('bullet-pb-off');
-        });
-    });
-</script>
+
 
 <?php get_footer(); ?>
