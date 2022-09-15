@@ -2,12 +2,8 @@
 /* Template Name: Front Page */ 
 get_header(); ?>
 
-<br><br><br><br><br><br><br>
-
 <div class="home-page responsive-font-size">
-<?php 
-
-/**/
+<?php
 get_template_part( 'sections/section-page-hero', null,
     array( 
         'data'  => array(
@@ -117,8 +113,6 @@ get_template_part( 'sections/section-featured-posts', null,
         )
     ) 
 );
-
-
 ?>
 </div>
 
