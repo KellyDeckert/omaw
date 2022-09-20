@@ -98,23 +98,39 @@ function lockMobileScroll(){
 // }
 
 
+/* AOS animations */
+var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+AOS.init({
+    delay: 0,
+    disable: window.innerWidth < 1280 || isIE11,
+    duration: 350,
+    easing: 'ease-in-out',
+    offset: 100
+});
+
+window.addEventListener('resize', function () {
+    AOS.refresh();
+});
+
+
+
 
 /* HERO */
 
 // get animated subjects and its items
-const animatedSubjects = document.querySelector('.hero__animated-subjects');
-const animatedSubjectItems = document.querySelectorAll('.hero__animated-subject');
+var animatedSubjects = document.querySelector('.hero__animated-subjects');
+var animatedSubjectItems = document.querySelectorAll('.hero__animated-subject');
 // if found, animate
 if (animatedSubjects && animatedSubjectItems) {
     // get all items into array
-    const animatedSubjectsArray = Array.from(animatedSubjectItems);
+    var animatedSubjectsArray = Array.from(animatedSubjectItems);
     // get random index for initial load
     let subHeadingsIndex = Math.floor(Math.random()*animatedSubjectsArray.length);
     setTimeout(() => {
         // reveal initial immediately
         animatedSubjectsArray[subHeadingsIndex].classList.add('hero__animated-subject--active');
         // change slide every 5 seconds
-        const subHeadingsInterval = setInterval(() => {
+        var subHeadingsInterval = setInterval(() => {
 			// increase index or reset to 0
 			subHeadingsIndex < animatedSubjectsArray.length - 1 ? subHeadingsIndex++ : subHeadingsIndex = 0;
             // make next one active
@@ -182,7 +198,7 @@ var mobileCardsSlider = document.querySelector('.swiper.cards.mobile');
 
 var init = false;
 
-function initCartSlider() {
+function initCardSlider() {
   if (window.innerWidth < 768) {
     if (!init) {
       init = true;
@@ -203,6 +219,6 @@ function initCartSlider() {
 }
 
 if(mobileCardsSlider){
-	initCartSlider();
+	initCardSlider();
 }
-window.addEventListener("resize", initCartSlider);
+window.addEventListener("resize", initCardSlider);

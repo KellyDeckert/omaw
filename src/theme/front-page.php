@@ -17,6 +17,7 @@ get_template_part( 'sections/section-page-hero', null,
 get_template_part( 'sections/section-blue-cta-right', null,
     array( 
         'data'  => array(
+            'id' => 'upcoming-event',
             'display' => get_field('cta_display'),
             'heading' => get_field('cta_heading'),
             'sub_heading' => get_field('cta_sub_heading'),
@@ -28,6 +29,7 @@ get_template_part( 'sections/section-blue-cta-right', null,
 get_template_part( 'sections/section-copy-stats', null,
     array( 
         'data'  => array(
+            'id' => 'who-we-are',
             'display' => get_field('who_display'),
             'heading' => get_field('who_heading'),
             'sub_heading' => get_field('who_sub_heading'),
@@ -42,6 +44,7 @@ get_template_part( 'sections/section-copy-stats', null,
 get_template_part( 'sections/section-centered-stats', null,
     array( 
         'data'  => array(
+            'id' => 'business-stats',
             'display' => get_field('business_display'),
             'heading' => get_field('business_heading'),
             'items' => get_field('business_stats_items'),
@@ -54,6 +57,7 @@ get_template_part( 'sections/section-centered-stats', null,
 get_template_part( 'sections/section-image-copy', null,
     array( 
         'data'  => array(
+            'id' => 'our-approach',
             'display' => get_field('approach_display'),
             'vertical_alignment' => get_field('approach_vertical_alignment'),
             'image_alignment' => get_field('approach_image_alignment'),
@@ -71,6 +75,7 @@ get_template_part( 'sections/section-image-copy', null,
 get_template_part( 'sections/section-yellow-cta', null,
     array( 
         'data'  => array(
+            'id' => 'interest',
             'full_width' => true,
             'display' => get_field('interest_display'),
             'heading' => get_field('interest_heading'),
@@ -84,6 +89,7 @@ get_template_part( 'sections/section-yellow-cta', null,
 get_template_part( 'sections/section-logos', null,
     array( 
         'data'  => array(
+            'id' => 'our-members',
             'display' => get_field('members_display'),
             'heading' => get_field('members_heading'),
             'content' => get_field('members_content'),
@@ -96,6 +102,7 @@ get_template_part( 'sections/section-logos', null,
 get_template_part( 'sections/section-quote-carousel', null,
     array( 
         'data'  => array(
+            'id' => 'quotes',
             'display' => get_field('quotes_display'),
             'items' => get_field('quotes_items'),
         )
@@ -105,6 +112,7 @@ get_template_part( 'sections/section-quote-carousel', null,
 get_template_part( 'sections/section-featured-posts', null,
     array( 
         'data'  => array(
+            'id' => 'mental-health-blogs',
             'display' => get_field('featured_posts_display'),
             'heading' => get_field('featured_posts_heading'),
             'content' => get_field('featured_posts_content'),

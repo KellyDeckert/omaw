@@ -43,7 +43,9 @@ add_action( 'wp_enqueue_scripts', 'enqueue_swiperjs' );
 // Add stylesheets and scripts
 function theme_scripts() {
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/main.css', false, filemtime(get_stylesheet_directory() .'/main.css') );
+	wp_enqueue_style( 'aos.css', get_template_directory_uri() . '/assets/css/aos.css', false, 1 );
 	wp_enqueue_script( 'polyfill.min.js', 'https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,default', false, null, true);
+	wp_enqueue_script( 'aos.js', get_template_directory_uri() . '/assets/js/aos.js', false, null, true);
 	wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/scripts.js', false, filemtime(get_stylesheet_directory() .'/assets/js/scripts.js'), true );
 	wp_enqueue_script( 'bundle', get_template_directory_uri() . '/bundle.js', false, filemtime(get_stylesheet_directory() .'/bundle.js'), true );
 }
