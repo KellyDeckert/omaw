@@ -22,7 +22,8 @@
     // }
 
 // smallest devices
-@media screen and (min-width:360px) and (max-width:960px){
+// @media screen and (min-width:320px) and (max-width:960px){
+@media screen and (max-width:960px){
     .monitors {
         display: none !important;
     }
