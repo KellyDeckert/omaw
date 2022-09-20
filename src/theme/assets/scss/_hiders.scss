@@ -1,0 +1,45 @@
+/*  HIDERS
+    ============================= */
+
+    // /* no mobile devices -> tablets and monitors only */
+    // @media not screen and (max-width:$mq-sm-desktop) and (orientation: portrait) {
+    //     .devices,
+    //     .tablets {
+    //         display:none !important;
+    //     }
+    // }
+
+    // /* mobile devices only -> no monitors */
+    // @media screen and (max-width:$mq-sm-desktop) and (orientation: portrait) {
+    //     .monitors {
+    //         display:none !important;
+    //     }
+    // }
+
+    // /* high dpi devices */
+    // @media screen and (min-width:$mq-sm-desktop) and (-webkit-min-device-pixel-ratio:1.5) and (orientation: portrait) {
+
+    // }
+
+// smallest devices
+@media screen and (min-width:360px) and (max-width:960px){
+    .monitors {
+        display: none !important;
+    }
+}
+// tablets
+@media screen and (min-width:768px){}
+// small desktop
+@media screen and (min-width:960px){
+    .devices {
+        display: none !important;
+    }
+}
+// landscape tablets -> force mobile menu
+@media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5){
+    .devices.tablet {
+        display: initial !important;
+    }
+}
+// browser width = content width
+@media screen and (min-width:1080px){}

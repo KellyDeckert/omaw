@@ -10,10 +10,17 @@
     }
     &-link {
         display:inline-block;
+        &:hover {
+            img {
+                filter: invert(84%) sepia(37%) saturate(975%) hue-rotate(336deg) brightness(102%) contrast(104%);
+                // transition:.2s all linear;
+            }
+        }
     }
     &-icon {
         display:block;
         height:24px;
+        // transition:.2s all linear;
         width:24px;
     }
 }

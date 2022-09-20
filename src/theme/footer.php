@@ -5,14 +5,25 @@
                     <?php get_template_part( 'snippets/omaw-logo' ); ?>
                     <a href="#" class="button button--alt monitors">Contact Us</a>
                     <div class="footer__links devices">
-                        <a href="/become-a-member/" class="button button--secondary">Become a Member</a>
+                        <?php
+                            get_template_part( 'snippets/link-button', null,
+                                array( 
+                                    'class' => 'button--secondary',
+                                    'data'  => array(
+                                        'url' => '/become-a-member/',
+                                        'copy' => 'Become A Member'
+                                    ),
+                                )
+                            );
+                        ?>
                         <!-- <a href="#" class="button button--accent button--accent-dark">Contact Us</a> -->
                     </div>
                     <!-- <div class="footer__membership">
                         <?php //wp_nav_menu(['theme_location' => 'footer']); ?>
                     </div> -->
                 </div>
-                <div class="footer__col footer__nav">
+                <div class="footer__col footer__col--gutter"></div>
+                <div class="footer__col footer__nav responsive-font-size">
                     <?php wp_nav_menu(['Main Menu','walker' => new submenu_wrap()]); ?>
                 </div>
             </div>

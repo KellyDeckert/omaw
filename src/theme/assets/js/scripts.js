@@ -5,6 +5,7 @@ var ready = (callback) => {
 
 ready(() => { 
 	console.log('hello from scripts.js!');
+	autoCloseMobile(); // reset menu if page is reloaded with menu open
 	initMobileFooterAccordions();
 	lockMobileScroll();
 });
@@ -73,6 +74,11 @@ function lockMobileScroll(){
 		}
 	}
 
+}
+
+function autoCloseMobile(){
+	var mobileMenuToggle = document.querySelector('#toggle-mobile-menu');
+	mobileMenuToggle.checked = false;
 }
 
 // function initMobileDrawer(){

@@ -13,26 +13,27 @@
     <div class="header__inner layout--1080">
       <div class="header__logo">
         <?php get_template_part( 'snippets/omaw-logo' ); ?>
-        <div class="header__mobile-cta devices">
+        <div class="header__mobile-gutter devices tablet"></div>
+        <div class="header__mobile-cta devices tablet">
           <?php
-            get_template_part( 'snippets/button', null,
+            get_template_part( 'snippets/link-button', null,
               array( 
                 'class' => 'button--secondary',
                 'data'  => array(
                     'url' => '/become-a-member/',
-                    'copy' => 'Become a Member'
+                    'copy' => 'Become A Member'
                 ),
               )
             );
           ?>
         </div>
-        <div class="header__mobile-toggle devices">
+        <div class="header__mobile-toggle devices tablet">
           <input type="checkbox" class="mobile-toggle-input" id="toggle-mobile-menu" name="mobile-menu" />
-          <label id="mobile-toggle-label" for="toggle-mobile-menu">
+          <label id=1"mobile-toggle-label" for="toggle-mobile-menu">
             <img class="mobile-toggle-icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/menu.svg" class="" alt="" />
           </label>
-          <div class="nav__menu devices mobile-menu-wrapper" id="mobile-menu">
-            <aside class="mobile-drawer">
+          <div class="nav__menu devices tablet mobile-menu-wrapper" id="mobile-menu">
+            <aside class="mobile-drawer responsive-font-size">
               <div class="mobile-drawer__closer">
                 <label for="toggle-mobile-menu" class="mobile-closer-label">
                   <img id="closer" class="mobile-closer-icon"
@@ -47,12 +48,12 @@
               <div class="mobile-drawer__footer">
                 <div class="mobile-drawer__cta">
                   <?php
-                  get_template_part( 'snippets/button', null,
+                  get_template_part( 'snippets/link-button', null,
                     array( 
                       'class' => 'button--secondary',
                       'data'  => array(
                           'url' => '/become-a-member/',
-                          'copy' => 'Become a Member'
+                          'copy' => 'Become A Member'
                       ),
                     )
                   );
@@ -66,7 +67,7 @@
           </div>
         </div>
       </div>
-      <nav>
+      <nav class="header__main-menu">
         <div class="nav__menu monitors">
             <?php wp_nav_menu(['Main Menu','walker' => new submenu_wrap()]); ?>
         </div>        
