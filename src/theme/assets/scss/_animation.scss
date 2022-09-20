@@ -1,0 +1,44 @@
+/* Animation */
+[data-aos] {
+	& body[data-aos-easing="cubic"], &[data-aos][data-aos-easing="cubic"] {
+	  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
+}
+[data-aos="smooth-slide-up"] {
+	transform: translateY(25%);
+	opacity: 0;
+	transition-property: transform, opacity;  
+	&.aos-animate {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+[data-aos="smooth-slide-left"] {
+	transform: translateX(25%);
+	opacity: 0;
+	transition-property: transform, opacity;  
+	&.aos-animate {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+[data-aos="smooth-slide-right"] {
+	transform: translateX(-25%);
+	opacity: 0;
+	transition-property: transform, opacity;  
+	&.aos-animate {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+[data-aos="smooth-slide-down"] {
+	transform: translateY(-25%);
+	opacity: 0;
+	transition-property: transform, opacity;  
+	&.aos-animate {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}

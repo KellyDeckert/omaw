@@ -1,11 +1,12 @@
 <?php
+$section_id = isset($args['data']['id']) ? $args['data']['id'] : 'quote-carousel-'.rand();
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
 $items = isset($args['data']['items']) ? $args['data']['items'] : null;
 if( $display):
 ?>
 
 <section class="quote-carousel section-h-padding section-v-margin color-brand-primary">
-    <div class="section-1080">
+    <div class="section-1080" data-aos="smooth-slide-up" data-aos-delay="350" data-aos-duration="600" data-aos-easing="cubic">
 
         <?php if($items): ?>
         <!-- Slider main container -->
