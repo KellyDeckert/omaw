@@ -43,7 +43,9 @@ add_action( 'wp_enqueue_scripts', 'enqueue_swiperjs' );
 // Add stylesheets and scripts
 function theme_scripts() {
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/main.css', false, filemtime(get_stylesheet_directory() .'/main.css') );
+	wp_enqueue_style( 'aos.css', get_template_directory_uri() . '/assets/css/aos.css', false, 1 );
 	wp_enqueue_script( 'polyfill.min.js', 'https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,default', false, null, true);
+	wp_enqueue_script( 'aos.js', get_template_directory_uri() . '/assets/js/aos.js', false, null, true);
 	wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/scripts.js', false, filemtime(get_stylesheet_directory() .'/assets/js/scripts.js'), true );
 	wp_enqueue_script( 'bundle', get_template_directory_uri() . '/bundle.js', false, filemtime(get_stylesheet_directory() .'/bundle.js'), true );
 }
@@ -70,12 +72,13 @@ add_action( 'wp_enqueue_scripts', 'google_fonts' );
 // }
 // add_action( 'wp_enqueue_scripts', 'deregister_scripts' );
 
+// // jQuery
+wp_enqueue_script("jquery");
+
 // Image sizes
-add_image_size('small-thumbnail', 640, 640);
-// Thumbnail set in settings to 640
-add_image_size('small', 812, 0);
-// Medium set in settings to 1440
-// Large set in settings to 640
+add_image_size('750x', 750, 0);
+add_image_size('1440x', 1440, 0);
+add_image_size('1920x', 1920, 0);
 
 // Disable auto generation of thumbnails
 function add_image_insert_override($sizes){
@@ -98,7 +101,7 @@ register_nav_menus( array(
 ) );
 
 // ACF
-// require_once( __DIR__ . '/acf/acf.php');
+require_once( __DIR__ . '/assets/acf/acf.php');
 
 // Converts strings to slugs
 function slugify($string){
