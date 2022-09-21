@@ -36,10 +36,13 @@
         display: none !important;
     }
 }
-// landscape tablets -> force mobile menu
+// large tablets -> force mobile menu
 @media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5){
     .devices.tablet {
         display: initial !important;
+    }
+    .monitors {
+        display:none !important;
     }
 }
 // browser width = content width
