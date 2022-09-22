@@ -75,3 +75,40 @@
         }
     }
 }
+
+
+/*  EXTENDED BG COLOR
+    ============================= */
+    .extend-bg {
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background-color: $brand-neutral-dark;
+            z-index: 0;
+        }
+    }
+
+
+/*  ILLUSTRATION with EXTENDED LINE
+    ============================= */
+    .drawn-bg {
+        width: 43.0555555556%;
+        .bg-wrapper {
+            position: relative;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        &.left {
+            .tile {
+                right: 100%;
+            }
+        }
+    }

@@ -685,7 +685,8 @@
     }
 }
 
-
+/*  QUOTE SLIDER
+    ============================= */
 .quote-slider {
     @include css-box-shadow;
     .quote-slider__slides {
@@ -769,7 +770,8 @@
     }
 }
 
-
+/*  FEATURED POSTS
+    ============================= */
 .featured-posts {
     background-color: $brand-neutral-med;
     overflow: hidden;
@@ -809,3 +811,143 @@
         }
     }
 }
+
+/*  CONTENT STORY (two col content/img with layered card)
+    ============================= */
+    .content-story {
+        position: relative;
+        &__content {
+            @extend .no-margin-children;
+        }
+        &__heading:not(:last-child) {
+            &:not(:last-child) {
+                margin-bottom: .44em;
+            }
+        }
+        &__sub-heading {
+            &:not(:last-child) {
+                margin-bottom: 1em;
+            }
+        }
+        &__copy {
+            &:not(:last-child) {
+                margin-bottom: 1.75em;
+            }
+        }
+        @media screen and (max-width: 767px) and (orientation: portrait){
+            &__content{
+                padding: 5em 1.25em;
+            }
+            &__content {
+                background-color: $brand-neutral-dark;
+            }
+            .desktop {
+                display: none;
+            }
+            &__copy {
+                margin-top: 30px;
+            }
+            &[class*='image-copy--padding'] {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+            &[class*='image-copy--margin'] {
+                margin-top: 80px;
+                margin-bottom: 80px;
+            }
+            &.image-copy--has-tile {
+                img {
+                    width: 100vw;
+                    margin-left: -20px;
+                    margin-right: -20px;
+                }
+            }
+        }
+        @media not screen and (max-width: 767px) and (orientation: portrait){
+            padding: 7.125em 3.75em;
+            // &::after {
+            //     content: '';
+            //     position: absolute;
+            //     top: 0;
+            //     right: 50%;
+            //     bottom: 0;
+            //     left: 0;
+            //     width: 50%;
+            //     height: 100%;
+            //     background-color: $brand-neutral-dark;
+            //     z-index: 0;
+            // }
+            &__columns {
+                position: relative;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            &__content {
+                width: 38.88888888888889%;
+            }
+            .mobile {
+                display: none;
+            }
+            &.content-story--align-top .content-story__columns {
+                align-items: flex-start;
+            }
+            &.content-story--align-center .content-story__columns {
+                align-items: center;
+            }
+            &.content-story--align-bottom .content-story__columns {
+                align-items: flex-end;
+            }
+            &__img {
+                width: 43.05555555555556%;
+            }  
+            &__image-wrapper {
+                position: relative;
+            }
+            &__image-tile {
+                position: absolute;
+                width: 50vw;
+                top: 0;
+                bottom: 0;
+                background-size: contain;
+                background-repeat: repeat-x;
+            }
+            &.content-story--image-left {
+                & .content-story__content {
+                    padding-left: 6.25%;
+                    padding-right: 12.5%;
+                }
+                .content-story__image-tile {
+                    right: 100%;
+                }
+            }
+            &.content-story--image-right {
+                .content-story__image {
+                    order: 1;
+                }
+                & .content-story__content {
+                    order: 0;
+                    padding-left: 12.5%;
+                    padding-right: 6.25%;
+                }
+                .content-story__image-tile {
+                    left: 100%;
+                }
+            }
+            &.content-story--padding-120 {
+                padding: 120px 0;
+            }
+            &.content-story--padding-180 {
+                padding: 180px 0;
+            } 
+            &.content-story--margin-120 {
+                margin-top: 120px;
+                margin-bottom: 120px;
+            }
+            &.content-story--margin-180 {
+                margin-top: 180px;
+                margin-bottom: 180px;
+            }  
+        }
+    }
