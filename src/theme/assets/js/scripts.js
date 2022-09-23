@@ -190,14 +190,10 @@ if( quoteSliderElement ){
 
 
 
+
 /* MOBILE CARDS SLIDER */
 var mobileCardsSlider = document.querySelector('.swiper.cards.mobile');
-
-
-
-
 var init = false;
-
 function initCardSlider() {
   if (window.innerWidth < 768) {
     if (!init) {
@@ -217,8 +213,128 @@ function initCardSlider() {
     init = false;
   }
 }
-
 if(mobileCardsSlider){
 	initCardSlider();
 }
 window.addEventListener("resize", initCardSlider);
+
+
+
+
+/* CHARTS */
+
+// chart configuration
+var charts = {
+    percentage : {
+        delay : 500,
+        interval : 200,
+        selector : '.percentage-list-chart-canvas',
+        canvasSelector : 'percentage-list-chart',
+        config : {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    backgroundColor: ['rgb(0, 0, 0)', 'rgba(255, 255, 255,0)'],
+                    borderWidth: [0, 0]
+                }],
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: false,
+                    }
+                },
+                layout: {
+                    padding: 0
+                },
+                cutout: '86.6%',
+                animation: {
+                    duration: 2500
+                }
+            }
+        },
+        color: index => {
+            return 'rgb(254, 202, 48)';
+        }
+    }
+}
+
+// adds or removes the chart animation
+let chartsInitialized = false;
+const manageCharts = (type,chart) => {
+
+    const canvasElements = Array.from(document.querySelectorAll(charts[chart].selector));
+    if( canvasElements.length > 0){
+
+        if( type == 'add' && chartsInitialized == false){
+            let delay = charts[chart].delay;
+            canvasElements.forEach((canvas,index) => {     
+                const canvasWrapper = canvas.parentElement; 
+                const canvasItem = canvasWrapper.parentElement;           
+                setTimeout(()=>{
+                    const thisChartValue = canvas.dataset.value;
+                    const adjIndex = index + 1;
+                    const itemColor = charts[chart].color(adjIndex);
+                    charts[chart].config.data.datasets[0].data = [thisChartValue, 100 - thisChartValue];
+                    charts[chart].config.data.datasets[0].backgroundColor[0] = itemColor;                    
+                    const thisChart = new Chart(canvas,charts[chart].config);
+                    canvasItem.classList.add('animate');
+                },delay);
+                delay += charts[chart].interval;
+            });
+            chartsInitialized = true; 
+        }
+
+        if( type == 'remove'){
+            canvasElements.forEach((canvas,index) => { 
+                const canvasWrapper = canvas.parentElement;
+                const canvasValue = canvas.dataset.value;
+                const canvasKey = canvas.dataset.key;
+                if(canvasWrapper){
+                    const canvasItem = canvasWrapper.parentElement;
+                    canvasItem.classList.remove('animate');
+                    canvasWrapper.removeChild(canvas);
+                    let newCanvas = document.createElement('canvas');
+                    newCanvas.id = charts[chart].canvasSelector+'--'+canvasKey;
+                    newCanvas.className = charts[chart].canvasSelector+'-canvas';
+                    newCanvas.dataset.value = canvasValue;
+                    newCanvas.dataset.key = canvasKey;
+                    canvasWrapper.appendChild(newCanvas);
+                }
+            });
+            chartsInitialized = false; 
+        }
+    }
+
+}
+
+// init percentages-list charts when they come into view
+var percentageLists = Array.from(document.querySelectorAll('.percentages-list'));
+if(percentageLists.length > 0){
+	percentageLists.forEach(function(percentageList){
+		var listId = percentageList.id;
+		var downWaypoint = new Waypoint({
+			element: document.getElementById(listId),
+			handler: function(direction) {
+				if (direction == 'down') {
+					// console.log('Scrolled down to: ' + listId);
+					manageCharts('add','percentage');
+				}
+			},
+			offset: '85%'
+		})	
+		var upWaypoint = new Waypoint({
+			element: document.getElementById(listId),
+			handler: function(direction) {
+				if (direction == 'up') {
+					// console.log('Scrolled up to: ' + listId);
+					manageCharts('remove','percentage');
+				}
+			},
+			offset: '100%'
+		})	
+	});
+}
