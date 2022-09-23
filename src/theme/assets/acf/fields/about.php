@@ -2,15 +2,15 @@
 if (function_exists('acf_add_local_field_group')) :
 
   acf_add_local_field_group(array(
-    'key' => 'homepage__fields',
-    'title' => 'Homepage',
+    'key' => 'about__fields',
+    'title' => 'About',
     'style' => 'seamless',
     'location' => array(
       array(
         array(
           'param' => 'page_template',
           'operator' => '==',
-          'value' => 'front-page.php',
+          'value' => 'about.php',
         ),
       ),
     ),
@@ -29,7 +29,7 @@ if (function_exists('acf_add_local_field_group')) :
       11 => 'send-trackbacks',
     ),
     'fields' => array(
-        
+
     ),
   ));
 
