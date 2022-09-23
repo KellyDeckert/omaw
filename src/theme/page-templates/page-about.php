@@ -38,11 +38,22 @@ get_header();
             )
         )
     );
+    
+    get_template_part( 'sections/section','quote-single', 
+        array( 
+            'data'  => array(
+                'id' => 'single-quote',
+                'display' => get_field('quote__display'),
+                'quote' => get_field('quote__quote'),
+                'title' => get_field('quote__title'),
+                'organization' => get_field('quote__organization'),
+                'image' => get_field('quote__image'),
+            )
+        )
+    );
     ?>
 
-    <div class="section-placeholder">
-        <h2>Single Quote</h2>
-    </div>
+
 
     <div class="section-placeholder">
         <h2>Values</h2>

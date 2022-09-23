@@ -130,6 +130,46 @@ if (function_exists('acf_add_local_field_group')) :
     'type' => 'image',
     'return_format' => 'array',
   ),
+/*  SINGLE QUOTE
+============================= */
+  array(
+    'key' => 'about__quote__tab',
+    'label' => 'Quote',
+    'type' => 'tab',
+  ),
+  array(
+    'key' => 'about__quote__display',
+    'label' => 'Display',
+    'name' => 'quote__display',
+    'type' => 'true_false',
+    'message' => 'Check to display this quote section'
+  ),
+  array(
+    'key' => 'about__quote__image',
+    'label' => 'Desktop Image',
+    'name' => 'quote__image',
+    'type' => 'image',
+    'return_format' => 'array'
+  ),
+  array(
+    'key' => 'about__quote__quote',
+    'label' => 'Quote',
+    'name' => 'quote__quote',
+    'type' => 'textarea',
+    'rows' => 2
+  ), 
+  array(
+    'key' => 'about__quote__title',
+    'label' => 'Title',
+    'name' => 'quote__title',
+    'type' => 'text',
+  ), 
+  array(
+    'key' => 'about__quote__organization',
+    'label' => 'Organization',
+    'name' => 'quote__organization',
+    'type' => 'text',
+  ),
 
 ),
 ));
