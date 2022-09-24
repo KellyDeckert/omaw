@@ -199,6 +199,10 @@ if( quoteSliderElement ){
 
 /* MOBILE CARDS SLIDER */
 var mobileCardsSlider = document.querySelector('.swiper.cards.mobile');
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 var init = false;
 function initCardSlider() {
   if (window.innerWidth < 768) {
@@ -225,6 +229,7 @@ if(mobileCardsSlider){
 window.addEventListener("resize", initCardSlider);
 
 
+<<<<<<< Updated upstream
 
 
 /* CHARTS */
@@ -344,3 +349,35 @@ if(percentageLists.length > 0){
 		})	
 	});
 }
+=======
+/* VALUE CARDS SLIDER */
+var valueCardsSlider = document.querySelector('.swiper.scroll-cards.mobile');
+
+var init = false;
+
+function initValueCardSlider() {
+	if (window.innerWidth < 768) {
+		console.log('value card slider ON');
+	  if (!init) {
+		init = true;
+		valueSlider = new Swiper(".swiper.scroll-cards.mobile", {
+		  direction: "horizontal",
+		  slidesPerView: "auto",
+		  autoHeight: true,
+		  navigation: {
+			  nextEl: ".swiper-button-next",
+			  prevEl: ".swiper-button-prev",
+		  },
+		});
+	  }
+	} else if (init) {
+	  valueSlider.destroy();
+	  init = false;
+	}
+  }
+  
+  if(valueCardsSlider){
+	  initValueCardSlider();
+  }
+  window.addEventListener("resize", initCardSlider);
+>>>>>>> Stashed changes
