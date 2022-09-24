@@ -42,3 +42,23 @@
 		opacity: 1;
 	}
 }
+
+
+@keyframes slideLeft{
+    0% {
+        opacity: 0;
+        transform: translateX(20%);
+    }
+    15% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    70% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    85% {
+        opacity: 0;
+        transform: translateX(-20%);
+    }    
+}

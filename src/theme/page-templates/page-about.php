@@ -51,13 +51,19 @@ get_header();
             )
         )
     );
+    
+    get_template_part( 'sections/section','card-scroller', 
+        array( 
+            'data'  => array(
+                'id' => 'values',
+                'display' => get_field('scrolling-cards__display'),
+                'heading' => get_field('scrolling-cards__heading'),
+                'card_heading' => get_field('scroller__heading'),
+                'card_content' => get_field('scroller__content'),
+            )
+        )
+    );
     ?>
-
-
-
-    <div class="section-placeholder">
-        <h2>Values</h2>
-    </div>
 
     <div class="section-placeholder on-hold">
         <h2>Image Float Left</h2>

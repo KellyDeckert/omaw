@@ -170,7 +170,52 @@ if (function_exists('acf_add_local_field_group')) :
     'name' => 'quote__organization',
     'type' => 'text',
   ),
-
+/*  VALUES
+============================= */
+  array(
+    'key' => 'about__scrolling-cards__tab',
+    'label' => 'Values',
+    'type' => 'tab',
+  ),
+  array(
+    'key' => 'about__scrolling-cards__display',
+    'label' => 'Display',
+    'name' => 'scrolling-cards__display',
+    'type' => 'true_false',
+    'message' => 'Check to display this quote section'
+  ),
+  array(
+    'key' => 'about__scrolling-cards__heading',
+    'label' => 'Heading',
+    'name' => 'scrolling-cards__heading',
+    'type' => 'text',
+  ), 
+  array(
+    'key' => 'about__scrolling-cards__cards',
+    'label' => 'Heading',
+    'name' => 'cards',
+    'type' => 'repeater',
+    'min' => 3,
+    'max' => 7,
+    'layout' => 'row',
+    'sub_fields' => array(
+      array(
+        'key' => 'about__scroller__heading',
+        'label' => 'Card Heading',
+        'name' => 'scroller__heading',
+        'type' => 'text'
+      ), 
+      array(
+        'key' => 'about__scroller__content',
+        'label' => 'Card Content',
+        'name' => 'scroller__content',
+        'type' => 'wysiwyg',
+        'toolbar' => 'basic',
+        'media_upload' => 0
+      ),
+    )
+  ),
+  
 ),
 ));
 endif;
