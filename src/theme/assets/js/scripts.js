@@ -229,7 +229,6 @@ if(mobileCardsSlider){
 window.addEventListener("resize", initCardSlider);
 
 
-<<<<<<< Updated upstream
 
 
 /* CHARTS */
@@ -349,7 +348,6 @@ if(percentageLists.length > 0){
 		})	
 	});
 }
-=======
 /* VALUE CARDS SLIDER */
 var valueCardsSlider = document.querySelector('.swiper.scroll-cards.mobile');
 
@@ -380,4 +378,3 @@ function initValueCardSlider() {
 	  initValueCardSlider();
   }
   window.addEventListener("resize", initCardSlider);
->>>>>>> Stashed changes
