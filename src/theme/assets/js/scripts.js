@@ -199,10 +199,6 @@ if( quoteSliderElement ){
 
 /* MOBILE CARDS SLIDER */
 var mobileCardsSlider = document.querySelector('.swiper.cards.mobile');
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 var init = false;
 function initCardSlider() {
   if (window.innerWidth < 768) {
