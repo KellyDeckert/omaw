@@ -12,18 +12,20 @@ if( $display):
         <?php
         echo $heading ? '<h2 class="logos__heading" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic">'.$heading.'</h2>' : '';
         echo $content ? '<h4 class="logos__copy" data-aos="smooth-slide-up" data-aos-delay="350" data-aos-duration="450" data-aos-easing="cubic">'.$content.'</h4>' : '';
-        if($items): ?>
-        <div id="<?php echo $section_id?>-items" class="logos__items">
-            <?php
-            $delay = 450;
-            foreach( $items as $item ):
-            echo '<figure class="logos__item" data-aos="smooth-slide-up" data-aos-delay="'.$delay.'" data-aos-duration="300" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'-items">';
-                echo $item['image'] ? '<img src="'.$item['image']['url'] .'" alt="'.$item['image']['alt'] .'">' : ''; 
-            echo '</figure>';
-            $delay += 100;
-            endforeach; ?>
-        </div>
-        <?php endif;
+        if($items):
+        get_template_part( 'snippets/logos', null,
+            array( 
+                'data'  => array(
+                    'section_id' => $section_id,
+                    'items' => $items,
+                    'items_per_row' => array(
+                        'mobile' => 3, // set to 3 or 4
+                        'desktop' => 5 // set to 4 or 5
+                    )
+                )
+            ) 
+        );
+        endif;
         echo $cta ? '<a href="'.$cta['url'].'" target="'.( isset($cta['target']) ? $cta['target'] : '_self' ).'" class="button" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic">'.$cta['title'].'</a>' : '';   
         ?>    
     </div>
