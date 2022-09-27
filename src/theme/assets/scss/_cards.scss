@@ -41,7 +41,8 @@
             margin-bottom: 1.25em;
             position: relative;
             display: block;
-            aspect-ratio: 307 / 160;
+            // aspect-ratio: 307 / 160;
+            padding-bottom: 52.1172%;
             img {
                 object-fit: cover;
                 @extend .absolute-full;
