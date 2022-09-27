@@ -75,3 +75,55 @@
         }
     }
 }
+
+
+/*  EXTENDED BG COLOR
+    ============================= */
+    @media not screen and (max-width: 767px) and (orientation: portrait){
+        .extend-bg {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 50%;
+                bottom: 0;
+                left: 0;
+                width: 50%;
+                height: 100%;
+                background-color: $brand-neutral-dark;
+                z-index: 0;
+            }
+        }
+    }
+
+
+/*  ILLUSTRATION with EXTENDED LINE
+    ============================= */
+    .drawn_bg {
+        width: 43.0555555556%;
+        &_wrapper {
+            position: relative;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        &_tile {
+            background-repeat: repeat-x;
+            background-size: contain;
+            bottom: 0;
+            position: absolute;
+            top: 0;
+            width: 50vw;
+        }
+        &--left {
+            .drawn_bg_tile {
+                right: 100%;
+            }
+        }
+        &--right {
+            .drawn_bg_tile {
+                left:100%;
+            }
+        }
+    }

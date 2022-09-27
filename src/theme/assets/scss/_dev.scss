@@ -41,4 +41,17 @@ body.wip {
     @media screen and (min-width:$mq-tablet) and (-webkit-min-device-pixel-ratio: 1.5){
         border-right-color:orange;
     }   
+
+    .section-placeholder {
+        background-color:$brand-neutral-light;
+        border-bottom:thin solid $brand-neutral-light;
+        color:$brand-primary;
+        font-weight:500;
+        display:block;
+        padding:1em;
+        &.on-hold {
+            background-color:transparent;
+            color:$brand-neutral-light;
+        }
+    }
 }
