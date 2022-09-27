@@ -357,7 +357,7 @@ function initValueCardSlider() {
 		valueSlider = new Swiper(".swiper.scroll-cards.mobile", {
 		  direction: "horizontal",
 		  slidesPerView: "auto",
-		  autoHeight: true,
+		  autoHeight: false,
 		  navigation: {
 			  nextEl: ".swiper-button-next",
 			  prevEl: ".swiper-button-prev",
@@ -373,4 +373,4 @@ function initValueCardSlider() {
   if(valueCardsSlider){
 	  initValueCardSlider();
   }
-  window.addEventListener("resize", initCardSlider);
+  window.addEventListener("resize", initValueCardSlider);

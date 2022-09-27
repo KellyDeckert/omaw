@@ -10,9 +10,10 @@ if( $display):?>
 
 <section class="card-scroller">
     <div class="card-scroller__inner layout--1080">
-        <div class="card-scroller__col">
+        <div class="card-scroller__col card-scroller__title">
             <?php
                 echo $heading ? '<h2 class="card-scroller__heading" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic">'. $heading .'</h2>' : '';
+                echo '<div class="card-scroller__gutter devices tablet"></div><div class="card-scroller__nav devices tablet"><div class="swiper-button-prev swiper-button"></div><div class="swiper-button-next swiper-button"></div></div>';
             ?>
         </div>
         <div class="card-scroller__col">
@@ -48,7 +49,7 @@ if( $display):?>
 
                             echo get_template_part('snippets/scroller-card-single',null,
                             array(
-                                'class' => '',
+                                'class' => 'swiper-slide h-100',
                                 'data' => array(
                                     'heading' => $heading,
                                     'copy' => $copy

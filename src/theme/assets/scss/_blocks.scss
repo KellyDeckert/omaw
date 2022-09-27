@@ -1436,13 +1436,39 @@
         }
         @media screen and (max-width: 767px) and (orientation: portrait){
             padding: calc(60/16 * 1em) 0;
+            padding-left: calc(20/16 * 1em);
             &__cards {
                 &.desktop {
                     display:none;
                 }
             }
+            &__gutter {
+                flex:1 1 50%;
+            }
+            &__heading {
+                flex:1 1 50%;
+                flex-shrink:0;
+            }
             &__inner {
                 flex-direction:column;
+            }
+            &__nav {
+                margin-top:0;
+                position:relative;
+                flex: 1 1 100%;
+                .swiper-button {
+                    &:after {
+                        color:$brand-primary;
+                        font-size:calc(12/16 * 1em);
+                        font-weight:700;
+                    }
+                }
+            }
+            &__title {
+                align-items:center;
+                display:flex;
+                justify-content: space-between;
+                padding-bottom:calc(40/26 * 1em);
             }
         }
         &__inner {
@@ -1454,16 +1480,41 @@
             background-color:#fff;
             box-shadow:rgba(1,15,58,0.12) 0px 1px 4px;
             margin-bottom:1em;
-            padding-top:calc(40/16 * 1em);
-            padding-bottom:calc(40/16 * 1em);
-            padding-right:calc(80/16 * 1em);
-            &__copy {
-                padding-left:calc(40/16 * 1em);
-            }
             &__title {
-                border-bottom: thin solid $brand-neutral-dark;
-                padding-bottom:calc(12/22 * 1em);
-                padding-left:calc(40/22 * 1em);
+                border-bottom: 2px solid $brand-neutral-dark;   
+                font-weight:600;
+            }
+            @media not screen and (max-width: 767px) and (orientation: portrait){
+                padding-bottom:calc(40/16 * 1em);
+                padding-top:calc(40/16 * 1em);
+                padding-right:calc(80/16 * 1em);
+                &__copy {
+                    padding-left:calc(40/16 * 1em);
+                }
+                &__title {
+                    padding-bottom:calc(12/22 * 1em);
+                    padding-left:calc(40/22 * 1em);
+                }
+            }
+            @media screen and (max-width: 767px) and (orientation: portrait){
+                margin-bottom:0;
+                padding-bottom:calc(24/16 * 1em);
+                padding-top:calc(24/16 * 1em);
+                padding-right:calc(32/16 * 1em);
+                width:80%;
+                &__copy {
+                    padding-left:calc(24/16 * 1em);
+                }
+                &__title {
+                    padding-left:calc(24/18 * 1em);
+                    padding-bottom:calc(12/18 * 1em);
+                }
+                &.swiper-slide {
+                    height:auto;
+                    + .swiper-slide {
+                        margin-left:calc(20/16 * 1em);
+                    }
+                }
             }
         }
     }
