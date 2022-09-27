@@ -1433,6 +1433,13 @@
                 position:sticky;
                 top:140px;
             }
+            &__nav {
+                display:none;
+            }
+        }
+        @media screen and (min-width: 767px) and (max-width:1080px) {
+            padding-left:calc(20/12 * 1em);
+            padding-right:calc(20/12 * 1em);
         }
         @media screen and (max-width: 767px) and (orientation: portrait){
             padding: calc(60/16 * 1em) 0;
@@ -1497,7 +1504,6 @@
                 }
             }
             @media screen and (max-width: 767px) and (orientation: portrait){
-                margin-bottom:0;
                 padding-bottom:calc(24/16 * 1em);
                 padding-top:calc(24/16 * 1em);
                 padding-right:calc(32/16 * 1em);

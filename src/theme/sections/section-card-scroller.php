@@ -13,7 +13,7 @@ if( $display):?>
         <div class="card-scroller__col card-scroller__title">
             <?php
                 echo $heading ? '<h2 class="card-scroller__heading" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic">'. $heading .'</h2>' : '';
-                echo '<div class="card-scroller__gutter devices tablet"></div><div class="card-scroller__nav devices tablet"><div class="swiper-button-prev swiper-button"></div><div class="swiper-button-next swiper-button"></div></div>';
+                echo '<div class="card-scroller__gutter devices"></div><div class="card-scroller__nav devices"><div class="swiper-button-prev swiper-button"></div><div class="swiper-button-next swiper-button"></div></div>';
             ?>
         </div>
         <div class="card-scroller__col">
