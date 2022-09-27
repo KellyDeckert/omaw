@@ -869,11 +869,13 @@
             background-size: 100%;
             background-repeat: no-repeat;
         }
+        &:not(:empty){
+            padding-bottom: 1.25em;
+        }        
     }
     @media screen and (max-width: 767px) and (orientation: portrait){
         .header-illustration__inner {
             padding-top: 3.75em;
-            padding-bottom: 1.25em;
             &:after {
                 width: 145%;
                 background-position: top;   
@@ -881,9 +883,12 @@
         }
     }
     @media not screen and (max-width: 767px) and (orientation: portrait){
+        &.header-illustration--empty {
+            margin-bottom: -7.75em;
+        }
         .header-illustration__inner {
             padding-top: 7.5em;
-            padding-bottom: 1.25em;
+            min-height: 15.3125em;
             &:after {
                 width: 133.333%;
             }
@@ -899,7 +904,7 @@
     @media screen and (min-width: 1280px) {
         .header-illustration__inner {
             &:after {
-                background-position: bottom;   
+                height: calc( 100% + 1px );
             }
         }
     }
