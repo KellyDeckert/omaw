@@ -37,7 +37,7 @@
     }
 }
 // large tablets -> force mobile menu
-@media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5){
+@media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
     .devices.tablet {
         display: initial !important;
     }

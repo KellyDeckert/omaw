@@ -277,7 +277,8 @@ footer {
 }
 
 // small desktop --> monitors only
-@media screen and (min-width:960px) and (-webkit-device-pixel-ratio:1) {
+@media screen and (min-width:960px) and (-webkit-device-pixel-ratio:1),
+(min-width:960px) and (-webkit-min-device-pixel-ratio:1.5){
     footer {
         background-size: 525px;
         background-position: right -20px bottom 80px;
@@ -326,8 +327,10 @@ footer {
                         .sub-menu {
                             display:flex;
                             flex-direction:column;
+                            padding-left:0;
                             .menu-item {
                                 text-indent:0;
+                                padding-left:0;
                                 &-link {
                                     transition:.2s all ease-in-out;
                                 }
@@ -369,6 +372,16 @@ footer {
             &__inner {
                 padding-left:0;
                 padding-right:0;
+            }
+        }
+    }
+}
+// non high dpi monitors
+@media screen and (min-width:1080px) and (-webkit-min-device-pixel-ratio:1.5) {
+    footer {
+        .footer {
+            &__inner {
+                padding-bottom:90px;
             }
         }
     }
