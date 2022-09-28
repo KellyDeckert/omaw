@@ -16,6 +16,10 @@
 
 html {
     scroll-behavior: smooth;
+
+    @media (max-width: 767px) and (orientation: portrait) {
+        scroll-padding-top:80px;
+    }
 }
 
 /*  STYLE GUIDE TEMPLATE
