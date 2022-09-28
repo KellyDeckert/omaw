@@ -14,6 +14,10 @@
 @include form-field.core-styles;
 @include checkbox.core-styles;
 
+html {
+    scroll-behavior: smooth;
+}
+
 /*  STYLE GUIDE TEMPLATE
     ============================= */
     .page__style-guide {
@@ -74,7 +78,7 @@
     ol,
     ul {
         all: revert;
-        &:not(.menu):not(.social-media-list) {
+        &:not(.menu):not(.social-media-list):not(.mdc-list) {
             li + li:not(.menu-item) {
                 margin-top:8px;
             }
@@ -86,7 +90,7 @@
             padding-left:15px;
         }
     }
-    ul:not(.menu):not(.social-media-list):not(.arrow-marker-list) {
+    ul:not(.menu):not(.social-media-list):not(.arrow-marker-list):not(.mdc-list) {
         padding-left:30px;
         li {
             padding-left:20px;
@@ -175,7 +179,7 @@
             line-height:1.285714em;
         }
         p,
-        ul li:not(.menu-item),
+        ul li:not(.menu-item):not(.mdc-list-item),
         ol li {
             font-size:1em;
             line-height:1.5em;

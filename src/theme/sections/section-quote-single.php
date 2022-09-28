@@ -1,6 +1,7 @@
 <?php
 
 $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'quote-carousel-'.rand();
+$section_name = isset($args['data']['name']) ? $args['data']['name'] : $section_id;
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
 $image = isset($args['data']['image']) ? $args['data']['image'] : true;
 // $mobile_image = isset($args['data']['mobile_image']) ? $args['data']['mobile_image'] : true;
@@ -15,7 +16,7 @@ if( $image['mime_type'] == 'image/png' ){
 ?>
 
 
-<div class="quote-single layout--1080">
+<section class="quote-single layout--1080" id="<?php echo $section_id?>" data-name="<?php echo $section_name; ?>">
     <div class="quote-single__inner">
         <div class="quote-single__content">
             <?php 
@@ -31,4 +32,4 @@ if( $image['mime_type'] == 'image/png' ){
         }
         echo $image ? '' : '';?>
     </div>
-</div>
+</section>

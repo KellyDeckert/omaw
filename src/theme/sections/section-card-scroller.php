@@ -1,5 +1,6 @@
 <?php
-$section_id = isset($args['data']['id']) ? $args['data']['id'] : 'our-story-'.rand();
+$section_id = isset($args['data']['id']) ? $args['data']['id'] : 'card-scroller-'.rand();
+$section_name = isset($args['data']['name']) ? $args['data']['name'] : $section_id;
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
 $heading = isset($args['data']['heading']) ? $args['data']['heading'] : true;
 
@@ -8,7 +9,7 @@ $card_content = isset($args['data']['card_content']) ? $args['data']['card_conte
 
 if( $display):?>
 
-<section class="card-scroller">
+<section class="card-scroller" id="<?php echo $section_id?>" data-name="<?php echo $section_name; ?>">
     <div class="card-scroller__inner layout--1080">
         <div class="card-scroller__col card-scroller__title">
             <?php

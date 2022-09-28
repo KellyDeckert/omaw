@@ -1,6 +1,7 @@
 <?php
 
 $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'our-story-'.rand();
+$section_name = isset($args['data']['name']) ? $args['data']['name'] : $section_id;
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
 $image = isset($args['data']['image']) ? $args['data']['image'] : true;
 $image_tile = isset($args['data']['image_tile']) ? $args['data']['image_tile'] : true;
@@ -15,7 +16,7 @@ if( $image['mime_type'] == 'image/png' ){
 if( $display):
 ?>
 
-<section id="<?php echo $section_id?>" class="content-story extend-bg color-brand-primary">
+<section id="<?php echo $section_id?>" data-name="<?php echo $section_name; ?>" class="content-story extend-bg color-brand-primary">
     <div class="content-story__columns">
         <div class="content-story__content" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="500" data-aos-easing="cubic">
 

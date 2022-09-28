@@ -374,3 +374,43 @@ function initValueCardSlider() {
 	  initValueCardSlider();
   }
   window.addEventListener("resize", initValueCardSlider);
+
+
+/* DYNAMIC JUMP LINK MENU */
+
+var jumpMenu = document.querySelector('#quick-links-menu');
+
+var init = false;
+
+function initJumpLinkMenu() {
+	if (!init) {
+		init = true;
+
+		var sections = document.querySelectorAll('section[id]:not(#quick-links-menu):not(.yellow-cta):not(.blue-cta-right)');
+		var menu = jumpMenu.querySelector('.menu');
+		var mobile_menu = jumpMenu.querySelector('.mobile-quick-menu');
+		var menu_links = '';
+		var mobile_links = '';
+		var section_name;
+		
+		sections.forEach( function (section, index) {
+			if(section.dataset.name){
+				section_name = section.dataset.name;
+			} else {
+				section_name = section.id.replace(/[^a-zA-Z ]/g, " ");
+			}
+			var menu_item = '<li class="menu-item" id="' + section.id + "-" + (index + 1) + '"><a href="#' + section.id + '" class="menu-item-anchor nav__link">' + section_name + '</a></li>';
+			var mobile_menu_item = '<li class="mdc-list-item mdc-ripple-upgraded" data-value="' + section.id + '"><a class="mdc-list-item__text" href="#' + section.id + '">' + section_name + '</a></li>';
+			
+			menu_links += menu_item;
+			mobile_links += mobile_menu_item;
+		});
+
+		menu.innerHTML = menu_links;
+		mobile_menu.innerHTML = mobile_links;
+	}
+}
+
+if (jumpMenu) {
+	initJumpLinkMenu();
+}
