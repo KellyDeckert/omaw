@@ -27,7 +27,7 @@
             }
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.25em;
+            grid-gap: 1.25em;
         }
         
     }
@@ -41,7 +41,6 @@
             margin-bottom: 1.25em;
             position: relative;
             display: block;
-            // aspect-ratio: 307 / 160;
             padding-bottom: 52.1172%;
             img {
                 object-fit: cover;

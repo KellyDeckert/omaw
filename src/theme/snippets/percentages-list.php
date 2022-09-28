@@ -2,7 +2,7 @@
 $items = isset($args['data']['items']) ? $args['data']['items'] : null;
 $section_id = isset($args['data']['section_id']) ? $args['data']['section_id'] : null;
 if($items): ?>
-<div id="<?php echo $section_id; ?>-items" class="percentages-list desktop-narrow-cols">
+<div id="<?php echo $section_id; ?>-items" class="percentages-list">
     <?php
     $delay = 400;
     foreach( $items as $key => $item ):
