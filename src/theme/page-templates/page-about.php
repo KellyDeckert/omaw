@@ -10,13 +10,28 @@ get_header();
         <h2>Hero + Static Image</h2>
     </div>
 
-    <div class="section-placeholder on-hold">
-        <h2>Blue CTA</h2>
-    </div>
+    <?php
+    get_template_part( 'sections/section', 'blue-cta-right', 
+    array( 
+        'data'  => array(
+            'id' => 'upcoming-event',
+            'display' => get_field('blue-cta_display'),
+            'extend' => get_field('blue-cta_extend'),
+            'heading' => get_field('blue-cta_heading'),
+            'sub_heading' => get_field('blue-cta_sub_heading'),
+            'cta' => get_field('blue-cta_link')
+        )
+    ) 
+    );
 
-    <div class="section-placeholder">
-        <h2>Jump Links</h2>
-    </div>
+    get_template_part( 'sections/section','jump-links-menu', 
+    array( 
+        'data'  => array(
+            'display' => get_field('jump-links_display'),
+        )
+    )
+    );
+    ?>
 
     <div class="section-placeholder on-hold">
         <h2>Two Column Copy Block</h2>
@@ -28,6 +43,7 @@ get_header();
             'data'  => array(
                 'id' => 'our-story',
                 'display' => get_field('story_display'),
+                'name' => get_field('story_name'),
                 'image' => get_field('story_image'),
                 'image_tile' => get_field('story_image_tile'),
                 'alt' => get_field('story_image_alt'),
@@ -44,6 +60,7 @@ get_header();
             'data'  => array(
                 'id' => 'single-quote',
                 'display' => get_field('quote__display'),
+                'name' => get_field('quote__name'),
                 'quote' => get_field('quote__quote'),
                 'title' => get_field('quote__title'),
                 'organization' => get_field('quote__organization'),
@@ -57,6 +74,7 @@ get_header();
             'data'  => array(
                 'id' => 'values',
                 'display' => get_field('scrolling-cards__display'),
+                'name' => get_field('scrolling-cards__name'),
                 'heading' => get_field('scrolling-cards__heading'),
                 'card_heading' => get_field('scroller__heading'),
                 'card_content' => get_field('scroller__content'),

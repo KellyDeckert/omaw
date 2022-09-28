@@ -30,6 +30,62 @@ if (function_exists('acf_add_local_field_group')) :
     ),
     'fields' => array(
 
+/*  BLUE CTA
+============================= */
+array(
+  'key' => 'about__blue-cta_tab',
+  'label' => 'Blue CTA',
+  'type' => 'tab',
+),
+array(
+  'key' => 'about__blue-cta_display',
+  'label' => 'Display',
+  'name' => 'blue-cta_display',
+  'type' => 'true_false',
+  'message' => 'Check to display this CTA'
+),
+array(
+  'key' => 'about__blue-cta_extend',
+  'label' => 'Extend Background Color',
+  'name' => 'blue-cta_extend',
+  'type' => 'true_false',
+  'message' => 'Check to hide the block of color below this section doot'
+),
+array(
+  'key' => 'about__blue-cta_heading',
+  'label' => 'Heading',
+  'name' => 'blue-cta_heading',
+  'type' => 'text',
+), 
+array(
+  'key' => 'about__blue-cta_sub_heading',
+  'label' => 'Sub Heading',
+  'name' => 'blue-cta_sub_heading',
+  'type' => 'text',
+),     
+array(
+  'key' => 'about__blue-cta_blue-cta_link',
+  'label' => 'CTA Link',
+  'name' => 'cta_link',
+  'type' => 'link',
+), 
+
+/*  JUMP LINKS MENU
+============================= */
+array(
+  'key' => 'about__jump-links_tab',
+  'label' => 'Jump Links Menu',
+  'type' => 'tab',
+),
+array(
+  'key' => 'about__jump-links_display',
+  'label' => 'Display',
+  'name' => 'jump-links_display',
+  'type' => 'true_false',
+  'instructions' => 'The links in the menu are dynamically generated. To modify the name in the menu, edit the Jump Menu Section Name in each tab.',
+  'message' => 'Check to display this quick menu.'
+),
+
 
 /*  OUR STORY
 ============================= */
@@ -39,11 +95,17 @@ if (function_exists('acf_add_local_field_group')) :
     'type' => 'tab',
   ),
   array(
-    'key' => 'about__story_display',
+    'key' => 'about__story__display',
     'label' => 'Display',
     'name' => 'story_display',
     'type' => 'true_false',
     'message' => 'Check to display this section'
+  ),
+  array(
+    'key' => 'about__story_name',
+    'label' => 'Jump Menu Section Name',
+    'name' => 'story_name',
+    'type' => 'text',
   ),
   array(
     'key' => 'about__story_image',
@@ -89,47 +151,7 @@ if (function_exists('acf_add_local_field_group')) :
     'media_upload' => 0,
   ),
     
-/*  YELLOW CTA
-============================= */
-  array(
-    'key' => 'about__yellow-cta__tab',
-    'label' => 'CTA',
-    'type' => 'tab',
-  ),
-  array(
-    'key' => 'about__yellow-cta__display',
-    'label' => 'Display',
-    'name' => 'yellow-cta__display',
-    'type' => 'true_false',
-    'message' => 'Check to display this CTA'
-  ),
-  array(
-    'key' => 'about__yellow-cta__heading',
-    'label' => 'Heading',
-    'name' => 'yellow-cta__heading',
-    'type' => 'text',
-  ), 
-  array(
-    'key' => 'about__yellow-cta__content',
-    'label' => 'Content',
-    'name' => 'yellow-cta__content',
-    'type' => 'wysiwyg',
-    'toolbar' => 'basic',
-    'media_upload' => 0,
-  ),
-  array(
-    'key' => 'about__yellow-cta__link',
-    'label' => 'CTA Link',
-    'name' => 'yellow-cta__link',
-    'type' => 'link',
-  ),
-  array(
-    'key' => 'about__yellow-cta__img',
-    'label' => 'CTA Image',
-    'name' => 'yellow-cta__image',
-    'type' => 'image',
-    'return_format' => 'array',
-  ),
+
 /*  SINGLE QUOTE
 ============================= */
   array(
@@ -143,6 +165,12 @@ if (function_exists('acf_add_local_field_group')) :
     'name' => 'quote__display',
     'type' => 'true_false',
     'message' => 'Check to display this quote section'
+  ),
+  array(
+    'key' => 'about__quote__name',
+    'label' => 'Jump Menu Section Name',
+    'name' => 'quote__name',
+    'type' => 'text',
   ),
   array(
     'key' => 'about__quote__image',
@@ -185,6 +213,12 @@ if (function_exists('acf_add_local_field_group')) :
     'message' => 'Check to display this quote section'
   ),
   array(
+    'key' => 'about__scrolling-cards__name',
+    'label' => 'Jump Menu Section Name',
+    'name' => 'scrolling-cards__name',
+    'type' => 'text',
+  ),
+  array(
     'key' => 'about__scrolling-cards__heading',
     'label' => 'Heading',
     'name' => 'scrolling-cards__heading',
@@ -216,6 +250,49 @@ if (function_exists('acf_add_local_field_group')) :
     )
   ),
   
+/*  YELLOW CTA
+============================= */
+array(
+  'key' => 'about__yellow-cta__tab',
+  'label' => 'Yellow CTA',
+  'type' => 'tab',
+),
+array(
+  'key' => 'about__yellow-cta__display',
+  'label' => 'Display',
+  'name' => 'yellow-cta__display',
+  'type' => 'true_false',
+  'message' => 'Check to display this CTA'
+),
+array(
+  'key' => 'about__yellow-cta__heading',
+  'label' => 'Heading',
+  'name' => 'yellow-cta__heading',
+  'type' => 'text',
+), 
+array(
+  'key' => 'about__yellow-cta__content',
+  'label' => 'Content',
+  'name' => 'yellow-cta__content',
+  'type' => 'wysiwyg',
+  'toolbar' => 'basic',
+  'media_upload' => 0,
+),
+array(
+  'key' => 'about__yellow-cta__link',
+  'label' => 'CTA Link',
+  'name' => 'yellow-cta__link',
+  'type' => 'link',
+),
+array(
+  'key' => 'about__yellow-cta__img',
+  'label' => 'CTA Image',
+  'name' => 'yellow-cta__image',
+  'type' => 'image',
+  'return_format' => 'array',
+),
+
+
 ),
 ));
 endif;
