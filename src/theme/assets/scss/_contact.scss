@@ -1,0 +1,66 @@
+/* Contact Page Styles */
+.contact {
+    /* monitors only */
+    @media not screen and (max-width: 767px) and (orientation: portrait){
+        &__inner {
+            display:flex;
+            padding-top:calc(120/16 * 1em);
+            .page {
+                &__subheader {
+                    margin-bottom:calc(40/16 * 1em);
+                    margin-top:1em;
+                }
+            }
+            .sidebar {
+                display:flex;
+                &--gutter {
+                    flex: 1 1 auto;
+                }
+                &__widgets {
+                    max-width:calc(420/(1080/2) * 100%);
+                }
+            }
+        }
+        &__col {
+            min-height:30vh;
+            width:50%;
+        }
+    }
+    /* devices only */
+    @media screen and (max-width: 767px) and (orientation: portrait){
+        &__inner {
+            // padding-left:calc(20/16 * 1em);
+            // padding-right:calc(20/16 * 1em);
+            .form {
+                margin-top:calc(32/16 * 1em);
+            }
+            .sidebar {
+                &__widgets {
+                    margin-top:calc(80/16 * 1em);
+                }
+            }
+        }
+    }
+    &__inner {
+        .page {
+            &__title {
+                font-weight:600;
+            }
+        }
+        .sidebar {
+            &__widgets {
+                margin-bottom:calc(80/16 * 1em);
+            }
+        }
+    }
+}
+@media screen and (max-width: 1080px){
+    .contact {
+        &__inner {
+            padding-left:calc(20/16 * 1em);
+            padding-right:calc(20/16 * 1em);
+        }
+    }
+}
+
+/* Contact Form (Gravity Form) Styles */

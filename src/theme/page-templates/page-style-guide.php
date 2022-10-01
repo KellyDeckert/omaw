@@ -47,6 +47,11 @@
                 <a href="#" class="button button--accent button--accent-light">Click Me</a>
                 <button type="submit" class="button button--accent button--accent-light">Submit</button>
             </div>
+            
+            <div style="display:block;background:#FECA30;border:thin solid #FECA30;padding:20px;width:fit-content;margin:20px 0;">
+                <a href="#" class="button button--secondary-alt">Click Me</a>
+                <button type="submit" class="button button--secondary-alt">Submit</button>
+            </div>
 
             <div style="display:block;border:thin solid #C3D7D9;padding:20px;width:fit-content;margin:20px 0;">
                 <a href="#" class="button button--alt">Click Me</a>

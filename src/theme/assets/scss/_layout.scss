@@ -91,7 +91,32 @@
                 width: 50%;
                 height: 100%;
                 background-color: $brand-neutral-dark;
-                z-index: 0;
+                z-index: -1;
+            }
+            &.extend-bg--right::after {
+                right: 0;
+                bottom: 0;
+                left: 50%;
+            }
+            &.extend-bg--left {
+                // matches default styles
+            }
+            &.bg{
+                &-brand-primary::after {
+                    background-color:$brand-primary;
+                }
+                &-brand-secondary::after {
+                    background-color:$brand-secondary;
+                }
+                &-brand-neutral-light::after {
+                    background-color:$brand-neutral-light;
+                }
+                &-brand-neutral-dark::after {
+                    background-color:$brand-neutral-dark;
+                }
+                &-brand-secondary-accent::after {
+                    background-color:$brand-secondary-accent;
+                }
             }
         }
     }

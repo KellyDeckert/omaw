@@ -222,11 +222,11 @@ html {
         font-weight:600;
         padding:14px 40px;
         text-decoration:none;
-        transition:.3s all ease-in-out;
+        transition:.3s all ease-in-out !important;
         &:hover {
             background-color:$brand-primary;
             color:#fff;
-            transition:.3s all ease-in-out;
+            transition:.3s all ease-in-out !important;
         }
         &#{&}--secondary {
             background-color:$brand-primary;
@@ -235,6 +235,15 @@ html {
                 background-color:$brand-neutral-dark;
                 color:$brand-primary;
                 border-color:$brand-neutral-dark;
+            }
+            &-alt {
+                background-color:$brand-primary;
+                color:#fff;
+                &:hover {
+                    background-color:#fff;
+                    border-color:#fff;
+                    color:$brand-primary;
+                }
             }
         }
         &#{&}--accent {
