@@ -19,7 +19,7 @@ if( $display):
             echo $cta ? '<a href="'.$cta['url'].'" target="'.( isset($cta['target']) ? $cta['target'] : '_self' ).'" class="button button--alt button--alt-dark">'.$cta['title'].'</a>' : '';   
             ?>
         </div>
-        <div class="copy-stats__stats">
+        <div class="copy-stats__stats centered">
         <?php 
         echo $stats_heading ? '<h2 class="copy-stats__stats-heading font-light" data-aos="smooth-slide-up" data-aos-delay="350" data-aos-duration="500" data-aos-easing="cubic" data-aor-anchor="#">'.$stats_heading.'</h2>' : '';
         if($items): ?>

@@ -109,7 +109,7 @@ get_template_part( 'sections/section-quote-carousel', null,
     ) 
 );
 
-get_template_part( 'sections/section-featured-posts', null,
+get_template_part( 'sections/section-featured-cards', null,
     array( 
         'data'  => array(
             'id' => 'mental-health-blogs',

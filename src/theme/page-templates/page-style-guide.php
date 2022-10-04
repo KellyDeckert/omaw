@@ -246,7 +246,7 @@
                             <div class="swiper-slide quote-slider__slide">
                                 <div class="quote-slider__slide-inner">
                                     <div class="quote-slider__content">
-                                        <h4 class="quote-slider__quote">"Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco."</h4>
+                                        <h4 class="quote-slider__quote quote">"Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco."</h4>
                                         <h5 class="quote-slider__author">Lisa Singh, Managing Director, Global Benefits<span class="font-light">Silicon Valley Bank</span></h5>
                                     </div>
                                     <div class="quote-slider__image">
@@ -263,7 +263,7 @@
                             <div class="swiper-slide quote-slider__slide">
                                 <div class="quote-slider__slide-inner">
                                     <div class="quote-slider__content">
-                                        <h4 class="quote-slider__quote">"Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco."</h4>
+                                        <h4 class="quote-slider__quote quote">"Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco."</h4>
                                         <h5 class="quote-slider__author">Lisa Singh, Managing Director, Global Benefits<span class="font-light">Silicon Valley Bank</span></h5>
                                     </div>
                                     <div class="quote-slider__image">
@@ -280,7 +280,7 @@
                             <div class="swiper-slide quote-slider__slide">
                                 <div class="quote-slider__slide-inner">
                                     <div class="quote-slider__content">
-                                        <h4 class="quote-slider__quote">"Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco."</h4>
+                                        <h4 class="quote-slider__quote quote">"Ea nostrud et amet laboris laborum amet. Irure dolore aliqua sit ea enim esse cillum elit ut veniam labore proident officia incididunt. Consectetur qui do magna deserunt aliqua sunt sunt incididunt elit incididunt. Incididunt aute aliqua nisi ea deserunt laboris ad. Pariatur sit excepteur reprehenderit ut adipisicing laboris eu do. Sint dolor id pariatur pariatur amet. Sunt in ea ullamco esse commodo nostrud et tempor veniam laborum quis dolor ullamco."</h4>
                                         <h5 class="quote-slider__author">Lisa Singh, Managing Director, Global Benefits<span class="font-light">Silicon Valley Bank</span></h5>
                                     </div>
                                     <div class="quote-slider__image">

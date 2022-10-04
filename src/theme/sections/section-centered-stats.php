@@ -7,7 +7,7 @@ $content = isset($args['data']['content']) ? $args['data']['content'] : null;
 $cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
 if( $display):
 ?>
-<section id="<?php echo $section_id?>" class="centered-stats color-brand-primary section-h-padding">
+<section id="<?php echo $section_id?>" class="centered-stats centered color-brand-primary section-h-padding">
     <div class="layout--1080">
         <?php
         echo $heading ? '<h2 class="centered-stats__heading font-light" data-aos="smooth-slide-up" data-aos-delay="100" data-aos-duration="450" data-aos-easing="cubic">'.$heading.'</h2>' : '';

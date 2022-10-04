@@ -96,8 +96,16 @@
 
     &.cards.mobile {
         overflow: visible;
+        padding-bottom: 2.75em;
         .swiper-button-next, .swiper-button-prev {
-            top: calc(100% + 3.75em);
+            top: 100%;
+        }
+        &.cards--cta-after {
+            padding-bottom: 3.75em;
+            margin-bottom: -1.875em;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            
             transform: none;
             padding: 0.625em;
             width: 1.875em;

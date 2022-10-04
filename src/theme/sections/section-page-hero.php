@@ -1,19 +1,37 @@
 <?php
+$display = isset($args['data']['display']) ? $args['data']['display'] : true;
 $heading = isset($args['data']['heading']) ? $args['data']['heading'] : null;
 $sub_heading = isset($args['data']['sub_heading']) ? $args['data']['sub_heading'] : null;
+$content = isset($args['data']['content']) ? $args['data']['content'] : null;
 $items = isset($args['data']['items']) ? $args['data']['items'] : null;
-?>
+$image = isset($args['data']['image']) ? $args['data']['image'] : null;
+$image_url = isset($image['sizes']) ? $image['sizes']['750x'] : null;
 
-<section class="hero color-brand-primary">
+$hero_class = '';
+if($image){
+    $hero_class = 'hero--image';
+} elseif ($items){
+    $hero_class = 'hero--items';
+} 
+
+if( $display):
+?>
+<section class="hero color-brand-primary <?php echo $hero_class;?>">
     <div class="hero__columns">
         <div class="hero__content">
             <?php
-            echo $sub_heading ? '<h5 class="image-copy__sub-heading brand-primary" data-aos="smooth-slide-up" data-aos-delay="450" data-aos-duration="450" data-aos-easing="cubic">'.$sub_heading.'</h5>' : '';
-            echo $heading ? '<h1 class="image-copy__heading brand-primary" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="500" data-aos-easing="cubic">'.$heading.'</h1>' : '';
+            echo $sub_heading ? '<h5 class="hero__sub-heading brand-primary" data-aos="smooth-slide-up" data-aos-delay="450" data-aos-duration="450" data-aos-easing="cubic">'.$sub_heading.'</h5>' : '';
+            echo $heading ? '<h1 class="hero__heading brand-primary" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="500" data-aos-easing="cubic">'.$heading.'</h1>' : '';
+            echo $content ? '<div class="hero__copy" data-aos="fade" data-aos-delay="650" data-aos-duration="500" data-aos-easing="cubic">'.$content.'</div>' : '';
             ?>
         </div>
-        <?php if($items): ?>
         <div class="hero__image">
+            <?php 
+            if($image){
+                echo $image ? '<img loading="lazy" src="'.$image_url.'" alt="'.$image['alt'].'" data-aos="smooth-slide-up" data-aos-delay="650" data-aos-duration="750" data-aos-easing="cubic">' : ''; 
+            }   
+            ?>
+            <?php if($items): ?>
             <div class="hero__animated-subjects">
                 <?php
                 foreach( $items as $item ):
@@ -23,7 +41,8 @@ $items = isset($args['data']['items']) ? $args['data']['items'] : null;
                 echo '</figure>';
                 endforeach; ?>
             </div>
+            <?php endif; ?>
         </div>
-        <?php endif; ?>
     </div>
 </section>
+<?php endif; ?>

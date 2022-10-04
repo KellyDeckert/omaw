@@ -414,3 +414,184 @@ function initJumpLinkMenu() {
 if (jumpMenu) {
 	initJumpLinkMenu();
 }
+
+
+/* OVERLAYS */
+
+// overlay links
+var overlayLinks = Array.from(document.querySelectorAll('[data-overlay-link]'));
+if(overlayLinks.length > 0){
+	overlayLinks.forEach(function(overlayLink){
+		overlayLink.addEventListener('click',function(event){
+			event.preventDefault();
+			loadOverlay(overlayLink);
+		});
+	});
+}
+
+// overlay functions
+function openOverlay(){
+	document.body.classList.add('open-overlay');
+}
+function closeOverlay() {
+	document.body.classList.remove('open-overlay');
+}
+function initOverlayClose(){
+	var overlayClose = document.getElementById('overlay-close');
+	if(overlayClose){
+		overlayClose.addEventListener('click',function(){
+			closeOverlay();
+		});
+	}
+}
+function loadOverlay(overlayLink){
+	var overlayType = overlayLink.dataset.overlayType;
+	switch(overlayType){
+		case 'person':
+			overlayHtml = loadPersonData(overlayLink);
+		break;
+	}
+}
+function setOverlayHtml(type,data) {
+	var overlayContent = document.getElementById('overlay-content');
+	var overlayHtml = '';
+	switch(type){
+		case 'person':
+			overlayHtml = getPersonHtml(data);
+		break;
+	}
+	overlayContent.innerHTML = overlayHtml;
+	initOverlayClose();
+	openOverlay();
+}
+
+// person overlays
+function loadPersonData(overlayLink) {
+	var overlayPostType = overlayLink.dataset.overlayPostType;
+	var overlayPostId = overlayLink.dataset.overlayPostId;	
+	jQuery.ajax({
+		method: "POST",
+		url: siteUrl + '/wp-json/endpoints/person',
+		dataType: 'json',
+		data: {
+			'type' : overlayPostType,
+			'id' : overlayPostId
+		},
+		complete: function (data) {
+			setOverlayHtml('person',JSON.parse(data.responseText));
+		}
+	});
+}
+function getPersonHtml(data){
+	console.log(JSON.stringify(data));
+	return 	`
+	<div class="overlay__box">
+		<div class="overlay__header">
+			<button id="overlay-close" class="overlay__close">
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 34 34" style="enable-background:new 0 0 34 34;" xml:space="preserve"><path class="st0" d="M19.2,17L33.7,2.5c0.4-0.4,0.4-1,0-1.4l-0.8-0.8c0,0,0,0,0,0c-0.4-0.4-1-0.4-1.4,0L17,14.8L2.5,0.3c0,0,0,0,0,0c-0.4-0.4-1-0.4-1.4,0L0.3,1.1c-0.4,0.4-0.4,1,0,1.4L14.8,17L0.3,31.5c-0.4,0.4-0.4,1,0,1.4l0.8,0.8c0,0,0,0,0,0c0.4,0.4,1,0.4,1.4,0L17,19.2l14.5,14.5c0,0,0,0,0,0c0.4,0.4,1,0.4,1.4,0l0.8-0.8c0.4-0.4,0.4-1,0-1.4L19.2,17z"/></svg>
+			</button>
+		</div>
+		<div class="overlay__profile">
+			${ data.image ? `<img  class="overlay__image"src="${data.image.medium}" alt="${data.image.alt}"/>` : ``}
+			${ data.title ? `<h3 class="overlay__title"><strong>${data.title}</strong></h3>` : ``}
+			${ data.custom_fields.title ? `<h4 class="overlay__position">${data.custom_fields.title}</h4>` : ``}
+			${ data.custom_fields.linkedin || data.custom_fields.twitter ? `
+			<ul class="social-media-list">
+				${ data.custom_fields.linkedin ? `
+				<li class="social-media-list-item">
+            		<a class="social-media-link" href="${data.custom_fields.linkedin}" target="_blank">
+						<img class="social-media-icon" src="${siteUrl}/wp-content/themes/one-mind-at-work/assets/img/linkedIn.svg" alt="">
+					</a>
+				</li>` : `` }
+				${ data.custom_fields.twitter ? `
+				<li class="social-media-list-item">
+            		<a class="social-media-link" href="${data.custom_fields.twitter}" target="_blank">
+						<img class="social-media-icon" src="${siteUrl}/wp-content/themes/one-mind-at-work/assets/img/twitter.svg" alt="">
+					</a>
+				</li>` : `` }
+			</ul>
+			` : ``}
+		</div>
+		<div class="overlay__bio">
+			${ data.custom_fields.quote ? `<h4 class="overlay__quote quote">${data.custom_fields.quote}</h4>` : ``}
+			${ data.custom_fields.description ? `<h5 class="overlay__description">${data.custom_fields.description}</h5>` : ``}
+			${ data.content ? `<div class="overlay__content">${data.content}</div>` : ``}
+		</div>
+	</div>
+	`;
+}
+
+
+
+
+/* TABS */
+
+var tabbedSections = Array.from(document.querySelectorAll('.tabs'));
+if(tabbedSections.length > 0){
+	tabbedSections.forEach(function(tabbedSection){
+		// setup nav
+		initTabbedSectionNav(tabbedSection);
+	});
+}
+
+function initTabbedSectionNav(tabbedSection) {
+	var tabbedSectionId = tabbedSection.id;
+	var tabbedSectionButtons = Array.from(tabbedSection.querySelectorAll('.tabs__nav-tab-button, .tabs__nav-prev-button, .tabs__nav-next-button'));
+	if(tabbedSectionButtons.length > 0){
+		tabbedSectionButtons.forEach(function(tabbedSectionButton){
+			tabbedSectionButton.addEventListener('click',function(event){
+				setTabbedSectionIndex(tabbedSection,tabbedSectionButton.dataset.index);
+			});
+		});
+	}
+}
+
+function setTabbedSectionIndex(section,index){
+	var currentIndex = Number(section.dataset.index);
+	var maxIndex = Number(section.dataset.maxIndex);
+	if( index == 'prev'){
+		index = currentIndex > 0 ? currentIndex - 1 : 0;
+	} else if ( index == 'next'){
+		index = currentIndex < maxIndex ? currentIndex + 1 : maxIndex;
+	}
+	section.dataset.index = index;
+	setTabbedSectionTabs(section);
+	setTabbedSectionButtons(section);
+}
+
+function setTabbedSectionTabs(section){
+	var currentIndex = Number(section.dataset.index);
+	var tabbedSectionsTabs =  Array.from(section.querySelectorAll('.tabs__tab'));
+	if(tabbedSectionsTabs.length > 0){
+		tabbedSectionsTabs.forEach(function(tab,index){
+			if(index == currentIndex){
+				tab.classList.add('tabs__tab--active');
+			} else {
+				tab.classList.remove('tabs__tab--active');
+			}
+		});
+	}
+}
+
+function setTabbedSectionButtons(section){
+	var currentIndex = Number(section.dataset.index);
+	var maxIndex = Number(section.dataset.maxIndex);
+	var tabbedSectionsButtons =  Array.from(section.querySelectorAll('.tabs__nav-tab-button'));
+	if(tabbedSectionsButtons.length > 0){
+		tabbedSectionsButtons.forEach(function(button,index){
+			if(button.dataset.index == currentIndex){
+				button.classList.add('tabs__nav-tab-button--active');
+			} else {
+				button.classList.remove('tabs__nav-tab-button--active');
+			}
+		});
+	}
+	var prevButton = section.querySelector('.tabs__nav-prev-button');
+	var nextButton = section.querySelector('.tabs__nav-next-button');
+	if(prevButton){
+		currentIndex == 0 ? prevButton.classList.add('disabled') : prevButton.classList.remove('disabled') ;
+	}
+	if(nextButton){
+		currentIndex == maxIndex ? nextButton.classList.add('disabled') : nextButton.classList.remove('disabled') ;
+	}
+}

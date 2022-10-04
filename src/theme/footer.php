@@ -1,4 +1,7 @@
-        <?php wp_footer(); ?>
+    <script>
+        var siteUrl = '<?php echo get_bloginfo('url');?>';
+    </script>
+    <?php wp_footer(); ?>
         <footer>
             <div class="footer__inner layout--1080">
                 <div class="footer__col">
@@ -43,5 +46,14 @@
                 </div>
             </div>
         </footer>
+
+        <div id="overlay" class="overlay">
+            <div class="overlay__outer">
+                <div class="overlay__inner">
+                    <div id="overlay-content" class="section-1080"></div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
