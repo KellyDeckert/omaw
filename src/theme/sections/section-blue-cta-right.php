@@ -1,7 +1,7 @@
 <?php
 $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'blue-cta-'.rand();
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
-$extend_bg_color = $args['data']['extend'] == 1 ? 'extend--off' : 'extend--on';
+$extend_bg_color = isset($args['data']['extend']) && $args['data']['extend'] == 1 ? 'extend--off' : 'extend--on';
 $heading = isset($args['data']['heading']) ? $args['data']['heading'] : null;
 $sub_heading = isset($args['data']['sub_heading']) ? $args['data']['sub_heading'] : null;
 $cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
