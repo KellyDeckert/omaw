@@ -133,7 +133,7 @@
         p {
             font-weight:300;
         }
-        p.paragraph--sm {
+        p.paragraph--sm, .paragraph--sm p {
             font-size:0.875em;
             line-height:1.571428em;
         }
@@ -179,7 +179,11 @@
             font-size:1em;
             line-height:1.5em;
         }
-        .paragraph--xs p {
+        p.paragraph--sm, .paragraph--sm p {
+            font-size:0.875em;
+            line-height:1.571428em;
+        }
+        p.paragraph--xs, .paragraph--xs p {
             font-size:0.75em;
             font-weight:400;
             line-height:1.5em;
@@ -201,6 +205,13 @@
 
 /*  BUTTONS
     ============================= */
+    button {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
     .button {
         background-color:transparent;
         border:2px solid $brand-primary;

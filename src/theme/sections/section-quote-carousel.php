@@ -20,7 +20,7 @@ if( $display):
                         <div class="quote-slider__slide-inner">
                             <div class="quote-slider__content">
                                 <?php 
-                                echo $item['quote'] ? '<h4 class="quote-slider__quote">'.$item['quote'].'</h4>' : '';
+                                echo $item['quote'] ? '<h4 class="quote-slider__quote quote">'.$item['quote'].'</h4>' : '';
                                 echo $item['title'] ? '<h5 class="quote-slider__author">'.$item['title'].( $item['organization'] ? '<span class="font-light">'.$item['organization'].'</span>' : '' ).'</h5>' : '';
                                 ?>
                             </div>

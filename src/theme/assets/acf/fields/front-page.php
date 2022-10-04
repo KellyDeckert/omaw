@@ -595,7 +595,7 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'CTA Link',
         'name' => 'featured_posts_link',
         'type' => 'link',
-      ), 
+      ),
 
 
     ),

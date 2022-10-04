@@ -1,7 +1,6 @@
 <?php 
 /* Template Name: Business Case */ 
 get_header(); ?>
-
 <div class="business-case responsive-font-size">
 <?php
 get_template_part( 'sections/section-header-illustration', null,
@@ -16,6 +15,7 @@ get_template_part( 'sections/section-header-illustration', null,
 get_template_part( 'sections/section-two-col-block', null,
     array( 
         'data'  => array(
+            'column_width' => '860',
             'id' => 'priority',
             'display' => get_field('block_1_display'),
             'background' => get_field('block_1_background'),
@@ -31,6 +31,7 @@ get_template_part( 'sections/section-two-col-block', null,
 get_template_part( 'sections/section-two-col-block', null,
     array( 
         'data'  => array(
+            'column_width' => '860',
             'id' => 'cost',
             'display' => get_field('block_2_display'),
             'background' => get_field('block_2_background'),
@@ -50,6 +51,7 @@ get_template_part( 'sections/section-two-col-block', null,
 get_template_part( 'sections/section-two-col-block', null,
     array( 
         'data'  => array(
+            'column_width' => '860',
             'id' => 'better',
             'display' => get_field('block_3_display'),
             'background' => get_field('block_3_background'),
@@ -69,6 +71,7 @@ get_template_part( 'sections/section-two-col-block', null,
 get_template_part( 'sections/section-two-col-block', null,
     array( 
         'data'  => array(
+            'column_width' => '860',
             'id' => 'opportunity',
             'display' => get_field('block_4_display'),
             'background' => get_field('block_4_background'),
@@ -99,17 +102,6 @@ get_template_part( 'sections/section-citations', null,
         )
     ) 
 );
-
-
-
-
-
 ?>
-
-
-
-
-
 </div>
-
 <?php get_footer(); ?>

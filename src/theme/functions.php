@@ -78,6 +78,7 @@ add_action( 'wp_enqueue_scripts', 'google_fonts' );
 wp_enqueue_script("jquery");
 
 // Image sizes
+add_image_size('300x', 300, 0);
 add_image_size('750x', 750, 0);
 add_image_size('1440x', 1440, 0);
 add_image_size('1920x', 1920, 0);
@@ -194,6 +195,113 @@ function register_post_types() {
 		'has_archive' => true,
 	);
 	register_post_type( 'videos',$args);
+		/**
+	 * Post Type: Videos.
+	*/
+	$labels = array(
+		'name' => _x('Videos', 'post type general name'),
+		'singular_name' => _x('Video', 'post type singular name'),
+		'add_new' => _x('Add New', 'Video'),
+		'add_new_item' => __('Add New Video'),
+		'edit_item' => __('Edit Video'),
+		'new_item' => __('New Video'),
+		'view_item' => __('View Video'),
+		'search_items' => __('Search Videos'),
+		'not_found' =>  __('No Video found'),
+		'not_found_in_trash' => __('No Video found in Trash'),
+		'parent_item_colon' => ''
+	);
+	$supports = array('title', 'editor','excerpt');
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'supports' => $supports,
+		'capabilities' => array(
+			'edit_post'          => 'update_core',
+			'read_post'          => 'update_core',
+			'delete_post'        => 'update_core',
+			'edit_posts'         => 'update_core',
+			'edit_others_posts'  => 'update_core',
+			'publish_posts'      => 'update_core',
+			'read_private_posts' => 'update_core'
+		),
+		'has_archive' => true,
+	);
+	register_post_type( 'videos',$args);
+
+	/**
+	 * Post Type: Team Members.
+	*/
+	$labels = array(
+		'name' => _x('Team Members', 'post type general name'),
+		'singular_name' => _x('Team Member', 'post type singular name'),
+		'add_new' => _x('Add New', 'Team Member'),
+		'add_new_item' => __('Add New Team Member'),
+		'edit_item' => __('Edit Team Member'),
+		'new_item' => __('New Team Member'),
+		'view_item' => __('View Team Member'),
+		'search_items' => __('Search Team Members'),
+		'not_found' =>  __('No Team Member found'),
+		'not_found_in_trash' => __('No Team Member found in Trash'),
+		'parent_item_colon' => ''
+	);
+	$supports = array('title', 'editor','excerpt','thumbnail');
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'supports' => $supports,
+		'capabilities' => array(
+			'edit_post'          => 'update_core',
+			'read_post'          => 'update_core',
+			'delete_post'        => 'update_core',
+			'edit_posts'         => 'update_core',
+			'edit_others_posts'  => 'update_core',
+			'publish_posts'      => 'update_core',
+			'read_private_posts' => 'update_core'
+		),
+		'has_archive' => true,
+		'rewrite' => array(
+			'slug' => 'team'
+		)
+	);
+	register_post_type( 'team-members',$args);
+
+	/**
+	 * Post Type: Speakers.
+	*/
+	$labels = array(
+		'name' => _x('Speakers', 'post type general name'),
+		'singular_name' => _x('Speaker', 'post type singular name'),
+		'add_new' => _x('Add New', 'Speaker'),
+		'add_new_item' => __('Add New Speaker'),
+		'edit_item' => __('Edit Speaker'),
+		'new_item' => __('New Speaker'),
+		'view_item' => __('View Speaker'),
+		'search_items' => __('Search Speakers'),
+		'not_found' =>  __('No Speakers found'),
+		'not_found_in_trash' => __('No Speakers found in Trash'),
+		'parent_item_colon' => ''
+	);
+	$supports = array('title', 'editor','excerpt','thumbnail');
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'supports' => $supports,
+		'capabilities' => array(
+			'edit_post'          => 'update_core',
+			'read_post'          => 'update_core',
+			'delete_post'        => 'update_core',
+			'edit_posts'         => 'update_core',
+			'edit_others_posts'  => 'update_core',
+			'publish_posts'      => 'update_core',
+			'read_private_posts' => 'update_core'
+		),
+		'has_archive' => true,
+		'rewrite' => array(
+			'slug' => 'speakers'
+		)
+	);
+	register_post_type( 'speakers',$args);
 }
 add_action( 'init', 'register_post_types' );
 
@@ -292,3 +400,45 @@ function customize_post_admin_menu_labels() {
   }
 add_action( 'admin_menu', 'customize_post_admin_menu_labels' );
 */
+
+// API ENDPOINTS
+add_action( 'rest_api_init', 'register_routes' );
+function register_routes() {
+  register_rest_route( 'endpoints', 'person' , array(
+    'methods' => 'POST',
+    'callback' => 'serve_person_route',
+  ));
+}	
+// include all endpoints
+foreach(glob(get_template_directory() . '/endpoints/*.php') as $file) {
+	require $file;
+}
+
+function getImageObject($id){
+    $has_featured_image = has_post_thumbnail($id);
+    if( $has_featured_image ){
+        return array(
+            'alt' => get_post_meta(get_post_thumbnail_id($id), '_wp_attachment_image_alt', true),
+            'small-thumbnail' => get_the_post_thumbnail_url($id,'small-thumbnail'),
+            'thumbnail' => get_the_post_thumbnail_url($id,'thumbnail'),
+            'medium' => get_the_post_thumbnail_url($id,'medium'),
+            'large' => get_the_post_thumbnail_url($id,'large'),
+            '750x' => get_the_post_thumbnail_url($id,'750x'),
+            '1440x' => get_the_post_thumbnail_url($id,'1440x'),
+            '1920x' => get_the_post_thumbnail_url($id,'1920x'),
+            'full' => get_the_post_thumbnail_url($id,'full'),
+        );
+    } else {
+        return false;
+    }
+}
+
+
+function dashesToCamelCase($string, $capitalizeFirstCharacter = false) 
+{
+    $str = str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
+    if (!$capitalizeFirstCharacter) {
+        $str[0] = strtolower($str[0]);
+    }
+    return $str;
+}

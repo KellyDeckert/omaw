@@ -1,0 +1,1 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 596 1000" style="enable-background:new 0 0 596 1000;" xml:space="preserve"><path d="M596,1000L0,494.9L596,0l-0.6,288.1L332,500c95.4,76.6,263.4,212.4,263.4,212.4L596,1000z"/></svg>
