@@ -600,7 +600,7 @@ if (function_exists('acf_add_local_field_group')) :
           ), 
           array(
             'key' => 'gf__faq_item_content',
-            'label' => 'Amswer',
+            'label' => 'Answer',
             'name' => 'content',
             'type' => 'wysiwyg',
             'toolbar' => 'full',
