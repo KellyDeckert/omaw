@@ -16,7 +16,7 @@ if( $image['mime_type'] == 'image/png' ){
 ?>
 
 
-<section class="quote-single layout--1080" id="<?php echo $section_id?>" data-name="<?php echo $section_name; ?>">
+<section class="quote-single layout--1080" id="<?php echo $section_id?>" data-quicklink-name="<?php echo $section_name; ?>">
     <div class="quote-single__inner">
         <div class="quote-single__content">
             <?php 

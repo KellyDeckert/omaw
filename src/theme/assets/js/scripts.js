@@ -386,7 +386,7 @@ function initJumpLinkMenu() {
 	if (!init) {
 		init = true;
 
-		var sections = document.querySelectorAll('section[id]:not(#quick-links-menu):not(.yellow-cta):not(.blue-cta-right)');
+		var sections = document.querySelectorAll('section[data-quicklink-name]');
 		var menu = jumpMenu.querySelector('.menu');
 		var mobile_menu = jumpMenu.querySelector('.mobile-quick-menu');
 		var menu_links = '';
@@ -394,8 +394,8 @@ function initJumpLinkMenu() {
 		var section_name;
 		
 		sections.forEach( function (section, index) {
-			if(section.dataset.name){
-				section_name = section.dataset.name;
+			if(section.dataset.quicklinkName){
+				section_name = section.dataset.quicklinkName;
 			} else {
 				section_name = section.id.replace(/[^a-zA-Z ]/g, " ");
 			}

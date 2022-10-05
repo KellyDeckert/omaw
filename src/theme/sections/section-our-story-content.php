@@ -16,7 +16,7 @@ if( $image['mime_type'] == 'image/png' ){
 if( $display):
 ?>
 
-<section id="<?php echo $section_id?>" data-name="<?php echo $section_name; ?>" class="content-story extend-bg color-brand-primary">
+<section id="<?php echo $section_id?>" data-quicklink-name="<?php echo $section_name; ?>" class="content-story extend-bg color-brand-primary">
     <div class="content-story__columns">
         <div class="content-story__content" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="500" data-aos-easing="cubic">
 
