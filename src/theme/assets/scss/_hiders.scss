@@ -22,28 +22,40 @@
     // }
 
 // smallest devices
-// @media screen and (min-width:320px) and (max-width:960px){
 @media screen and (max-width:960px){
     .monitors {
         display: none !important;
     }
 }
+
 // tablets
 @media screen and (min-width:768px){}
+
 // small desktop
 @media screen and (min-width:960px){
     .devices {
         display: none !important;
     }
 }
-// large tablets -> force mobile menu
-@media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
+// High DPI Devices -> force mobile menu instead of desktop dropdowns
+@media screen and (min-resolution:192dpi){
     .devices.tablet {
-        display: initial !important;
+        display: inherit !important;
     }
     .monitors {
         display:none !important;
     }
 }
+
+// High DPI Laptop Screens
+@media screen and (min-width:1440px) and (max-height:900px) and (max-resolution:192dpi){
+    .devices.tablet {
+        display:none !important;
+    }
+    .monitors {
+        display:inherit !important;
+    }
+}
+
 // browser width = content width
 @media screen and (min-width:1080px){}

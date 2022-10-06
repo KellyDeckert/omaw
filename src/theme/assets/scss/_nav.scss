@@ -35,9 +35,11 @@ header {
 }
 
 // smallest devices
-@media screen and (min-width:320px){
+@media screen and (min-width:320px),
+(min-resolution:192dpi){
     header {
         padding: 24px 20px;
+        padding:calc(24/16 * 1em) calc(20/16 * 1em);
         .header {
             &__logo {
                 align-items:center;
@@ -299,9 +301,21 @@ header {
     }
 }
 
+// High DPI Devices -> force mobile menu instead of desktop dropdowns
+@media screen and (min-resolution:192dpi){
+    header {
+        padding:calc(20/16 * 1em) calc(40/16 * 1em);
+        .header {
+            &__inner {
+                display:block;
+            }
+        }
+    }
+}
+
 // small desktop - monitors only
 @media screen and (min-width:960px) and (-webkit-device-pixel-ratio:1),
-(min-width:960px) and (-webkit-min-device-pixel-ratio:1.5){
+(min-width:1440px) and (max-height:900px) and (max-resolution:192dpi){
     header {
         padding:0;
         .header {
@@ -405,18 +419,6 @@ header {
                         -webkit-transition:color .15s ease-in-out;
                         transition:color .15s ease-in-out;
                         text-decoration:none;
-                        // width:100%;
-                        // &:after {
-                        //     content:"";
-                        //     position:absolute;
-                        //     bottom:0;
-                        //     left:0;
-                        //     width:0;
-                        //     height:.285714285em;
-                        //     background-color:#30cec2;
-                        //     -webkit-transition:width .15s ease-in-out;
-                        //     transition:width .15s ease-in-out
-                        // }
                     }
                 }
                 .sub-menu {
