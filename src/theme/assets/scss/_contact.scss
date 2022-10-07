@@ -5,6 +5,7 @@
         &__inner {
             display:flex;
             padding-top:calc(120/16 * 1em);
+            padding-bottom:calc(120/16 * 1em);
             .page {
                 &__subheader {
                     margin-bottom:calc(40/16 * 1em);
@@ -41,6 +42,13 @@
             }
         }
     }
+    @media screen and (min-width: 768px) and (orientation: portrait),
+    (min-width: 1024px) and (orientation: landscape){
+        &__inner {
+            padding-bottom:calc(60/16 * 1em);
+            padding-top:calc(60/16 * 1em);
+        }
+    }
     &__inner {
         .page {
             &__title {
@@ -62,5 +70,3 @@
         }
     }
 }
-
-/* Contact Form (Gravity Form) Styles */
