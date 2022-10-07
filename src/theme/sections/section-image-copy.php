@@ -28,23 +28,23 @@ switch($bg_color){
         $text_color = 'color-bg-dark';
         $button_color = 'button--alt button--alt-invert';
         $extend = true;
-        $extend_color = 'bg-brand-primary';
+        $extend_color = 'bg-color-on bg-brand-primary';
         break;
     case '#016FB9':
         $extend = true;
-        $extend_color = 'bg-brand-secondary';
+        $extend_color = 'bg-color-on bg-brand-secondary';
         break;
     case '#F4F4F4':
         $extend = true;
-        $extend_color = 'bg-brand-neutral-light';
+        $extend_color = 'bg-color-on bg-brand-neutral-light';
         break;
     case '#C3D7D9':
         $extend = true;
-        $extend_color = 'bg-brand-neutral-dark';
+        $extend_color = 'bg-color-on bg-brand-neutral-dark';
         break;
     case '#FECA30':
         $extend = true;
-        $extend_color = 'bg-brand-secondary-accent';
+        $extend_color = 'bg-color-on bg-brand-secondary-accent';
         break;
 }
 if($extend != false):

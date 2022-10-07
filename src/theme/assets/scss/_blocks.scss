@@ -472,6 +472,13 @@
             font-weight:600; // increase font weight when header font size is reduced via ACF
         }
     }
+    @media screen and (min-width:767px) and (max-width:1440px){
+        &.image-copy--image-right {
+            .bg-color-on .image-copy__content {
+                //padding-left:calc(20/960 * 100%);
+            }
+        }
+    }
 }
 
 /*  BLUE CTA

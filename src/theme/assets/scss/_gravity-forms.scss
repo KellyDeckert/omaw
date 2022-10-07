@@ -1,0 +1,18 @@
+.gform_wrapper.gravity-theme.omaw_wrapper {
+    font-family: 'Libre Franklin', sans-serif;
+    .gform_fields {
+        grid-row-gap:calc(24/16 * 1em);
+    }
+    .gform_heading {
+        font-size:calc(12/16 * 1em);
+        text-align:right;
+    }
+    .gfield_label {
+        color:$text-grey;
+        font-size:calc(14/16 * 1em);
+        font-weight:600;
+    }
+    .gfield_consent_label {
+        font-size:calc(12/16 * 1em);
+    }
+}

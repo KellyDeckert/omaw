@@ -21,8 +21,7 @@ $gf = get_field('contact-form');
 
             // if($gf):
                 echo '<div class="contact__form">';
-                // echo $gf;
-                echo 'Form Here';
+                    echo do_shortcode($gf);
                 echo '</div>';
             // endif;
             ?>
