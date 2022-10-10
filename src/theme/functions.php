@@ -347,6 +347,24 @@ class submenu_wrap extends Walker_Nav_Menu {
     }
 }
 
+/* Gravity Forms 
+******************************************/
+// Custom form legend text
+add_filter( 'gform_required_legend', function( $legend, $form ) {
+    return '* Required';
+}, 10, 2 );
+// Custom submit button classes
+add_filter( 'gform_submit_button', 'add_custom_css_classes', 10, 2 );
+function add_custom_css_classes( $button, $form ) {
+$dom = new DOMDocument();
+$dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button );
+$input = $dom->getElementsByTagName( 'input' )->item(0);
+$classes = $input->getAttribute( 'class' );
+$classes .= " button button--accent button--accent-dark";
+$input->setAttribute( 'class', $classes );
+return $dom->saveHtml( $input );
+}
+
 
 // MODIFY ADMIN MENU
 /*

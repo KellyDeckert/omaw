@@ -62,9 +62,11 @@ if (function_exists('acf_add_local_field_group')) :
             ),
             array(
                 'key' => 'become-member-page__logo-header',
-                'label' => 'Logo Section Header',
+                'label' => 'Logo Section Copy',
                 'name' => 'become-member-logo-heading',
-                'type' => 'text',
+                'type' => 'wysiwyg',
+                'toolbar' => 'full',
+                'media_upload' => 0
             ),
             array(
                 'key' => 'become-member-page__member_logos',

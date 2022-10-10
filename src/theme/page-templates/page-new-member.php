@@ -5,7 +5,7 @@ $heading = get_field('become-member-heading');
 $sub_heading = get_field('become-member-subheading');
 $content = get_field('become-member-page-content');
 $gf = get_field('become-member-form');
-$logo_heading = get_field('become-member-logo-heading');
+$logo_copy = get_field('become-member-logo-heading');
 $logos = get_field('member_logos');
 
 ?>
@@ -30,7 +30,7 @@ $logos = get_field('member_logos');
             if($logos):
                 echo '<div class="new-member__logos">';
 
-                    echo $logo_heading ? '<h4 class="logos__copy" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">'.$logo_heading.'</h4>' : '';
+                    echo $logo_copy ? '<div class="logos__copy" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">'.$logo_copy.'</div>' : '';
 
                         get_template_part( 'snippets/logos', null,
                             array(
@@ -48,11 +48,13 @@ $logos = get_field('member_logos');
                 echo '</div>';
             endif; ?>
 
-
-            <div class="new-member__form new-member__grid">
-                FORM HERE
-                <?php //echo $gf; ?>
-            </div>
+            <?php
+            if($gf):
+            echo '<div class="new-member__form new-member__grid">';
+                echo do_shortcode($gf);
+            echo '</div>';
+            endif;
+            ?>
     </div>
     <div class="new-member__prefooter">
         <?php
