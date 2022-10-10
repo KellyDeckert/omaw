@@ -9,6 +9,8 @@
 </head>
 <body <?php body_class('wip'); ?>>
 
+  <pre style="background-color:lightgrey;padding:10px;text-align:center;"><span class="devices">Device</span><span class="devices tablet">Tablet</span><span class="monitors">PC or Laptop</span></pre>
+
   <header>
     <div class="header__inner layout--1080">
       <div class="header__logo">
