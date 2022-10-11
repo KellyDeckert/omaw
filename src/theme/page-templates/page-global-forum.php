@@ -112,6 +112,25 @@ get_template_part( 'sections/section-two-col-block', null,
     ) 
 );
 
+get_template_part( 'sections/section-event-summaries', null,
+    array( 
+        'data'  => array(
+            'id' => 'past-event-summaries',
+            'display' => get_field('event_summaries_display'),
+            'heading' => get_field('event_summaries_heading'),
+            'media_type' => get_field('event_summaries_featured_media_type'),
+            'image' => get_field('event_summaries_featured_image'),
+            'video_type' => get_field('event_summaries_featured_video_type'),
+            'mp4_video' => get_field('event_summaries_featured_mp4_video'),
+            'youtube_video_id' => get_field('event_summaries_featured_youtube_video_id'),
+            'featured_sub_heading' => get_field('event_summaries_featured_sub_heading'),
+            'featured_heading' => get_field('event_summaries_featured_heading'),
+            'featured_cta' => get_field('event_summaries_featured_link'),
+            'content' => get_field('event_summaries_content')
+        )
+    ) 
+);
+
 get_template_part( 'sections/section-faq', null,
     array( 
         'data'  => array(

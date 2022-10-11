@@ -70,7 +70,22 @@
     }
     @media screen and (max-width: 767px){
         .overlay__box {
-            padding: 1.25em 20px 9em 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 1.25em 20px;
+            &.overlay__box--content{
+                padding-bottom: 9em;
+            }
+            &.overlay__box--video{
+                padding-bottom: 5.25em;
+                .overlay__main {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    flex: 1 0 auto;                    
+                }
+            }
         }
         .overlay__header {
             margin-bottom: 1.875em;
@@ -108,11 +123,15 @@
             gap: 0px 4.564315352697095%; 
             grid-template-areas: 
               "header header"
-              "profile bio"; 
+              "profile bio"
+              "main main"; 
         }
         .overlay__header {
             margin-bottom: 2.5em;
             grid-area: header;
+        }
+        .overlay__main {
+            grid-area: main;
         }
         .overlay__profile {
             grid-area: profile;

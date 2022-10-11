@@ -421,6 +421,7 @@ if (jumpMenu) {
 // overlay links
 var overlayLinks = Array.from(document.querySelectorAll('[data-overlay-link]'));
 if(overlayLinks.length > 0){
+	
 	overlayLinks.forEach(function(overlayLink){
 		overlayLink.addEventListener('click',function(event){
 			event.preventDefault();
@@ -435,6 +436,7 @@ function openOverlay(){
 }
 function closeOverlay() {
 	document.body.classList.remove('open-overlay');
+	jQuery('#overlay-content').html('');
 }
 function initOverlayClose(){
 	var overlayClose = document.getElementById('overlay-close');
@@ -450,6 +452,9 @@ function loadOverlay(overlayLink){
 		case 'person':
 			overlayHtml = loadPersonData(overlayLink);
 		break;
+		case 'video':
+			overlayHtml = setOverlayHtml('video',overlayLink);
+		break;
 	}
 }
 function setOverlayHtml(type,data) {
@@ -458,6 +463,9 @@ function setOverlayHtml(type,data) {
 	switch(type){
 		case 'person':
 			overlayHtml = getPersonHtml(data);
+		break;
+		case 'video':
+			overlayHtml = getVideoHtml(data);
 		break;
 	}
 	overlayContent.innerHTML = overlayHtml;
@@ -483,9 +491,8 @@ function loadPersonData(overlayLink) {
 	});
 }
 function getPersonHtml(data){
-	console.log(JSON.stringify(data));
 	return 	`
-	<div class="overlay__box">
+	<div class="overlay__box overlay__box--content">
 		<div class="overlay__header">
 			<button id="overlay-close" class="overlay__close">
 				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 34 34" style="enable-background:new 0 0 34 34;" xml:space="preserve"><path class="st0" d="M19.2,17L33.7,2.5c0.4-0.4,0.4-1,0-1.4l-0.8-0.8c0,0,0,0,0,0c-0.4-0.4-1-0.4-1.4,0L17,14.8L2.5,0.3c0,0,0,0,0,0c-0.4-0.4-1-0.4-1.4,0L0.3,1.1c-0.4,0.4-0.4,1,0,1.4L14.8,17L0.3,31.5c-0.4,0.4-0.4,1,0,1.4l0.8,0.8c0,0,0,0,0,0c0.4,0.4,1,0.4,1.4,0L17,19.2l14.5,14.5c0,0,0,0,0,0c0.4,0.4,1,0.4,1.4,0l0.8-0.8c0.4-0.4,0.4-1,0-1.4L19.2,17z"/></svg>
@@ -517,6 +524,32 @@ function getPersonHtml(data){
 			${ data.custom_fields.description ? `<h5 class="overlay__description">${data.custom_fields.description}</h5>` : ``}
 			${ data.content ? `<div class="overlay__content">${data.content}</div>` : ``}
 		</div>
+	</div>
+	`;
+}
+
+
+function getVideoHtml(overlayLink){
+	var videoType = overlayLink.dataset.videoType;
+	var videoYoutubeId = overlayLink.dataset.youtubeId;
+	var videoMp4 = overlayLink.dataset.videoMp4;
+	return 	`
+	<div class="overlay__box overlay__box--video">
+		<div class="overlay__header">
+			<button id="overlay-close" class="overlay__close">
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 34 34" style="enable-background:new 0 0 34 34;" xml:space="preserve"><path class="st0" d="M19.2,17L33.7,2.5c0.4-0.4,0.4-1,0-1.4l-0.8-0.8c0,0,0,0,0,0c-0.4-0.4-1-0.4-1.4,0L17,14.8L2.5,0.3c0,0,0,0,0,0c-0.4-0.4-1-0.4-1.4,0L0.3,1.1c-0.4,0.4-0.4,1,0,1.4L14.8,17L0.3,31.5c-0.4,0.4-0.4,1,0,1.4l0.8,0.8c0,0,0,0,0,0c0.4,0.4,1,0.4,1.4,0L17,19.2l14.5,14.5c0,0,0,0,0,0c0.4,0.4,1,0.4,1.4,0l0.8-0.8c0.4-0.4,0.4-1,0-1.4L19.2,17z"/></svg>
+			</button>
+		</div>
+		<div class="overlay__main">
+			<div class="responsive-video-wrapper">
+				${videoType == 'youtube' && videoYoutubeId ? `<iframe src="https://www.youtube.com/embed/${videoYoutubeId}?autoplay=1&controls=2&modestbranding=1&rel=0" frameborder="0" allowfullscreen></iframe>` : ``}
+				${videoType == 'upload' ? `
+				<video class="overlay__video" controls autoplay="autoplay">
+                	${videoMp4 ? `<source src="${videoMp4}" type="video/mp4">` : ``}
+            	</video>
+				` : ``}
+			</div>	
+		<div>
 	</div>
 	`;
 }
