@@ -9,7 +9,13 @@
     }
     &__content { grid-area: content; }
     &__logos { grid-area: logos; }
-    &__form { grid-area: form; }
+    &__form { grid-area: form; 
+        .gform_wrapper {
+            .gform_footer {
+                justify-content:flex-end;
+            }
+        }
+    }
     &__logos {
         margin-top:calc(80/16 * 1em);
         .logo-list {
@@ -66,9 +72,6 @@
             min-height:360px;
             margin-top:calc(32/16 * 1em);
             .gform_wrapper {
-                .gform_footer {
-                    justify-content:flex-end;
-                }
                 .gform_button {
                     line-height: 1 !important;
                     padding-top: calc(10/16 * 1em);
