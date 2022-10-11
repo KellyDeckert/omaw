@@ -50,7 +50,11 @@ header {
             }
             &__mobile {
                 &-cta {
-                    display:none;
+                    .button {
+                        font-size:10px;
+                        font-size:calc(10/16 * 1em);
+                        padding:calc(8/16 * 1em) 1em;
+                    }
                 }
                 &-toggle {
                     margin-left:calc(40/768 * 100%);
@@ -248,13 +252,7 @@ header {
                 justify-content: space-between;
             }
             &__mobile {
-                &-cta {
-                    .button {
-                        font-size:10px;
-                        font-size:calc(10/16 * 1em);
-                        padding:8px 16px;
-                    }
-                }
+                
             }
         }
     }
