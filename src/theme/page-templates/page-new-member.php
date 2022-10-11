@@ -50,7 +50,7 @@ $logos = get_field('member_logos');
 
             <?php
             if($gf):
-            echo '<div class="new-member__form new-member__grid">';
+            echo '<div class="new-member__form new-member__grid" data-aos="smooth-slide-left" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">';
                 echo do_shortcode($gf);
             echo '</div>';
             endif;

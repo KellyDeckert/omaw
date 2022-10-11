@@ -20,7 +20,7 @@ $gf = get_field('contact-form');
             endif;
 
             // if($gf):
-                echo '<div class="contact__form">';
+                echo '<div class="contact__form" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">';
                     echo do_shortcode($gf);
                 echo '</div>';
             // endif;

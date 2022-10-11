@@ -104,6 +104,24 @@ function autoCloseMobile(){
 // }
 
 
+/* Add animations to Gravity Forms BEFORE init 
+-- Need to fix, the AOS init isn't firing these even though they are being added */
+// if(document.querySelector('.gform_wrapper')){
+// 	let form = document.querySelector('.gform_wrapper .gform_fields');
+// 	let fieldRows = form.querySelectorAll('.gfield');
+// 	fieldRows.forEach(function( row, index) {
+// 		row.setAttribute('data-aos','smooth-slide-left');
+// 		row.setAttribute('data-aos-delay','550');
+// 		row.setAttribute('data-aos-duration','450');
+// 		row.setAttribute('data-aos-easing','cubic');
+// 	});
+// 	let submitRow = document.querySelector('.gform_wrapper .gform_footer');
+// 		submitRow.setAttribute('data-aos','smooth-slide-up');
+// 		submitRow.setAttribute('data-aos-delay','550');
+// 		submitRow.setAttribute('data-aos-duration','450');
+// 		submitRow.setAttribute('data-aos-easing','cubic');
+// }
+
 /* AOS animations */
 var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 AOS.init({
