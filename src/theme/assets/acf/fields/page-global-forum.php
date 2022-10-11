@@ -554,6 +554,128 @@ if (function_exists('acf_add_local_field_group')) :
 
 
       /**
+       * Event Summaries
+       */
+      array(
+        'key' => 'gf__event_summaries_tab',
+        'label' => 'Event Summaries',
+        'type' => 'tab',
+      ),
+      array(
+        'key' => 'gf__event_summaries_display',
+        'label' => 'Display',
+        'name' => 'event_summaries_display',
+        'type' => 'true_false',
+        'message' => 'Check to display this section'
+      ),
+      array(
+        'key' => 'gf__event_summaries_heading',
+        'label' => 'Heading',
+        'name' => 'event_summaries_heading',
+        'type' => 'text',
+      ), 
+
+
+      array(
+        'key' => 'gf__event_summaries_featured_media_type',
+        'label' => 'Featured Event Media Type',
+        'name' => 'event_summaries_featured_media_type',
+        'type' => 'select',
+        'choices' => array(
+          'image' => 'Image',
+          'video' => 'Video'
+        ),
+      ),
+
+      array(
+        'key' => 'gf__event_summaries_featured_image',
+        'label' => 'Image',
+        'name' => 'event_summaries_featured_image',
+        'type' => 'image',
+        'return_format' => 'array',
+        'preview_size' => 'x-small-thumbnail',
+      ),
+
+      array(
+        'key' => 'gf__event_summaries_featured_video_type',
+        'label' => 'Video Type',
+        'name' => 'event_summaries_featured_video_type',
+        'type' => 'select',
+        'choices' => array(
+          'upload' => 'Upload',
+          'youtube' => 'YouTube'
+        ),
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'gf__event_summaries_featured_media_type',
+              'operator' => '==',
+              'value' => 'video',
+            ),
+          ),
+        ),
+      ),
+      array(
+        'key' => 'gf__event_summaries_featured_video',
+        'label' => 'MP4 Video File',
+        'name' => 'event_summaries_featured_mp4_video',
+        'type' => 'file',
+        'conditional_logic' => array(
+            array(
+              array(
+                'field' => 'gf__event_summaries_featured_video_type',
+                'operator' => '==',
+                'value' => 'upload',
+              ),
+            ),
+        ),
+      ),
+      array(
+        'key' => 'gf__event_summaries_featured_youtube_video_id',
+        'label' => 'YouTube Video ID',
+        'name' => 'event_summaries_featured_youtube_video_id',
+        'type' => 'text',
+        'conditional_logic' => array(
+            array(
+              array(
+                'field' => 'gf__event_summaries_featured_video_type',
+                'operator' => '==',
+                'value' => 'youtube',
+              ),
+            ),
+        ),
+      ),
+
+      
+      array(
+        'key' => 'gf__event_summaries_featured_sub_heading',
+        'label' => 'Featured Event Sub Heading',
+        'name' => 'event_summaries_featured_sub_heading',
+        'type' => 'text',
+      ),          
+      array(
+        'key' => 'gf__event_summaries_featured_heading',
+        'label' => 'Featured Event Heading',
+        'name' => 'event_summaries_featured_heading',
+        'type' => 'text',
+      ), 
+      array(
+        'key' => 'gf__event_summaries_featured_link',
+        'label' => 'Featured Event CTA Link',
+        'name' => 'event_summaries_featured_link',
+        'type' => 'link',
+      ), 
+      array(
+        'key' => 'gf__event_summaries_content',
+        'label' => 'All Event Content',
+        'name' => 'event_summaries_content',
+        'type' => 'wysiwyg',
+        'toolbar' => 'basic',
+        'media_upload' => 0,
+      ),
+
+
+      /**
        * FAQs
        */
       array(
