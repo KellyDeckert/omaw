@@ -38,7 +38,10 @@
     }
 }
 // High DPI Devices -> force mobile menu instead of desktop dropdowns
-@media screen and (min-resolution:192dpi){
+@media screen and (min-resolution:192dpi),
+(min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
+(min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait),
+(min-width:375px) and (max-width:744px){
     .devices.tablet {
         display: inherit !important;
     }

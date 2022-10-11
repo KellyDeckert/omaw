@@ -38,7 +38,6 @@ header {
 @media screen and (min-width:320px),
 (min-resolution:192dpi){
     header {
-        padding: 24px 20px;
         padding:calc(24/16 * 1em) calc(20/16 * 1em);
         .header {
             &__logo {
@@ -51,7 +50,11 @@ header {
             }
             &__mobile {
                 &-cta {
-                    display:none;
+                    .button {
+                        font-size:10px;
+                        font-size:calc(10/16 * 1em);
+                        padding:calc(8/16 * 1em) 1em;
+                    }
                 }
                 &-toggle {
                     margin-left:calc(40/768 * 100%);
@@ -249,13 +252,7 @@ header {
                 justify-content: space-between;
             }
             &__mobile {
-                &-cta {
-                    .button {
-                        font-size:10px;
-                        font-size:calc(10/16 * 1em);
-                        padding:8px 16px;
-                    }
-                }
+                
             }
         }
     }
@@ -264,6 +261,7 @@ header {
 // mobile devices -> landscape only
 @media screen and (min-width:500px) and (max-width:768px) and (orientation:landscape){
     header {
+        padding:calc(24/16 * 1em) calc(45/16 * 1em);
         .responsive-font-size {
             font-size:2.9vw;
         }
@@ -302,9 +300,12 @@ header {
 }
 
 // High DPI Devices -> force mobile menu instead of desktop dropdowns
-@media screen and (min-resolution:192dpi){
+@media screen and (min-resolution:192dpi),
+(min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
+(min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
     header {
-        padding:calc(20/16 * 1em) calc(40/16 * 1em);
+        // padding:calc(20/16 * 1em) calc(40/16 * 1em);
+        // padding: calc(20/16 * 1em) calc(45/16 * 1em);
         .header {
             &__inner {
                 display:block;

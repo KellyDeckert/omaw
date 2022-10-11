@@ -87,6 +87,9 @@ footer {
                 margin-top:12px;
             }
         }
+        .monitors.menu-button {
+            max-height:50px;
+        }
     }
 }
 
@@ -149,6 +152,7 @@ footer {
                         > .menu-item-link {
                             position:relative;
                             padding-right:36px;
+                            max-height:50px;
                             &:after {
                                 content:url(theme/assets/img/arrow.svg);
                                 height:5px;
@@ -245,6 +249,7 @@ footer {
     footer {
         background-position:right -40px bottom 50px;
         background-size:120%;
+        background-size:contain;
         .omaw-logo-link img.omaw-logo {
             max-width:unset;
         }

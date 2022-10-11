@@ -1423,6 +1423,8 @@
     @media not screen and (max-width: 767px) and (orientation: portrait){
         &.header-illustration--empty {
             margin-bottom: -7.75em;
+            z-index: -1; // prevent header from blocking clicked elements on forms
+            position: relative;
         }
         .header-illustration__inner {
             padding-top: 7.5em;
