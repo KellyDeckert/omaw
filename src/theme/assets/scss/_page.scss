@@ -112,9 +112,9 @@
 
 
 .member-exp {
-    @media screen and (max-width: 1080px){
+    @media screen and (min-width:768px) and (max-width: 1080px){
         .header-simple-yellow .header-simple-yellow__inner.layout--1440 {
-            max-width: 80%;
+            max-width: 95%;
         }
     }
 }
