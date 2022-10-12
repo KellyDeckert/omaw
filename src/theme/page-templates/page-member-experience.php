@@ -32,11 +32,18 @@ get_header();
         ) 
     );
     
-    ?>
-    
-    <div class="section-placeholder"><h2>Member Flow</h2></div>
-
-    <?php
+    get_template_part( 'sections/section-content-carousel',null, 
+        array( 
+            'data'  => array(
+                'id' => 'flow',
+                'display' => get_field('mcs_display'),
+                'label' => get_field('mcs_label'),
+                'heading' => get_field('mcs_heading'),
+                'content' => get_field('mcs_content'),
+                'items' => get_field('mcs_items'),
+            )
+        ) 
+    );
     
     get_template_part( 'sections/section-image-copy', null,
         array( 

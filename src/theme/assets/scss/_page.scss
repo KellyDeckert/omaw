@@ -102,12 +102,19 @@
         }
     }
 }
-
+/* < container width */
 @media screen and (max-width: 1080px){
-    .new-member {
-        .main {
-            padding-left:calc(20/16 * 1em);
-            padding-right:calc(20/16 * 1em);
+    .new-member .main {
+        padding-left:calc(20/16 * 1em);
+        padding-right:calc(20/16 * 1em);
+    }
+}
+
+
+.member-exp {
+    @media screen and (max-width: 1080px){
+        .header-simple-yellow .header-simple-yellow__inner.layout--1440 {
+            max-width: 80%;
         }
     }
 }

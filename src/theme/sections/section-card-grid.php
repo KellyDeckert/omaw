@@ -30,7 +30,7 @@ if( $display):
 ?>
 
 <section class="card-grid <?php echo $bg_class; ?>" id="<?php echo $section_id; ?>" data-quicklink-name="<?php echo $section_name; ?>">
-    <div class="card-grid__inner layout--1080">
+    <div class="card-grid__inner layout--1080 section-h-padding">
         <div class="card-grid__col card-grid__title color-brand-primary">
             <?php
                 echo $heading ? '<h2 class="card-grid__heading" data-aos="smooth-slide-left" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic">'. $heading .'</h2>' : '';
@@ -50,7 +50,7 @@ if( $display):
             endif; ?>
         </div>
     </div>
-</div>
+</section>
 
 <?php
 endif;

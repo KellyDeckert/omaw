@@ -174,7 +174,86 @@ if (function_exists('acf_add_local_field_group')) :
         ),
 
         /*
-         * Membership CTA
+         * Membership Flow
+         */
+        array(
+            'key' => 'memberExp__content_slider_tab',
+            'label' => 'Member Flow',
+            'type' => 'tab',
+        ),
+        array(
+            'key' => 'memberExp__content_slider_display',
+            'label' => 'Display',
+            'name' => 'mcs_display',
+            'type' => 'true_false',
+            'message' => 'Check to display this section'
+        ),
+        array(
+            'key' => 'memberExp__content_slider_label',
+            'label' => 'Label',
+            'name' => 'mcs_label',
+            'type' => 'text',
+        ),
+        array(
+            'key' => 'memberExp__content_slider_heading',
+            'label' => 'Heading',
+            'name' => 'mcs_heading',
+            'type' => 'text',
+            'required' => 1
+        ),
+        array(
+            'key' => 'memberExp__content_slider_content',
+            'label' => 'content',
+            'name' => 'mcs_content',
+            'type' => 'wysiwyg',
+            'toolbar' => 'basic',
+            'media_upload' => 0,
+        ),
+        array(
+            'key' => 'memberExp__content_slider_items',
+            'label' => 'Members',
+            'name' => 'mcs_items',
+            'type' => 'repeater',
+            'min' => 1,
+            'max' => 8,
+            'layout' => 'row',
+            'button_label' => 'Add Slide',
+            'sub_fields' => array(
+                array(
+                    'key' => 'mcs_heading',
+                    'label' => 'Heading',
+                    'name' => 'slide_heading',
+                    'type' => 'text',
+                ),
+                array(
+                    'key' => 'mcs_content',
+                    'label' => 'Content',
+                    'name' => 'slide_content',
+                    'type' => 'wysiwyg',
+                    'toolbar' => 'full',
+                    'media_upload' => 0,
+                ),
+                array(
+                    'key' => 'mcs_image',
+                    'label' => 'Desktop Image',
+                    'name' => 'slide_image',
+                    'type' => 'image',
+                    'return_format' => 'array'
+                ),
+                array(
+                    'key' => 'mcs_mobile_image',
+                    'label' => 'Mobile Image',
+                    'name' => 'slide_mobile_image',
+                    'type' => 'image',
+                    'return_format' => 'array'
+                ),
+            ),
+        ),
+
+
+
+        /*
+         * Membership Collaboration
          */
         array(
             'key' => 'memberExp__collab_tab',
@@ -325,8 +404,8 @@ if (function_exists('acf_add_local_field_group')) :
         ),
 
         /**
-       * Quotes
-       */
+         * Quotes
+         */
         array(
             'key' => 'memberExp__quotes_tab',
             'label' => 'Quotes',
@@ -357,40 +436,39 @@ if (function_exists('acf_add_local_field_group')) :
             'layout' => 'row',
             'button_label' => 'Add Member',
             'sub_fields' => array(
-
-            array(
-                'key' => 'memberExp__quotes_item__image',
-                'label' => 'Desktop Image',
-                'name' => 'image',
-                'type' => 'image',
-                'return_format' => 'array'
-            ),
-            array(
-                'key' => 'memberExp__quotes_item__mobile_image',
-                'label' => 'Mobile Image',
-                'name' => 'mobile_image',
-                'type' => 'image',
-                'return_format' => 'array'
-            ),
-            array(
-                'key' => 'memberExp__quotes_item__quote',
-                'label' => 'Quote',
-                'name' => 'quote',
-                'type' => 'textarea',
-                'rows' => 2
-            ),
-            array(
-                'key' => 'memberExp__quotes_item__title',
-                'label' => 'Title',
-                'name' => 'title',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'memberExp__quotes_item__organization',
-                'label' => 'Organization',
-                'name' => 'organization',
-                'type' => 'text',
-            ),
+                array(
+                    'key' => 'memberExp__quotes_item__image',
+                    'label' => 'Desktop Image',
+                    'name' => 'image',
+                    'type' => 'image',
+                    'return_format' => 'array'
+                ),
+                array(
+                    'key' => 'memberExp__quotes_item__mobile_image',
+                    'label' => 'Mobile Image',
+                    'name' => 'mobile_image',
+                    'type' => 'image',
+                    'return_format' => 'array'
+                ),
+                array(
+                    'key' => 'memberExp__quotes_item__quote',
+                    'label' => 'Quote',
+                    'name' => 'quote',
+                    'type' => 'textarea',
+                    'rows' => 2
+                ),
+                array(
+                    'key' => 'memberExp__quotes_item__title',
+                    'label' => 'Title',
+                    'name' => 'title',
+                    'type' => 'text',
+                ),
+                array(
+                    'key' => 'memberExp__quotes_item__organization',
+                    'label' => 'Organization',
+                    'name' => 'organization',
+                    'type' => 'text',
+                ),
             ),
         ),
 
