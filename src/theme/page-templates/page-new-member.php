@@ -13,48 +13,48 @@ $logos = get_field('member_logos');
 <div class="new-member responsive-font-size">
     <?php //get_template_part( 'sections/section','illustration-decoration' , null);
     get_template_part( 'sections/section','header-illustration' , null,); ?>
-    <div class="new-member__inner main layout--1080">
-        <!-- <div class="new-member__col"> -->
+    <div class="new-member__inner section-h-padding">
+        <div class="main layout--1080">
         <?php
+        echo $heading || $sub_heading || $content ? '<div class="new-member__content new-member__grid">' : '';
 
-            echo $heading || $sub_heading || $content ? '<div class="new-member__content new-member__grid">' : '';
+        echo $heading ? '<h1 class="new-member__title page__title" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">' . $heading . '</h1>' : '';
 
-            echo $heading ? '<h1 class="new-member__title page__title" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">' . $heading . '</h1>' : '';
+        echo $sub_heading ? '<h4 class="new-member__subtitle page__subtitle" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">' . $sub_heading . '</h4>' : '';
 
-            echo $sub_heading ? '<h4 class="new-member__subtitle page__subtitle" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">' . $sub_heading . '</h4>' : '';
+        echo $content ? '<div class="new-member__content" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">'. $content .'</div>' : '';
 
-            echo $content ? '<div class="new-member__content" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">'. $content .'</div>' : '';
+        echo $heading || $sub_heading || $content ? '</div>' : '';
 
-            echo $heading || $sub_heading || $content ? '</div>' : '';
+        if($logos):
+            echo '<div class="new-member__logos">';
 
-            if($logos):
-                echo '<div class="new-member__logos">';
+                echo $logo_copy ? '<div class="logos__copy" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">'.$logo_copy.'</div>' : '';
 
-                    echo $logo_copy ? '<div class="logos__copy" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">'.$logo_copy.'</div>' : '';
-
-                        get_template_part( 'snippets/logos', null,
-                            array(
-                                'data'  => array(
-                                    'section_id' => 'new-member-logos',
-                                    'items' => $logos,
-                                    'items_per_row' => array(
-                                        'mobile' => 4, // set to 3 or 4
-                                        'desktop' => 4 // set to 4 or 5
-                                    )
+                    get_template_part( 'snippets/logos', null,
+                        array(
+                            'data'  => array(
+                                'section_id' => 'new-member-logos',
+                                'items' => $logos,
+                                'items_per_row' => array(
+                                    'mobile' => 4, // set to 3 or 4
+                                    'desktop' => 4 // set to 4 or 5
                                 )
                             )
-                        );
+                        )
+                    );
 
-                echo '</div>';
-            endif; ?>
-
-            <?php
-            if($gf):
-            echo '<div class="new-member__form new-member__grid" data-aos="smooth-slide-left" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">';
-                echo do_shortcode($gf);
             echo '</div>';
-            endif;
-            ?>
+        endif; ?>
+
+        <?php
+        if($gf):
+        echo '<div class="new-member__form new-member__grid" data-aos="smooth-slide-left" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic">';
+            echo do_shortcode($gf);
+        echo '</div>';
+        endif;
+        ?>
+        </div>
     </div>
     <div class="new-member__prefooter">
         <?php

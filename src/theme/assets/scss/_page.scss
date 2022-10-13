@@ -65,8 +65,8 @@
     .new-member {
         .main {
             grid-template-areas: "content" "form" "logos";
-            padding-left:calc(20/16 * 1em);
-            padding-right:calc(20/16 * 1em);
+            // padding-left:calc(20/16 * 1em);
+            // padding-right:calc(20/16 * 1em);
         }
         &__form {
             min-height:360px;
@@ -105,8 +105,8 @@
 /* < container width */
 @media screen and (max-width: 1080px){
     .new-member .main {
-        padding-left:calc(20/16 * 1em);
-        padding-right:calc(20/16 * 1em);
+        // padding-left:calc(20/16 * 1em);
+        // padding-right:calc(20/16 * 1em);
     }
 }
 
