@@ -50,7 +50,7 @@
         <div id="overlay" class="overlay responsive-font-size">
             <div class="overlay__outer">
                 <div class="overlay__inner">
-                    <div id="overlay-content" class="section-1080"></div>
+                    <div id="overlay-content" class="layout--1080"></div>
                 </div>
             </div>
         </div>

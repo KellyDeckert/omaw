@@ -10,7 +10,7 @@ $margin_class = $margin == 'full' ? 'section-v-margin' : 'section-v-margin-compa
 if( $display):
 ?>
 <section id="<?php echo $section_id?>" data-quicklink-name="<?php echo $jump_link_name?>" class="faq section-h-padding <?php echo $margin_class;?> color-brand-primary">
-    <div class="section-1080" data-aos="smooth-slide-up" data-aos-delay="200" data-aos-duration="750" data-aos-easing="cubic">
+    <div class="layout--1080" data-aos="smooth-slide-up" data-aos-delay="200" data-aos-duration="750" data-aos-easing="cubic">
         <?php
         echo $heading ? '<h2 class="faq__heading">'.$heading.'</h2>' : '';
         if($items){

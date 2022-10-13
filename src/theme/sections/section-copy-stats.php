@@ -10,7 +10,7 @@ $items = isset($args['data']['items']) ? $args['data']['items'] : null;
 if( $display):
 ?>
 <section id="<?php echo $section_id?>" class="copy-stats color-brand-primary">
-    <div class="copy-stats__columns section-1080">
+    <div class="copy-stats__columns layout--1080">
         <div class="copy-stats__content" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="500" data-aos-easing="cubic">
             <?php
             echo $heading ? '<h2 class="copy-stats__heading">'.$heading.'</h2>' : '';

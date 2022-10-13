@@ -13,7 +13,7 @@ if( $image['mime_type'] == 'image/png' ){
 if( $display):
 ?>
 <section id="<?php echo $section_id?>" class="yellow-cta yellow-cta-img section-h-padding color-brand-primary <?php echo $full_width ? 'yellow-cta--full-width' : '';?>">
-    <div class="yellow-cta__banner section-1080">
+    <div class="yellow-cta__banner layout--1080">
         <?php
         echo $image ? '<div class="yellow-cta__image" data-aos="smooth-slide-up" data-aos-delay="100" data-aos-duration="350"><img loading="lazy" src="'.$image_url.'" alt="'.$image['alt'].'"></div>' : '';
         echo '<div class="yellow-cta__content">';

@@ -9,7 +9,7 @@ if( $display):
 ?>
 
 <section id="<?php echo $section_id?>" class="blue-cta-right <?php echo $extend_bg_color; ?>">
-    <div class="blue-cta-right__banner section-1080"  data-aos="smooth-slide-left" data-aos-delay="250" data-aos-duration="400" data-aos-easing="cubic">
+    <div class="blue-cta-right__banner layout--1080"  data-aos="smooth-slide-left" data-aos-delay="250" data-aos-duration="400" data-aos-easing="cubic">
         <?php
         echo $heading ? '<h4 class="blue-cta-right__heading" data-aos="smooth-slide-up" data-aos-delay="450" data-aos-duration="450" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$heading.'</h4>' : '';
         echo $sub_heading ? '<h4 class="blue-cta-right__sub-heading" data-aos="smooth-slide-up" data-aos-delay="550" data-aos-duration="450" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$sub_heading.'</h4>' : '';

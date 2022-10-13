@@ -9,7 +9,7 @@ $cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
 if( $display):
 ?>
 <section id="<?php echo $section_id?>" class="featured-cards section-v-padding section-h-padding color-brand-primary">
-    <div class="section-1080">
+    <div class="layout--1080">
         <?php
             echo $heading ? '<h2 class="featured-cards__heading" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic">'.$heading.'</h2>' : '';
             echo $content ? '<div class="featured-cards__copy" data-aos="smooth-slide-up" data-aos-delay="350" data-aos-duration="450" data-aos-easing="cubic">'.$content.'</div>' : '';
