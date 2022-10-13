@@ -19,7 +19,7 @@ if( $display):
 $delay = 200;
 ?>
 <section id="<?php echo $section_id?>" class="two-col-block section-h-padding color-brand-primary <?php echo $background && $background != 'white' ? 'two-col-block--'.$background.' two-col-block--padding-'.$padding  : 'section-v-margin' ;?>      ">
-    <div class="section-<?php echo $column_width?>">
+    <div class="layout--<?php echo $column_width?>">
         <?php if($has_header): ?>
         <div class="two-col-block__header centered two-col-block__header--<?php echo $pre_heading || $sub_heading ? 'full' : 'single' ;?>" data-aos="fade" data-aos-delay="'.$delay.'" data-aos-duration="500" data-aos-easing="cubic">
             <?php
