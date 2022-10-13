@@ -3,8 +3,10 @@ $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'image-copy-'.r
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
 $vertical_alignment = isset($args['data']['vertical_alignment']) ? $args['data']['vertical_alignment'] : 'center';
 $spacing_class = isset($args['data']['spacing_class']) ? $args['data']['spacing_class'] : 'center';
+$additional_classes = isset($args['data']['additional_classes']) ? $args['data']['additional_classes'] : '';
+$heading_tag = isset($args['data']['heading_tag']) ? $args['data']['heading_tag'] : 'h2';
 $heading = isset($args['data']['heading']) ? $args['data']['heading'] : null;
-$heading_size = isset($args['data']['heading_size']) ? $args['data']['heading_size'] : null;
+$sub_heading_tag = isset($args['data']['sub_heading_tag']) ? $args['data']['sub_heading_tag'] : 'h4';
 $sub_heading = isset($args['data']['sub_heading']) ? $args['data']['sub_heading'] : null;
 $image = isset($args['data']['image']) ? $args['data']['image'] : null;
 $image_tile = isset($args['data']['image_tile']) ? $args['data']['image_tile'] : null;
@@ -55,7 +57,7 @@ endif;
 if( $display):
 ?>
 
-<section id="<?php echo $section_id?>" class="image-copy <?php echo $text_color; ?> <?php echo ($image_mobile_pos == 'top') ? ' image-copy__mobile-top' : ''; ?> image-copy--align-<?php echo $vertical_alignment;?> <?php echo $image_tile ? 'image-copy--has-tile' : '';?> image-copy--image-<?php echo $image_alignment.' image-copy--'.$spacing_class;?>">
+<section id="<?php echo $section_id?>" class="image-copy <?php echo $text_color; ?> <?php echo ($image_mobile_pos == 'top') ? ' image-copy__mobile-top' : ''; ?> image-copy--align-<?php echo $vertical_alignment;?> <?php echo $image_tile ? 'image-copy--has-tile' : '';?> image-copy--image-<?php echo $image_alignment.' image-copy--'.$spacing_class;?><?php echo $additional_classes != '' ? ' '.$additional_classes : '';?>">
     <div class="image-copy__columns layout--1440 <?php echo $extend_class; ?>">
     <?php 
     if($image_mobile_pos == 'top'): ?>
@@ -63,9 +65,8 @@ if( $display):
             <?php 
                 echo $image ? '<div class="mobile__img"><img loading="lazy" src="'.$image_url.'" alt=""></div>' : '';
                 echo '<div class="mobile__content">';
-                    // echo $heading ? '<h2 class="image-copy__heading">'.$heading.'</h2>' : '';
-                    echo $heading ? ($heading_size ? '<h4 class="image-copy__heading">'.$heading.'</h4>' : '<h2 class="image-copy__heading">'.$heading.'</h2>' ) : '';
-                    echo $sub_heading ? '<h4 class="image-copy__sub-heading">'.$sub_heading.'</h4>' : '';
+                    echo $heading ? '<'.$heading_tag.' class="image-copy__heading">'.$heading.'</'.$heading_tag.'>' : '';
+                    echo $sub_heading ? '<'.$sub_heading_tag.' class="image-copy__sub-heading">'.$sub_heading.'</'.$sub_heading_tag.'>' : '';
                     echo $content ? '<div class="image-copy__copy">'.$content.'</div>' : '';
                     echo $cta ? '<a href="'.$cta['url'].'" target="'.( isset($cta['target']) ? $cta['target'] : '_self' ).'" class="button '. $button_color .'">'.$cta['title'].'</a>' : '';   
                 echo '</div>';
@@ -75,9 +76,8 @@ if( $display):
         <div class="mobile">
             <?php
 
-            echo $heading ? ($heading_size ? '<h4 class="image-copy__heading">'.$heading.'</h4>' : '<h2 class="image-copy__heading">'.$heading.'</h2>' ) : '';
-
-            echo $sub_heading ? '<h4 class="image-copy__sub-heading">'.$sub_heading.'</h4>' : '';
+            echo $heading ? '<'.$heading_tag.' class="image-copy__heading">'.$heading.'</'.$heading_tag.'>' : '';
+            echo $sub_heading ? '<'.$sub_heading_tag.' class="image-copy__sub-heading">'.$sub_heading.'</'.$sub_heading_tag.'>' : '';
             echo $image ? '<img loading="lazy" src="'.$image_url.'" alt="">' : '';
             echo $content ? '<div class="image-copy__copy">'.$content.'</div>' : '';
             echo $cta ? '<a href="'.$cta['url'].'" target="'.( isset($cta['target']) ? $cta['target'] : '_self' ).'" class="button '. $button_color .'">'.$cta['title'].'</a>' : '';   
@@ -99,15 +99,10 @@ if( $display):
         }   
         ?>
         <div class="desktop image-copy__content">
-            <?php
-
-            if($heading_size && $heading):
-                echo $heading ? '<h4 class="image-copy__heading" data-aos="smooth-slide-up" data-aos-delay="200" data-aos-duration="300" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$heading.'</h4>' : '';
-            else:
-                echo $heading ? '<h2 class="image-copy__heading" data-aos="smooth-slide-up" data-aos-delay="200" data-aos-duration="300" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$heading.'</h2>' : '';
-            endif;
+            <?php            
+            echo $heading ? '<'.$heading_tag.' class="image-copy__heading" data-aos="smooth-slide-up" data-aos-delay="200" data-aos-duration="300" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$heading.'</'.$heading_tag.'>' : '';
             
-            echo $sub_heading ? '<h4 class="image-copy__sub-heading" data-aos="smooth-slide-up" data-aos-delay="300" data-aos-duration="300" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$sub_heading.'</h4>' : '';
+            echo $sub_heading ? '<'.$sub_heading_tag.' class="image-copy__sub-heading" data-aos="smooth-slide-up" data-aos-delay="300" data-aos-duration="300" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$sub_heading.'</'.$sub_heading_tag.'>' : '';
             echo $content ? '<div class="image-copy__copy" data-aos="fade" data-aos-delay="450" data-aos-duration="600" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$content.'</div>' : '';
             echo $cta ? '<a href="'.$cta['url'].'" target="'.( isset($cta['target']) ? $cta['target'] : '_self' ).'" class="button '. $button_color .'"" data-aos="smooth-slide-up" data-aos-delay="500" data-aos-duration="300" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$cta['title'].'</a>' : '';  
             ?>

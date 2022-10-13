@@ -508,6 +508,19 @@
         h4.image-copy__sub-heading {
             font-weight:600; // increase font weight when header font size is reduced via ACF
         }
+        &.image-copy--wide-content {
+            .image-copy__image {
+                width: 41.66666666666667%;
+            }
+            .image-copy__content {
+                width: 58.333333333333336%;
+            }
+            &.image-copy--image-right {
+                & .image-copy__content {
+                    padding-right: 20px;
+                }
+            }  
+        }
     }
     @media screen and (min-width:767px) and (max-width:1440px){
         &.image-copy--image-right {

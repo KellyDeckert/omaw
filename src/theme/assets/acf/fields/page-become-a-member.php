@@ -207,6 +207,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'cta-info_heading',
                 'type' => 'text',
             ), 
+            /*
             array(
                 'key' => 'become-member-page__cta-info_heading_size',
                 'label' => 'Heading Size',
@@ -214,6 +215,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'type' => 'true_false',
                 'message' => 'Use a reduced header size (h4). Default is an h2.'
             ), 
+            */
             array(
                 'key' => 'become-member-page__cta-info_sub_heading',
                 'label' => 'Sub Heading',
