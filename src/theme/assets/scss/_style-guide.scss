@@ -94,6 +94,13 @@ html {
             padding-left:15px;
         }
     }
+    sup {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: .25em;
+        font-size: clamp(8px, .5em, .5em);
+        line-height: 1em;
+    }
     ul:not(.menu):not(.sub-menu):not(.social-media-list):not(.arrow-marker-list):not(.mdc-list) {
         padding-left:30px;
         li {

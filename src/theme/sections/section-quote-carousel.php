@@ -6,7 +6,7 @@ if( $display):
 ?>
 
 <section class="quote-carousel section-h-padding section-v-margin color-brand-primary">
-    <div class="section-1080" data-aos="smooth-slide-up" data-aos-delay="350" data-aos-duration="600" data-aos-easing="cubic">
+    <div class="layout--1080" data-aos="smooth-slide-up" data-aos-delay="350" data-aos-duration="600" data-aos-easing="cubic">
 
         <?php if($items): ?>
         <!-- Slider main container -->

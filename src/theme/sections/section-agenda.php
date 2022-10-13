@@ -7,10 +7,10 @@ $items = isset($args['data']['items']) ? $args['data']['items'] : null;
 if( $display):
 ?>
 <section id="<?php echo $section_id?>" class="agenda centered section-h-padding section-v-margin color-brand-primary">
-    <div class="section-1080" data-aos="smooth-slide-up" data-aos-delay="200" data-aos-duration="750" data-aos-easing="cubic">
+    <div class="layout--1080" data-aos="smooth-slide-up" data-aos-delay="200" data-aos-duration="750" data-aos-easing="cubic">
         <?php
         if($heading || $content){
-            echo '<div class="section-860">';
+            echo '<div class="layout--860">';
                 echo $heading ? '<h2 class="agenda__heading">'.$heading.'</h2>' : '';
                 echo $content ? '<h4 class="agenda__copy font-light">'.$content.'</h4>' : '';
             echo '</div>';

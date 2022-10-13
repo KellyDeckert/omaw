@@ -15,7 +15,7 @@ $youtube_video_id = isset($args['data']['youtube_video_id']) ? $args['data']['yo
 if( $display):
 ?>
 <section id="<?php echo $section_id?>" class="event-summaries section-v-padding section-h-padding color-brand-primary">
-    <div class="section-1080">
+    <div class="layout--1080">
         <?php
         echo $heading ? '<h2 class="event-summaries__heading" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic">'.$heading.'</h2>' : '';
         ?>
