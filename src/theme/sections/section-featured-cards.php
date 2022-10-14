@@ -18,14 +18,22 @@ if( $display):
 
                 echo '<div class="featured-cards__cards cards desktop" data-aos="smooth-slide-up" data-aos-delay="450" data-aos-duration="600" data-aos-easing="cubic">';
                 foreach( $items as $post ): 
-                    get_template_part( 'snippets/card');
+                    get_template_part('snippets/card',null,array(
+                        'data' => array(
+                            'layout' => 'image-top'
+                        )
+                    ));
                 endforeach;
                 wp_reset_postdata();
                 echo '</div>';
             
                 echo '<div class="featured-cards__cards swiper cards '.( $cta ? 'cards--cta-after' : '' ).' mobile"><div class="swiper-wrapper">';
                 foreach( $items as $post ): 
-                    get_template_part( 'snippets/card');
+                    get_template_part('snippets/card',null,array(
+                        'data' => array(
+                            'layout' => 'image-top'
+                        )
+                    ));
                 endforeach;
                 wp_reset_postdata();
                 echo '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div>';

@@ -258,7 +258,7 @@ function initCardSlider() {
       cardSlider = new Swiper(".swiper.cards.mobile", {
         direction: "horizontal",
         slidesPerView: "auto",
-		autoHeight: true,
+		autoHeight: false,
         navigation: {
 			nextEl: ".swiper-button-next",
 			prevEl: ".swiper-button-prev",
