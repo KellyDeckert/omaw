@@ -1,8 +1,12 @@
 <?php
 
 $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'our-story-'.rand();
-$section_name = isset($args['data']['name']) ? $args['data']['name'] : $section_id;
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
+
+$jump_menu = isset($args['data']['jump_menu']) ? $args['data']['jump_menu'] : '';
+$section_menu_on = isset($jump_menu['menu-display']) ? $jump_menu['menu-display'] : '';
+$section_name = isset($jump_menu['menu-name']) ? $jump_menu['menu-name'] : '';
+
 $image = isset($args['data']['image']) ? $args['data']['image'] : true;
 $image_tile = isset($args['data']['image_tile']) ? $args['data']['image_tile'] : true;
 $label = isset($args['data']['label']) ? $args['data']['label'] : true;
@@ -16,7 +20,7 @@ if( $image['mime_type'] == 'image/png' ){
 if( $display):
 ?>
 
-<section id="<?php echo $section_id?>" data-quicklink-name="<?php echo $section_name; ?>" class="content-story extend-bg color-brand-primary">
+<section id="<?php echo $section_id?>" data-quicklink-on="<?php echo $section_menu_on; ?>" data-quicklink-name="<?php echo $section_name; ?>" class="content-story extend-bg color-brand-primary">
     <div class="content-story__columns">
         <div class="content-story__content" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="500" data-aos-easing="cubic">
 

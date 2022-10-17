@@ -42,14 +42,18 @@ array(
   'label' => 'Display',
   'name' => 'blue-cta_display',
   'type' => 'true_false',
-  'message' => 'Check to display this CTA'
+  'ui' => 1,
+  'ui_on_text' => 'Show this section',
+  'ui_off_text' => 'Hide this section',
 ),
 array(
   'key' => 'about__blue-cta_extend',
   'label' => 'Extend Background Color',
   'name' => 'blue-cta_extend',
   'type' => 'true_false',
-  'message' => 'Check to hide the block of color below this section doot'
+  'ui' => 1,
+  'ui_on_text' => 'Hide extended background color',
+  'ui_off_text' => 'Show extended background color',
 ),
 array(
   'key' => 'about__blue-cta_heading',
@@ -78,12 +82,19 @@ array(
   'type' => 'tab',
 ),
 array(
+  'key' => 'about__jump-links_msg',
+  'name' => 'jump-links_msg',
+  'type' => 'message',
+  'message' => 'The links in this menu are dynamically generated. To modify the name in the menu or disable a link, edit the Jump Menu Section in each tab. Hidden sections are not included in the menu.',
+),
+array(
   'key' => 'about__jump-links_display',
   'label' => 'Display',
   'name' => 'jump-links_display',
   'type' => 'true_false',
-  'instructions' => 'The links in the menu are dynamically generated. To modify the name in the menu, edit the Jump Menu Section Name in each tab.',
-  'message' => 'Check to display this quick menu.'
+  'ui' => 1,
+  'ui_on_text' => 'Show jump link menu',
+  'ui_off_text' => 'Hide jump link menu',
 ),
 
 
@@ -99,13 +110,36 @@ array(
     'label' => 'Display',
     'name' => 'story_display',
     'type' => 'true_false',
-    'message' => 'Check to display this section'
+    'ui' => 1,
+    'ui_on_text' => 'Show this section',
+    'ui_off_text' => 'Hide this section',
   ),
   array(
-    'key' => 'about__story_name',
-    'label' => 'Jump Menu Section Name',
-    'name' => 'story_name',
-    'type' => 'text',
+    'key' => 'about__story__jump_menu',
+    'label' => 'Jump Links Menu',
+    'name' => 'story_jump_menu',
+    'type' => 'group',
+    'layout' => 'block',
+    'instructions' => 'A hidden section is automatically removed from the Jump Link Menu.',
+    'sub_fields' => array(
+      array(
+        'key' => 'about_story_menu_display',
+        'label' => 'Display',
+        'name' => 'menu-display',
+        'type' => 'true_false',
+        'ui' => 1,
+        'ui_on_text' => 'Jump Menu Link On',
+        'ui_off_text' => 'Jump Menu Link Off',
+      ),
+      array(
+        'key' => 'about_story_menu_name',
+        'label' => 'Jump Menu Button Name',
+        'instructions' => 'The name of this section as it should appear in the jump menu.',
+        'name' => 'menu-name',
+        'type' => 'text',
+        'placeholder' => 'Our Story',
+      ),
+    ),
   ),
   array(
     'key' => 'about__story_image',
@@ -147,7 +181,7 @@ array(
     'label' => 'Overlay Content',
     'name' => 'story_overlay_content',
     'type' => 'wysiwyg',
-    'toolbar' => 'basic',
+    'toolbar' => 'full',
     'media_upload' => 0,
   ),
     
@@ -164,13 +198,36 @@ array(
     'label' => 'Display',
     'name' => 'quote__display',
     'type' => 'true_false',
-    'message' => 'Check to display this quote section'
+    'ui' => 1,
+    'ui_on_text' => 'Show this section',
+    'ui_off_text' => 'Hide this section',
   ),
   array(
-    'key' => 'about__quote__name',
-    'label' => 'Jump Menu Section Name',
-    'name' => 'quote__name',
-    'type' => 'text',
+    'key' => 'about__quote__jump_menu',
+    'label' => 'Jump Links Menu',
+    'name' => 'quote__jump_menu',
+    'type' => 'group',
+    'layout' => 'block',
+    'instructions' => 'A hidden section is automatically removed from the Jump Link Menu.',
+    'sub_fields' => array(
+      array(
+        'key' => 'about_quote_menu_display',
+        'label' => 'Display',
+        'name' => 'menu-display',
+        'type' => 'true_false',
+        'ui' => 1,
+        'ui_on_text' => 'Jump Menu Link On',
+        'ui_off_text' => 'Jump Menu Link Off',
+      ),
+      array(
+        'key' => 'about_quote_menu_name',
+        'label' => 'Jump Menu Button Name',
+        'instructions' => 'The name of this section as it should appear in the jump menu.',
+        'name' => 'menu-name',
+        'type' => 'text',
+        'placeholder' => 'Our Beliefs',
+      ),
+    ),
   ),
   array(
     'key' => 'about__quote__image',
@@ -198,7 +255,7 @@ array(
     'name' => 'quote__organization',
     'type' => 'text',
   ),
-/*  VALUES
+/*  VALUES - CARD SCROLLER
 ============================= */
   array(
     'key' => 'about__scrolling-cards__tab',
@@ -210,13 +267,36 @@ array(
     'label' => 'Display',
     'name' => 'scrolling-cards__display',
     'type' => 'true_false',
-    'message' => 'Check to display this quote section'
+    'ui' => 1,
+    'ui_on_text' => 'Show this section',
+    'ui_off_text' => 'Hide this section',
   ),
   array(
-    'key' => 'about__scrolling-cards__name',
-    'label' => 'Jump Menu Section Name',
-    'name' => 'scrolling-cards__name',
-    'type' => 'text',
+    'key' => 'about__scrolling-cards__jump_menu',
+    'label' => 'Jump Links Menu',
+    'name' => 'scrolling-cards__jump_menu',
+    'type' => 'group',
+    'layout' => 'block',
+    'instructions' => 'A hidden section is automatically removed from the Jump Link Menu.',
+    'sub_fields' => array(
+      array(
+        'key' => 'about_scrolling-cards_menu_display',
+        'label' => 'Display',
+        'name' => 'menu-display',
+        'type' => 'true_false',
+        'ui' => 1,
+        'ui_on_text' => 'Jump Menu Link On',
+        'ui_off_text' => 'Jump Menu Link Off',
+      ),
+      array(
+        'key' => 'about_scrolling-cards_menu_name',
+        'label' => 'Jump Menu Button Name',
+        'instructions' => 'The name of this section as it should appear in the jump menu.',
+        'name' => 'menu-name',
+        'type' => 'text',
+        'placeholder' => 'Our Values',
+      ),
+    ),
   ),
   array(
     'key' => 'about__scrolling-cards__heading',
@@ -262,7 +342,9 @@ array(
   'label' => 'Display',
   'name' => 'yellow-cta__display',
   'type' => 'true_false',
-  'message' => 'Check to display this CTA'
+  'ui' => 1,
+  'ui_on_text' => 'Show this section',
+  'ui_off_text' => 'Hide this section',
 ),
 array(
   'key' => 'about__yellow-cta__heading',

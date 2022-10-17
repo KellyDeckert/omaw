@@ -445,16 +445,25 @@ function initJumpLinkMenu() {
 		var section_name;
 		
 		sections.forEach( function (section, index) {
-			if(section.dataset.quicklinkName){
-				section_name = section.dataset.quicklinkName;
-			} else {
-				section_name = section.id.replace(/[^a-zA-Z ]/g, " ");
-			}
-			var menu_item = '<li class="menu-item" id="' + section.id + "-" + (index + 1) + '"><a href="#' + section.id + '" class="menu-item-anchor nav__link">' + section_name + '</a></li>';
-			var mobile_menu_item = '<li class="mdc-list-item mdc-ripple-upgraded" data-value="' + section.id + '"><a class="mdc-list-item__text" href="#' + section.id + '">' + section_name + '</a></li>';
+
+			var display = section.dataset.quicklinkOn;
 			
-			menu_links += menu_item;
-			mobile_links += mobile_menu_item;
+			if(display && display == true){
+				
+				if(section.dataset.quicklinkName){
+					section_name = section.dataset.quicklinkName;
+				} else {
+					section_name = section.id.replace(/[^a-zA-Z ]/g, " ");
+				}
+				var menu_item = '<li class="menu-item" id="' + section.id + "-" + (index + 1) + '"><a href="#' + section.id + '" class="menu-item-anchor nav__link">' + section_name + '</a></li>';
+				var mobile_menu_item = '<li class="mdc-list-item mdc-ripple-upgraded" data-value="' + section.id + '"><a class="mdc-list-item__text" href="#' + section.id + '">' + section_name + '</a></li>';
+				
+				menu_links += menu_item;
+				mobile_links += mobile_menu_item;
+				
+			}
+
+
 		});
 
 		menu.innerHTML = menu_links;

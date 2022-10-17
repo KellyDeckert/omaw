@@ -1,8 +1,12 @@
 <?php
 
 $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'quote-carousel-'.rand();
-$section_name = isset($args['data']['name']) ? $args['data']['name'] : $section_id;
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
+
+$jump_menu = isset($args['data']['jump_menu']) ? $args['data']['jump_menu'] : '';
+$section_menu_on = isset($jump_menu['menu-display']) ? $jump_menu['menu-display'] : '';
+$section_name = isset($jump_menu['menu-name']) ? $jump_menu['menu-name'] : '';
+
 $image = isset($args['data']['image']) ? $args['data']['image'] : true;
 // $mobile_image = isset($args['data']['mobile_image']) ? $args['data']['mobile_image'] : true;
 $quote = isset($args['data']['quote']) ? $args['data']['quote'] : true;
@@ -13,10 +17,12 @@ if( $image['mime_type'] == 'image/png' ){
     $image_url = $image['url'];
 }
 
+if ($display):
+
 ?>
 
 
-<section class="quote-single layout--1080" id="<?php echo $section_id?>" data-quicklink-name="<?php echo $section_name; ?>">
+<section class="quote-single layout--1080" id="<?php echo $section_id?>" data-quicklink-on="<?php echo $section_menu_on; ?>" data-quicklink-name="<?php echo $section_name; ?>">
     <div class="quote-single__inner">
         <div class="quote-single__content">
             <?php 
@@ -33,3 +39,5 @@ if( $image['mime_type'] == 'image/png' ){
         echo $image ? '' : '';?>
     </div>
 </section>
+
+<?php endif; ?>

@@ -43,7 +43,7 @@ get_header();
             'data'  => array(
                 'id' => 'our-story',
                 'display' => get_field('story_display'),
-                'name' => get_field('story_name'),
+                'jump_menu' => get_field('story_jump_menu'),
                 'image' => get_field('story_image'),
                 'image_tile' => get_field('story_image_tile'),
                 'alt' => get_field('story_image_alt'),
@@ -60,7 +60,7 @@ get_header();
             'data'  => array(
                 'id' => 'single-quote',
                 'display' => get_field('quote__display'),
-                'name' => get_field('quote__name'),
+                'jump_menu' => get_field('quote__jump_menu'),
                 'quote' => get_field('quote__quote'),
                 'title' => get_field('quote__title'),
                 'organization' => get_field('quote__organization'),
@@ -74,7 +74,7 @@ get_header();
             'data'  => array(
                 'id' => 'values',
                 'display' => get_field('scrolling-cards__display'),
-                'name' => get_field('scrolling-cards__name'),
+                'jump_menu' => get_field('scrolling-cards__jump_menu'),
                 'heading' => get_field('scrolling-cards__heading'),
                 'card_heading' => get_field('scroller__heading'),
                 'card_content' => get_field('scroller__content'),

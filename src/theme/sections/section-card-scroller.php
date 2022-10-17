@@ -1,7 +1,11 @@
 <?php
 $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'card-scroller-'.rand();
-$section_name = isset($args['data']['name']) ? $args['data']['name'] : $section_id;
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
+
+$jump_menu = isset($args['data']['jump_menu']) ? $args['data']['jump_menu'] : '';
+$section_menu_on = isset($jump_menu['menu-display']) ? $jump_menu['menu-display'] : '';
+$section_name = isset($jump_menu['menu-name']) ? $jump_menu['menu-name'] : '';
+
 $heading = isset($args['data']['heading']) ? $args['data']['heading'] : true;
 
 $card_heading = isset($args['data']['card_heading']) ? $args['data']['card_heading'] : true;
@@ -9,7 +13,7 @@ $card_content = isset($args['data']['card_content']) ? $args['data']['card_conte
 
 if( $display):?>
 
-<section class="card-scroller" id="<?php echo $section_id?>" data-quicklink-name="<?php echo $section_name; ?>">
+<section class="card-scroller" id="<?php echo $section_id?>" data-quicklink-on="<?php echo $section_menu_on; ?>" data-quicklink-name="<?php echo $section_name; ?>">
     <div class="card-scroller__inner layout--1080">
         <div class="card-scroller__col card-scroller__title">
             <?php

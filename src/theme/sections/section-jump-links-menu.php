@@ -7,7 +7,8 @@ if( $display):
     <div class="quick-links__inner layout--1080 desktop">
         <ul class="quick-links__menu menu">
 
-            <!-- These links are dynamically added by looking for Sections with IDs on the page. The Name of the menu can be edited via each ACF tab in the WP Admin  -->
+            <!-- These links are dynamically added by looking for Sections with IDs on the page. 
+            The Name of the menu can be edited via each ACF tab in the WP Admin  -->
 
         </ul>
     </div>
