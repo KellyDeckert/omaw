@@ -314,10 +314,40 @@ header {
                 display:block;
             }
         }
-        #mobile-menu .mobile-drawer {
-            max-width:70vw;
-            margin-left:auto;
-            margin-right:auto;
+        #mobile-menu .mobile {
+            &-drawer {
+                &__content {
+                    margin-left:auto;
+                    margin-right:auto;
+                    max-width:75%;
+                }
+                .menu {
+                    max-height:revert;
+    
+                    display: grid; 
+                    grid-template-columns: 1fr 1fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 0px 0px; 
+                    grid-template-areas: 
+                      "Left-Col-Top Right-Col"
+                      "Left-Col-Bottom Right-Col"; 
+                }
+            }
+            &-col {
+                &-left {
+                    padding-right:calc(60/16 * 1em);
+                    &.mobile-pos-1 {
+                        grid-area: Left-Col-Top;
+                    }
+                    &.mobile-pos-3 {
+                        grid-area: Left-Col-Bottom;
+                    }
+                }
+                &-right {
+                    grid-area: Right-Col;
+                    padding-left:calc(60/16 * 1em);
+                }
+            }
         }
     }
 }
