@@ -376,6 +376,7 @@ header {
             &-col {
                 &-left {
                     padding-right:calc(60/16 * 1em);
+                    width:100%;
                     &.mobile-pos-1 {
                         grid-area: Left-Col-Top;
                     }
@@ -389,6 +390,7 @@ header {
                 &-right {
                     grid-area: Right-Col;
                     padding-left:calc(60/16 * 1em);
+                    width:100%;
                 }
             }
         }
