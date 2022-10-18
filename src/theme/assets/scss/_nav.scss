@@ -274,6 +274,7 @@ header {
 // tablets
 @media screen and (min-width:768px){
     header {
+        padding:calc(24/16 * 1em) calc(40/16 * 1em);
         .responsive-font-size {
             font-size: 2.083333333333333vw;
         }
@@ -338,6 +339,9 @@ header {
                     padding-right:calc(60/16 * 1em);
                     &.mobile-pos-1 {
                         grid-area: Left-Col-Top;
+                    }
+                    &.mobile-pos-2 {
+                        align-self: end;
                     }
                     &.mobile-pos-3 {
                         grid-area: Left-Col-Bottom;
