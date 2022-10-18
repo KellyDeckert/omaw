@@ -130,6 +130,12 @@ if (function_exists('acf_add_local_field_group')) :
         'media_upload' => 0,
       ),
       array(
+        'key' => 'gf__block_1_statement_cta',
+        'label' => 'Statement Link',
+        'name' => 'block_1_statement_cta',
+        'type' => 'link',
+      ), 
+      array(
         'key' => 'gf__block_1_content',
         'label' => 'Content',
         'name' => 'block_1_content',

@@ -218,6 +218,16 @@ html {
             transition:.3s all ease-in-out;
         }
     }
+    p, ul, ol {
+        a:not(.button) {
+            color: $brand-secondary;
+            &:hover,
+            &:focus,
+            &:active {
+                color:$brand-secondary-accent;
+            }            
+        }
+    }
 
 /*  BUTTONS
     ============================= */

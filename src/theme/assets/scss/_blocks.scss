@@ -2313,6 +2313,7 @@ details {
     summary {
         position: relative;
         list-style: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
         svg {
             margin: 0;
             display: block;
