@@ -8,7 +8,7 @@ $content = isset($args['data']['content']) ? $args['data']['content'] : null;
 $cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
 if( $display):
 ?>
-<section id="<?php echo $section_id?>" class="yellow-cta section-h-padding color-brand-primary <?php echo $full_width ? 'yellow-cta--full-width' : '';?>"
+<section id="<?php echo $section_id?>" class="yellow-cta section-h-padding color-brand-primary section-v-margin<?php echo $full_width ? 'yellow-cta--full-width' : '';?>"
 <?php echo $full_width ? '' : 'data-aos="smooth-slide-up" data-aos-delay="350" data-aos-duration="450" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'"';?>
 >
     <div class="yellow-cta__banner layout--1080">

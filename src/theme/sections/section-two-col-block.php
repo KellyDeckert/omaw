@@ -46,8 +46,9 @@ $delay = 200;
                 }
                 echo $statement ? $statement : ''; 
                 if($statement_cta){
+                    $cta_classes = $background == 'dark-blue' ? 'button button--accent button--accent-light' : 'button button--secondary';
                     $delay += 200;
-                    echo '<a href="'.$statement_cta['url'].'" target="'.( isset($statement_cta['target']) ? $statement_cta['target'] : '_self' ).'" class="button button--secondary" data-aos="fade" data-aos-delay="650" data-aos-duration="450" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$statement_cta['title'].'</a>'; 
+                    echo '<a href="'.$statement_cta['url'].'" target="'.( isset($statement_cta['target']) ? $statement_cta['target'] : '_self' ).'" class="'.$cta_classes.'" data-aos="fade" data-aos-delay="650" data-aos-duration="450" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$statement_cta['title'].'</a>'; 
                     $delay += 500;
                 } else {
                     $delay += 500;
