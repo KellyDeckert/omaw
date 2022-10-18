@@ -148,7 +148,7 @@ header {
                         flex-wrap: wrap;
                         list-style-type: none;
                         margin: 0;
-                        max-height: 560px;
+                        max-height: 720px;
                         padding: 0;
                         width: 100%;
                         &-item-has-children {
@@ -156,6 +156,7 @@ header {
                                 flex:1 1 auto;
                             }
                             > .menu-item-link {
+                                color:$brand-primary;
                                 display:inline-block;
                                 font-size:18px;
                                 font-size:calc(18/16 * 1em);
@@ -173,6 +174,11 @@ header {
                         list-style-type:none;
                         .menu-item {
                             padding-left:0;
+                            &.wrap {
+                                .menu-item-link {
+                                    line-height:1.5em;
+                                }
+                            }
                             &-link {
                                 color:$brand-primary;
                                 display:inline-block;
@@ -188,14 +194,18 @@ header {
                 }
                 &-col {
                     &-left {
-                        padding-right:27px;
+                        padding-right:calc(27/16 * 1em);
                         border-right: 3px solid $brand-secondary-accent;
+                        width: 50%;
+                        word-wrap: break-word;
                     }
                     &-right {
                         border-left: 3px solid gold;
                         left: -3px;
-                        padding-left: 27px;
+                        padding-left: calc(27/16 * 1em);
                         position: relative;
+                        width: 50%;
+                        word-wrap: break-word;
                     }
                 }
                 &-pos {
@@ -274,6 +284,7 @@ header {
 // tablets
 @media screen and (min-width:768px){
     header {
+        padding:calc(24/16 * 1em) calc(40/16 * 1em);
         .responsive-font-size {
             font-size: 2.083333333333333vw;
         }
@@ -312,6 +323,73 @@ header {
         .header {
             &__inner {
                 display:block;
+            }
+        }
+        #mobile-menu .mobile {
+            &-drawer {
+                .menu {
+                    
+                }
+            }
+            &-col {
+                &-left {
+                    // padding-right:calc(30/16 * 1em);
+                    // &.mobile-pos-1 {
+                    //     grid-area: Left-Col-Top;
+                    // }
+                    // &.mobile-pos-2 {
+                    //     align-self: end;
+                    // }
+                    // &.mobile-pos-3 {
+                    //     grid-area: Left-Col-Bottom;
+                    // }
+                }
+                &-right {
+                    // grid-area: Right-Col;
+                    // padding-left:calc(60/16 * 1em);
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
+(min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
+    header {
+        #mobile-menu .mobile {
+            &-drawer {
+                &__content {
+                    margin-left:auto;
+                    margin-right:auto;
+                    max-width:75%;
+                }
+                .menu {
+                    max-height:revert;
+                    display: grid; 
+                    grid-template-columns: 1fr 1fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 0px 0px; 
+                    grid-template-areas: 
+                      "Left-Col-Top Right-Col"
+                      "Left-Col-Bottom Right-Col"; 
+                }
+            }
+            &-col {
+                &-left {
+                    padding-right:calc(60/16 * 1em);
+                    &.mobile-pos-1 {
+                        grid-area: Left-Col-Top;
+                    }
+                    &.mobile-pos-2 {
+                        align-self: end;
+                    }
+                    &.mobile-pos-3 {
+                        grid-area: Left-Col-Bottom;
+                    }
+                }
+                &-right {
+                    grid-area: Right-Col;
+                    padding-left:calc(60/16 * 1em);
+                }
             }
         }
     }

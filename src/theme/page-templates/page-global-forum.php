@@ -28,6 +28,7 @@ get_template_part( 'sections/section-two-col-block', null,
             'heading' => get_field('block_1_heading'),
             'sub_heading' => get_field('block_1_sub_heading'),
             'statement' => get_field('block_1_statement'),
+            'statement_cta' => get_field('block_1_statement_cta'),
             'content' => get_field('block_1_content'),
         )
     ) 
