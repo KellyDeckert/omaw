@@ -312,10 +312,17 @@ footer {
                 padding-bottom:60px;
             }
             &__nav {
-                flex: 1 1 60%;
+                flex: 1 1 auto;
                 .menu {
-                    flex-direction:row;
-                    justify-content:space-between;
+                    // flex-direction:row;
+                    // justify-content:space-between;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr calc(210/840 * 100%);
+                    grid-template-rows: 1fr;
+                    gap: 0px 60px;
+                    grid-auto-flow: row;
+                    max-width:840px;
+                    width:100%;
                     .menu-item {
                         &-has-children {
                             margin-bottom:0;
@@ -323,9 +330,18 @@ footer {
                                 display:block;
                                 font-weight:600;
                                 margin-bottom:16px;
+                                padding-right: 0;
                                 &:after {
                                     display:none;
                                 }
+                            }
+                        }
+                        &.menu-button {
+                            a.menu-item-link {
+                                text-align: center;
+                                padding-left: 0;
+                                padding-right:0;
+                                width: 100%;
                             }
                         }
                     }
