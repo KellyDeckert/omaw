@@ -173,6 +173,11 @@ header {
                         list-style-type:none;
                         .menu-item {
                             padding-left:0;
+                            &.wrap {
+                                .menu-item-link {
+                                    line-height:1.5em;
+                                }
+                            }
                             &-link {
                                 color:$brand-primary;
                                 display:inline-block;
@@ -188,14 +193,18 @@ header {
                 }
                 &-col {
                     &-left {
-                        padding-right:27px;
+                        padding-right:calc(27/16 * 1em);
                         border-right: 3px solid $brand-secondary-accent;
+                        width: 50%;
+                        word-wrap: break-word;
                     }
                     &-right {
                         border-left: 3px solid gold;
                         left: -3px;
-                        padding-left: 27px;
+                        padding-left: calc(27/16 * 1em);
                         position: relative;
+                        width: 50%;
+                        word-wrap: break-word;
                     }
                 }
                 &-pos {
@@ -317,6 +326,36 @@ header {
         }
         #mobile-menu .mobile {
             &-drawer {
+                .menu {
+                    
+                }
+            }
+            &-col {
+                &-left {
+                    // padding-right:calc(30/16 * 1em);
+                    // &.mobile-pos-1 {
+                    //     grid-area: Left-Col-Top;
+                    // }
+                    // &.mobile-pos-2 {
+                    //     align-self: end;
+                    // }
+                    // &.mobile-pos-3 {
+                    //     grid-area: Left-Col-Bottom;
+                    // }
+                }
+                &-right {
+                    // grid-area: Right-Col;
+                    // padding-left:calc(60/16 * 1em);
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
+(min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
+    header {
+        #mobile-menu .mobile {
+            &-drawer {
                 &__content {
                     margin-left:auto;
                     margin-right:auto;
@@ -324,7 +363,6 @@ header {
                 }
                 .menu {
                     max-height:revert;
-    
                     display: grid; 
                     grid-template-columns: 1fr 1fr; 
                     grid-template-rows: 1fr 1fr; 
