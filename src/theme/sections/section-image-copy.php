@@ -1,6 +1,11 @@
 <?php
 $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'image-copy-'.rand();
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
+
+$jump_menu = isset($args['data']['jump_menu']) ? $args['data']['jump_menu'] : '';
+$section_menu_on = isset($jump_menu['menu-display']) ? $jump_menu['menu-display'] : '';
+$section_name = isset($jump_menu['menu-name']) ? $jump_menu['menu-name'] : '';
+
 $vertical_alignment = isset($args['data']['vertical_alignment']) ? $args['data']['vertical_alignment'] : 'center';
 $spacing_class = isset($args['data']['spacing_class']) ? $args['data']['spacing_class'] : 'center';
 $additional_classes = isset($args['data']['additional_classes']) ? $args['data']['additional_classes'] : '';
@@ -57,9 +62,11 @@ endif;
 if( $display):
 ?>
 
-<section id="<?php echo $section_id?>" class="image-copy <?php echo $text_color; ?> <?php echo ($image_mobile_pos == 'top') ? ' image-copy__mobile-top' : ''; ?> image-copy--align-<?php echo $vertical_alignment;?> <?php echo $image_tile ? 'image-copy--has-tile' : '';?> image-copy--image-<?php echo $image_alignment.' image-copy--'.$spacing_class;?><?php echo $additional_classes != '' ? ' '.$additional_classes : '';?>">
+<section id="<?php echo $section_id?>" 
+    class="image-copy <?php echo $text_color; ?> <?php echo ($image_mobile_pos == 'top') ? ' image-copy__mobile-top' : ''; ?> image-copy--align-<?php echo $vertical_alignment;?> <?php echo $image_tile ? 'image-copy--has-tile' : '';?> image-copy--image-<?php echo $image_alignment.' image-copy--'.$spacing_class;?><?php echo $additional_classes != '' ? ' '.$additional_classes : '';?>" 
+    data-quicklink-on="<?php echo $section_menu_on; ?>" data-quicklink-name="<?php echo $section_name; ?>">
     <div class="image-copy__columns layout--1440 <?php echo $extend_class; ?>">
-    <?php 
+        <?php 
     if($image_mobile_pos == 'top'): ?>
         <div class="mobile">
             <?php 
@@ -72,7 +79,7 @@ if( $display):
                 echo '</div>';
             ?>
         </div>
-    <?php else: ?>
+        <?php else: ?>
         <div class="mobile">
             <?php
 
@@ -83,9 +90,9 @@ if( $display):
             echo $cta ? '<a href="'.$cta['url'].'" target="'.( isset($cta['target']) ? $cta['target'] : '_self' ).'" class="button '. $button_color .'">'.$cta['title'].'</a>' : '';   
             ?>
         </div>
-    
-    <?php endif; ?>
-        
+
+        <?php endif; ?>
+
 
         <?php 
         if($image){
@@ -106,7 +113,7 @@ if( $display):
             echo $content ? '<div class="image-copy__copy" data-aos="fade" data-aos-delay="450" data-aos-duration="600" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$content.'</div>' : '';
             echo $cta ? '<a href="'.$cta['url'].'" target="'.( isset($cta['target']) ? $cta['target'] : '_self' ).'" class="button '. $button_color .'"" data-aos="smooth-slide-up" data-aos-delay="500" data-aos-duration="300" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$cta['title'].'</a>' : '';  
             ?>
-        </div>        
+        </div>
     </div>
 </section>
 <?php endif; ?>

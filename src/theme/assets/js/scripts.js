@@ -266,7 +266,7 @@ function initCardSlider() {
       });
     }
   } else if (init) {
-    cardSlider.destroy();
+    // mobileCardsSlider.destroy();
     init = false;
   }
 }
@@ -416,8 +416,8 @@ function initValueCardSlider() {
 		});
 	  }
 	} else if (init) {
-	  valueSlider.destroy();
-	  init = false;
+		// valueCardsSlider.destroy();
+	  	init = false;
 	}
   }
   

@@ -6,38 +6,59 @@ get_header();
 
 <div class="responsive-font-size">
 
-    <div class="section-placeholder on-hold">
-        <h2>Hero + Static Image</h2>
-    </div>
-
     <?php
+
+    get_template_part( 'sections/section-page-hero', null,
+        array( 
+            'data'  => array(
+                'display' => get_field('hero_display'),
+                'heading' => get_field('hero_heading'),
+                'sub_heading' => get_field('hero_sub_heading'),
+                'content' => get_field('hero_content'),
+                'image' => get_field('hero_image'),
+                // 'items' => get_field('hero_items'),
+            )
+        ) 
+    );
+
     get_template_part( 'sections/section', 'blue-cta-right', 
-    array( 
-        'data'  => array(
-            'id' => 'upcoming-event',
-            'display' => get_field('blue-cta_display'),
-            'extend' => get_field('blue-cta_extend'),
-            'heading' => get_field('blue-cta_heading'),
-            'sub_heading' => get_field('blue-cta_sub_heading'),
-            'cta' => get_field('blue-cta_link')
-        )
-    ) 
+        array( 
+            'data'  => array(
+                'id' => 'upcoming-event',
+                'display' => get_field('blue-cta_display'),
+                'extend' => get_field('blue-cta_extend'),
+                'heading' => get_field('blue-cta_heading'),
+                'sub_heading' => get_field('blue-cta_sub_heading'),
+                'cta' => get_field('blue-cta_link')
+            )
+        ) 
     );
 
     get_template_part( 'sections/section','jump-links-menu', 
-    array( 
-        'data'  => array(
-            'display' => get_field('jump-links_display'),
+        array( 
+            'data'  => array(
+                'display' => get_field('jump-links_display'),
+            )
         )
-    )
     );
-    ?>
 
-    <div class="section-placeholder on-hold">
-        <h2>Two Column Copy Block</h2>
-    </div>
+    get_template_part( 'sections/section-two-col-block', null,
+        array( 
+            'data'  => array(
+                'column_width' => '1080',
+                'id' => 'mission',
+                'display' => get_field('mission_display'),
+                'jump_menu' => get_field('mission_jump_menu'),
+                'background' => get_field('mission_background'),
+                'pre_heading' => get_field('mission_pre_heading'),
+                'heading' => get_field('mission_heading'),
+                'sub_heading' => get_field('mission_sub_heading'),
+                'statement' => get_field('mission_statement'),
+                'content' => get_field('mission_content'),
+            )
+        ) 
+    );
 
-    <?php 
     get_template_part( 'sections/section','our-story-content', 
         array( 
             'data'  => array(
@@ -81,13 +102,26 @@ get_header();
             )
         )
     );
-    ?>
 
-    <div class="section-placeholder on-hold">
-        <h2>Image Float Left</h2>
-    </div>
+    get_template_part( 'sections/section-image-copy', null,
+        array( 
+            'data'  => array(
+                'id' => 'leadership',
+                'display' => get_field('leadership_display'),
+                'jump_menu' => get_field('leadership_jump_menu'),
+                'vertical_alignment' => get_field('leadership_vertical_alignment'),
+                'image_alignment' => get_field('leadership_image_alignment'),
+                'spacing_class' => get_field('leadership_spacing'),
+                'image' => get_field('leadership_image'),
+                'image_tile' => get_field('leadership_image_tile'),
+                'heading' => get_field('leadership_heading'),
+                'sub_heading' => get_field('leadership_sub_heading'),
+                'content' => get_field('leadership_content'),
+                'cta' => get_field('leadership_cta_link')
+            )
+        ) 
+    );
 
-    <?php 
     get_template_part( 'sections/section','yellow-cta-w-img', 
         array( 
             'data'  => array(

@@ -1,6 +1,11 @@
 <?php
 $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'two-col-block-'.rand();
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
+
+$jump_menu = isset($args['data']['jump_menu']) ? $args['data']['jump_menu'] : '';
+$section_menu_on = isset($jump_menu['menu-display']) ? $jump_menu['menu-display'] : '';
+$section_name = isset($jump_menu['menu-name']) ? $jump_menu['menu-name'] : '';
+
 $background = isset($args['data']['background']) ? $args['data']['background'] : null;
 $pre_heading = isset($args['data']['pre_heading']) ? $args['data']['pre_heading'] : null;
 $heading = isset($args['data']['heading']) ? $args['data']['heading'] : null;
@@ -18,10 +23,13 @@ $has_header = $pre_heading || $sub_heading || $heading;
 if( $display):
 $delay = 200;
 ?>
-<section id="<?php echo $section_id?>" class="two-col-block section-h-padding color-brand-primary <?php echo $background && $background != 'white' ? 'two-col-block--'.$background.' two-col-block--padding-'.$padding  : 'section-v-margin' ;?>      ">
+<section id="<?php echo $section_id?>"
+    class="two-col-block section-h-padding color-brand-primary <?php echo $background && $background != 'white' ? 'two-col-block--'.$background.' two-col-block--padding-'.$padding  : 'section-v-margin' ;?>" 
+    data-quicklink-on="<?php echo $section_menu_on; ?>" data-quicklink-name="<?php echo $section_name; ?>">
     <div class="layout--<?php echo $column_width?>">
         <?php if($has_header): ?>
-        <div class="two-col-block__header centered two-col-block__header--<?php echo $pre_heading || $sub_heading ? 'full' : 'single' ;?>" data-aos="fade" data-aos-delay="'.$delay.'" data-aos-duration="500" data-aos-easing="cubic">
+        <div class="two-col-block__header centered two-col-block__header--<?php echo $pre_heading || $sub_heading ? 'full' : 'single' ;?>"
+            data-aos="fade" data-aos-delay="'.$delay.'" data-aos-duration="500" data-aos-easing="cubic">
             <?php
             if($pre_heading){
                 echo '<h5 class="two-col-block__pre-heading" data-aos="zoom-out" data-aos-delay="'.$delay.'" data-aos-duration="350" data-aos-easing="cubic">'.$pre_heading.'</h5>';
@@ -39,8 +47,9 @@ $delay = 200;
         </div>
         <?php endif; ?>
         <div class="two-col-block__columns desktop-narrow-cols">
-            <div class="two-col-block__statement" data-aos="smooth-slide-left" data-aos-delay="<?php echo $delay;?>" data-aos-duration="750" data-aos-easing="cubic" data-aos-anchor="#<?php echo $section_id?>">
-            <?php 
+            <div class="two-col-block__statement" data-aos="smooth-slide-left" data-aos-delay="<?php echo $delay;?>"
+                data-aos-duration="750" data-aos-easing="cubic" data-aos-anchor="#<?php echo $section_id?>">
+                <?php 
                 if($statement_image){
                     echo '<img class="two-col-block__statement-logo" loading="lazy" src="'.$statement_image_url.'" alt="'.$statement_image['alt'].'">'; 
                 }
@@ -54,8 +63,9 @@ $delay = 200;
                 }
             ?>
             </div>
-            <div class="two-col-block__content" data-aos="fade" data-aos-delay="<?php echo $delay;?>" data-aos-duration="600" data-aos-easing="cubic" data-aos-anchor="#<?php echo $section_id?>">
-            <?php echo $content ? $content : ''; ?>
+            <div class="two-col-block__content" data-aos="fade" data-aos-delay="<?php echo $delay;?>"
+                data-aos-duration="600" data-aos-easing="cubic" data-aos-anchor="#<?php echo $section_id?>">
+                <?php echo $content ? $content : ''; ?>
             </div>
         </div>
         <?php

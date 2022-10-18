@@ -17,8 +17,11 @@
 html {
     scroll-behavior: smooth;
 
-    @media (max-width: 767px) and (orientation: portrait) {
+    @media screen and (max-width: 767px) and (orientation: portrait) {
         scroll-padding-top:80px;
+    }
+    @media not screen and (max-width: 767px) and (orientation: portrait) {
+        scroll-padding-top:120px;
     }
 }
 
