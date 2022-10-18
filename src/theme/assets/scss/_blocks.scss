@@ -1972,6 +1972,10 @@
                     }
                 }
             }
+            @media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
+            (min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
+                margin-left:3.75em;
+            }
         }
         @media not screen and (max-width: 767px) and (orientation: portrait){
             border-bottom: thin solid $line-grey;
