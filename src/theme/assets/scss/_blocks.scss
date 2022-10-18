@@ -1856,7 +1856,11 @@
                 width:50%;
             }
             &__heading {
-                position:sticky;
+                position: -webkit-sticky;
+                position: -moz-sticky;
+                position: -o-sticky;
+                position: -ms-sticky;
+                position: sticky;
                 top:140px;
             }
             &__nav {
@@ -1864,8 +1868,8 @@
             }
         }
         @media screen and (min-width: 767px) and (max-width:1080px) {
-            padding-left:calc(20/12 * 1em);
-            padding-right:calc(20/12 * 1em);
+            padding-left:3.75em;
+            padding-right:3.75em;
         }
         @media screen and (max-width: 767px) and (orientation: portrait){
             padding: calc(60/16 * 1em) 0;
