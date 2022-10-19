@@ -10,6 +10,7 @@ get_template_part( 'sections/section-page-hero', null,
             'heading' => get_field('hero_heading'),
             'sub_heading' => get_field('hero_sub_heading'),
             'items' => get_field('hero_items'),
+            'border_bottom' => get_field('cta_display') ? false : true
         )
     ) 
 );
@@ -17,6 +18,7 @@ get_template_part( 'sections/section-page-hero', null,
 get_template_part( 'sections/section-blue-cta-right', null,
     array( 
         'data'  => array(
+            'aos_anchor' => 'hero',
             'id' => 'upcoming-event',
             'display' => get_field('cta_display'),
             'heading' => get_field('cta_heading'),

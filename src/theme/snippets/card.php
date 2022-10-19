@@ -26,7 +26,7 @@ echo '<div class="card'.($layout ? ' card--'.$layout : '').' card--'.$type.' swi
         echo '</picture>';
     }
     // posts have bylines
-    echo $type == 'post' ? '<p class="card__byline paragraph--xs uppercase"><strong>'.$date.' | '.$author.'</strong></p>' : '';
+    echo $type == 'post' ? '<p class="card__byline paragraph--xs uppercase"><strong>'.$date.'</strong></p>' : '';
     // all posts have titles
     echo '<h5 class="card__name">';
         echo $has_link ? '<a '.$link_content.'>' : '' ;

@@ -13,11 +13,27 @@
             }
             &.mobile {
                 .card {
-                    width: 75%;
-                    margin-left: 20px;
                     height: auto;
+                    width: 75%;
+                }
+            }
+        }
+        @media screen and (max-width: 767px) and (orientation: portrait){
+            &.mobile {
+                .card {
+                    margin-left: 20px;
                     &:last-child {
                         margin-right: 20px;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: 767px) and (orientation: landscape){
+            &.mobile {
+                .card {
+                    margin-right: 20px;
+                    &:last-child {
+                        margin-right: 0;
                     }
                 }
             }
