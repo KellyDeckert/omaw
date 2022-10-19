@@ -76,6 +76,7 @@ $logos = get_field('member_logos');
                     'content' => get_field('cta-info_content'),
                     'cta' => get_field('cta-info_cta_link'),
                     'bg_color' => get_field('cta-info_bg-color'),
+                    'bg_color_location' => get_field('cta-info_bg-color-location')
                 )
             )
         );

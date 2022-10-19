@@ -20,47 +20,52 @@ if( $image['mime_type'] == 'image/png' ){
 }
 
 $bg_color = isset($args['data']['bg_color']) ? $args['data']['bg_color'] : null;
+$bg_color_location = isset($args['data']['bg_color_location']) ? $args['data']['bg_color_location'] : 'section';
 $text_color = 'color-brand-primary';
 $button_color = 'button--alt';
-$extend = false;
-$extend_class = '';
-$extend_color = '';
+
 switch($bg_color){
     case '#010F3A':
         $text_color = 'color-bg-dark';
         $button_color = 'button--alt button--alt-invert';
-        $extend = true;
-        $extend_color = 'bg-color-on bg-brand-primary';
+        $bg_color_class = 'bg-brand-primary';
         break;
     case '#016FB9':
-        $extend = true;
-        $extend_color = 'bg-color-on bg-brand-secondary';
+        $bg_color_class = 'bg-brand-secondary';
         break;
     case '#F4F4F4':
-        $extend = true;
-        $extend_color = 'bg-color-on bg-brand-neutral-light';
+        $bg_color_class = 'bg-brand-neutral-light';
         break;
     case '#C3D7D9':
-        $extend = true;
-        $extend_color = 'bg-color-on bg-brand-neutral-dark';
+        $bg_color_class = 'bg-brand-neutral-dark';
         break;
     case '#FECA30':
-        $extend = true;
-        $extend_color = 'bg-color-on bg-brand-secondary-accent';
+        $bg_color_class = 'bg-brand-secondary-accent';
         break;
 }
-if($extend != false):
-    $extend_class = ($image_alignment == 'left') ? 'extend-bg extend-bg--right' : 'extend-bg';
-    $extend_class .=  ' ' . $extend_color;
-endif;
+
+
+$section_classes = $bg_color_class;
+$section_classes .= ' image-copy--bg-'.$bg_color_location;
+$section_classes .= ' '.$text_color;
+$section_classes .= $image_mobile_pos == 'top' ? ' image-copy__mobile-top' : '';
+$section_classes .= ' image-copy--align-'.$vertical_alignment;
+$section_classes .= $image_tile ? ' image-copy--has-tile' : '' ;
+$section_classes .= ' image-copy--image-'.$image_alignment;
+$section_classes .= ' image-copy--'.$spacing_class;
+$section_classes .= $additional_classes != '' ? ' '.$additional_classes : '';
 
 if( $display):
 ?>
 
-<section id="<?php echo $section_id?>" class="image-copy <?php echo $text_color; ?> <?php echo ($image_mobile_pos == 'top') ? ' image-copy__mobile-top' : ''; ?> image-copy--align-<?php echo $vertical_alignment;?> <?php echo $image_tile ? 'image-copy--has-tile' : '';?> image-copy--image-<?php echo $image_alignment.' image-copy--'.$spacing_class;?><?php echo $additional_classes != '' ? ' '.$additional_classes : '';?>">
-    <div class="image-copy__columns layout--1440 <?php echo $extend_class; ?>">
-    <?php 
-    if($image_mobile_pos == 'top'): ?>
+<section id="<?php echo $section_id?>" 
+    class="image-copy <?php echo $section_classes;?>" 
+    data-quicklink-on="<?php echo $section_menu_on; ?>" data-quicklink-name="<?php echo $section_name; ?>"
+    data-aos="fade" data-aos-delay="100" data-aos-duration="400" data-aos-easing="cubic"
+    >
+    <div class="image-copy__columns layout--1440">
+        <?php 
+        if($image_mobile_pos == 'top'): ?>
         <div class="mobile">
             <?php 
                 echo $image ? '<div class="mobile__img"><img loading="lazy" src="'.$image_url.'" alt=""></div>' : '';
@@ -83,14 +88,10 @@ if( $display):
             echo $cta ? '<a href="'.$cta['url'].'" target="'.( isset($cta['target']) ? $cta['target'] : '_self' ).'" class="button '. $button_color .'">'.$cta['title'].'</a>' : '';   
             ?>
         </div>
-    
-    <?php endif; ?>
-        
-
+        <?php endif; ?>
         <?php 
         if($image){
-            $bg_fill = ($bg_color != null) ? 'fill-bg' : '' ;
-            echo '<div data-color="'.$bg_color.'" class="desktop image-copy__image '.$bg_fill.'" data-aos="smooth-slide-'.( $image_alignment == 'left' ? 'right' : 'left').'" data-aos-delay="100" data-aos-duration="350">';
+            echo '<div data-color="'.$bg_color.'" class="desktop image-copy__image" data-aos="smooth-slide-'.( $image_alignment == 'left' ? 'right' : 'left').'" data-aos-delay="100" data-aos-duration="350">';
                 echo $image_tile ? '<div class="image-copy__image-wrapper">' : '';
                     echo $image ? '<img loading="lazy" src="'.$image_url.'" alt="'.$image['alt'].'">' : ''; 
                     echo $image_tile ? '<span class="image-copy__image-tile" style="background-image:url('.$image_tile['url'].');"></span>' : ''; 
