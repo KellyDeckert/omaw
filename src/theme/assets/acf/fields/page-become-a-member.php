@@ -144,6 +144,17 @@ if (function_exists('acf_add_local_field_group')) :
                 'ui' => 1
             ),
             array(
+                'key' => 'become-member-page__cta-info_bg_color_location',
+                'label' => 'Background Color Location',
+                'name' => 'cta-info_bg-color-location',
+                'type' => 'select',
+                'choices' => array(
+                    'section' => 'Whole section',
+                    'content' => 'Content Column',
+                ),
+                'default_value' => 'section',
+            ),
+            array(
                 'key' => 'become-member-page__cta-info_spacing',
                 'label' => 'Section top and bottom spacing',
                 'name' => 'cta-info_spacing',

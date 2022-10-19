@@ -376,26 +376,21 @@
     .button {
         margin-top: 20px;
     }
-    &__image.fill-bg {
-        background-color:#fff;
-    }
-    &__columns {
-        &.bg-brand {
-            &-primary {
-                background-color:$brand-primary;
-            }
-            &-secondary {
-                background-color:$brand-secondary;
-            }
-            &-neutral-light {
-                background-color:$brand-neutral-light;
-            }
-            &-neutral-dark {
-                background-color:$brand-neutral-dark;
-            }
-            &-secondary-accent {
-                background-color:$brand-secondary-accent;
-            }
+    &.image-copy--bg-section {
+        &.bg-brand-primary {
+            background-color:$brand-primary;
+        }
+        &.bg-brand-secondary {
+            background-color:$brand-secondary;
+        }
+        &.bg-brand-neutral-light {
+            background-color:$brand-neutral-light;
+        }
+        &.bg-brand-neutral-dark {
+            background-color:$brand-neutral-dark;
+        }
+        &.bg-brand-secondary-accent {
+            background-color:$brand-secondary-accent;
         }
     }
     @media screen and (max-width: 767px) and (orientation: portrait){
@@ -424,15 +419,39 @@
         }
         &.image-copy__mobile-top {
             .mobile {
-                .mobile__img {
-                    background-color:#fff;
-                }
                 .mobile__content {
                     padding:calc(32/16 * 1em);
                 }
             }
             padding-left:0;
             padding-right:0;
+        }
+        &.image-copy--bg-content {
+            &.bg-brand-primary {
+                &.image-copy__mobile-top .mobile .mobile__content{
+                    background-color:$brand-primary;
+                }
+            }
+            &.bg-brand-secondary {
+                &.image-copy__mobile-top .mobile .mobile__content{
+                    background-color:$brand-secondary;
+                }
+            }
+            &.bg-brand-neutral-light {
+                &.image-copy__mobile-top .mobile .mobile__content{
+                    background-color:$brand-neutral-light;
+                }
+            }
+            &.bg-brand-neutral-dark {
+                &.image-copy__mobile-top .mobile .mobile__content{
+                    background-color:$brand-neutral-dark;
+                }
+            }
+            &.bg-brand-secondary-accent {
+                &.image-copy__mobile-top .mobile .mobile__content{
+                    background-color:$brand-secondary-accent;
+                }
+            }
         }
     }
     @media not screen and (max-width: 767px) and (orientation: portrait){
@@ -453,11 +472,7 @@
             align-items: flex-end;
         }
         &__image {
-            width: 44.05555555555556%;
-            &.fill-bg {
-                padding-top:calc(40/16 * 1em);
-                padding-bottom:calc(40/16 * 1em);
-            }
+            width: 43.05555555555556%;
         }
         &__image-wrapper {
             position: relative;
@@ -473,6 +488,59 @@
         &__content {
             width: 56.94444444444444%;
         }
+        &.image-copy--bg-content {
+            .image-copy__columns {
+                position: relative;
+            }
+            .image-copy__content {
+                padding-top: 2.5em;
+                padding-bottom: 2.5em;
+                & > * {
+                    position: relative;
+                    z-index: 1;
+                }
+                &::before, &::after {
+                    position: absolute;
+                    z-index: 0;
+                    content: '';
+                }
+                &::before {
+                    top: 0;
+                    bottom: 0;
+                    width: 100vw;
+                }
+                &::after {
+                    top: 0;
+                    bottom: 0;
+                    width: 56.94444444444444%;
+                }
+            }
+            &.bg-brand-primary {
+                .image-copy__content::before, .image-copy__content::after {
+                    background-color:$brand-primary;
+                }
+            }
+            &.bg-brand-secondary {
+                .image-copy__content::before, .image-copy__content::after {
+                    background-color:$brand-secondary;
+                }
+            }
+            &.bg-brand-neutral-light {
+                .image-copy__content::before, .image-copy__content::after {
+                    background-color:$brand-neutral-light;
+                }
+            }
+            &.bg-brand-neutral-dark {
+                .image-copy__content::before, .image-copy__content::after {
+                    background-color:$brand-neutral-dark;
+                }
+            }
+            &.bg-brand-secondary-accent {
+                .image-copy__content::before, .image-copy__content::after {
+                    background-color:$brand-secondary-accent;
+                }
+            }
+        }
         &.image-copy--image-left {
             & .image-copy__content {
                 padding-left: 6.25%;
@@ -481,6 +549,16 @@
             .image-copy__image-tile {
                 right: 100%;
             }
+            &.image-copy--bg-content {
+                .image-copy__content {
+                    &::before {
+                        left: 100%;
+                    }
+                    &::after {
+                        right: 0;
+                    }
+                }
+            } 
         }
         &.image-copy--image-right {
             .image-copy__image {
@@ -493,6 +571,16 @@
             }
             .image-copy__image-tile {
                 left: 100%;
+            }
+            &.image-copy--bg-content {
+                .image-copy__content {
+                    &::before {
+                        right: 100%;
+                    }
+                    &::after {
+                        left: 0;
+                    }
+                }
             }
         }
         & > div {
