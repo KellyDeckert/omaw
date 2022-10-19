@@ -1,4 +1,5 @@
 <?php
+$section_id = isset($args['data']['id']) ? $args['data']['id'] : 'hero';
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
 $heading = isset($args['data']['heading']) ? $args['data']['heading'] : null;
 $sub_heading = isset($args['data']['sub_heading']) ? $args['data']['sub_heading'] : null;
@@ -6,6 +7,7 @@ $content = isset($args['data']['content']) ? $args['data']['content'] : null;
 $items = isset($args['data']['items']) ? $args['data']['items'] : null;
 $image = isset($args['data']['image']) ? $args['data']['image'] : null;
 $image_url = isset($image['sizes']) ? $image['sizes']['750x'] : null;
+$border_bottom = $args['data']['border_bottom'] == true ?  true : false;
 
 $hero_class = '';
 if($image){
@@ -13,10 +15,11 @@ if($image){
 } elseif ($items){
     $hero_class = 'hero--items';
 } 
+$hero_class .= $border_bottom ? ' hero--border-bottom' : '' ;
 
 if( $display):
 ?>
-<section class="hero color-brand-primary <?php echo $hero_class;?>">
+<section id="<?php echo $section_id;?>" class="hero color-brand-primary <?php echo $hero_class;?>">
     <div class="hero__columns">
         <div class="hero__content">
             <?php

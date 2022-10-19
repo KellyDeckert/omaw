@@ -230,7 +230,7 @@ if( quoteSliderElement ){
 				direction: 'horizontal',
 				autoHeight: true
 			},
-			768: {
+			568: {
 				direction: 'vertical',
 			}
 		},

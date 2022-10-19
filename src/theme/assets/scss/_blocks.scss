@@ -243,6 +243,9 @@
     .hero__copy {
         margin-top: 1em;
     }
+    &--border-bottom {
+        border-bottom: 4px solid $brand-neutral-dark;
+    }
     @media screen and (max-width: 767px) and (orientation: portrait){
         &.hero--image {
             padding: 1.875em 0 5em 0;
@@ -341,6 +344,11 @@
             }
             .hero__image {
                 transform: translateX(-20%);
+            }
+        }
+        &__animated-subject {
+            figcaption {
+                padding-left: 1em;
             }
         }
     }
@@ -1173,7 +1181,8 @@
             display: block;
         }
     }
-    @media screen and (max-width: 767px) and (orientation: portrait){
+    // @media screen and (max-width: 767px) and (orientation: portrait){
+    @media screen and (max-width: 567px){
         .quote-slider__slide-inner {
             flex-direction: column;
         }
@@ -1189,14 +1198,15 @@
             padding-left: 1.5em;
         }
     }
-    @media not screen and (max-width: 767px) and (orientation: portrait){
-        padding-bottom: 40.3225%;
+    // @media not screen and (max-width: 767px) and (orientation: portrait){
+    @media screen and (min-width: 568px){
+        padding-bottom: 70%;
         .quote-slider__slide-inner {
             padding-left: 11.574074074074074%;
             height: 100%;
         }
         .quote-slider__image {
-            width: 34.55497382198953%;
+            width: 40%;
         }
         .quote-slider__content {
             display: flex;
@@ -1205,14 +1215,24 @@
             justify-content: center;
             align-items: flex-start;
             flex: 1 0 auto;
-            width: 65.44502617801047%;
-            padding-right: 3.125em;
+            width: 60%;
+            padding-right: 1.25em;
         }
         .quote-slider__author {
             padding-left: 2.444em;
         }
         .quote-slider__slides {
             position: absolute;
+        }
+    }
+    @media screen and (min-width: 1024px){
+        padding-bottom: 40.3225%;
+        .quote-slider__image {
+            width: 34.55497382198953%;
+        }
+        .quote-slider__content {
+            width: 65.44502617801047%;
+            padding-right: 3.125em;
         }
     }
     @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {

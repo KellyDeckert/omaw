@@ -57,7 +57,7 @@
             background-color: $brand-primary;
             color: #fff;
         }
-        @media screen and (max-width: 767px) and (orientation: portrait){
+        @media screen and (max-width: 567px) {
             .swiper-pagination {
                 bottom: 2em;
                 width: auto;
@@ -82,7 +82,7 @@
                 }
             }
         }
-        @media not screen and (max-width: 767px) and (orientation: portrait){
+        @media screen and (min-width: 568px){
             .swiper-pagination {
                 left: 2.5em;
                 right: auto;
