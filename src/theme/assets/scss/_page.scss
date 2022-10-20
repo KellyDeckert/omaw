@@ -110,11 +110,16 @@
     }
 }
 
-
 .member-exp {
     @media screen and (min-width:768px) and (max-width: 1080px){
         .header-simple-yellow .header-simple-yellow__inner.layout--1440 {
             max-width: 95%;
         }
+    }
+}
+
+.leadership {
+    section.leadership-team.section-v-padding {
+        padding-bottom:0;
     }
 }
