@@ -244,6 +244,15 @@ footer {
     }
 }
 
+// ipad Mini portrait
+
+@media screen and (min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
+    footer {
+        background-position: right -20px bottom 90px;
+        background-size:contain;
+    }
+}
+
 // tablets
 @media screen and (min-width:768px){
     footer {

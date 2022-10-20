@@ -339,7 +339,7 @@ header {
                     // }
                     // &.mobile-pos-2 {
                     //     align-self: end;
-                    // }
+                    // }f
                     // &.mobile-pos-3 {
                     //     grid-area: Left-Col-Bottom;
                     // }
@@ -353,7 +353,7 @@ header {
     }
 }
 @media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
-(min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
+(min-width:768px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
     header {
         #mobile-menu .mobile {
             &-drawer {
