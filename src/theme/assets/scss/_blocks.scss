@@ -2748,3 +2748,18 @@ details {
             }
         }
     }
+
+/*  Leadership Team Row
+    ============================= */
+    .leadership-team {
+        &__wrapper {
+            margin-top:calc(40/16 * 1em);
+        }
+        @media screen and (max-width: 767px) and (orientation: portrait){}
+        @media not screen and (max-width: 767px) and (orientation: portrait){
+            &__copy {
+                max-width:calc(750/1080 * 100%);
+                width:100%;
+            }
+        }
+    }

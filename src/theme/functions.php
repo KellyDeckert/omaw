@@ -460,3 +460,19 @@ function dashesToCamelCase($string, $capitalizeFirstCharacter = false)
     }
     return $str;
 }
+
+/* ACF Admin Style Modifications */
+function my_acf_admin_head() {
+    ?>
+    <style type="text/css">
+
+		/* reduce default height on Leadership page */
+		.acf-field-leadership--sections .acf-editor-wrap iframe {
+			height:auto !important;
+		}
+
+    </style>
+    <?php
+}
+
+add_action('acf/input/admin_head', 'my_acf_admin_head');
