@@ -11,7 +11,7 @@ if( $display):
 ?>
 
 <section class="content-carousel section-h-padding color-brand-primary">
-    <div class="section-1080">
+    <div class="layout--1080">
         <div class="content-carousel-header">
             <?php
 

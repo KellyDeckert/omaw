@@ -1217,16 +1217,53 @@
                 }
                 .swiper-pagination {
                     left:0;
-                    top:36%;
+                    // top:0;
+                    // transform:none;
                 }
             }
         }
-        @media screen and (min-resolution:192dpi),
-        (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
-        (min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait),
-        (min-width:375px) and (max-width:744px){
-            .content-carousel .content-slider .swiper.content-slider__slides {
+        // @media screen and (min-resolution:192dpi),
+        // (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
+        // (min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait),
+        // (min-width:375px) and (max-width:744px){
+        //     .content-slider .swiper.content-slider__slides {
+        //         max-height:32vh;
+        //     }
+        // }
+        @media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
+        (min-width:768px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait) {
+            .content-slider {
+                padding-top: 0;
+                .swiper-pagination {
+                    left: 0;
+                }
+                &__slide,
+                &__content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+        @media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape) {
+            .content-slider .content-slider__slides.swiper {
+                max-height:40vw;
+            }
+        }
+        @media screen and (min-width:768px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait) {
+            .content-slider .content-slider__slides.swiper {
                 max-height:32vh;
+            }
+        }
+        // small desktop - monitors only
+        @media screen and (min-width:960px) and (-webkit-device-pixel-ratio:1),
+        (min-width:1440px) and (max-height:900px) and (max-resolution:192dpi){
+            .content-slider {
+                .swiper-pagination {
+                    left: 0;
+                    top:0;
+                    transform:none;
+                }
             }
         }
     }
@@ -2797,7 +2834,6 @@ details {
                     &--cta {
                         display: flex;
                         flex-direction: column;
-                        justify-content: flex-end;
                         .grid-card-single__heading {
                             padding-bottom:0;
                         }
