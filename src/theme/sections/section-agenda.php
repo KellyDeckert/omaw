@@ -30,17 +30,19 @@ if( $display):
                         );
                     echo '</div>';
                 endforeach;
-                echo '<div class="tabs__nav">';
-                    echo '<button class="tabs__nav-prev-button disabled" data-tabs="'.$section_id.'-tabs" data-index="prev">';
+
+                echo '<div class="pagination">';
+                    echo '<button class="pagination__prev-button disabled" data-tabs="'.$section_id.'-tabs" data-index="prev">';
                     get_template_part( 'snippets/icon-left-arrow');
                     echo '</button>';
                     foreach( $items as $key => $item ):
-                        echo '<button class="tabs__nav-tab-button'.($key == 0 ? ' tabs__nav-tab-button--active' : '').'" data-tabs="'.$section_id.'-tabs" data-index="'.$key.'">Day '.($key + 1).'</button>';
+                        echo '<button class="pagination__button '.($key == 0 ? '  pagination__button--active' : '').'" data-tabs="'.$section_id.'-tabs" data-index="'.$key.'">Day '.($key + 1).'</button>';
                     endforeach;
-                    echo '<button class="tabs__nav-next-button" data-tabs="'.$section_id.'-tabs" data-index="next">';
+                    echo '<button class="pagination__next-button" data-tabs="'.$section_id.'-tabs" data-index="next">';
                     get_template_part( 'snippets/icon-left-arrow');
                     echo '</button>';
-                echo '</div>';            
+                echo '</div>';    
+                        
             echo '</div>';
 
         }
