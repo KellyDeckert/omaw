@@ -48,6 +48,7 @@ function theme_scripts() {
 	wp_enqueue_script( 'aos.js', get_template_directory_uri() . '/assets/js/aos.js', false, null, true);
 	wp_enqueue_script( 'chart.js', get_template_directory_uri() . '/assets/js/chart.min.js', false, null, true);
 	wp_enqueue_script( 'waypoints', get_template_directory_uri() . '/assets/js/noframework.waypoints.min.js', false, null, true);
+	wp_enqueue_script( 'custom-select', get_template_directory_uri() . '/assets/js/custom-select', false, null, true);
 	wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/scripts.js', false, filemtime(get_stylesheet_directory() .'/assets/js/scripts.js'), true );
 	wp_enqueue_script( 'bundle', get_template_directory_uri() . '/bundle.js', false, filemtime(get_stylesheet_directory() .'/bundle.js'), true );
 }
@@ -162,6 +163,7 @@ function get_excerpt($source,$limit=0){
 
 // CUSTOM POST TYPES
 function register_post_types() {
+	
 	/**
 	 * Post Type: Videos.
 	*/
@@ -192,40 +194,7 @@ function register_post_types() {
 			'publish_posts'      => 'update_core',
 			'read_private_posts' => 'update_core'
 		),
-		'has_archive' => true,
-	);
-	register_post_type( 'videos',$args);
-		/**
-	 * Post Type: Videos.
-	*/
-	$labels = array(
-		'name' => _x('Videos', 'post type general name'),
-		'singular_name' => _x('Video', 'post type singular name'),
-		'add_new' => _x('Add New', 'Video'),
-		'add_new_item' => __('Add New Video'),
-		'edit_item' => __('Edit Video'),
-		'new_item' => __('New Video'),
-		'view_item' => __('View Video'),
-		'search_items' => __('Search Videos'),
-		'not_found' =>  __('No Video found'),
-		'not_found_in_trash' => __('No Video found in Trash'),
-		'parent_item_colon' => ''
-	);
-	$supports = array('title', 'editor','excerpt');
-	$args = array(
-		'labels' => $labels,
-		'public' => true,
-		'supports' => $supports,
-		'capabilities' => array(
-			'edit_post'          => 'update_core',
-			'read_post'          => 'update_core',
-			'delete_post'        => 'update_core',
-			'edit_posts'         => 'update_core',
-			'edit_others_posts'  => 'update_core',
-			'publish_posts'      => 'update_core',
-			'read_private_posts' => 'update_core'
-		),
-		'has_archive' => true,
+		'has_archive' => false,
 	);
 	register_post_type( 'videos',$args);
 
@@ -296,14 +265,126 @@ function register_post_types() {
 			'publish_posts'      => 'update_core',
 			'read_private_posts' => 'update_core'
 		),
-		'has_archive' => true,
+		'has_archive' => false,
+		'publicly_queryable' => false,
 		'rewrite' => array(
 			'slug' => 'speakers'
 		)
 	);
 	register_post_type( 'speakers',$args);
+
+	/**
+	 * Post Type: Members.
+	*/
+	$labels = array(
+		'name' => _x('Members', 'post type general name'),
+		'singular_name' => _x('Member', 'post type singular name'),
+		'add_new' => _x('Add New', 'Member'),
+		'add_new_item' => __('Add New Member'),
+		'edit_item' => __('Edit Member'),
+		'new_item' => __('New Member'),
+		'view_item' => __('View Member'),
+		'search_items' => __('Search Members'),
+		'not_found' =>  __('No Member found'),
+		'not_found_in_trash' => __('No Member found in Trash'),
+		'parent_item_colon' => ''
+	);
+	$supports = array('title', 'editor','excerpt','thumbnail');
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'supports' => $supports,
+		'capabilities' => array(
+			'edit_post'          => 'update_core',
+			'read_post'          => 'update_core',
+			'delete_post'        => 'update_core',
+			'edit_posts'         => 'update_core',
+			'edit_others_posts'  => 'update_core',
+			'publish_posts'      => 'update_core',
+			'read_private_posts' => 'update_core'
+		),
+		'has_archive' => false,
+		'publicly_queryable' => false
+	);
+	register_post_type( 'members',$args);
+
 }
 add_action( 'init', 'register_post_types' );
+
+
+// CUSTOM TAXONOMIES
+function register_taxonomies() {
+	
+	/**
+	 * Taxonomy: Member Industry.
+	 */
+	$labels = array(
+		"name" => __( "Industry", "" ),
+		"singular_name" => __( "Industry", "" ),
+		'add_new' => _x('Add New', 'Industry'),
+		'add_new_item' => __('Add New Industry'),
+		'edit_item' => __('Edit Industry'),
+		'new_item' => __('New Industry'),
+		'view_item' => __('View Industry'),
+		'search_items' => __('Search Industrys'),
+		'not_found' =>  __('No Industry found'),
+		'not_found_in_trash' => __('No Industry found in Trash'),
+		'parent_item_colon' => ''
+	);
+	$args = array(
+		"label" => __( "Industry", "" ),
+		"labels" => $labels,
+		"public" => true,
+		"hierarchical" => true,
+		"label" => "Industry",
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => array( 'slug' => 'industry' ),
+		"show_admin_column" => true,
+		"show_in_rest" => false,
+		"rest_base" => "case_study_tag",
+		"show_in_quick_edit" => true,
+	);
+	register_taxonomy( "industry", array("members"), $args );
+
+	/**
+	 * Taxonomy: Member Region.
+	 */
+	$labels = array(
+		"name" => __( "Region of Engagement", "" ),
+		"singular_name" => __( "Region", "" ),
+		'add_new' => _x('Add New', 'Region'),
+		'add_new_item' => __('Add New Region'),
+		'edit_item' => __('Edit Region'),
+		'new_item' => __('New Region'),
+		'view_item' => __('View Region'),
+		'search_items' => __('Search Regions'),
+		'not_found' =>  __('No Region found'),
+		'not_found_in_trash' => __('No Region found in Trash'),
+		'parent_item_colon' => ''
+	);
+	$args = array(
+		"label" => __( "Region", "" ),
+		"labels" => $labels,
+		"public" => true,
+		"hierarchical" => true,
+		"label" => "Region",
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => array( 'slug' => 'region-of-engagement' ),
+		"show_admin_column" => true,
+		"show_in_rest" => false,
+		"rest_base" => "case_study_tag",
+		"show_in_quick_edit" => true,
+	);
+	register_taxonomy( "region-of-engagement", array("members"), $args );
+	
+}
+add_action( 'init', 'register_taxonomies' );
 
 // wrap wp menu submenu - custom walker
 // class My_Walker_Nav_Menu extends Walker_Nav_Menu {
@@ -426,7 +507,12 @@ function register_routes() {
     'methods' => 'POST',
     'callback' => 'serve_person_route',
   ));
+  register_rest_route( 'endpoints', 'members' , array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => 'serve_members_route',
+  ));
 }	
+
 // include all endpoints
 foreach(glob(get_template_directory() . '/endpoints/*.php') as $file) {
 	require $file;

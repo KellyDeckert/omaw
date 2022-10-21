@@ -613,14 +613,14 @@ function getVideoHtml(overlayLink){
 var tabbedSections = Array.from(document.querySelectorAll('.tabs'));
 if(tabbedSections.length > 0){
 	tabbedSections.forEach(function(tabbedSection){
-		// setup nav
+		// setup tabes section nav
 		initTabbedSectionNav(tabbedSection);
 	});
 }
 
 function initTabbedSectionNav(tabbedSection) {
 	var tabbedSectionId = tabbedSection.id;
-	var tabbedSectionButtons = Array.from(tabbedSection.querySelectorAll('.tabs__nav-tab-button, .tabs__nav-prev-button, .tabs__nav-next-button'));
+	var tabbedSectionButtons = Array.from(tabbedSection.querySelectorAll('.pagination__button, .pagination__prev-button, .pagination__next-button'));
 	if(tabbedSectionButtons.length > 0){
 		tabbedSectionButtons.forEach(function(tabbedSectionButton){
 			tabbedSectionButton.addEventListener('click',function(event){
@@ -660,22 +660,257 @@ function setTabbedSectionTabs(section){
 function setTabbedSectionButtons(section){
 	var currentIndex = Number(section.dataset.index);
 	var maxIndex = Number(section.dataset.maxIndex);
-	var tabbedSectionsButtons =  Array.from(section.querySelectorAll('.tabs__nav-tab-button'));
+	var tabbedSectionsButtons =  Array.from(section.querySelectorAll('.pagination__button'));
 	if(tabbedSectionsButtons.length > 0){
 		tabbedSectionsButtons.forEach(function(button,index){
 			if(button.dataset.index == currentIndex){
-				button.classList.add('tabs__nav-tab-button--active');
+				button.classList.add('pagination__button--active');
 			} else {
-				button.classList.remove('tabs__nav-tab-button--active');
+				button.classList.remove('pagination__button--active');
 			}
 		});
 	}
-	var prevButton = section.querySelector('.tabs__nav-prev-button');
-	var nextButton = section.querySelector('.tabs__nav-next-button');
+	var prevButton = section.querySelector('.pagination__prev-button');
+	var nextButton = section.querySelector('.pagination__next-button');
 	if(prevButton){
 		currentIndex == 0 ? prevButton.classList.add('disabled') : prevButton.classList.remove('disabled') ;
 	}
 	if(nextButton){
 		currentIndex == maxIndex ? nextButton.classList.add('disabled') : nextButton.classList.remove('disabled') ;
 	}
+}
+
+
+
+
+/* MEMBERS LIST */
+var sortValue = 'asc';
+var inGuidingCouncil = false;
+var selectedIndustry = '';
+var selectedRegion = '';
+var memberListData = [];
+
+// filters
+var sortSelectors = Array.from(document.querySelectorAll('[data-sort]'));
+if(sortSelectors.length > 0){
+	sortSelectors.forEach(function(sortSelector){
+		var sortTextLinks =  Array.from(sortSelector.querySelectorAll('.filters__sort-value'));
+		if(sortTextLinks.length > 0){
+			sortTextLinks.forEach(function(sortTextLink){
+				sortTextLink.addEventListener('click',function(event){
+					toggleSort(sortSelector);
+				});
+			});
+		}
+		var sortButtons =  Array.from(sortSelector.querySelectorAll('button'));
+		if(sortButtons.length > 0){
+			sortButtons.forEach(function(sortButton){
+				sortButton.addEventListener('click',function(event){
+					sortValue = sortButton.dataset.sort;
+					sortSelector.dataset.sort = sortValue ;
+					renderMemberList();
+				});
+			});
+		}
+	});
+}
+
+jQuery(document).on('change','#guiding-council',function(event){
+	inGuidingCouncil = jQuery('#guiding-council').is(':checked');
+	renderMemberList();
+});
+
+jQuery(document).on('click','.filters__clear button',function(event){
+	clearSelectedFilters()
+});
+
+function toggleSort(selector){
+	selector.dataset.sort = selector.dataset.sort == 'asc' ? 'desc' : 'asc' ;
+	sortValue = selector.dataset.sort;
+	renderMemberList();
+}
+
+function clearSelectedFilters() {
+	filterSelects.each(function(){
+		var firstOption = jQuery(this).find('option:eq(0)');
+		firstOption.prop('selected', true);
+		firstOption.closest('.custom-select').find('.select-selected').text(firstOption.text());
+	});
+	jQuery('#guiding-council').prop('checked', false);
+	sortValue = 'asc';
+	if( filterSort){
+		filterSort.dataset.sort = sortValue;
+	}
+	inGuidingCouncil = false;
+	selectedIndustry = '';
+	selectedRegion = '';
+	renderMemberList();
+}
+
+function updateFilters(selectedValue) {
+	selectedFilters = [];
+	filterSelects.each(function(){
+		var filterSelect = jQuery(this);
+		if( filterSelect.val() && filterSelect.val() != '' ){
+			if(filterSelect.attr('id') == 'industry'){
+				selectedIndustry = filterSelect.val();
+			}
+			if(filterSelect.attr('id') == 'region'){
+				selectedRegion = filterSelect.val();
+			}
+		}
+	});
+	renderMemberList();
+}
+
+function filterMember (item) {
+	var itemMatchesFilters = false;
+	var evalConditions = [];
+	var evalConditionsString = '';
+	if(inGuidingCouncil){
+		evalConditions.push('item.guiding_council');
+	}
+	if( selectedIndustry != '' ){
+		evalConditions.push('item.industry_slugs.search("' + selectedIndustry + '") !== -1');
+	}
+	if( selectedRegion != '' ){
+		evalConditions.push('item.regions_slugs.search("' + selectedRegion + '") !== -1');
+	}
+	if (evalConditions.length > 0) {
+		evalConditionsString += '(';
+		evalConditionsString += evalConditions.join(') && (');
+		evalConditionsString += ')';
+	}
+	itemMatchesFilters = evalConditionsString == '' || eval(evalConditionsString) ? true : false;
+    return itemMatchesFilters;
+}
+
+// sorting members by title
+function sortItems(items,type){
+	if( type == 'asc'){
+		return items.sort(function(a,b) {return a.title > b.title ? 1 : -1});
+	} 
+	if( type == 'desc'){
+		return items.sort(function(a,b) {return a.title < b.title ? 1 : -1});
+	} 
+}
+
+// URL parameters
+function setMembersUrlParameters() {
+    var urlParameters = [];
+    // append sorting
+    urlParameters.push('sort=' + sortValue);
+	// append council status
+	if(inGuidingCouncil){
+		urlParameters.push('council=true');
+	}
+	// append industry
+	if( selectedIndustry != '' ){
+		urlParameters.push('industry=' + selectedIndustry);
+	}
+	// append region
+	if( selectedRegion != '' ){
+		urlParameters.push('region	=' + selectedRegion);
+	}
+    // concatenate all parameter groups
+    const urlParametersString = urlParameters.length > 0 ? '?' + urlParameters.join('&') : '';
+    if (urlParametersString != '') {
+        history.pushState({ page: 'our-members' }, "Sorting and filtering", urlParametersString);
+    } else {
+        history.replaceState({}, '', location.pathname);
+    }
+}
+
+function getMembersUrlParameters(){
+    var queryString = window.location.search;
+    if (queryString.length > 0) {
+        var urlParams = new URLSearchParams(queryString);
+        // sorting
+        var urlSort = urlParams.get('sort');
+        if (urlSort) {
+            sortValue = urlSort;
+        }
+		// council
+        var urlCouncil = urlParams.get('council');
+        if (urlCouncil) {
+            inGuidingCouncil = urlCouncil;
+        }
+		// industry
+        var urlIndustry = urlParams.get('industry');
+        if (urlIndustry) {
+            selectedIndustry = urlIndustry;
+        }
+		// sorting
+        var urlRegion = urlParams.get('region');
+        if (urlRegion) {
+            selectedRegion = urlRegion;
+        }
+	}
+}
+
+
+// member list template
+function renderMemberList(){
+	var listHTML = '';
+	// filter items
+	var filteredPosts = memberListData.filter(item => {
+		return filterMember(item);
+	});
+	// sort posts
+	var sortedPosts = sortItems(filteredPosts,sortValue);
+	if( sortedPosts.length > 0){
+		sortedPosts.forEach(function(item){
+			listHTML += `
+			<tr>
+				<td>
+				<p class="paragraph--sm"><strong>${item.title}</strong></p>
+				</td>
+				<td>
+					${item.guiding_council ? `
+						<svg class="icon-checkmark" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 738" style="enable-background:new 0 0 1000 738;" xml:space="preserve"><path d="M883,6.8L362.2,527.4L117,282.2c-9.1-9.1-23.9-9.1-33.1,0L6.8,359.4c-9.1,9.1-9.1,23.9,0,33l338.9,338.7c9.1,9.1,23.9,9.1,33.1,0l77.1-77.1l537.2-537c9.1-9.1,9.1-23.9,0-33L916,6.8C906.9-2.3,892.1-2.3,883,6.8z"/></svg>
+					` : ''}
+				</td>
+				<td>
+				<p class="paragraph--sm">${item.industry}</p>
+				</td>
+				<td>
+				<p class="paragraph--sm">${item.regions}</p>
+				</td>
+			</tr>
+			`;
+		});
+	} else {
+		listHTML = `
+		<tr>
+			<td colspan="4">
+				<p class="paragraph--sm">No members found</p>
+			</td>
+		</tr>
+		`;
+	}	
+	jQuery('.filters__results').html(`
+		${filteredPosts.length} ${filteredPosts.length == 1 ? `Result` : `Results`}
+	`);
+	jQuery('#members-list tbody').html(listHTML);
+	setMembersUrlParameters();
+}
+
+// load members
+function loadMemberList(){
+	jQuery.ajax({
+		method: "GET",
+		url: siteUrl + '/wp-json/endpoints/members',
+		complete: function (data) {
+			memberListData = JSON.parse(data.responseText);
+			renderMemberList()
+		}
+	});
+}
+
+// init on load
+if( jQuery('#members-list').length > 0 ){
+	getMembersUrlParameters();
+	loadMemberList();
+	var filterSelects = jQuery('.filters select');
+	var filterSort = document.getElementById('filters-sort');
 }
