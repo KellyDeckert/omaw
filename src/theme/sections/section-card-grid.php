@@ -44,7 +44,20 @@ if( $display):
                     echo $card['cc_toggle_type'] ? '<div class="grid-card-single grid-card-single--cta" data-aos="smooth-slide-left" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic"><div class="grid-card-single--cta-inner">' : '<div class="grid-card-single" data-aos="smooth-slide-left" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic">';
                         echo '<h4 class="grid-card-single__heading">'.$card['cc_heading'].'</h4>';
                         echo $card['cc_toggle_type'] ? '<h4 class="grid-card-single__cta">'.$card['cc_content'].'</h4>' : '<p class="grid-card-single__blurb">'.$card['cc_content'].'</p>';
-                        echo $card['cc_toggle_type'] ? '<a href="'.$card['cc_link']['url'].'" target="'.( isset($card['cc_link']['target']) ? $card['cc_link']['target'] : '_self' ).'" class="grid-card-single__link button button--alt button--alt-invert" data-aos="fade" data-aos-delay="650" data-aos-duration="450" data-aos-easing="cubic" data-aos-anchor="#'.$section_id.'">'.$card['cc_link']['title'].'</a>' : '';
+                        
+                        
+                        if($card['cc_link']):
+
+                            $cta_class = $card['cc_toggle_type'] ? 'button--alt button--alt-invert' : 'button--alt';
+                            $cta = '<a href="'.$card['cc_link']['url'].'"
+                                target="'.( isset($card['cc_link']['target']) ? $card['cc_link']['target'] : '_self' ).'"
+                                class="grid-card-single__link button '.$cta_class.'" data-aos="fade"
+                                data-aos-delay="650" data-aos-duration="450" data-aos-easing="cubic"
+                                data-aos-anchor="#'.$section_id.'">'.$card['cc_link']['title'].'</a>';
+
+                            echo $cta;
+
+                        endif;
                         echo $card['cc_toggle_type'] ? '</div></div>' : '</div>';
                 endforeach;
             endif; ?>

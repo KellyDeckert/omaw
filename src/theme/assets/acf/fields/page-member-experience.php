@@ -132,7 +132,7 @@ if (function_exists('acf_add_local_field_group')) :
                     'ui_off_text' => 'Default',
                     'ui' => 1,
                     'wrapper' => array(
-                        'width' => '15'
+                        'width' => '25'
                     ),
                     'instructions' => 'Toggle CTA to change the card style and to include a link.',
                 ),
@@ -156,19 +156,9 @@ if (function_exists('acf_add_local_field_group')) :
                     'label' => 'CTA Link',
                     'name' => 'cc_link',
                     'type' => 'link',
-                    'required' => 1,
                     'wrapper' => array(
                         'width' => '25'
                     ),
-                    'conditional_logic' => array(
-                        array(
-                            array(
-                                'field' => 'commitment_cards_toggle_type',
-                                'operator' => '==',
-                                'value' => '1',
-                            ),
-                        ),
-                    )
                 ),
             ),
         ),
