@@ -112,7 +112,7 @@ array(
 array(
   'key' => 'about__blue-cta_blue-cta_link',
   'label' => 'CTA Link',
-  'name' => 'cta_link',
+  'name' => 'blue-cta_link',
   'type' => 'link',
 ),
 
