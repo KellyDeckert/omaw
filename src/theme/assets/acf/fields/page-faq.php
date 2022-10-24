@@ -36,7 +36,6 @@ if (function_exists('acf_add_local_field_group')) :
         array(
             'key' => 'faq__jump-links_tab',
             'label' => 'Jump Links Menu',
-            'display' => true,
             'type' => 'tab',
         ),
         array(
