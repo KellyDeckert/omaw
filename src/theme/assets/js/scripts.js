@@ -16,6 +16,12 @@ ready(() => {
 	autoCloseMobile(); // reset menu if page is reloaded with menu open
 	initMobileFooterAccordions();
 	lockMobileScroll();
+
+	// init members list
+	if( jQuery('#members-list').length > 0 ){
+		getMembersUrlParameters();
+		loadMemberList();
+	}
 });
 
 function initMobileFooterAccordions(){
@@ -693,11 +699,19 @@ function setTabbedSectionButtons(section){
 
 
 /* MEMBERS LIST */
+var filterSelects = jQuery('.filters select');
+var filterSort = document.getElementById('filters-sort');
 var sortValue = 'asc';
 var inGuidingCouncil = false;
 var selectedIndustry = '';
 var selectedRegion = '';
 var memberListData = [];
+var bankSize = 10;
+var currentPage = 1;
+var bankStartIndex;
+var bankEndIndex;
+var paginationBankSize = 3;
+var paginationIndex = 1;
 
 // filters
 var sortSelectors = Array.from(document.querySelectorAll('[data-sort]'));
@@ -717,6 +731,7 @@ if(sortSelectors.length > 0){
 				sortButton.addEventListener('click',function(event){
 					sortValue = sortButton.dataset.sort;
 					sortSelector.dataset.sort = sortValue ;
+					resetPaginationIndex();
 					renderMemberList();
 				});
 			});
@@ -725,6 +740,7 @@ if(sortSelectors.length > 0){
 }
 
 jQuery(document).on('change','#guiding-council',function(event){
+	resetPaginationIndex();
 	inGuidingCouncil = jQuery('#guiding-council').is(':checked');
 	renderMemberList();
 });
@@ -736,7 +752,13 @@ jQuery(document).on('click','.filters__clear button',function(event){
 function toggleSort(selector){
 	selector.dataset.sort = selector.dataset.sort == 'asc' ? 'desc' : 'asc' ;
 	sortValue = selector.dataset.sort;
+	resetPaginationIndex();
 	renderMemberList();
+}
+
+function resetPaginationIndex(){
+	currentPage = 1;
+	paginationIndex = 1;
 }
 
 function clearSelectedFilters() {
@@ -753,10 +775,12 @@ function clearSelectedFilters() {
 	inGuidingCouncil = false;
 	selectedIndustry = '';
 	selectedRegion = '';
+	resetPaginationIndex();
 	renderMemberList();
 }
 
 function updateFilters(selectedValue) {
+	resetPaginationIndex();
 	selectedFilters = [];
 	filterSelects.each(function(){
 		var filterSelect = jQuery(this);
@@ -819,8 +843,10 @@ function setMembersUrlParameters() {
 	}
 	// append region
 	if( selectedRegion != '' ){
-		urlParameters.push('region	=' + selectedRegion);
+		urlParameters.push('region=' + selectedRegion);
 	}
+	// append page currentPage
+	urlParameters.push('pp=' + currentPage);
     // concatenate all parameter groups
     const urlParametersString = urlParameters.length > 0 ? '?' + urlParameters.join('&') : '';
     if (urlParametersString != '') {
@@ -854,6 +880,12 @@ function getMembersUrlParameters(){
         if (urlRegion) {
             selectedRegion = urlRegion;
         }
+		// page
+        var urlPage = urlParams.get('pp');
+        if (urlPage) {
+           	currentPage = Number(urlPage);
+			setPaginationIndex();
+        }
 	}
 }
 
@@ -868,7 +900,16 @@ function renderMemberList(){
 	// sort posts
 	var sortedPosts = sortItems(filteredPosts,sortValue);
 	if( sortedPosts.length > 0){
-		sortedPosts.forEach(function(item){
+
+		// paginate, 
+		bankStartIndex = ( bankSize * currentPage ) - bankSize;
+		bankEndIndex = bankStartIndex + bankSize ;
+		// if bankEndIndex larger that item count, adjust
+		if( bankEndIndex >= sortedPosts.length ){
+			bankEndIndex = sortedPosts.length;
+		}
+		for ( x = bankStartIndex ; x < bankEndIndex ; x++ ) {
+			var item = sortedPosts[x];
 			listHTML += `
 			<tr>
 				<td>
@@ -886,8 +927,8 @@ function renderMemberList(){
 				<p class="paragraph--sm">${item.regions}</p>
 				</td>
 			</tr>
-			`;
-		});
+			`;			
+		}
 	} else {
 		listHTML = `
 		<tr>
@@ -901,6 +942,8 @@ function renderMemberList(){
 		${filteredPosts.length} ${filteredPosts.length == 1 ? `Result` : `Results`}
 	`);
 	jQuery('#members-list tbody').html(listHTML);
+
+	managePagination(filteredPosts.length);
 	setMembersUrlParameters();
 }
 
@@ -911,15 +954,115 @@ function loadMemberList(){
 		url: siteUrl + '/wp-json/endpoints/members',
 		complete: function (data) {
 			memberListData = JSON.parse(data.responseText);
-			renderMemberList()
+			renderMemberList();
 		}
 	});
 }
 
-// init on load
-if( jQuery('#members-list').length > 0 ){
-	getMembersUrlParameters();
-	loadMemberList();
-	var filterSelects = jQuery('.filters select');
-	var filterSort = document.getElementById('filters-sort');
+
+
+
+
+
+
+
+// reset pagination index
+function setPaginationIndex(){
+	paginationIndex = Math.ceil(currentPage / paginationBankSize);
+	// console.log('setPaginationIndex(): '+paginationIndex);
 }
+
+function managePagination(itemCount){
+
+	// calculate pages
+	listPages = Math.ceil(itemCount / bankSize);
+	paginationPages = Math.ceil(listPages / paginationBankSize);
+
+	// set pagination bank start and end
+	paginationBankStartIndex = ( paginationBankSize * paginationIndex ) - paginationBankSize;
+	paginationBankEndIndex = paginationBankStartIndex + paginationBankSize - 1 ;
+	if( paginationBankStartIndex < 1 ){
+		paginationBankStartIndex = 1;
+	}
+
+	// adjust from 0 index
+	paginationBankStartIndex++;
+	paginationBankEndIndex++;
+
+	// limit end index if larger that pages
+	if( paginationBankEndIndex >= listPages - 1 ){
+		paginationBankEndIndex = listPages - 1;
+	} 
+
+	// console.log('bank:'+paginationBankSize+', paginationIndex:'+paginationIndex+', StartIndex:'+paginationBankStartIndex+', EndIndex:'+paginationBankEndIndex+', currentPage:'+currentPage);
+
+	if( listPages > 1){
+		// show nav
+		jQuery('.pagination').removeClass('disabled');
+
+		// show prev button if needed
+		currentPage > 1 ? jQuery('.pagination__prev-button').removeClass('disabled') : jQuery('.pagination__prev-button').addClass('disabled') ;
+
+		jQuery('.pagination__page-buttons').html('');
+
+		// append page link buttons // <button class="pagination__button pagination__button--active">1</button>
+		if( listPages > 1 ){
+			// append pagination prev ellipsis
+			jQuery('.pagination__page-buttons').append('<button class="pagination__button'+(currentPage == 1 ? " pagination__button--active" : "")+'" data-page="1" data-pagination-index="1">1</button>');
+			jQuery('.pagination__page-buttons').append('<button class="pagination__ellipsis-prev visible">...</button>');
+			// append bank pages
+			for (pageX = paginationBankStartIndex; pageX <= paginationBankEndIndex; pageX++) {
+				jQuery('.pagination__page-buttons').append('<button class="pagination__button'+(currentPage == pageX ? " pagination__button--active" : "")+'" data-page="'+pageX+'" data-pagination-index="'+paginationIndex+'">'+pageX+'</button>');
+			}
+			// append pagination next ellipsis
+			jQuery('.pagination__page-buttons').append('<button class="pagination__ellipsis-next">...</button>');
+			jQuery('.pagination__page-buttons').append('<button class="pagination__button'+(currentPage == listPages ? " pagination__button--active" : "")+'" data-page="'+listPages+'" data-pagination-index="'+paginationPages+'">'+listPages+'</button>');
+		}
+
+		// handle ellipsis visibility
+		paginationIndex > 1 ? jQuery('.pagination__ellipsis-prev').addClass('visible') : jQuery('.pagination__ellipsis-prev').removeClass('visible') ;
+		paginationIndex == paginationPages ? jQuery('.pagination__ellipsis-next').removeClass('visible') : jQuery('.pagination__ellipsis-next').addClass('visible') ;
+
+		// show next button if needed
+		currentPage < listPages ? jQuery('.pagination__next-button').removeClass('disabled') : jQuery('.pagination__next-button').addClass('disabled') ;
+
+	} else {
+		// hide nav
+		console.log('pagination disabled');
+		jQuery('.pagination').addClass('disabled');
+	}
+
+}
+
+
+jQuery(document).on('click','.pagination__prev-button', function(event){
+	event.preventDefault();
+	currentPage --;
+	setPaginationIndex();
+	renderMemberList();
+});
+
+jQuery(document).on('click','.pagination__ellipsis-prev', function(event){
+	event.preventDefault();
+	paginationIndex --;
+	renderMemberList()
+});
+
+jQuery(document).on('click','.pagination__button', function(event){
+	currentPage = Number(jQuery(this).data('page'));
+	setPaginationIndex();
+	renderMemberList()
+});
+
+jQuery(document).on('click','.pagination__ellipsis-next', function(event){
+	event.preventDefault();
+	paginationIndex ++;
+	renderMemberList()
+});
+
+jQuery(document).on('click','.pagination__next-button', function(event){
+	event.preventDefault();
+	currentPage ++;
+	setPaginationIndex();
+	renderMemberList()
+});
