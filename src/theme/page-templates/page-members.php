@@ -154,22 +154,22 @@ $region_terms = get_terms([
                 </div>
             </div>
             
-            <?php /* ?>
-            <div class="pagination">
+            <div id="members-pagination" class="pagination">
                 <button class="pagination__prev-button disabled" data-tabs="'.$section_id.'-tabs" data-index="prev">
                 <?php get_template_part( 'snippets/icon-left-arrow'); ?>
                 </button>
                 <div class="pagination__page-buttons">
+                    <?php /* ?>
                     <button class="pagination__button pagination__button--active">1</button>
                     <button class="pagination__button">2</button>
-                    <button class="pagination__button">3</button>                        
+                    <button class="pagination__button">3</button>   
+                    <?php */ ?>                    
                 </div>
                 <button class="pagination__next-button" data-tabs="'.$section_id.'-tabs" data-index="next">
                 <?php get_template_part( 'snippets/icon-left-arrow'); ?>
                 </button>
             </div>
-            <?php */ ?>
-
+            
         </div>    
     </div>
 

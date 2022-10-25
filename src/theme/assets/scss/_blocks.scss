@@ -2419,6 +2419,9 @@
     display: flex;
     margin-top: 1.5em;
     font-size: 1em;
+    &.disabled {
+        display: none;
+    }
     button {
         svg {
             display: block;
@@ -2460,6 +2463,15 @@
             transform: scaleX(-1);
         }
     }
+    &__page-buttons {
+        display: flex;
+    }
+    &__ellipsis-prev, &__ellipsis-next {
+        &:not(.visible) {
+            display: none;
+        } 
+    }
+
     @media screen and (max-width: 767px) and (orientation: portrait){
         justify-content: center;
     }

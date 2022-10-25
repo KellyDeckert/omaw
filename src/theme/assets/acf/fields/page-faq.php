@@ -87,6 +87,15 @@ if (function_exists('acf_add_local_field_group')) :
                 'type' => 'text',
               ), 
               array(
+                'key' => 'faq__section_jump_link_display',
+                'label' => 'Jump Menu Link Display',
+                'name' => 'jump_link_display',
+                'type' => 'true_false',
+                'ui' => 1,
+                'ui_on_text' => 'Jump Menu Link On',
+                'ui_off_text' => 'Jump Menu Link Off',
+              ),
+              array(
                 'key' => 'faq__section_jump_link_name',
                 'label' => 'Jump Menu Section Name',
                 'name' => 'jump_link_name',

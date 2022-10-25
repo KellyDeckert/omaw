@@ -38,6 +38,7 @@ if($faq_sections):
                     'margin' => 'compact', // 'full' or 'compact',
                     'heading' => $faq_section['name'],
                     'jump_link_name' => $faq_section['jump_link_name'],
+                    'jump_link_display' => $faq_section['jump_link_display'],
                     'items' => $faq_section['items'],
                 )
             ) 
