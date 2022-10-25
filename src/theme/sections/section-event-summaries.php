@@ -38,11 +38,11 @@ if( $display):
                                 echo '<source media="(min-width: 1920px)" srcset="'.$image['url'].'">';
                                 echo '<source media="(min-width: 1440px)" srcset="'.$image['sizes']['1920x'].'">';
                                 echo '<source media="(min-width: 750px)" srcset="'.$image['sizes']['1440x'].'">';
-                                echo '<img loading="lazy" class="bg-image block-image '.( $video_is_ready ? 'absolute-full' : '').'" src="'.$image['sizes']['750x'].'" alt="'.$image['alt'].'">';
+                                echo '<img loading="lazy" class="block-image '.( $video_is_ready ? 'absolute-full' : '').'" src="'.$image['sizes']['750x'].'" alt="'.$image['alt'].'">';
                             }
                             if( !$image && $media_type == 'video' && $video_type == 'youtube' ) {
                                 echo '<source media="(min-width: 480px)" srcset="//img.youtube.com/vi/'.youtube_id_from_url($youtube_video_id).'/maxresdefault.jpg">';
-                                echo '<img loading="lazy" class="bg-image block-image '.( $video_is_ready ? 'absolute-full' : '').'" src="//img.youtube.com/vi/'.youtube_id_from_url($youtube_video_id).'/hqdefault.jpg" alt="">';
+                                echo '<img loading="lazy" class="block-image '.( $video_is_ready ? 'absolute-full' : '').'" src="//img.youtube.com/vi/'.youtube_id_from_url($youtube_video_id).'/hqdefault.jpg" alt="">';
                             }
                         echo '</picture>'; 
                     }

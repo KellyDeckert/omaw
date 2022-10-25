@@ -1066,3 +1066,23 @@ jQuery(document).on('click','.pagination__next-button', function(event){
 	setPaginationIndex();
 	renderMemberList()
 });
+
+// Get all YouTube iframes and wrap them in .video-container
+const videoIframes = Array.from(document.querySelectorAll('iframe[src*="youtube.com"], iframe[src*="linkedin.com/embed"]'));
+if (videoIframes.length > 0) {
+    // iterate through all iframes
+    videoIframes.forEach(iframeItem => {
+        // get iframe parent
+        const iframeItemParent = iframeItem.parentNode;
+        // check if iframe parent is not a .video-container container, wrap iframe in .video-container
+        if (!iframeItemParent.classList.contains('video-container')) {
+            // create wrapper container
+            const videoWrapper = document.createElement('div');
+            videoWrapper.classList.add('video-container');
+            // insert videoWrapper before iframeItem in the DOM tree
+            iframeItemParent.insertBefore(videoWrapper, iframeItem);
+            // move iframeItem into videoWrapper
+            videoWrapper.appendChild(iframeItem);
+        }
+    });
+}

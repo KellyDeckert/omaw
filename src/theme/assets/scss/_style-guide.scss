@@ -334,8 +334,6 @@ html {
     }
     /*  FYI -> The form input styles are all handled by Material, referenced at the top of the file ^^ */
 
-
-
 /*  TABLES
     ============================= */
 
@@ -406,4 +404,14 @@ html {
                 }
             }
         }
+    }
+
+/*  OTHER
+    ============================= */
+
+    hr {
+        margin: 2.5em 0;
+        border: none;
+        height: 2px;
+        background-color: $brand-neutral-med;
     }

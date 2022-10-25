@@ -2,7 +2,7 @@
 $layout = isset($args['data']['layout']) ? $args['data']['layout'] : null;
 setup_postdata($post);
 $date = get_the_date('M, D Y');
-$author = ( get_the_author() == 'admin' ) ? 'One Mind' : get_the_author();
+$author = getRelationShipAuthor(get_field('authors'));
 $permalink = get_permalink();
 $image = getImageObject($post->ID);
 $type = get_post_type();
@@ -26,7 +26,7 @@ echo '<div class="card'.($layout ? ' card--'.$layout : '').' card--'.$type.' swi
         echo '</picture>';
     }
     // posts have bylines
-    echo $type == 'post' ? '<p class="card__byline paragraph--xs uppercase"><strong>'.$date.'</strong></p>' : '';
+    echo $type == 'post' ? '<p class="card__byline paragraph--xs uppercase"><strong>'.$date.(isset($author['name']) ? ' | '.$author['name'] : '' ).'</strong></p>' : '';
     // all posts have titles
     echo '<h5 class="card__name">';
         echo get_the_title();
