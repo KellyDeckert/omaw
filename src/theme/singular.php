@@ -32,11 +32,11 @@ while ( have_posts() ) :the_post();
 
     <div class="post responsive-font-size" itemscope itemtype="https://schema.org/NewsArticle">
 
-        <section class="post__hero section-h-padding">
+        <section id="hero" class="post__hero section-h-padding">
             <div class="layout--1080">
                 <?php
                 if($image){
-                    echo '<div class="post-hero__image">';
+                    echo '<div class="post-hero__image" data-aos="smooth-slide-up" data-aos-delay="450" data-aos-duration="650" data-aos-easing="cubic">';
                         echo '<picture class="bg-image">';
                             echo '<source media="(min-width: 750px)" srcset="'.$image['1440x'].'">';
                             echo '<img loading="lazy" class="single-post__featured-image absolute-full" class="mission__item-image" src="'.$image['750x'].'" alt="'.$image['alt'].'">';
@@ -46,17 +46,17 @@ while ( have_posts() ) :the_post();
                 ?>
                 <div class="post-hero__content">
                 <?php
-                echo '<h5 class="post-hero__byline uppercase">';
+                echo '<h5 class="post-hero__byline uppercase" data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="450" data-aos-easing="cubic">';
                     echo '<span itemprop="datePublished">'.get_the_date('F j, Y').'</span>';
                     echo isset($author['name']) ? ' | <span itemprop="author">'.$author['name'].'</span>' : '';
                 echo '</h5>';
-                echo '<h2 class="post-hero__title font-regular" itemprop="name">'.get_the_title().'</h2>';
+                echo '<h2 class="post-hero__title font-regular" itemprop="name" data-aos="smooth-slide-up" data-aos-delay="350" data-aos-duration="500" data-aos-easing="cubic">'.get_the_title().'</h2>';
                 ?>                
                 </div>
             </div>
         </section>
 
-        <div class="post__main section-h-padding">
+        <div class="post__main section-h-padding" data-aos="fade" data-aos-delay="700" data-aos-duration="750" data-aos-easing="cubic" data-aos-anchor="#hero">
             <div class="layout--1080">
                 <div class="post__share">
                     <h6>Share!</h6>
