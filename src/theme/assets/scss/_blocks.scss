@@ -139,16 +139,24 @@
 .font-bold {
     font-weight: 600;
 }
-.zoom-image {
+.zoom-image, .bg-image {
+    display: block;
+    position: relative;
     overflow: hidden;
-    img {
-        transition: transform 0.25s ease-in-out;
+    &:is(.zoom-image){
+        cursor: pointer;
+        img {
+            transition: transform 0.25s ease-in-out;
+        }        
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
     }
-    &:hover {
-      img {
-        transform: scale(1.1);
-      }
-    }
+}
+img[class*="wp-image"] {
+    margin: 1.25em 0;
 }
 .icon-play {
     font-size: 60px;
@@ -3170,3 +3178,103 @@ details {
             }
         }
     }
+
+
+.post {
+        &__hero {
+            .layout--1080 {
+                display: flex;
+            }
+            .post-hero__image {
+                picture {
+                    padding-bottom: calc(248/420 * 100%);
+                }
+            }
+        }
+        &__share {
+            .social-media {
+                margin-top: calc(26/16 * 1em);
+            }
+            .social-media-list-item {
+                padding-right: 0;
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:not(:first-child) {
+                    padding-left: calc(24/18 * 1em);
+                }
+            }
+        }
+        &__video {
+            &:not(:last-child){
+                margin-bottom: 2.5em;
+            }
+            &.post__video--instagram {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;  
+                &.post__video--wide {
+                    & iframe[id*="instagram-embed"]{
+                        max-width: 750px!important;
+                    }            
+                }                              
+            }  
+        }
+    @media screen and (max-width: 767px) and (orientation: portrait){
+        &__hero {
+            margin: 3.75em 0 2em 0;
+            .layout--1080 {
+                flex-direction: column;
+            }
+            .post-hero__content {
+                order: 0;
+            }
+            .post-hero__image {
+                order: 1;
+                margin-top: 2em;
+            }
+            .post-hero__title {
+                margin-top: 12px;
+            }    
+        }
+        &__share {
+            margin-bottom: 3.75em;
+        }
+        &__main {
+            margin-bottom: 5em;
+        }
+    }
+    @media not screen and (max-width: 767px) and (orientation: portrait){
+        &__hero {
+            margin: 7.5em 0 5em 0;
+            .layout--1080 {
+                align-items: center;
+            }
+            .post-hero__image {
+                width: 38.88888888888889%;
+                margin-right: 2.5em;
+            }
+            .post-hero__content {
+                width: 57.407407407407405%;
+                flex: 1 0 auto;
+            }
+            .post-hero__title {
+                margin-top: 8px;
+            }   
+        }
+        &__share {
+            flex: 1 0 auto;
+            padding-right: 1.25em;
+        }
+        &__main {
+            margin-bottom: 6.25em;
+            .layout--1080 {
+                display: flex;
+                justify-content: space-between;
+                .layout--860 {
+                    margin: 0;
+                }
+            }   
+        }
+    }
+}

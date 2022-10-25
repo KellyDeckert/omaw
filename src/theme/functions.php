@@ -560,5 +560,19 @@ function my_acf_admin_head() {
     </style>
     <?php
 }
-
 add_action('acf/input/admin_head', 'my_acf_admin_head');
+
+
+function getRelationShipAuthor($items){
+	$selected = array();
+	if($items){
+		foreach( $items as $item ){
+			$selected = array(
+				'name' => get_the_title($item->ID),
+				'link' => get_the_permalink($item->ID)
+			);
+			break;
+		} 
+	}
+	return $selected;
+}
