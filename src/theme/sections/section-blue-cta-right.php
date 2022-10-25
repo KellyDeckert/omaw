@@ -7,6 +7,7 @@ $heading = isset($args['data']['heading']) ? $args['data']['heading'] : null;
 $sub_heading = isset($args['data']['sub_heading']) ? $args['data']['sub_heading'] : null;
 $cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
 if( $display):
+
 ?>
 
 <section id="<?php echo $section_id?>" class="blue-cta-right <?php echo $extend_bg_color; ?>">
