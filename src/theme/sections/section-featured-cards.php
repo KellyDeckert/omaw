@@ -31,7 +31,8 @@ if( $display):
                 foreach( $items as $post ): 
                     get_template_part('snippets/card',null,array(
                         'data' => array(
-                            'layout' => 'image-top'
+                            'layout' => 'image-top',
+                            'swiper_slide' => true
                         )
                     ));
                 endforeach;
