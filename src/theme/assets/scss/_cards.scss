@@ -34,6 +34,7 @@
 .card {
     // display:flex;
     // flex-direction:column;
+    position: relative;
     padding: 1.25em 1.25em 1.25em 1.25em;
     border: 1px solid #e9e8e8;
     background-color: #ffffff;
@@ -42,6 +43,17 @@
     &.card--image-top {
         display:flex;
         flex-direction:column;
+    }
+    &.card--image-top, &.card--image-left {
+        &[data-overlay="1"] {
+            padding-bottom:calc(64/16 * 1em);
+        }  
+        .card__icon-button {
+            // grid-area: overlay;
+            position:absolute;
+            bottom:calc(20/16 * 1em);
+            right:calc(20/16 * 1em);
+        }      
     }
     &.card--image-left {
         display: grid;
@@ -54,11 +66,6 @@
             "img title"
             "creds creds";
             //"overlay overlay";
-
-        &[data-overlay="1"] {
-            padding-bottom:calc(64/16 * 1em);
-        }
-
         .card__image {
             grid-area: img;
             max-height: 120px;
@@ -93,16 +100,10 @@
             margin-top: calc(20/18 * 1em);
         }
 
-        .card__icon-button {
-            // grid-area: overlay;
-            position:absolute;
-            bottom:calc(20/16 * 1em);
-            right:calc(20/16 * 1em);
-        }
     }
 
     // only show hover effects if the card has an overlay
-    &[data-overlay="1"]:hover {
+    &[data-overlay="1"]:hover, &.card--post:hover {
         box-shadow: 0px 4px 16px rgba(1,15,58,0.12);
         cursor:pointer;
         .card__icon-button svg path {
@@ -121,10 +122,7 @@
     .card__image {
         display:block;
         position:relative;
-        // disable image zoom on image hover, only on linked card hover
-        &.zoom-image img {
-            transform: none;
-        }
+   
     }
 
     &--image-left {
@@ -149,6 +147,7 @@
 
     &__byline {
         margin-bottom: 8px;
+        color: $brand-primary;
     }
     &__name {
         margin: 0 0 0 0;
@@ -184,9 +183,16 @@
         // }
     }
     &--post {
-        padding-bottom: 2.5em;
+        padding-bottom: calc(64/16 * 1em);
+        text-decoration: none;
         .card__image {
             padding-bottom: 52.1172%;
+        }
+        .card__button.button--alt {
+            position: absolute;
+            left: 1.25em;
+            bottom: 1.25em;
+            margin: 0;
         }
     }
     &--speakers {
@@ -197,7 +203,7 @@
 
     // Mobile -> Cards Not in Sliders
     @media screen and (max-width: 767px) and (orientation: portrait){
-        + .card {
+        + .card:not(.swiper-slide) {
             margin-top:16px;
         }
     }
