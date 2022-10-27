@@ -100,16 +100,15 @@
     }
 }
 .section-v-margin-compact {
+    scroll-margin-top: calc(3.75em - 2px);
     @media screen and (max-width: 767px) and (orientation: portrait){
         margin: 3.75em 0;
-        scroll-margin-top: calc(3.75em - 2px);
         &:last-child {
             margin-bottom: 5em;
         }
     }
     @media not screen and (max-width: 767px) and (orientation: portrait){
         margin: 5em 0;
-        scroll-margin-top: calc(5em + 98px);
         &:last-child {
             margin-bottom: 7.5em;
         }
