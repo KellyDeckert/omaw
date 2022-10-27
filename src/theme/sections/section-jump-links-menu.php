@@ -4,7 +4,7 @@ if( $display):
 ?>
 
 <section class="quick-links" id="quick-links-menu"  data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="500" data-aos-easing="cubic">
-    <div class="quick-links__inner layout--1080 desktop">
+    <div class="quick-links__inner layout--1080 desktop" data-scrollable="h">
         <ul class="quick-links__menu menu">
 
             <!-- These links are dynamically added by looking for Sections with IDs on the page. 
