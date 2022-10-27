@@ -2128,16 +2128,16 @@ img[class*="wp-image"] {
                     justify-content: center;
                     margin-left: auto;
                     margin-right: auto;
-                    padding-top:calc(80/16 * 1em);
-                    padding-bottom:calc(60/16 * 1em);
+                    // padding-top:calc(80/16 * 1em);
+                    // padding-bottom:calc(60/16 * 1em);
                     width: 90%;
                     .mdc-select__anchor {
                         height:44px;
                     }
                 }
             }
-            @media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
-            (min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
+            // @media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
+            @media screen and (min-width:744px) and (max-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
                 margin-left:3.75em;
             }
         }

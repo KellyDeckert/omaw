@@ -119,7 +119,10 @@
 }
 
 .leadership {
-    section.leadership-team.section-v-padding {
+    section.leadership-team:not(:last-of-type).section-v-padding {
         padding-bottom:0;
+    }
+    section.leadership-team:last-of-type.section-v-padding {
+        padding-bottom:calc(120/16 * 1em);
     }
 }

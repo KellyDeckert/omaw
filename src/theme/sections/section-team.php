@@ -38,7 +38,4 @@ if($display):
     </div>
 </section>
 
-<?php
-else:
-    echo 'no team found'; 
-endif; ?>
+<?php endif; ?>
