@@ -2780,7 +2780,8 @@ details {
                 padding-left:calc(24/16 * 1em);
             }
         }
-        @media screen and (min-resolution:192dpi){
+        @media screen and (min-width:1080px) and (max-width:1080px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
+            (min-width:744px) and (max-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
             &__inner {
                 padding-right:calc(40/16 * 1em);
                 padding-left:calc(40/16 * 1em);
