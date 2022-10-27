@@ -213,14 +213,16 @@
     }
 
     // Mobile -> Cards Not in Sliders
+    @media screen and (max-width: 767px) {
+        + .card:not(.swiper-slide) {
+            margin-top:16px;
+        }        
+    }
     @media screen and (max-width: 767px) and (orientation: portrait){
         &.card--no-image {
             .card__excerpt {
                 display: none;
             }
-        }
-        + .card:not(.swiper-slide) {
-            margin-top:16px;
         }
     }
 }
