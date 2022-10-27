@@ -4,6 +4,7 @@
 
 
 .cards {
+    margin-top: 2.5em;
     @media screen and (max-width: 767px) and (orientation: portrait){}
     @media not screen and (max-width: 767px) and (orientation: portrait){}
     @media screen and (max-width: 767px){
@@ -32,14 +33,19 @@
 
 }
 .card {
-    // display:flex;
+    display:block;
     // flex-direction:column;
     position: relative;
     padding: 1.25em 1.25em 1.25em 1.25em;
     border: 1px solid #e9e8e8;
     background-color: #ffffff;
     transition: box-shadow .15s ease-in-out;
-
+    &.card--no-image {
+        padding-bottom: calc(72/16 * 1em);
+        .card__image {
+            display: none;
+        }
+    }
     &.card--image-top {
         display:flex;
         flex-direction:column;
@@ -100,6 +106,11 @@
             margin-top: calc(20/18 * 1em);
         }
 
+    }
+
+    .card__excerpt {
+        margin-top: calc(16/18 * 1em);
+        color: $brand-primary;
     }
 
     // only show hover effects if the card has an overlay
@@ -202,9 +213,16 @@
     }
 
     // Mobile -> Cards Not in Sliders
-    @media screen and (max-width: 767px) and (orientation: portrait){
+    @media screen and (max-width: 767px) {
         + .card:not(.swiper-slide) {
             margin-top:16px;
+        }        
+    }
+    @media screen and (max-width: 767px) and (orientation: portrait){
+        &.card--no-image {
+            .card__excerpt {
+                display: none;
+            }
         }
     }
 }

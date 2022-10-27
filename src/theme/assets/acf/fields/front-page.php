@@ -581,15 +581,16 @@ if (function_exists('acf_add_local_field_group')) :
         'toolbar' => 'basic',
         'media_upload' => 0,
       ),
+      /*
       array(
         'key' => 'homepage__featured_posts_posts',
         'label' => 'Featured Posts',
         'name' => 'featured_posts_items',
         'type' => 'relationship',
         'post_type' => 'post',
-        // 'taxonomy' => array('category:brain-waves-video-interviews'),
         'filters' => array('search'),
-      ),       
+      ),   
+      */    
       array(
         'key' => 'homepage__featured_posts_link',
         'label' => 'CTA Link',

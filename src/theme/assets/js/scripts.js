@@ -138,9 +138,10 @@ AOS.init({
     offset: 100
 });
 
-window.addEventListener('resize', function () {
+window.addEventListener("resize",debounce(function(e){
     AOS.refresh();
-});
+	setUpScrollableElements();
+}));
 
 
 
@@ -1085,4 +1086,31 @@ if (videoIframes.length > 0) {
             videoWrapper.appendChild(iframeItem);
         }
     });
+}
+
+
+// add css class to scrollable elements when scrolling is active
+var scrollableElements = Array.from(document.querySelectorAll('[data-scrollable]'));
+if(scrollableElements.length > 0){
+	setUpScrollableElements();
+}
+function setUpScrollableElements(){
+	console.log('setUpScrollableElements()');
+	scrollableElements.forEach(function(element){
+		var direction = element.dataset.scrollable;
+		if(direction == 'h'){
+			if(element.scrollWidth > element.clientWidth){
+				element.classList.add('has-scroll');
+			} else {
+				element.classList.remove('has-scroll');
+			}
+		}
+		if(direction == 'v'){
+			if(element.scrollHeight > element.clientHeight){
+				element.classList.add('has-scroll');
+			} else {
+				element.classList.remove('has-scroll');
+			}
+		}
+	});
 }

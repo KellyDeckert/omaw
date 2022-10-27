@@ -118,7 +118,7 @@ get_template_part( 'sections/section-featured-cards', null,
             'display' => get_field('featured_posts_display'),
             'heading' => get_field('featured_posts_heading'),
             'content' => get_field('featured_posts_content'),
-            'items' => get_field('featured_posts_items'),
+            // 'items' => get_field('featured_posts_items'),
             'cta' => get_field('featured_posts_link')
         )
     ) 

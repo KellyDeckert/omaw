@@ -6,6 +6,18 @@ $content = isset($args['data']['content']) ? $args['data']['content'] : null;
 $items = isset($args['data']['items']) ? $args['data']['items'] : null;
 $cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
 
+// if no items passed, load the last 3, excluding publications
+if(is_null($items)){
+    $the_latest = new WP_Query( array(
+        'post_status' => 'publish',
+        'posts_per_page' => 3,
+        'post__not_in' => array($post->ID),
+        'category__not_in' => array(get_cat_ID('publications'))
+    ));
+    wp_reset_postdata();    
+    $items = $the_latest->posts;
+}
+
 if( $display):
 ?>
 <section id="<?php echo $section_id?>" class="featured-cards section-v-padding section-h-padding color-brand-primary">
@@ -24,7 +36,6 @@ if( $display):
                         )
                     ));
                 endforeach;
-                wp_reset_postdata();
                 echo '</div>';
             
                 echo '<div class="featured-cards__cards swiper cards '.( $cta ? 'cards--cta-after' : '' ).' mobile"><div class="swiper-wrapper">';
@@ -36,7 +47,6 @@ if( $display):
                         )
                     ));
                 endforeach;
-                wp_reset_postdata();
                 echo '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div>';
 
             }

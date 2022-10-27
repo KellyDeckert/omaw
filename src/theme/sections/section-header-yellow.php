@@ -3,6 +3,7 @@ $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'header-illustr
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
 $label = isset($args['data']['label']) ? $args['data']['label'] : null;
 $content = isset($args['data']['content']) ? $args['data']['content'] : null;
+$cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
 
 if( $display):
 ?>
@@ -14,6 +15,7 @@ if( $display):
                 echo '<div class="header-simple-yellow__copy" data-aos="smooth-slide-up" data-aos-delay="450" data-aos-duration="700" data-aos-easing="cubic">
                     '.$content.'
                 </div>';
+                echo $cta ? '<a href="'.$cta['url'].'" target="'.( isset($cta['target']) ? $cta['target'] : '_self' ).'" class="button button--alt">'.$cta['title'].'</a>' : '';   
             echo '</div>';
     ?>
     </div>
