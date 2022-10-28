@@ -75,7 +75,7 @@
         .card__image {
             grid-area: img;
             max-height: 120px;
-            @media screen and (min-width:768px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait) {
+            @media screen and (min-width:768px) and (max-width:1023px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait) {
                 max-height: 90px;
             }
             @media screen and (min-width:744px) and (max-width:768px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
