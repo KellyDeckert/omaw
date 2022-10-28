@@ -3038,7 +3038,14 @@ details {
                             }
                         }
                     }
-                    
+                    .no-results {
+                        height: calc(46/16 * 1em);
+                        td[colspan="4"] {
+                            z-index: 3;
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
                 }
             }
         }

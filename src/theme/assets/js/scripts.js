@@ -932,9 +932,9 @@ function renderMemberList(){
 		}
 	} else {
 		listHTML = `
-		<tr>
+		<tr class="no-results">
 			<td colspan="4">
-				<p class="paragraph--sm">No members found</p>
+				<p class="paragraph--sm">No results for the criteria selected</p>
 			</td>
 		</tr>
 		`;
