@@ -707,7 +707,7 @@ var inGuidingCouncil = false;
 var selectedIndustry = '';
 var selectedRegion = '';
 var memberListData = [];
-var bankSize = 10;
+var bankSize = 20;
 var currentPage = 1;
 var bankStartIndex;
 var bankEndIndex;
