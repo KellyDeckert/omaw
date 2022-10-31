@@ -2,11 +2,11 @@
 $layout = isset($args['data']['layout']) ? $args['data']['layout'] : null;
 $swiper_slide = isset($args['data']['swiper_slide']) ? $args['data']['swiper_slide'] : false;
 setup_postdata($post);
-$date = get_the_date('M, D Y');
+$type = get_post_type();
+$date = $layout == 'no-image' ? get_the_date('M. Y') : get_the_date('M. j, Y');
 $author = getRelationShipAuthor(get_field('authors'));
 $permalink = get_permalink();
 $image = getImageObject($post->ID);
-$type = get_post_type();
 $title = get_field('title');
 $description = get_field('description');
 $content = wpautop( $post->post_content );
