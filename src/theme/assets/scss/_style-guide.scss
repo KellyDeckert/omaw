@@ -46,11 +46,13 @@ html {
     ============================= */
 
     .responsive-font-size {
-        @media (max-width: 767px) and (orientation: portrait) {
+        //@media (max-width: 767px) and (orientation: portrait) {
+        @media (max-width: 743px) and (orientation: portrait) {
             /* 16px at 375px width */
             font-size: 4.266666666666667vw;
         }
-        @media (max-width: 767px) and (orientation: landscape) {
+        //@media (max-width: 767px) and (orientation: landscape) {
+        @media (max-width: 743px) and (orientation: landscape) {
             /* 16px at 667px width */
             font-size: 1.799100449775112vw;
             // font-size: 3.799100449775112vw;
