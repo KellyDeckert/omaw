@@ -44,6 +44,55 @@ array(
   'type' => 'true_false',
   'message' => 'Check to display this section'
 ),
+
+array(
+  'key' => 'about__hero_spacing',
+  'label' => 'Section top and bottom spacing',
+  'name' => 'hero_spacing',
+  'type' => 'select',
+  'choices' => array(
+      'padding-120' => '120px padding',
+      'padding-180' => '180px padding',
+      'margin-120' => '120px margin',
+      'margin-180' => '180px margin'
+  )
+),
+array(
+  'key' => 'about__hero_vertical_alignment',
+  'label' => 'Image and Copy Vertical Alignment',
+  'name' => 'hero_vertical_alignment',
+  'type' => 'select',
+  'choices' => array(
+      'top' => 'Top',
+      'center' => 'Center',
+      'bottom' => 'Bottom'
+  )
+),
+array(
+  'key' => 'about__hero_image_alignment',
+  'label' => 'Image Alignment',
+  'name' => 'hero_image_alignment',
+  'type' => 'select',
+  'choices' => array(
+      'left' => 'Left',
+      'right' => 'Right'
+  )
+),
+array(
+  'key' => 'about__hero_image',
+  'label' => 'Image',
+  'name' => 'hero_image',
+  'type' => 'image',
+  'return_format' => 'array',
+),
+array(
+  'key' => 'our-members__hero_image_tile',
+  'label' => 'Extended Image Tile',
+  'name' => 'hero_image_tile',
+  'type' => 'image',
+  'return_format' => 'array',
+),
+
 array(
   'key' => 'about__hero_sub_heading',
   'label' => 'Sub Heading',
@@ -65,12 +114,12 @@ array(
   'media_upload' => 0,
 ),
 array(
-  'key' => 'about__hero_image',
-  'label' => 'Image',
-  'name' => 'hero_image',
-  'type' => 'image',
-  'return_format' => 'array',
-),
+  'key' => 'our-members__hero_cta_link',
+  'label' => 'CTA Link',
+  'name' => 'hero_cta_link',
+  'type' => 'link',
+), 
+
 
 /*  BLUE CTA
 ============================= */
