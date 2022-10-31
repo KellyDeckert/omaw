@@ -1,9 +1,10 @@
 <?php
+$aos_anchor = isset($args['data']['aos_anchor']) ? $args['data']['aos_anchor'] : null;
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
 if( $display):
 ?>
 
-<section class="quick-links" id="quick-links-menu"  data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="500" data-aos-easing="cubic">
+<section class="quick-links" id="quick-links-menu"  data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="500" data-aos-easing="cubic" <?php echo isset($aos_anchor) ? 'data-aos-anchor="#'.$aos_anchor.'"' : '';?>>
     <div class="quick-links__inner layout--1080 desktop" data-scrollable="h">
         <ul class="quick-links__menu menu">
 
