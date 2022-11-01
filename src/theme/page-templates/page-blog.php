@@ -7,7 +7,7 @@ $categories = get_categories(array(
 ));
 
 ?>
-<div class="blog responsive-font-size">
+<main class="blog responsive-font-size">
     <?php
     get_template_part( 'sections/section-header-illustration', null,
         array( 
@@ -84,7 +84,5 @@ $categories = get_categories(array(
         </div>    
     </div>
 
-
-
-</div>
+</main>
 <?php get_footer(); ?>

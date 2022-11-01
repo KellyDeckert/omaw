@@ -18,7 +18,7 @@ ready(() => {
 	lockMobileScroll();
 	// init posts list
 	if( jQuery('.post-list').length != 0 ){
-		var postList = jQuery('.post-list').first();
+		postList = jQuery('.post-list').first();
 		var postType = postList.data('type');
 		var postListBankSize = postList.data('bank-size');
 		if(postListBankSize){
@@ -715,6 +715,7 @@ var inGuidingCouncil = false;
 var selectedIndustry = '';
 var selectedRegion = '';
 var selectedCategory = '';
+var postList;
 var postListData = [];
 var postListType;
 var bankSize = 20;
@@ -972,6 +973,7 @@ function renderPostsList(){
 
 	managePagination(filteredPosts.length);
 	setPostListUrlParameters();
+	postList.addClass('post-list--loaded');
 }
 
 // load posts

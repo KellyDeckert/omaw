@@ -205,6 +205,14 @@ img[class*="wp-image"] {
         transform: scaleY(-1);
     }
 }
+main {
+    @media screen and (max-width: 767px){
+        min-height: calc(100vh - 78px);
+    }
+    @media screen and (min-width: 768px){
+        min-height: calc(100vh - 98px);
+    }
+}
 
 
 /*  HERO
@@ -2968,6 +2976,10 @@ details {
     ============================= */
 
 .post-list {
+    opacity: 0;
+    &.post-list--loaded {
+        animation: .5s cubic-bezier(0.4, 0, 0.2, 1) .5s 1 normal forwards running smoothSlideUp;
+    }
     .post-list__member-table-wrapper, .post-list__cards-wrapper {
         margin-top: 1.5em;
     }

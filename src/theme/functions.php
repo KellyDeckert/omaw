@@ -572,7 +572,7 @@ add_action('acf/input/admin_head', 'my_acf_admin_head');
 
 
 function getRelationShipAuthor($items){
-	$selected = array();
+	$selected;
 	if($items){
 		foreach( $items as $item ){
 			$selected = array(
