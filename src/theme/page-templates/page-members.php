@@ -39,16 +39,12 @@ $region_terms = get_terms([
     );
     ?>
 
-    <div class="members-list section-h-padding section-v-margin">
+    <div class="post-list section-h-padding section-v-margin" data-type="members"  data-bank-size="20">
         <div class="layout--1080">
             
-            <div class="filters">
+            <div class="filters filters--2-option">
                 <h6 class="filters__results"></h6>
                 <div class="filters__council">
-                    <!-- <h6>
-                        Guiging Council
-                    </h6>
-                    <input type="checkbox" id="vehicle1" name="guiding_council" value=""> -->
                     <div class="filters__council mdc-form-field">
                     <div class="mdc-checkbox mdc-checkbox--upgraded mdc-ripple-upgraded mdc-ripple-upgraded--unbounded mdc-checkbox--selected" style="--mdc-ripple-fg-size: 24px; --mdc-ripple-fg-scale: 1.6666666666666667; --mdc-ripple-left: 8px; --mdc-ripple-top: 8px;">
                         <input type="checkbox" class="mdc-checkbox__native-control" id="guiding-council" autocomplete ="off" <?php echo $_GET['council'] == 'true' ? 'checked' : '';?>>
@@ -113,9 +109,9 @@ $region_terms = get_terms([
                 </div>
             </div>
             
-            <div class="members-list__table-wrapper">
-                <div class="members-list__table-scroller">
-                    <table id="members-list">
+            <div class="post-list__member-table-wrapper">
+                <div class="post-list__member-table-scroller">
+                    <table id="members-list" class="post-list-table">
                         <thead>
                             <tr>
                                 <th>
@@ -154,7 +150,7 @@ $region_terms = get_terms([
                 </div>
             </div>
             
-            <div id="members-pagination" class="pagination">
+            <div class="pagination">
                 <button class="pagination__prev-button disabled" data-tabs="'.$section_id.'-tabs" data-index="prev">
                 <?php get_template_part( 'snippets/icon-left-arrow'); ?>
                 </button>

@@ -140,6 +140,11 @@ function youtube_id_from_url($url) {
     return false;
 }
 
+// CARDS EXCERPT
+function get_card_excerpt($post_id,$length){
+	return has_excerpt($post_id) ? get_excerpt(get_the_excerpt($post_id)) : get_excerpt(get_the_excerpt($post_id),$length) ;
+}
+
 // CUSTOM EXCERPT
 function get_excerpt($source,$limit=0){
 	$excerpt = $source;
@@ -511,6 +516,10 @@ function register_routes() {
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'serve_members_route',
   ));
+  register_rest_route( 'endpoints', 'posts' , array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => 'serve_posts_route',
+  ));
 }	
 
 // include all endpoints
@@ -523,7 +532,6 @@ function getImageObject($id){
     if( $has_featured_image ){
         return array(
             'alt' => get_post_meta(get_post_thumbnail_id($id), '_wp_attachment_image_alt', true),
-            'small-thumbnail' => get_the_post_thumbnail_url($id,'small-thumbnail'),
             'thumbnail' => get_the_post_thumbnail_url($id,'thumbnail'),
             'medium' => get_the_post_thumbnail_url($id,'medium'),
             'large' => get_the_post_thumbnail_url($id,'large'),

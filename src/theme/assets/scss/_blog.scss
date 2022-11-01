@@ -1,74 +1,8 @@
-/*  BLOG PAGINATION
-    ============================= */
-    .navigation.pagination {
-        .page-numbers {
-            padding:5px;
-            text-decoration:none;
-            &.prev {
-                margin-right:35px;
-            }
-            &.current {
-                background-color:$brand-primary;
-                color:#fff;
-            }
-            &.next {
-                margin-left:35px;
-            }
-            &:hover {
-                background-color:$brand-secondary-accent;
-                color:$brand-primary;
-            }
-        }
-    }
-/*  BLOG FILTERS
-    ============================= */
-    .sort_by_filter {
-        display:flex;
-        flex-direction:row;
-        font-size:14px;
-        &__form {
-            flex-direction:row;
-        }
-        &__label {
-            font-weight:bold;
-            margin-right:8px;
-            width:fit-content;
-        }
-        select {
-            &.select-inline {
-                // A reset of styles, including removing the default dropdown arrow
-                appearance: none;
-                // Additional resets for further consistency
-                background-color: transparent;
-                border: none;
-                padding: 0 1em 0 0;
-                margin: 0;
-                width: 100%;
-                font-family: inherit;
-                font-size: inherit;
-                cursor: inherit;
-                line-height: inherit;
-                
-                text-decoration:underline;
-            }
-        }
-    }
+
 /*  BLOG TEMPLATE
     ============================= */
-    .blog {
-        &__posts {
-            display:flex;
-            flex-wrap:wrap;
-            justify-content:space-between;
-        }
-        &__pagination {
-            display:flex;
-            justify-content:end;
-        }
-        &__filters {
-            display:flex;
-            flex-direction:row;
-            justify-content: space-between;
-            padding:80px 0;
-        }
-    }
+.blog {
+    .post-list {
+        margin-top: calc(48/16 * 1em);
+    }  
+}

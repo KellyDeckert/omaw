@@ -599,7 +599,7 @@ if (function_exists('acf_add_local_field_group')) :
         'name' => 'event_summaries_featured_image',
         'type' => 'image',
         'return_format' => 'array',
-        'preview_size' => 'x-small-thumbnail',
+        'preview_size' => 'medium',
       ),
 
       array(

@@ -92,12 +92,7 @@ document.addEventListener("click", closeAllSelect);
 
 function handleSelectChange(selectId, selectedValue) {
   // console.log('handleSelectChange(' + selectId + '): val:' + selectedValue);
-  switch (selectId) {
-    case 'industry':
-      updateFilters(selectedValue);
-    break;
-    case 'region':
-      updateFilters(selectedValue);
-    break;
+  if( selectId == 'industry' || selectId == 'region' || selectId == 'category'){
+    updateFilters(selectedValue);
   }
 }

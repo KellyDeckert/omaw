@@ -28,7 +28,6 @@ function serve_person_route( WP_REST_Request $request ) {
             if( $has_featured_image ){
                 $image_array = array(
                     'alt' => get_post_meta(get_post_thumbnail_id($id), '_wp_attachment_image_alt', true),
-                    'small_thumbnail' => get_the_post_thumbnail_url($id,'small-thumbnail'),
                     'thumbnail' => get_the_post_thumbnail_url($id,'thumbnail'),
                     'medium' => get_the_post_thumbnail_url($id,'medium'),
                     'large' => get_the_post_thumbnail_url($id,'large'),

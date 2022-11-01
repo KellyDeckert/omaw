@@ -10,8 +10,7 @@ $image = getImageObject($post->ID);
 $title = get_field('title');
 $description = get_field('description');
 $content = wpautop( $post->post_content );
-
-$excerpt = has_excerpt($id) ? get_excerpt(get_the_excerpt()) : get_excerpt(get_the_excerpt(),180) ;
+$excerpt = get_card_excerpt($id,180);
 
 $is_no_image = $layout == 'no-image' ? true : false ;
 $is_post =  $type == 'post' ? true : false ;

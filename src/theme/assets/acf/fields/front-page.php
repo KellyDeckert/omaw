@@ -74,7 +74,7 @@ if (function_exists('acf_add_local_field_group')) :
               'name' => 'image',
               'type' => 'image',
               'return_format' => 'array',
-              'preview_size' => 'x-small-thumbnail',
+              'preview_size' => 'medium',
             ),
             array(
               'key' => 'homepage__hero_item__title',

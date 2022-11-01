@@ -16,11 +16,19 @@ ready(() => {
 	autoCloseMobile(); // reset menu if page is reloaded with menu open
 	initMobileFooterAccordions();
 	lockMobileScroll();
-
-	// init members list
-	if( jQuery('#members-list').length > 0 ){
-		getMembersUrlParameters();
-		loadMemberList();
+	// init posts list
+	if( jQuery('.post-list').length != 0 ){
+		var postList = jQuery('.post-list').first();
+		var postType = postList.data('type');
+		var postListBankSize = postList.data('bank-size');
+		if(postListBankSize){
+			bankSize = postListBankSize;
+		}
+		if(postType){
+			postListType = postType;
+			getPostListUrlParameters();
+			loadPostListData();
+		}
 	}
 });
 
@@ -699,14 +707,16 @@ function setTabbedSectionButtons(section){
 
 
 
-/* MEMBERS LIST */
+/* POSTS LIST */
 var filterSelects = jQuery('.filters select');
 var filterSort = document.getElementById('filters-sort');
 var sortValue = 'asc';
 var inGuidingCouncil = false;
 var selectedIndustry = '';
 var selectedRegion = '';
-var memberListData = [];
+var selectedCategory = '';
+var postListData = [];
+var postListType;
 var bankSize = 20;
 var currentPage = 1;
 var bankStartIndex;
@@ -733,7 +743,7 @@ if(sortSelectors.length > 0){
 					sortValue = sortButton.dataset.sort;
 					sortSelector.dataset.sort = sortValue ;
 					resetPaginationIndex();
-					renderMemberList();
+					renderPostsList();
 				});
 			});
 		}
@@ -743,7 +753,7 @@ if(sortSelectors.length > 0){
 jQuery(document).on('change','#guiding-council',function(event){
 	resetPaginationIndex();
 	inGuidingCouncil = jQuery('#guiding-council').is(':checked');
-	renderMemberList();
+	renderPostsList();
 });
 
 jQuery(document).on('click','.filters__clear button',function(event){
@@ -754,7 +764,7 @@ function toggleSort(selector){
 	selector.dataset.sort = selector.dataset.sort == 'asc' ? 'desc' : 'asc' ;
 	sortValue = selector.dataset.sort;
 	resetPaginationIndex();
-	renderMemberList();
+	renderPostsList();
 }
 
 function resetPaginationIndex(){
@@ -776,8 +786,9 @@ function clearSelectedFilters() {
 	inGuidingCouncil = false;
 	selectedIndustry = '';
 	selectedRegion = '';
+	selectedCategory = '';
 	resetPaginationIndex();
-	renderMemberList();
+	renderPostsList();
 }
 
 function updateFilters(selectedValue) {
@@ -792,12 +803,15 @@ function updateFilters(selectedValue) {
 			if(filterSelect.attr('id') == 'region'){
 				selectedRegion = filterSelect.val();
 			}
+			if(filterSelect.attr('id') == 'category'){
+				selectedCategory = filterSelect.val();
+			}			
 		}
 	});
-	renderMemberList();
+	renderPostsList();
 }
 
-function filterMember (item) {
+function filterPoltListItem (item) {
 	var itemMatchesFilters = false;
 	var evalConditions = [];
 	var evalConditionsString = '';
@@ -810,6 +824,9 @@ function filterMember (item) {
 	if( selectedRegion != '' ){
 		evalConditions.push('item.regions_slugs.search("' + selectedRegion + '") !== -1');
 	}
+	if( selectedCategory != '' ){
+		evalConditions.push('item.categories.search("' + selectedCategory + '") !== -1');
+	}
 	if (evalConditions.length > 0) {
 		evalConditionsString += '(';
 		evalConditionsString += evalConditions.join(') && (');
@@ -819,18 +836,29 @@ function filterMember (item) {
     return itemMatchesFilters;
 }
 
-// sorting members by title
-function sortItems(items,type){
-	if( type == 'asc'){
-		return items.sort(function(a,b) {return a.title > b.title ? 1 : -1});
-	} 
-	if( type == 'desc'){
-		return items.sort(function(a,b) {return a.title < b.title ? 1 : -1});
-	} 
+// sorting posts
+function sortItems(items,type,sortBy){
+	if(sortBy == 'timestamp'){
+		// sort by timestamp
+		if( type == 'asc'){
+			return items.sort(function(a,b) {return a[sortBy] < b[sortBy] ? 1 : -1});
+		} 
+		if( type == 'desc'){
+			return items.sort(function(a,b) {return a[sortBy] > b[sortBy] ? 1 : -1});
+		} 
+	} else {
+		// sort by title
+		if( type == 'asc'){
+			return items.sort(function(a,b) {return a[sortBy] > b[sortBy] ? 1 : -1});
+		} 
+		if( type == 'desc'){
+			return items.sort(function(a,b) {return a[sortBy] < b[sortBy] ? 1 : -1});
+		} 		
+	}
 }
 
 // URL parameters
-function setMembersUrlParameters() {
+function setPostListUrlParameters() {
     var urlParameters = [];
     // append sorting
     urlParameters.push('sort=' + sortValue);
@@ -846,18 +874,22 @@ function setMembersUrlParameters() {
 	if( selectedRegion != '' ){
 		urlParameters.push('region=' + selectedRegion);
 	}
+	// append category
+	if( selectedCategory != '' ){
+		urlParameters.push('category=' + selectedCategory);
+	}
 	// append page currentPage
 	urlParameters.push('pp=' + currentPage);
     // concatenate all parameter groups
     const urlParametersString = urlParameters.length > 0 ? '?' + urlParameters.join('&') : '';
     if (urlParametersString != '') {
-        history.pushState({ page: 'our-members' }, "Sorting and filtering", urlParametersString);
+        history.pushState({ page: postListType }, "Sorting and filtering", urlParametersString);
     } else {
         history.replaceState({}, '', location.pathname);
     }
 }
 
-function getMembersUrlParameters(){
+function getPostListUrlParameters(){
     var queryString = window.location.search;
     if (queryString.length > 0) {
         var urlParams = new URLSearchParams(queryString);
@@ -876,6 +908,11 @@ function getMembersUrlParameters(){
         if (urlIndustry) {
             selectedIndustry = urlIndustry;
         }
+		// category
+        var urlCategory = urlParams.get('category');
+        if (urlCategory) {
+            selectedCategory = urlCategory;
+        }
 		// sorting
         var urlRegion = urlParams.get('region');
         if (urlRegion) {
@@ -890,18 +927,30 @@ function getMembersUrlParameters(){
 	}
 }
 
-
-// member list template
-function renderMemberList(){
+// posts list template
+function renderPostsList(){
 	var listHTML = '';
+	var listSelector;
+	var templateFunction;
+	var sortBy = 'title';
+	switch(postListType){
+		case 'members':
+			listSelector = '#members-list tbody';
+			templateFunction = getMemberListTableRow;
+		break;
+		case 'posts':
+			listSelector = '#post-list';
+			templateFunction = getPostListItemCard;
+			sortBy = 'timestamp';
+		break;
+	}
 	// filter items
-	var filteredPosts = memberListData.filter(item => {
-		return filterMember(item);
+	var filteredPosts = postListData.filter(item => {
+		return filterPoltListItem(item);
 	});
 	// sort posts
-	var sortedPosts = sortItems(filteredPosts,sortValue);
+	var sortedPosts = sortItems(filteredPosts,sortValue,sortBy);
 	if( sortedPosts.length > 0){
-
 		// paginate, 
 		bankStartIndex = ( bankSize * currentPage ) - bankSize;
 		bankEndIndex = bankStartIndex + bankSize ;
@@ -911,63 +960,98 @@ function renderMemberList(){
 		}
 		for ( x = bankStartIndex ; x < bankEndIndex ; x++ ) {
 			var item = sortedPosts[x];
-			listHTML += `
-			<tr>
-				<td>
-				<p class="paragraph--sm"><strong>${item.title}</strong></p>
-				</td>
-				<td>
-					${item.guiding_council ? `
-						<svg class="icon-checkmark" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 738" style="enable-background:new 0 0 1000 738;" xml:space="preserve"><path d="M883,6.8L362.2,527.4L117,282.2c-9.1-9.1-23.9-9.1-33.1,0L6.8,359.4c-9.1,9.1-9.1,23.9,0,33l338.9,338.7c9.1,9.1,23.9,9.1,33.1,0l77.1-77.1l537.2-537c9.1-9.1,9.1-23.9,0-33L916,6.8C906.9-2.3,892.1-2.3,883,6.8z"/></svg>
-					` : ''}
-				</td>
-				<td>
-				<p class="paragraph--sm">${item.industry}</p>
-				</td>
-				<td>
-				<p class="paragraph--sm">${item.regions}</p>
-				</td>
-			</tr>
-			`;			
+			listHTML += templateFunction(item);			
 		}
 	} else {
-		listHTML = `
-		<tr class="no-results">
-			<td colspan="4">
-				<p class="paragraph--sm">No results for the criteria selected</p>
-			</td>
-		</tr>
-		`;
+		listHTML = getNoResultsHtml();
 	}	
 	jQuery('.filters__results').html(`
 		${filteredPosts.length} ${filteredPosts.length == 1 ? `Result` : `Results`}
 	`);
-	jQuery('#members-list tbody').html(listHTML);
+	jQuery(listSelector).html(listHTML);
 
 	managePagination(filteredPosts.length);
-	setMembersUrlParameters();
+	setPostListUrlParameters();
 }
 
-// load members
-function loadMemberList(){
+// load posts
+function loadPostListData(){
 	jQuery.ajax({
 		method: "GET",
-		url: siteUrl + '/wp-json/endpoints/members',
+		url: siteUrl + '/wp-json/endpoints/'+postListType,
 		complete: function (data) {
-			memberListData = JSON.parse(data.responseText);
-			renderMemberList();
+			postListData = JSON.parse(data.responseText);
+			renderPostsList();
 		}
 	});
 }
 
+// post list type templates
+function getMemberListTableRow(item){
+	return `
+	<tr>
+		<td>
+		<p class="paragraph--sm"><strong>${item.title}</strong></p>
+		</td>
+		<td>
+			${item.guiding_council ? `
+				<svg class="icon-checkmark" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 738" style="enable-background:new 0 0 1000 738;" xml:space="preserve"><path d="M883,6.8L362.2,527.4L117,282.2c-9.1-9.1-23.9-9.1-33.1,0L6.8,359.4c-9.1,9.1-9.1,23.9,0,33l338.9,338.7c9.1,9.1,23.9,9.1,33.1,0l77.1-77.1l537.2-537c9.1-9.1,9.1-23.9,0-33L916,6.8C906.9-2.3,892.1-2.3,883,6.8z"/></svg>
+			` : ''}
+		</td>
+		<td>
+		<p class="paragraph--sm">${item.industry}</p>
+		</td>
+		<td>
+		<p class="paragraph--sm">${item.regions}</p>
+		</td>
+	</tr>
+	`;	
+}
+function getPostListItemCard(item){
+	return `
+	<a href="${item.permalink}" class="card card--image-top card--post card--no-mobile-excerpt">
+		${ item.image ? `
+		<picture class="card__image zoom-image">
+			<img src="${item.image['750x']}" alt="">
+		</picture>
+		` : ``}
+		<p class="card__byline paragraph--xs uppercase">
+			<strong>
+			${item.date}
+			${item.author ? ` | ${item.author.name}` : ``}
+			</strong>
+		</p>
+		<h5 class="card__name">${item.title}</h5>
+		${item.excerpt ? `<p class="card__excerpt">${item.excerpt}</p>` : ``}
+		<span class="card__button button button--alt">Read More</span>
+	</a>
+	`;
+}
+function getNoResultsHtml(){
+	switch(postListType){
+		case 'members':
+			return `
+			<tr class="no-results">
+				<td colspan="4">
+					<p class="paragraph--sm">No results for the criteria selected</p>
+				</td>
+			</tr>
+			`;
+		break;
+		case 'posts':
+			return `
+			<div class="no-results">
+				<p class="paragraph--sm">No results for the criteria selected</p>
+			</div>
+			`;
+		break;
+	}
+}
 
 
 
 
-
-
-
-// reset pagination index
+// pagination
 function setPaginationIndex(){
 	paginationIndex = Math.ceil(currentPage / paginationBankSize);
 	// console.log('setPaginationIndex(): '+paginationIndex);
@@ -1029,44 +1113,44 @@ function managePagination(itemCount){
 
 	} else {
 		// hide nav
-		console.log('pagination disabled');
+		// console.log('pagination disabled');
 		jQuery('.pagination').addClass('disabled');
 	}
 
 }
 
-
 jQuery(document).on('click','.pagination__prev-button', function(event){
 	event.preventDefault();
 	currentPage --;
 	setPaginationIndex();
-	renderMemberList();
+	renderPostsList();
 });
 
 jQuery(document).on('click','.pagination__ellipsis-prev', function(event){
 	event.preventDefault();
 	paginationIndex --;
-	renderMemberList()
+	renderPostsList()
 });
 
 jQuery(document).on('click','.pagination__button', function(event){
 	currentPage = Number(jQuery(this).data('page'));
 	setPaginationIndex();
-	renderMemberList()
+	renderPostsList()
 });
 
 jQuery(document).on('click','.pagination__ellipsis-next', function(event){
 	event.preventDefault();
 	paginationIndex ++;
-	renderMemberList()
+	renderPostsList()
 });
 
 jQuery(document).on('click','.pagination__next-button', function(event){
 	event.preventDefault();
 	currentPage ++;
 	setPaginationIndex();
-	renderMemberList()
+	renderPostsList()
 });
+
 
 // Get all YouTube iframes and wrap them in .video-container
 const videoIframes = Array.from(document.querySelectorAll('iframe[src*="youtube.com"], iframe[src*="linkedin.com/embed"]'));
