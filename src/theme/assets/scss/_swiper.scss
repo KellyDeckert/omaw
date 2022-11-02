@@ -57,7 +57,62 @@
             background-color: $brand-primary;
             color: #fff;
         }
-        @media screen and (max-width: 567px) {
+        // @media screen and (max-width: 567px) {
+
+        &.quote-slider__slides {
+            @media screen and (max-width: 567px) and (orientation: portrait){
+                .swiper-pagination {
+                    bottom: 2em;
+                    width: auto;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: auto;
+                    right: auto;
+                }
+                .swiper-pagination-bullet {
+                    &:not(:last-child) {
+                        margin-right: 3em!important;
+                        margin-right: var(--swiper-pager-num) !important;
+                        &:after {
+                            @include slider-pagination-bullet-line();
+                            top: 50%;
+                            left: 100%;
+                            transform: translateY(-50%);                        
+                            height: 2px;
+                            width: calc(3em + 2px);
+                            width:calc(var(--swiper-pager-num) + 2px);
+                        }       
+                    }
+                }
+            }
+            @media not screen and (max-width: 567px) and (orientation: portrait){
+                .swiper-pagination {
+                    left: 2.5em;
+                    right: auto;
+                    flex-direction: column;
+                    top: 50%;
+                    transform: translate3d(0px,-50%,0);
+                }
+                .swiper-pagination-bullet {
+                    &:not(:last-child) {
+                        margin-bottom: 3em!important;
+                        margin-bottom: var(--swiper-pager-num) !important;
+                        &:after {
+                            @include slider-pagination-bullet-line();
+                            top: 100%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 2px;
+                            height: calc(3em + 2px);
+                            height: calc(var(--swiper-pager-num) + 2px);
+                        }                    
+                    }
+                }
+            }
+        }
+
+
+        @media screen and (max-width: 767px) {
             .swiper-pagination {
                 bottom: 2em;
                 width: auto;
@@ -82,7 +137,8 @@
                 }
             }
         }
-        @media screen and (min-width: 568px){
+        // @media screen and (min-width: 568px){
+        @media screen and (min-width: 768px){
             .swiper-pagination {
                 left: 2.5em;
                 right: auto;

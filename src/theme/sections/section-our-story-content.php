@@ -64,7 +64,9 @@ if( $display):
             echo '<div class="content-story__img mobile">
                 <div class="mobile content-story__image aos-init aos-animate" data-aos="smooth-slide-right" data-aos-delay="100" data-aos-duration="350">
                     <div class="drawn_bg_wrapper">';
+                        echo $image_tile ? '<span class="drawn_bg_tile mini" style="background-image:url('.$image_tile['url'].');"></span>' : '';
                         echo $image ? '<img loading="lazy" src="'.$image_url.'" alt="'.$image['alt'].'">' : '';
+                        echo $image_tile ? '<span class="drawn_bg_tile mini" style="background-image:url('.$image_tile['url'].');"></span>' : '';
                     echo '</div>';
                 echo '</div>';
             echo '</div>';
