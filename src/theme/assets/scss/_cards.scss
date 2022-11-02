@@ -37,6 +37,7 @@
     // flex-direction:column;
     position: relative;
     padding: 1.25em 1.25em 1.25em 1.25em;
+    padding: calc(20/16 * 1em);
     border: 1px solid #e9e8e8;
     background-color: #ffffff;
     transition: box-shadow .15s ease-in-out;
@@ -53,6 +54,10 @@
     &.card--image-top, &.card--image-left {
         &[data-overlay="1"] {
             padding-bottom:calc(64/16 * 1em);
+            @media screen and (min-width:744px) and (max-width:768px) and (orientation: portrait){
+                padding-bottom: calc(20/16 * 1em);
+                padding-right: calc(64/16 * 1em);
+            }
         }  
         .card__icon-button {
             // grid-area: overlay;

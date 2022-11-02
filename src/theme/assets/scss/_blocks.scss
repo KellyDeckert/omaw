@@ -92,11 +92,15 @@
     }
 }
 .section-v-margin {
-    @media screen and (max-width: 767px) and (orientation: portrait){
+    // @media screen and (max-width: 767px) and (orientation: portrait){
+    @media screen and (max-width: 744px) and (orientation: portrait){
         margin: 5em 0;
+        margin: calc(40/16 * 1em) 0;
     }
-    @media not screen and (max-width: 767px) and (orientation: portrait){
+    // @media not screen and (max-width: 767px) and (orientation: portrait){
+    @media not screen and (max-width: 744px) and (orientation: portrait){
         margin: 7.5em 0;
+        margin: calc(120/16 * 1em) 0;
     }
 }
 .section-v-margin-compact {
@@ -1236,14 +1240,16 @@ img[class*="wp-image"] {
                 }
             }
         }
-        // @media screen and (min-resolution:192dpi),
-        // (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
-        // (min-width:744px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait),
-        // (min-width:375px) and (max-width:744px){
-        //     .content-slider .swiper.content-slider__slides {
-        //         max-height:32vh;
-        //     }
-        // }
+
+        @media screen and (min-width:744px)  and (max-width:767px) and (orientation: portrait){
+            .content-slider {
+                &__content {
+                    padding-left: 10.1851851852%;
+                    padding-right: 10.1851851852%;
+                }
+            }
+        }
+
         @media screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
         (min-width:768px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait) {
             .content-slider {
@@ -1320,7 +1326,6 @@ img[class*="wp-image"] {
             display: block;
         }
     }
-    // @media screen and (max-width: 767px) and (orientation: portrait){
     @media screen and (max-width: 567px){
         .quote-slider__slide-inner {
             flex-direction: column;
@@ -1337,8 +1342,7 @@ img[class*="wp-image"] {
             padding-left: 1.5em;
         }
     }
-    // @media not screen and (max-width: 767px) and (orientation: portrait){
-    @media screen and (min-width: 568px){
+    @media not screen and (max-width: 567px) and (orientation: portrait){
         padding-bottom: 70%;
         .quote-slider__slide-inner {
             padding-left: 11.574074074074074%;
@@ -1372,6 +1376,12 @@ img[class*="wp-image"] {
         .quote-slider__content {
             width: 65.44502617801047%;
             padding-right: 3.125em;
+        }
+    }
+    @media (min-width: 744px) and (max-width: 768px) and (orientation: portrait) {
+        .quote-slider__image,
+        .quote-slider__content {
+            width: 50%;
         }
     }
     @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
@@ -1412,7 +1422,8 @@ img[class*="wp-image"] {
                 margin-top:8px;
             }
         }
-        @media screen and (max-width: 767px) and (orientation: portrait){
+        // @media screen and (max-width: 767px) and (orientation: portrait){
+        @media screen and (max-width: 744px) and (orientation: portrait){
             margin-bottom:calc(80/16 * 1em);
             padding-right:20px;
             padding-left:20px;
@@ -1431,7 +1442,8 @@ img[class*="wp-image"] {
             }
             scroll-margin-top: 2em;
         }
-        @media not screen and (max-width: 767px) and (orientation: portrait){
+        //@media not screen and (max-width: 767px) and (orientation: portrait){
+        @media not screen and (max-width: 743px) and (orientation: portrait){
             margin-bottom:calc(120/16 * 1em);
             &__content {
                 margin-left:calc(36/16 * 1em);
@@ -1553,6 +1565,11 @@ img[class*="wp-image"] {
                 margin-top:calc(40/16 * 1em);
                 margin-bottom:80px;
                 margin-bottom:calc(80/16 * 1em);
+                .drawn_bg_wrapper {
+                    .drawn_bg_tile {
+                        display:none;
+                    }
+                }
             }
             &__overlay {
 
@@ -1739,7 +1756,6 @@ img[class*="wp-image"] {
             padding-bottom: 1.25em;
         }
     }
-
     @media screen and (max-width: 767px) and (orientation: portrait){
         .header-illustration__inner {
             padding-top: 3.75em;
@@ -1753,6 +1769,11 @@ img[class*="wp-image"] {
                 padding-top: 2.5em;
                 padding-bottom: 3.75em;
             }
+        }
+    }
+    @media screen and (min-width: 744px) and (max-width:767px) and (orientation: portrait){
+        .header-illustration__inner {
+            padding-top: 5em;
         }
     }
     @media not screen and (max-width: 767px) and (orientation: portrait){
@@ -2117,6 +2138,9 @@ img[class*="wp-image"] {
 /*  JUMP LINKS MENU
     ============================= */
     .quick-links {
+        @media screen and (min-width:744px) and (max-width:767px) and (orientation: portrait){
+            padding-top:60px;
+        }
         &__inner {
             @media screen and (max-width: 767px) and (orientation: portrait){
                 &.desktop {
@@ -2125,18 +2149,20 @@ img[class*="wp-image"] {
                 &.mobile {
                     display: flex;
                     justify-content: center;
-                    margin-left: auto;
-                    margin-right: auto;
+                    // margin-left: auto;
+                    // margin-right: auto;
                     // padding-top:calc(80/16 * 1em);
                     // padding-bottom:calc(60/16 * 1em);
-                    width: 90%;
+                    // width: 90%;
+                    padding-left:3.75em;
+                    padding-right:3.75em;
                     .mdc-select__anchor {
                         height:44px;
                     }
                 }
             }
-            @media screen and (min-width:1080px) and (max-width:1080px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape),
-            (min-width:744px) and (max-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
+            @media screen and (min-width:1080px) and (max-width:1080px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:landscape) {
+            //(min-width:744px) and (max-width:1024px) and (-webkit-min-device-pixel-ratio:1.5) and (orientation:portrait){
                 margin-left:3.75em;
                 margin-right:3.75em;
             }
