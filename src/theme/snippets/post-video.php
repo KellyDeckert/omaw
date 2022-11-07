@@ -36,4 +36,38 @@ if($embed_code != ''){
 echo '<div class="'.( $is_video_container ? 'video-container ' : '' ).'post__video post__video--'.$video_type.( $video_type == 'instagram' ? ' post__video--'.$instagram_embed_aspect : '' ).'">';
     echo $embed_code;
 echo '</div>';
+
+echo '<div class="post__video-social-buttons">';
+    echo '<span class="sharing-tooltip__wrapper">';
+        echo '<span id="post__video-social--share-cta" href="" target="_self" class="button button--accent button--accent-dark sharing-tooltip__button">Share</span>';
+        echo '<div class="sharing-tooltip">';  
+        get_template_part( 'snippets/social-icon', null,
+            array( 
+                'data'  => array(
+                    'icon' => 'facebook',
+                    'url' => 'https://www.facebook.com/sharer/sharer.php?u='.get_the_permalink()
+                ),
+            )
+        );  
+        get_template_part( 'snippets/social-icon', null,
+            array( 
+                'data'  => array(
+                    'icon' => 'twitter',
+                    'url' => 'https://twitter.com/share?url='.get_the_permalink()
+                ),
+            )
+        );
+        get_template_part( 'snippets/social-icon', null,
+            array( 
+                'data'  => array(
+                    'icon' => 'linkedin',
+                    'url' => 'https://www.linkedin.com/shareArticle?mini=true&url='.get_the_permalink()
+                ),
+            )
+        );
+        echo '</div>';    
+    echo '</span>';
+    echo '<a id="post__video-social--connect-cta" href="'.get_field($video_type,'options') .'" target="_blank" class="button button--accent button--accent-dark">Connect on '.ucfirst($video_type).'</a>';
+echo '</div>';
+
 }

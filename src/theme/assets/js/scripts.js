@@ -1010,8 +1010,14 @@ function getMemberListTableRow(item){
 	`;	
 }
 function getPostListItemCard(item){
+	var permalinkTarget = '_self';
+	var permalink = item.permalink;
+	if( item.categories.search("workplace-mental-health-blogs") !== -1 && item.custom_fields.external_url){
+		permalinkTarget = '_blank';
+		permalink = item.custom_fields.external_url;
+	}
 	return `
-	<a href="${item.permalink}" class="card card--image-top card--post card--no-mobile-excerpt">
+	<a href="${permalink}" target="${permalinkTarget}" class="card card--image-top card--post card--no-mobile-excerpt">
 		${ item.image ? `
 		<picture class="card__image zoom-image">
 			<img src="${item.image['750x']}" alt="">
@@ -1200,3 +1206,9 @@ function setUpScrollableElements(){
 		}
 	});
 }
+
+
+// sharing tooltips
+jQuery(document).on('click','.sharing-tooltip__button',function(event){
+	jQuery(this).closest('.sharing-tooltip__wrapper').toggleClass('sharing-tooltip__wrapper--active');
+});
