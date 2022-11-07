@@ -5,12 +5,27 @@ setup_postdata($post);
 $type = get_post_type();
 $date = $layout == 'no-image' ? get_the_date('M. Y') : get_the_date('M. j, Y');
 $author = getRelationShipAuthor(get_field('authors'));
+$permalink_target = '_self';
 $permalink = get_permalink();
 $image = getImageObject($post->ID);
 $title = get_field('title');
 $description = get_field('description');
 $content = wpautop( $post->post_content );
 $excerpt = get_card_excerpt($id,180);
+
+// get all categories
+$categories = get_the_category();
+// init category variables
+$post_category = 'Posts';
+// find first category and stop loop
+foreach( $categories as $category ){
+    $post_category = $category;
+    break;
+}   
+if( $post_category->slug == 'workplace-mental-health-blogs'){
+    $permalink_target = '_blank';
+    $permalink = get_field('external_url');
+}
 
 $is_no_image = $layout == 'no-image' ? true : false ;
 $is_post =  $type == 'post' ? true : false ;
@@ -20,7 +35,7 @@ $bio_overlay_link_attributes = ' data-overlay-link data-overlay-type="person" da
 
 
 $has_link = $has_overlay || $is_post ? true : false ;
-$link_content = $has_overlay ? 'data-overlay="'.$has_overlay.'" '.$bio_overlay_link_attributes : ' href="'.$permalink.'"' ;
+$link_content = $has_overlay ? 'data-overlay="'.$has_overlay.'" '.$bio_overlay_link_attributes : ' href="'.$permalink.'" target="'.$permalink_target.'"' ;
 $card_tag = $is_post ? 'a' : 'div';
 $card_name_tag = $is_no_image ? 'h4' : 'h5' ;
 

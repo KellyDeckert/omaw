@@ -97,7 +97,7 @@ while ( have_posts() ) :the_post();
                         'items' => $the_latest->posts,
                         'cta' => array(
                             "url" => "/resources/blog-news/",
-                            "title" => "See All Posts"
+                            "title" => "See More"
                         )
                     )
                 ) 

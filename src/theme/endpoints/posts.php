@@ -36,7 +36,8 @@ function serve_posts_route( WP_REST_Request $request ) {
                 'permalink' => get_the_permalink(),
                 'excerpt' => get_card_excerpt($id,124),
                 'image' => getImageObject($id),
-                'categories' => implode(',',$categories_array)
+                'categories' => implode(',',$categories_array),
+                'custom_fields' => get_fields()
             ));  
             
         endwhile;        
