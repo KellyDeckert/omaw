@@ -60,7 +60,7 @@ echo '<div class="post__video-social-buttons">';
         get_template_part( 'snippets/social-icon', null,
             array( 
                 'data'  => array(
-                    'icon' => 'linkedin',
+                    'icon' => 'linkedIn',
                     'url' => 'https://www.linkedin.com/shareArticle?mini=true&url='.get_the_permalink()
                 ),
             )
