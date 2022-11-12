@@ -5,6 +5,7 @@ switch($type){
         $linkedin_url = get_field('linkedin','options');
         $twitter_url = get_field('twitter','options');
         $instagram_url = get_field('instagram','options');
+        $facebook_url = get_field('facebook','options');
 
     break;
     case 'post':

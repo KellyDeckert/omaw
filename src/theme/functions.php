@@ -564,6 +564,12 @@ function my_acf_admin_head() {
 		.acf-field-leadership--sections .acf-editor-wrap iframe {
 			height:auto !important;
 		}
+		.bkomaw p {
+			font-size:16px;
+			font-weight:bold;
+			margin-bottom:0;
+			width:75%;
+		}
 
     </style>
     <?php

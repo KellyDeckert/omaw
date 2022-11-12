@@ -109,6 +109,9 @@ if (function_exists('acf_add_local_field_group')) :
                 'label' => 'Gravity Form',
                 'name' => 'become-member-form',
                 'type' => 'text',
+                'wrapper' => array(
+                    'width' => '30'
+                ),
             ),
             /* Modified from Homepage -> Our Approach */
             array(
@@ -121,7 +124,9 @@ if (function_exists('acf_add_local_field_group')) :
                 'label' => 'Display',
                 'name' => 'cta-info_display',
                 'type' => 'true_false',
-                'message' => 'Check to display this section'
+                'ui' => 1,
+                'ui_on_text' => 'Show this section',
+                'ui_off_text' => 'Hide this section',
             ),
             array(
                 'key' => 'become-member-page__cta-info_bg_color',
@@ -141,7 +146,10 @@ if (function_exists('acf_add_local_field_group')) :
                 ),
                 'allow_null' => 0,
                 'multiple' => 0,
-                'ui' => 1
+                'ui' => 1,
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ),
             array(
                 'key' => 'become-member-page__cta-info_bg_color_location',
@@ -153,6 +161,9 @@ if (function_exists('acf_add_local_field_group')) :
                     'content' => 'Content Column',
                 ),
                 'default_value' => 'section',
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ),
             array(
                 'key' => 'become-member-page__cta-info_spacing',
@@ -164,7 +175,10 @@ if (function_exists('acf_add_local_field_group')) :
                     'padding-180' => '180px padding',
                     'margin-120' => '120px margin',
                     'margin-180' => '180px margin'
-                )
+                ),
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ),
             array(
                 'key' => 'become-member-page__cta-info_vertical_alignment',
@@ -175,7 +189,10 @@ if (function_exists('acf_add_local_field_group')) :
                     'top' => 'Top',
                     'center' => 'Center',
                     'bottom' => 'Bottom'
-                )
+                ),
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ),
             array(
                 'key' => 'become-member-page__cta-info_image_alignment',
@@ -185,7 +202,10 @@ if (function_exists('acf_add_local_field_group')) :
                 'choices' => array(
                     'left' => 'Left',
                     'right' => 'Right'
-                )
+                ),
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ),
             array(
                 'key' => 'become-member-page__cta-info_image_mobile_pos',
@@ -195,7 +215,10 @@ if (function_exists('acf_add_local_field_group')) :
                 'choices' => array(
                     'middle' => 'Middle',
                     'top' => 'Top'
-                )
+                ),
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ),
 
             array(
@@ -204,6 +227,9 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'cta-info_image',
                 'type' => 'image',
                 'return_format' => 'array',
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ),
             array(
                 'key' => 'become-member-page__cta-info_image_tile',
@@ -211,27 +237,27 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'cta-info_image_tile',
                 'type' => 'image',
                 'return_format' => 'array',
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ),
             array(
                 'key' => 'become-member-page__cta-info_heading',
                 'label' => 'Heading',
                 'name' => 'cta-info_heading',
                 'type' => 'text',
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ), 
-            /*
-            array(
-                'key' => 'become-member-page__cta-info_heading_size',
-                'label' => 'Heading Size',
-                'name' => 'cta-info_heading_size',
-                'type' => 'true_false',
-                'message' => 'Use a reduced header size (h4). Default is an h2.'
-            ), 
-            */
             array(
                 'key' => 'become-member-page__cta-info_sub_heading',
                 'label' => 'Sub Heading',
                 'name' => 'cta-info_sub_heading',
                 'type' => 'text',
+                'wrapper' => array(
+                    'width' => '50'
+                ),
             ),     
             array(
                 'key' => 'become-member-page__cta-info_content',

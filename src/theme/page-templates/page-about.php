@@ -4,7 +4,7 @@ get_header();
 
 ?>
 
-<div class="responsive-font-size">
+<div class="about responsive-font-size">
 
     <?php
     get_template_part( 'sections/section-image-copy', null,
@@ -135,6 +135,7 @@ get_header();
                 'id' => 'become-a-member',
                 'full_width' => false,
                 'display' => get_field('yellow-cta__display'),
+                'padding' => get_field('yellow-cta__padding'),
                 'heading' => get_field('yellow-cta__heading'),
                 'sub_heading' => get_field('yellow-cta__sub_heading'),
                 'content' => get_field('yellow-cta__content'),

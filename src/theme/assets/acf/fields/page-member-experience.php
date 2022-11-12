@@ -42,17 +42,22 @@ if (function_exists('acf_add_local_field_group')) :
             'label' => 'Display',
             'name' => 'me_header_display',
             'type' => 'true_false',
-            'message' => 'Check to display this section'
+            'ui' => 1,
+            'ui_on_text' => 'Show this section',
+            'ui_off_text' => 'Hide this section',
         ),
         array(
             'key' => 'memberExp__header_label',
-            'label' => 'Label',
+            'label' => 'Small Heading',
             'name' => 'me_header_label',
             'type' => 'text',
+            'wrapper' => array(
+                'width' => '50'
+            ),
         ),
         array(
             'key' => 'memberExp__header_content',
-            'label' => 'content',
+            'label' => 'Content',
             'name' => 'me_header_content',
             'type' => 'wysiwyg',
             'toolbar' => 'full',
@@ -72,7 +77,9 @@ if (function_exists('acf_add_local_field_group')) :
             'label' => 'Display',
             'name' => 'commitment_display',
             'type' => 'true_false',
-            'message' => 'Check to display this section'
+            'ui' => 1,
+            'ui_on_text' => 'Show this section',
+            'ui_off_text' => 'Hide this section',
         ),
         array(
             'key' => 'memberExp__commitment_bg_color',
@@ -92,7 +99,9 @@ if (function_exists('acf_add_local_field_group')) :
             ),
             'allow_null' => 0,
             'multiple' => 0,
-            'ui' => 1
+            'wrapper' => array(
+                'width' => '25'
+            ),
         ),
         array(
             'key' => 'memberExp__commitment_heading',
@@ -121,7 +130,7 @@ if (function_exists('acf_add_local_field_group')) :
             'type' => 'repeater',
             'min' => 3,
             'max' => 9,
-            'layout' => 'row',
+            'layout' => 'block',
             'sub_fields' => array(
                 array(
                     'key' => 'commitment_cards_toggle_type',
@@ -134,22 +143,6 @@ if (function_exists('acf_add_local_field_group')) :
                     'wrapper' => array(
                         'width' => '25'
                     ),
-                    'instructions' => 'Toggle CTA to change the card style and to include a link.',
-                ),
-                array(
-                    'key' => 'commitment_cards_heading',
-                    'label' => 'Heading',
-                    'name' => 'cc_heading',
-                    'type' => 'text',
-                    'required' => 1
-                ),
-                array(
-                    'key' => 'commitment_cards_content',
-                    'label' => 'Content',
-                    'name' => 'cc_content',
-                    'type' => 'textarea',
-                    'rows' => 2,
-                    'required' => 1
                 ),
                 array(
                     'key' => 'commitment_cards_link',
@@ -157,9 +150,30 @@ if (function_exists('acf_add_local_field_group')) :
                     'name' => 'cc_link',
                     'type' => 'link',
                     'wrapper' => array(
+                        'width' => '75'
+                    ),
+                ),
+                array(
+                    'key' => 'commitment_cards_heading',
+                    'label' => 'Heading',
+                    'name' => 'cc_heading',
+                    'type' => 'text',
+                    'required' => 1,
+                    'wrapper' => array(
                         'width' => '25'
                     ),
                 ),
+                array(
+                    'key' => 'commitment_cards_content',
+                    'label' => 'Content',
+                    'name' => 'cc_content',
+                    'type' => 'textarea',
+                    'rows' => 2,
+                    'required' => 1,
+                    'wrapper' => array(
+                        'width' => '75'
+                    ),
+                )
             ),
         ),
 
@@ -176,13 +190,18 @@ if (function_exists('acf_add_local_field_group')) :
             'label' => 'Display',
             'name' => 'mcs_display',
             'type' => 'true_false',
-            'message' => 'Check to display this section'
+            'ui' => 1,
+            'ui_on_text' => 'Show this section',
+            'ui_off_text' => 'Hide this section',
         ),
         array(
             'key' => 'memberExp__content_slider_label',
-            'label' => 'Label',
+            'label' => 'Small Heading',
             'name' => 'mcs_label',
             'type' => 'text',
+            'wrapper' => array(
+                'width' => '50'
+            ),
         ),
         array(
             'key' => 'memberExp__content_slider_heading',
@@ -193,7 +212,7 @@ if (function_exists('acf_add_local_field_group')) :
         ),
         array(
             'key' => 'memberExp__content_slider_content',
-            'label' => 'content',
+            'label' => 'Content',
             'name' => 'mcs_content',
             'type' => 'wysiwyg',
             'toolbar' => 'basic',
@@ -206,7 +225,7 @@ if (function_exists('acf_add_local_field_group')) :
             'type' => 'repeater',
             'min' => 1,
             'max' => 8,
-            'layout' => 'row',
+            'layout' => 'block',
             'button_label' => 'Add Slide',
             'sub_fields' => array(
                 array(
@@ -228,14 +247,20 @@ if (function_exists('acf_add_local_field_group')) :
                     'label' => 'Desktop Image',
                     'name' => 'slide_image',
                     'type' => 'image',
-                    'return_format' => 'array'
+                    'return_format' => 'array',
+                    'wrapper' => array(
+                        'width' => '50'
+                    ),
                 ),
                 array(
                     'key' => 'mcs_mobile_image',
                     'label' => 'Mobile Image',
                     'name' => 'slide_mobile_image',
                     'type' => 'image',
-                    'return_format' => 'array'
+                    'return_format' => 'array',
+                    'wrapper' => array(
+                        'width' => '50'
+                    ),
                 ),
             ),
         ),
@@ -255,7 +280,9 @@ if (function_exists('acf_add_local_field_group')) :
             'label' => 'Display',
             'name' => 'collab_display',
             'type' => 'true_false',
-            'message' => 'Check to display this section'
+            'ui' => 1,
+            'ui_on_text' => 'Show this section',
+            'ui_off_text' => 'Hide this section',
         ),
         array(
             'key' => 'memberExp__collab_bg_color',
@@ -275,7 +302,9 @@ if (function_exists('acf_add_local_field_group')) :
             ),
             'allow_null' => 0,
             'multiple' => 0,
-            'ui' => 1
+            'wrapper' => array(
+                'width' => '25'
+            ),
         ),
         array(
             'key' => 'memberExp__collab_spacing',
@@ -283,11 +312,15 @@ if (function_exists('acf_add_local_field_group')) :
             'name' => 'collab_spacing',
             'type' => 'select',
             'choices' => array(
+                'padding-default' => 'Default',
                 'padding-120' => '120px padding',
                 'padding-180' => '180px padding',
                 'margin-120' => '120px margin',
                 'margin-180' => '180px margin'
-            )
+            ),
+            'wrapper' => array(
+                'width' => '25'
+            ),
         ),
         array(
             'key' => 'memberExp__collab_vertical_alignment',
@@ -298,7 +331,10 @@ if (function_exists('acf_add_local_field_group')) :
                 'top' => 'Top',
                 'center' => 'Center',
                 'bottom' => 'Bottom'
-            )
+            ),
+            'wrapper' => array(
+                'width' => '25'
+            ),
         ),
         array(
             'key' => 'memberExp__collab_image_alignment',
@@ -308,7 +344,10 @@ if (function_exists('acf_add_local_field_group')) :
             'choices' => array(
                 'left' => 'Left',
                 'right' => 'Right'
-            )
+            ),
+            'wrapper' => array(
+                'width' => '25'
+            ),
         ),
         array(
             'key' => 'memberExp__collab_image',
@@ -316,6 +355,9 @@ if (function_exists('acf_add_local_field_group')) :
             'name' => 'collab_image',
             'type' => 'image',
             'return_format' => 'array',
+            'wrapper' => array(
+                'width' => '50'
+            ),
         ),
         array(
             'key' => 'memberExp__collab_image_tile',
@@ -323,6 +365,9 @@ if (function_exists('acf_add_local_field_group')) :
             'name' => 'collab_image_tile',
             'type' => 'image',
             'return_format' => 'array',
+            'wrapper' => array(
+                'width' => '50'
+            ),
         ),
         array(
             'key' => 'memberExp__collab_heading',
@@ -364,13 +409,18 @@ if (function_exists('acf_add_local_field_group')) :
             'label' => 'Display',
             'name' => 'join_display',
             'type' => 'true_false',
-            'message' => 'Check to display this CTA'
+            'ui' => 1,
+            'ui_on_text' => 'Show this section',
+            'ui_off_text' => 'Hide this section',
         ),
         array(
             'key' => 'memberExp__join_sub_heading',
-            'label' => 'Sub Heading',
+            'label' => 'Small Heading',
             'name' => 'join_sub_heading',
             'type' => 'text',
+            'wrapper' => array(
+                'width' => '50'
+            ),
         ),
         array(
             'key' => 'memberExp__join_heading',
@@ -406,7 +456,9 @@ if (function_exists('acf_add_local_field_group')) :
             'label' => 'Display',
             'name' => 'member_quotes_display',
             'type' => 'true_false',
-            'message' => 'Check to display this section'
+            'ui' => 1,
+            'ui_on_text' => 'Show this section',
+            'ui_off_text' => 'Hide this section',
         ),
         array(
             'key' => 'memberExp__quotes_items',
@@ -423,7 +475,7 @@ if (function_exists('acf_add_local_field_group')) :
             'collapsed' => '',
             'min' => 1,
             'max' => 5,
-            'layout' => 'row',
+            'layout' => 'block',
             'button_label' => 'Add Member',
             'sub_fields' => array(
                 array(
@@ -431,14 +483,20 @@ if (function_exists('acf_add_local_field_group')) :
                     'label' => 'Desktop Image',
                     'name' => 'image',
                     'type' => 'image',
-                    'return_format' => 'array'
+                    'return_format' => 'array',
+                    'wrapper' => array(
+                        'width' => '50'
+                    ),
                 ),
                 array(
                     'key' => 'memberExp__quotes_item__mobile_image',
                     'label' => 'Mobile Image',
                     'name' => 'mobile_image',
                     'type' => 'image',
-                    'return_format' => 'array'
+                    'return_format' => 'array',
+                    'wrapper' => array(
+                        'width' => '50'
+                    ),
                 ),
                 array(
                     'key' => 'memberExp__quotes_item__quote',
@@ -452,12 +510,18 @@ if (function_exists('acf_add_local_field_group')) :
                     'label' => 'Title',
                     'name' => 'title',
                     'type' => 'text',
+                    'wrapper' => array(
+                        'width' => '50'
+                    ),
                 ),
                 array(
                     'key' => 'memberExp__quotes_item__organization',
                     'label' => 'Organization',
                     'name' => 'organization',
                     'type' => 'text',
+                    'wrapper' => array(
+                        'width' => '50'
+                    ),
                 ),
             ),
         ),

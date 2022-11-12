@@ -81,6 +81,25 @@ html {
     p + * {
         margin-top:20px;
     }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        &.text-color {
+            &-gold {
+                color:$brand-secondary-accent;
+            }
+            &-blue {
+                color:$brand-secondary;
+            }
+            &-white {
+                color:#fff;
+            }
+        }
+    }
     strong {
         font-weight: 700;
     }

@@ -30,11 +30,16 @@ if (function_exists('acf_add_local_field_group')) :
         ),
         'fields' => array(
             array(
+                'key' => 'contact-page__header',
+                'label' => 'Header',
+                'type' => 'tab',
+            ),
+            array(
                 'key' => 'contact-page__heading',
                 'label' => 'Alternate Heading',
                 'name' => 'contact-heading',
                 'type' => 'text',
-                'instructions' => 'Type an alternate heading to replace the page title'
+                'instructions' => 'Type an alternate heading to replace the page title',
             ),
             array(
                 'key' => 'contact-page__subheading',
@@ -44,19 +49,48 @@ if (function_exists('acf_add_local_field_group')) :
                 'placeholder' => 'Have a question? We\'re here to listen.'
             ),
             /**
+             * Gravity Form Embed
+             * 
+             */
+            array(
+                'key' => 'contact-page__gf',
+                'label' => 'Gravity Form',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'contact-page__form',
+                'label' => 'Gravity Form',
+                'name' => 'contact-form',
+                'type' => 'text',
+            ),
+            /**
              * Sidebar CTA
              * 
              */
             array(
+                'key' => 'contact-page__sidebar',
+                'label' => 'Sidebar',
+                'type' => 'tab',
+            ),
+            array(
                 'key' => 'contact-page__widgets',
-                'label' => 'Heading',
+                'label' => 'Sidebar Widgets',
                 'name' => 'sidebar-widget',
                 'type' => 'repeater',
                 'min' => 1,
                 'max' => 4,
-                'layout' => 'row',
+                'layout' => 'block',
                 'button_label' => 'Add Sidebar Widget',
                 'sub_fields' => array(
+                    array(
+                        'key' => 'widget__heading',
+                        'label' => 'Heading',
+                        'name' => 'contact-sidebar-heading',
+                        'type' => 'text',
+                        'wrapper' => array(
+                            'width' => '50'
+                        ),
+                    ),
                     array(
                         'key' => 'widget__bg_color',
                         'label' => 'Background Color',
@@ -74,15 +108,17 @@ if (function_exists('acf_add_local_field_group')) :
                         ),
                         'allow_null' => 0,
                         'multiple' => 0,
-                        'ui' => 1
+                        'ui' => 1,
+                        'wrapper' => array(
+                            'width' => '50'
+                        ),
                     ),
                     array(
-                        'key' => 'widget__heading',
-                        'label' => 'Heading',
-                        'name' => 'contact-sidebar-heading',
-                        'type' => 'text',
-                        'message' => 'Type an alternate heading to replace the page title.'
-                    ),
+                        'key' => 'widget__button',
+                        'label' => 'Button',
+                        'name' => 'contact-sidebar-button',
+                        'type' => 'link',
+                    ), 
                     array(
                         'key' => 'widget__content',
                         'label' => 'Content',
@@ -91,23 +127,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'toolbar' => 'basic',
                         'media_upload' => 0
                     ),
-                    array(
-                        'key' => 'widget__button',
-                        'label' => 'Button',
-                        'name' => 'contact-sidebar-button',
-                        'type' => 'link',
-                    ), 
                 )
-            ),
-            /**
-             * Gravity Form Embed
-             * 
-             */
-            array(
-                'key' => 'contact-page__form',
-                'label' => 'Gravity Form',
-                'name' => 'contact-form',
-                'type' => 'text',
             ),
         ),
     ),

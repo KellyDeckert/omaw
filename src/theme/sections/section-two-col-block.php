@@ -7,22 +7,28 @@ $section_menu_on = isset($jump_menu['menu-display']) ? $jump_menu['menu-display'
 $section_name = isset($jump_menu['menu-name']) ? $jump_menu['menu-name'] : '';
 
 $background = isset($args['data']['background']) ? $args['data']['background'] : null;
+
+$header_display = isset($args['data']['header_display']) ? $args['data']['header_display'] : null;
 $pre_heading = isset($args['data']['pre_heading']) ? $args['data']['pre_heading'] : null;
 $heading = isset($args['data']['heading']) ? $args['data']['heading'] : null;
 $sub_heading = isset($args['data']['sub_heading']) ? $args['data']['sub_heading'] : null;
+
 $statement = isset($args['data']['statement']) ? $args['data']['statement'] : null;
 $statement_cta = isset($args['data']['statement_cta']) ? $args['data']['statement_cta'] : null;
 $statement_image = isset($args['data']['statement_image']) ? $args['data']['statement_image'] : null;
 $statement_image_url = isset($statement_image['sizes']) ? $statement_image['sizes']['300x'] : null;
 $content = isset($args['data']['content']) ? $args['data']['content'] : null;
 $snippet = isset($args['data']['snippet']) ? $args['data']['snippet'] : null;
+
 $column_width = isset($args['data']['column_width']) ? $args['data']['column_width'] : '1080';
 $padding = isset($args['data']['padding']) ? $args['data']['padding'] : 'full';
-$has_header = $pre_heading || $sub_heading || $heading;
+$has_header = $header_display;
 
 if( $display):
 $delay = 200;
+
 ?>
+
 <section id="<?php echo $section_id?>"
     class="two-col-block section-h-padding color-brand-primary <?php echo $background && $background != 'white' ? 'two-col-block--'.$background.' two-col-block--padding-'.$padding  : 'section-v-margin' ;?>" 
     data-quicklink-on="<?php echo $section_menu_on; ?>" data-quicklink-name="<?php echo $section_name; ?>">

@@ -1,3 +1,12 @@
+.global-forum {
+    .two-col-block--dark-blue {
+        h6:first-of-type {
+            color:$brand-secondary-accent;
+            font-weight:700;
+        }
+    }
+}
+
 .new-member {
     .main {
         color:$brand-primary;
@@ -119,6 +128,10 @@
 }
 
 .leadership {
+    .image-copy.image-copy--padding-120 {
+        padding-bottom:calc(60/16 * 1em);
+    }
+
     section.leadership-team:not(:last-of-type).section-v-padding {
         padding-bottom:0;
     }
@@ -127,5 +140,24 @@
     }
     section.quick-links {
         padding-top:0;
+    }
+}
+
+.about {
+    .image-copy[class*="image-copy--margin"] {
+        margin-bottom:2em;
+    }
+    @media screen and (max-width: 767px) and (orientation: portrait){
+        .blue-cta-right + .quick-links {
+            margin-top:1.875em;
+        }
+    }
+}
+
+.faqs {
+    @media screen and (max-width: 767px) and (orientation: portrait){
+        .header-illustration + .quick-links .quick-links__inner.mobile {
+            padding-top:calc(20/16 * 1em);
+        }
     }
 }

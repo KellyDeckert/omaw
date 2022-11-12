@@ -4,3 +4,12 @@
 @mixin nav-shadow {
     box-shadow:rgba(1,15,58,0.12) 0px 2px 8px;
 }
+
+@mixin extended-bg-color($class,$color) {
+    // .image-copy__content::before, .image-copy__content::after {
+    //     background-color:$brand-primary;
+    // }
+    #{$class}::before, #{$class}::after {
+        background-color:$color;
+    }
+}

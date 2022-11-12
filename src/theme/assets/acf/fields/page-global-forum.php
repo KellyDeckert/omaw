@@ -30,9 +30,9 @@ if (function_exists('acf_add_local_field_group')) :
     ),
     'fields' => array(
 
-      /**
-       * Hero
-       */
+
+      /*  HERO
+      ============================= */
       array(
         'key' => 'gf__hero_tab',
         'label' => 'Hero',
@@ -43,18 +43,97 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'hero_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
+      ),
+      array(
+        'key' => 'gf__container_width',
+        'label' => 'Section Width',
+        'name' => 'hero_width',
+        'type' => 'select',
+        'choices' => array(
+            'layout--1440' => 'Default',
+            'layout--1080' => 'Site Width (1080px)',
+        ),
+        'wrapper' => array(
+          'width' => '25'
+        ),
+      ),
+      array(
+        'key' => 'gf__hero_spacing',
+        'label' => 'Section top and bottom spacing',
+        'name' => 'hero_spacing',
+        'type' => 'select',
+        'choices' => array(
+            'padding-default' => 'Default',
+            'padding-120' => '120px padding',
+            'padding-180' => '180px padding',
+            'margin-120' => '120px margin',
+            'margin-180' => '180px margin'
+        ),
+        'wrapper' => array(
+          'width' => '25'
+        ),
+      ),
+      array(
+        'key' => 'gf__hero_vertical_alignment',
+        'label' => 'Image and Copy Vertical Alignment',
+        'name' => 'hero_vertical_alignment',
+        'type' => 'select',
+        'choices' => array(
+            'top' => 'Top',
+            'center' => 'Center',
+            'bottom' => 'Bottom'
+        ),
+        'wrapper' => array(
+          'width' => '25'
+        ),
+      ),
+      array(
+        'key' => 'gf__hero_image_alignment',
+        'label' => 'Image Alignment',
+        'name' => 'hero_image_alignment',
+        'type' => 'select',
+        'choices' => array(
+            'left' => 'Left',
+            'right' => 'Right'
+        ),
+        'wrapper' => array(
+          'width' => '25'
+        ),
+      ),
+      array(
+        'key' => 'gf__hero_image',
+        'label' => 'Image',
+        'name' => 'hero_image',
+        'type' => 'image',
+        'return_format' => 'array',
+        'wrapper' => array(
+          'width' => '50'
+        ),
+      ),
+      array(
+        'key' => 'our-members__hero_image_tile',
+        'label' => 'Extended Image Tile',
+        'name' => 'hero_image_tile',
+        'type' => 'image',
+        'return_format' => 'array',
+        'wrapper' => array(
+          'width' => '50'
+        ),
+      ),
+
+      array(
+        'key' => 'gf__hero_heading',
+        'label' => 'Heading',
+        'name' => 'hero_heading',
+        'type' => 'text',
       ),
       array(
         'key' => 'gf__hero_sub_heading',
         'label' => 'Sub Heading',
         'name' => 'hero_sub_heading',
-        'type' => 'text',
-      ),
-      array(
-        'key' => 'gf__hero_heading',
-        'label' => 'Heading',
-        'name' => 'hero_heading',
         'type' => 'text',
       ),
       array(
@@ -66,12 +145,11 @@ if (function_exists('acf_add_local_field_group')) :
         'media_upload' => 0,
       ),
       array(
-        'key' => 'gf__hero_image',
-        'label' => 'Image',
-        'name' => 'hero_image',
-        'type' => 'image',
-        'return_format' => 'array',
-      ),
+        'key' => 'gf__hero_cta_link',
+        'label' => 'CTA Link',
+        'name' => 'hero_cta_link',
+        'type' => 'link',
+      ), 
 
 
 
@@ -88,7 +166,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'block_1_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'gf__block_1_background',
@@ -99,50 +179,33 @@ if (function_exists('acf_add_local_field_group')) :
             'white' => 'White',
             'light-blue' => 'Light Blue',
             'dark-blue' => 'Dark Blue',
-        )
+        ),
+        'wrapper' => array(
+          'width' => '25'
+        ),
       ),
-      /*
-      array(
-        'key' => 'gf__block_1_pre_heading',
-        'label' => 'Pre Heading',
-        'name' => 'block_1_pre_heading',
-        'type' => 'text',
-      ),
-      array(
-        'key' => 'gf__block_1_heading',
-        'label' => 'Heading',
-        'name' => 'block_1_heading',
-        'type' => 'text',
-      ),
-      array(
-        'key' => 'gf__block_1_sub_heading',
-        'label' => 'Sub Heading',
-        'name' => 'block_1_sub_heading',
-        'type' => 'text',
-      ),
-      */
       array(
         'key' => 'gf__block_1_statement',
-        'label' => 'Statement',
+        'label' => 'Left Column',
         'name' => 'block_1_statement',
         'type' => 'wysiwyg',
         'toolbar' => 'full',
         'media_upload' => 0,
       ),
       array(
-        'key' => 'gf__block_1_statement_cta',
-        'label' => 'Statement Link',
-        'name' => 'block_1_statement_cta',
-        'type' => 'link',
-      ), 
-      array(
         'key' => 'gf__block_1_content',
-        'label' => 'Content',
+        'label' => 'Right Column',
         'name' => 'block_1_content',
         'type' => 'wysiwyg',
         'toolbar' => 'full',
         'media_upload' => 0,
       ),  
+      array(
+        'key' => 'gf__block_1_statement_cta',
+        'label' => 'Statement Link',
+        'name' => 'block_1_statement_cta',
+        'type' => 'link',
+      ),
 
       /**
        * Content Block 2
@@ -157,7 +220,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'block_2_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'gf__block_2_background',
@@ -168,31 +233,14 @@ if (function_exists('acf_add_local_field_group')) :
             'white' => 'White',
             'light-blue' => 'Light Blue',
             'dark-blue' => 'Dark Blue',
-        )
+        ),
+        'wrapper' => array(
+          'width' => '25'
+        ),
       ),
-      /*
-      array(
-        'key' => 'gf__block_2_pre_heading',
-        'label' => 'Pre Heading',
-        'name' => 'block_2_pre_heading',
-        'type' => 'text',
-      ),
-      array(
-        'key' => 'gf__block_2_heading',
-        'label' => 'Heading',
-        'name' => 'block_2_heading',
-        'type' => 'text',
-      ),
-      array(
-        'key' => 'gf__block_2_sub_heading',
-        'label' => 'Sub Heading',
-        'name' => 'block_2_sub_heading',
-        'type' => 'text',
-      ),
-      */
       array(
         'key' => 'gf__block_2_statement',
-        'label' => 'Statement',
+        'label' => 'Left Column',
         'name' => 'block_2_statement',
         'type' => 'wysiwyg',
         'toolbar' => 'full',
@@ -206,7 +254,7 @@ if (function_exists('acf_add_local_field_group')) :
       ), 
       array(
         'key' => 'gf__block_2_content',
-        'label' => 'Content',
+        'label' => 'Right Column',
         'name' => 'block_2_content',
         'type' => 'wysiwyg',
         'toolbar' => 'full',
@@ -227,7 +275,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'speakers_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'gf__speakers_heading',
@@ -272,7 +322,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'agenda_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'gf__agenda_heading',
@@ -383,7 +435,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'sponsors_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'gf__sponsors_heading',
@@ -442,7 +496,7 @@ if (function_exists('acf_add_local_field_group')) :
             'collapsed' => '',
             'min' => 0,
             'max' => 0,
-            'layout' => 'row',
+            'layout' => 'block',
             'button_label' => 'Add Sponsor',
             'sub_fields' => array(
               array(
@@ -451,12 +505,18 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'image',
                 'type' => 'image',
                 'return_format' => 'array',
+                'wrapper' => array(
+                  'width' => '50'
+                ),
               ),
               array(
                 'key' => 'gf__sponsors_item_link',
                 'label' => 'Link',
                 'name' => 'link',
                 'type' => 'link',
+                'wrapper' => array(
+                  'width' => '50'
+                ),
               ), 
             ),
           ),
@@ -479,7 +539,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'cta_display',
         'type' => 'true_false',
-        'message' => 'Check to display this CTA'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'gf__cta_sub_heading',
@@ -522,7 +584,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'block_3_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'gf__block_3_background',
@@ -532,18 +596,24 @@ if (function_exists('acf_add_local_field_group')) :
         'choices' => array(
             'white' => 'White',
             'light-blue' => 'Light Blue'
-        )
+        ),
+        'wrapper' => array(
+          'width' => '25'
+        ),
       ),
       array(
         'key' => 'gf__block_3_statement_image',
-        'label' => 'Statement Image',
+        'label' => 'Left Column Image',
         'name' => 'block_3_statement_image',
         'type' => 'image',
         'return_format' => 'array',
+        'wrapper' => array(
+          'width' => '50'
+        ),
       ),
       array(
         'key' => 'gf__block_3_statement',
-        'label' => 'Statement',
+        'label' => 'Left Column',
         'name' => 'block_3_statement',
         'type' => 'wysiwyg',
         'toolbar' => 'full',
@@ -551,7 +621,7 @@ if (function_exists('acf_add_local_field_group')) :
       ),
       array(
         'key' => 'gf__block_3_content',
-        'label' => 'Content',
+        'label' => 'Right Column',
         'name' => 'block_3_content',
         'type' => 'wysiwyg',
         'toolbar' => 'full',
@@ -572,7 +642,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'event_summaries_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'gf__event_summaries_heading',
@@ -591,6 +663,9 @@ if (function_exists('acf_add_local_field_group')) :
           'image' => 'Image',
           'video' => 'Video'
         ),
+        'wrapper' => array(
+          'width' => '25'
+        ),
       ),
 
       array(
@@ -600,6 +675,9 @@ if (function_exists('acf_add_local_field_group')) :
         'type' => 'image',
         'return_format' => 'array',
         'preview_size' => 'medium',
+        'wrapper' => array(
+          'width' => '75'
+        ),
       ),
 
       array(
@@ -620,6 +698,9 @@ if (function_exists('acf_add_local_field_group')) :
             ),
           ),
         ),
+        'wrapper' => array(
+          'width' => '25'
+        ),
       ),
       array(
         'key' => 'gf__event_summaries_featured_video',
@@ -635,6 +716,9 @@ if (function_exists('acf_add_local_field_group')) :
               ),
             ),
         ),
+        'wrapper' => array(
+          'width' => '75'
+        ),
       ),
       array(
         'key' => 'gf__event_summaries_featured_youtube_video_id',
@@ -649,6 +733,9 @@ if (function_exists('acf_add_local_field_group')) :
                 'value' => 'youtube',
               ),
             ),
+        ),
+        'wrapper' => array(
+          'width' => '75'
         ),
       ),
 
@@ -694,7 +781,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'faq_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'gf__faq_heading',

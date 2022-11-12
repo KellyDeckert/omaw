@@ -4,7 +4,7 @@ get_header();
 
 ?>
 
-<div class="responsive-font-size">
+<div class="faqs responsive-font-size">
 
 <?php
 

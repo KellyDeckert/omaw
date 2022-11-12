@@ -43,17 +43,22 @@ if (function_exists('acf_add_local_field_group')) :
             'label' => 'Display',
             'name' => 'publications_header_display',
             'type' => 'true_false',
-            'message' => 'Check to display this section'
+            'ui' => 1,
+            'ui_on_text' => 'Show this section',
+            'ui_off_text' => 'Hide this section',
         ),
         array(
             'key' => 'publications__header_label',
-            'label' => 'Label',
+            'label' => 'Small Header',
             'name' => 'publications_header_label',
             'type' => 'text',
+            'wrapper' => array(
+              'width' => '50'
+            ),
         ),
         array(
             'key' => 'publications__header_content',
-            'label' => 'content',
+            'label' => 'Content',
             'name' => 'publications_header_content',
             'type' => 'wysiwyg',
             'toolbar' => 'full',
@@ -78,12 +83,22 @@ if (function_exists('acf_add_local_field_group')) :
             'type' => 'tab',
         ),
         array(
+          'key' => 'leadership__jump-links_msg',
+          'name' => 'jump-links_msg',
+          'type' => 'message',
+          'message' => 'The links in this menu are dynamically generated.<br>To modify the name in the menu or disable a link, edit the Jump Menu Section in each tab.<br>Hidden sections are automatically not included in the jump menu.',
+          'wrapper' => array(
+              'class' => 'bkomaw'
+          ),
+        ),
+        array(
             'key' => 'publications__jump-links_display',
             'label' => 'Display',
             'name' => 'jump-links_display',
             'type' => 'true_false',
-            'instructions' => 'The links in the menu are dynamically generated. To modify the name in the menu, edit the Jump Menu Section Name in each tab.',
-            'message' => 'Check to display this quick menu.'
+            'ui' => 1,
+            'ui_on_text' => 'Show jump link menu',
+            'ui_off_text' => 'Hide jump link menu',
         ),
 
 
@@ -109,7 +124,7 @@ if (function_exists('acf_add_local_field_group')) :
               'collapsed' => '',
               'min' => 0,
               'max' => 0,
-              'layout' => 'row',
+              'layout' => 'block',
               'button_label' => 'Add Section',
               'sub_fields' => array(
                 array(
@@ -117,13 +132,21 @@ if (function_exists('acf_add_local_field_group')) :
                   'label' => 'Display',
                   'name' => 'display',
                   'type' => 'true_false',
-                  'message' => 'Check to display this section'
+                  'ui' => 1,
+                  'ui_on_text' => 'Show this section',
+                  'ui_off_text' => 'Hide this section',
+                  'wrapper' => array(
+                    'width' => '33'
+                  ),
                 ),              
                 array(
                   'key' => 'publications__section_name',
-                  'label' => 'Name',
+                  'label' => 'Section Title',
                   'name' => 'name',
                   'type' => 'text',
+                  'wrapper' => array(
+                    'width' => '66'
+                  ),
                 ), 
                 array(
                   'key' => 'publications__section_jump_link_display',
@@ -133,12 +156,18 @@ if (function_exists('acf_add_local_field_group')) :
                   'ui' => 1,
                   'ui_on_text' => 'Jump Menu Link On',
                   'ui_off_text' => 'Jump Menu Link Off',
+                  'wrapper' => array(
+                    'width' => '33'
+                  ),
                 ),
                 array(
                   'key' => 'publications__section_jump_link_name',
                   'label' => 'Jump Menu Section Name',
                   'name' => 'jump_link_name',
                   'type' => 'text',
+                  'wrapper' => array(
+                    'width' => '66'
+                  ),
                 ), 
                 array(
                     'key' => 'publications__section_content',
@@ -184,7 +213,9 @@ if (function_exists('acf_add_local_field_group')) :
                 'label' => 'Display',
                 'name' => 'featured_posts_display',
                 'type' => 'true_false',
-                'message' => 'Check to display this section'
+                'ui' => 1,
+                'ui_on_text' => 'Show this section',
+                'ui_off_text' => 'Hide this section',
             ),
             array(
                 'key' => 'publications__featured_posts_heading',
@@ -200,114 +231,12 @@ if (function_exists('acf_add_local_field_group')) :
                 'toolbar' => 'basic',
                 'media_upload' => 0,
             ),
-            /*
-            array(
-                'key' => 'publications__featured_posts_posts',
-                'label' => 'Featured Posts',
-                'name' => 'featured_posts_items',
-                'type' => 'relationship',
-                'post_type' => 'post',
-                'filters' => array('search'),
-            ),   
-            */    
             array(
                 'key' => 'publications__featured_posts_link',
                 'label' => 'CTA Link',
                 'name' => 'featured_posts_link',
                 'type' => 'link',
             ),
-
-
-
-
-       /*
-      array(
-        'key' => 'publications__hero_tab',
-        'label' => 'Hero',
-        'type' => 'tab',
-      ),
-      array(
-        'key' => 'publications__hero_display',
-        'label' => 'Display',
-        'name' => 'hero_display',
-        'type' => 'true_false',
-        'message' => 'Check to display this section'
-      ),
-      array(
-        'key' => 'publications__hero_spacing',
-        'label' => 'Section top and bottom spacing',
-        'name' => 'hero_spacing',
-        'type' => 'select',
-        'choices' => array(
-            'padding-120' => '120px padding',
-            'padding-180' => '180px padding',
-            'margin-120' => '120px margin',
-            'margin-180' => '180px margin'
-        )
-      ),
-      array(
-        'key' => 'publications__hero_vertical_alignment',
-        'label' => 'Image and Copy Vertical Alignment',
-        'name' => 'hero_vertical_alignment',
-        'type' => 'select',
-        'choices' => array(
-            'top' => 'Top',
-            'center' => 'Center',
-            'bottom' => 'Bottom'
-        )
-      ),
-      array(
-        'key' => 'publications__hero_image_alignment',
-        'label' => 'Image Alignment',
-        'name' => 'hero_image_alignment',
-        'type' => 'select',
-        'choices' => array(
-            'left' => 'Left',
-            'right' => 'Right'
-        )
-      ),
-
-      array(
-        'key' => 'publications__hero_image',
-        'label' => 'Image',
-        'name' => 'hero_image',
-        'type' => 'image',
-        'return_format' => 'array',
-      ),
-      array(
-        'key' => 'publications__hero_image_tile',
-        'label' => 'Extended Image Tile',
-        'name' => 'hero_image_tile',
-        'type' => 'image',
-        'return_format' => 'array',
-      ),
-      array(
-        'key' => 'publications__hero_heading',
-        'label' => 'Heading',
-        'name' => 'hero_heading',
-        'type' => 'text',
-      ), 
-      array(
-        'key' => 'publications__hero_sub_heading',
-        'label' => 'Sub Heading',
-        'name' => 'hero_sub_heading',
-        'type' => 'text',
-      ),     
-      array(
-        'key' => 'publications__hero_content',
-        'label' => 'Content',
-        'name' => 'hero_content',
-        'type' => 'wysiwyg',
-        'toolbar' => 'basic',
-        'media_upload' => 0,
-      ),
-      array(
-        'key' => 'publications__hero_cta_link',
-        'label' => 'CTA Link',
-        'name' => 'hero_cta_link',
-        'type' => 'link',
-      ), 
-      */
 
     ),
   ));

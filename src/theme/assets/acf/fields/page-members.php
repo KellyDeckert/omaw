@@ -43,7 +43,9 @@ if (function_exists('acf_add_local_field_group')) :
         'label' => 'Display',
         'name' => 'hero_display',
         'type' => 'true_false',
-        'message' => 'Check to display this section'
+        'ui' => 1,
+        'ui_on_text' => 'Show this section',
+        'ui_off_text' => 'Hide this section',
       ),
       array(
         'key' => 'our-members__hero_spacing',
@@ -55,7 +57,10 @@ if (function_exists('acf_add_local_field_group')) :
             'padding-180' => '180px padding',
             'margin-120' => '120px margin',
             'margin-180' => '180px margin'
-        )
+        ),
+        'wrapper' => array(
+          'width' => '25'
+      ),
       ),
       array(
         'key' => 'our-members__hero_vertical_alignment',
@@ -66,7 +71,10 @@ if (function_exists('acf_add_local_field_group')) :
             'top' => 'Top',
             'center' => 'Center',
             'bottom' => 'Bottom'
-        )
+        ),
+        'wrapper' => array(
+          'width' => '25'
+      ),
       ),
       array(
         'key' => 'our-members__hero_image_alignment',
@@ -76,7 +84,10 @@ if (function_exists('acf_add_local_field_group')) :
         'choices' => array(
             'left' => 'Left',
             'right' => 'Right'
-        )
+        ),
+        'wrapper' => array(
+          'width' => '25'
+      ),
       ),
 
       array(
@@ -85,6 +96,10 @@ if (function_exists('acf_add_local_field_group')) :
         'name' => 'hero_image',
         'type' => 'image',
         'return_format' => 'array',
+        'wrapper' => array(
+          'width' => '50'
+        ),
+        'preview_size' => 'thumbnail',
       ),
       array(
         'key' => 'our-members__hero_image_tile',
@@ -92,6 +107,10 @@ if (function_exists('acf_add_local_field_group')) :
         'name' => 'hero_image_tile',
         'type' => 'image',
         'return_format' => 'array',
+        'wrapper' => array(
+          'width' => '50'
+        ),
+        'preview_size' => 'medium',
       ),
       array(
         'key' => 'our-members__hero_heading',
@@ -119,6 +138,24 @@ if (function_exists('acf_add_local_field_group')) :
         'name' => 'hero_cta_link',
         'type' => 'link',
       ), 
+
+      /**
+       * Message
+       */
+      array(
+        'key' => 'our-members__members_tab',
+        'label' => 'Members',
+        'type' => 'tab',
+      ),
+      array(
+        'key' => 'out-members_msg',
+        'name' => 'members_msg',
+        'type' => 'message',
+        'message' => 'The members on this page are dynamically generated from the Team Members post type.<br><br>Individual members can be edited via the team Members admin page in the sidebar.',
+        'wrapper' => array(
+            'class' => 'bkomaw'
+        ),
+      ),
 
     ),
   ));

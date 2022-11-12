@@ -2,6 +2,8 @@
 $section_id = isset($args['data']['id']) ? $args['data']['id'] : 'image-copy-'.rand();
 $display = isset($args['data']['display']) ? $args['data']['display'] : true;
 
+$section_width = isset($args['data']['width']) ? $args['data']['width'] : 'layout--1440';
+
 $jump_menu = isset($args['data']['jump_menu']) ? $args['data']['jump_menu'] : '';
 $section_menu_on = isset($jump_menu['menu-display']) ? $jump_menu['menu-display'] : '';
 $section_name = isset($jump_menu['menu-name']) ? $jump_menu['menu-name'] : '';
@@ -9,16 +11,20 @@ $section_name = isset($jump_menu['menu-name']) ? $jump_menu['menu-name'] : '';
 $vertical_alignment = isset($args['data']['vertical_alignment']) ? $args['data']['vertical_alignment'] : 'center';
 $spacing_class = isset($args['data']['spacing_class']) ? $args['data']['spacing_class'] : 'center';
 $additional_classes = isset($args['data']['additional_classes']) ? $args['data']['additional_classes'] : '';
+
 $heading_tag = isset($args['data']['heading_tag']) ? $args['data']['heading_tag'] : 'h2';
 $heading = isset($args['data']['heading']) ? $args['data']['heading'] : null;
 $sub_heading_tag = isset($args['data']['sub_heading_tag']) ? $args['data']['sub_heading_tag'] : 'h4';
 $sub_heading = isset($args['data']['sub_heading']) ? $args['data']['sub_heading'] : null;
+
 $image = isset($args['data']['image']) ? $args['data']['image'] : null;
 $image_tile = isset($args['data']['image_tile']) ? $args['data']['image_tile'] : null;
 $image_alignment = isset($args['data']['image_alignment']) ? $args['data']['image_alignment'] : 'left';
 $image_mobile_pos = isset($args['data']['image_mobile_pos']) ? $args['data']['image_mobile_pos'] : 'left';
+
 $content = isset($args['data']['content']) ? $args['data']['content'] : null;
 $cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
+
 $image_url = $image['sizes']['750x'];
 if( $image['mime_type'] == 'image/png' ){
     $image_url = $image['url'];
@@ -49,7 +55,6 @@ switch($bg_color){
         break;
 }
 
-
 $section_classes = $bg_color_class;
 $section_classes .= ' image-copy--bg-'.$bg_color_location;
 $section_classes .= ' '.$text_color;
@@ -68,7 +73,7 @@ if( $display):
     data-quicklink-on="<?php echo $section_menu_on; ?>" data-quicklink-name="<?php echo $section_name; ?>"
     data-aos="fade" data-aos-delay="100" data-aos-duration="400" data-aos-easing="cubic"
     >
-    <div class="image-copy__columns layout--1440">
+    <div class="image-copy__columns <?php echo $section_width; ?>">
         <?php 
         if($image_mobile_pos == 'top'): ?>
         <div class="mobile">

@@ -39,12 +39,22 @@ if (function_exists('acf_add_local_field_group')) :
             'type' => 'tab',
         ),
         array(
+          'key' => 'leadership__jump-links_msg',
+          'name' => 'jump-links_msg',
+          'type' => 'message',
+          'message' => 'The links in this menu are dynamically generated.<br>To modify the name in the menu or disable a link, edit the Jump Menu Section in each tab.<br>Hidden sections are automatically not included in the jump menu.',
+          'wrapper' => array(
+                'class' => 'bkomaw'
+            ),
+        ),
+        array(
             'key' => 'faq__jump-links_display',
             'label' => 'Display',
             'name' => 'jump-links_display',
             'type' => 'true_false',
-            'instructions' => 'The links in the menu are dynamically generated. To modify the name in the menu, edit the Jump Menu Section Name in each tab.',
-            'message' => 'Check to display this quick menu.'
+            'ui' => 1,
+            'ui_on_text' => 'Show jump link menu',
+            'ui_off_text' => 'Hide jump link menu',
         ),
 
 
@@ -60,17 +70,7 @@ if (function_exists('acf_add_local_field_group')) :
             'label' => 'FAQ Sections',
             'name' => 'faq_sections',
             'type' => 'repeater',
-            'instructions' => '',
-            'required' => 0,
-            'wrapper' => array(
-              'width' => '',
-              'class' => '',
-              'id' => '',
-            ),
-            'collapsed' => '',
-            'min' => 0,
-            'max' => 0,
-            'layout' => 'row',
+            'layout' => 'block',
             'button_label' => 'Add Section',
             'sub_fields' => array(
               array(
@@ -78,13 +78,21 @@ if (function_exists('acf_add_local_field_group')) :
                 'label' => 'Display',
                 'name' => 'display',
                 'type' => 'true_false',
-                'message' => 'Check to display this section'
+                'ui' => 1,
+                'ui_on_text' => 'Show this section',
+                'ui_off_text' => 'Hide this section',
+                'wrapper' => array(
+                  'width' => '33'
+                ),
               ),              
               array(
                 'key' => 'faq__section_name',
-                'label' => 'Name',
+                'label' => 'Section Title',
                 'name' => 'name',
                 'type' => 'text',
+                'wrapper' => array(
+                  'width' => '66'
+                ),
               ), 
               array(
                 'key' => 'faq__section_jump_link_display',
@@ -94,12 +102,18 @@ if (function_exists('acf_add_local_field_group')) :
                 'ui' => 1,
                 'ui_on_text' => 'Jump Menu Link On',
                 'ui_off_text' => 'Jump Menu Link Off',
+                'wrapper' => array(
+                  'width' => '33'
+                ),
               ),
               array(
                 'key' => 'faq__section_jump_link_name',
                 'label' => 'Jump Menu Section Name',
                 'name' => 'jump_link_name',
                 'type' => 'text',
+                'wrapper' => array(
+                  'width' => '66'
+                ),
               ), 
               array(
                 'key' => 'faq__section_items',

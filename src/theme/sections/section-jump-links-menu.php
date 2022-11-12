@@ -5,7 +5,7 @@ if( $display):
 ?>
 
 <section class="quick-links" id="quick-links-menu"  data-aos="smooth-slide-up" data-aos-delay="250" data-aos-duration="500" data-aos-easing="cubic" <?php echo isset($aos_anchor) ? 'data-aos-anchor="#'.$aos_anchor.'"' : '';?>>
-    <div class="quick-links__inner layout--1080 desktop" data-scrollable="h">
+    <div class="quick-links__inner layout--1080 desktop section-h-padding-tablet" data-scrollable="h">
         <ul class="quick-links__menu menu">
 
             <!-- These links are dynamically added by looking for Sections with IDs on the page. 
@@ -13,7 +13,7 @@ if( $display):
 
         </ul>
     </div>
-    <div class="quick-links__inner mobile">
+    <div class="quick-links__inner mobile section-h-padding">
 
         <div class="mdc-select mdc-select--outlined quick-links-mobile__menu">
             <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">

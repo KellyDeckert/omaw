@@ -42,7 +42,9 @@ array(
   'label' => 'Display',
   'name' => 'hero_display',
   'type' => 'true_false',
-  'message' => 'Check to display this section'
+  'ui' => 1,
+  'ui_on_text' => 'Show this section',
+  'ui_off_text' => 'Hide this section',
 ),
 
 array(
@@ -55,7 +57,10 @@ array(
       'padding-180' => '180px padding',
       'margin-120' => '120px margin',
       'margin-180' => '180px margin'
-  )
+  ),
+  'wrapper' => array(
+    'width' => '25'
+  ),
 ),
 array(
   'key' => 'about__hero_vertical_alignment',
@@ -66,7 +71,10 @@ array(
       'top' => 'Top',
       'center' => 'Center',
       'bottom' => 'Bottom'
-  )
+  ),
+  'wrapper' => array(
+    'width' => '25'
+  ),
 ),
 array(
   'key' => 'about__hero_image_alignment',
@@ -76,7 +84,10 @@ array(
   'choices' => array(
       'left' => 'Left',
       'right' => 'Right'
-  )
+  ),
+  'wrapper' => array(
+    'width' => '25'
+  ),
 ),
 array(
   'key' => 'about__hero_image',
@@ -84,25 +95,33 @@ array(
   'name' => 'hero_image',
   'type' => 'image',
   'return_format' => 'array',
+  'preview_size' => 'thumbnail',
+  'wrapper' => array(
+    'width' => '50'
+  ),
 ),
 array(
   'key' => 'our-members__hero_image_tile',
   'label' => 'Extended Image Tile',
   'name' => 'hero_image_tile',
   'type' => 'image',
+  'preview_size' => 'medium',
   'return_format' => 'array',
+  'wrapper' => array(
+    'width' => '50'
+  ),
 ),
 
-array(
-  'key' => 'about__hero_sub_heading',
-  'label' => 'Sub Heading',
-  'name' => 'hero_sub_heading',
-  'type' => 'text',
-),
 array(
   'key' => 'about__hero_heading',
   'label' => 'Heading',
   'name' => 'hero_heading',
+  'type' => 'text',
+),
+array(
+  'key' => 'about__hero_sub_heading',
+  'label' => 'Sub Heading',
+  'name' => 'hero_sub_heading',
   'type' => 'text',
 ),
 array(
@@ -114,7 +133,7 @@ array(
   'media_upload' => 0,
 ),
 array(
-  'key' => 'our-members__hero_cta_link',
+  'key' => 'about__hero_cta_link',
   'label' => 'CTA Link',
   'name' => 'hero_cta_link',
   'type' => 'link',
@@ -151,12 +170,18 @@ array(
   'label' => 'Heading',
   'name' => 'blue-cta_heading',
   'type' => 'text',
+  'wrapper' => array(
+    'width' => '50'
+  ),
 ),
 array(
   'key' => 'about__blue-cta_sub_heading',
   'label' => 'Sub Heading',
   'name' => 'blue-cta_sub_heading',
   'type' => 'text',
+  'wrapper' => array(
+    'width' => '50'
+  ),
 ),
 array(
   'key' => 'about__blue-cta_blue-cta_link',
@@ -173,10 +198,13 @@ array(
   'type' => 'tab',
 ),
 array(
-  'key' => 'about__jump-links_msg',
+  'key' => 'leadership__jump-links_msg',
   'name' => 'jump-links_msg',
   'type' => 'message',
-  'message' => 'The links in this menu are dynamically generated. To modify the name in the menu or disable a link, edit the Jump Menu Section in each tab. Hidden sections are not included in the menu.',
+  'message' => 'The links in this menu are dynamically generated.<br>To modify the name in the menu or disable a link, edit the Jump Menu Section in each tab.<br>Hidden sections are automatically not included in the jump menu.',
+  'wrapper' => array(
+      'class' => 'bkomaw'
+  ),
 ),
 array(
   'key' => 'about__jump-links_display',
@@ -200,7 +228,9 @@ array(
   'label' => 'Display',
   'name' => 'mission_display',
   'type' => 'true_false',
-  'message' => 'Check to display this section'
+  'ui' => 1,
+  'ui_on_text' => 'Show this section',
+  'ui_off_text' => 'Hide this section',
 ),
 array(
   'key' => 'about__mission__jump_menu',
@@ -218,6 +248,10 @@ array(
       'ui' => 1,
       'ui_on_text' => 'Jump Menu Link On',
       'ui_off_text' => 'Jump Menu Link Off',
+      'instructions' => 'Show or hide this section in the jump menu',
+      'wrapper' => array(
+        'width' => '33'
+      ),
     ),
     array(
       'key' => 'about_mission_menu_name',
@@ -226,6 +260,9 @@ array(
       'name' => 'menu-name',
       'type' => 'text',
       'placeholder' => 'Our Mission',
+      'wrapper' => array(
+        'width' => '66'
+      ),
     ),
   ),
 ),
@@ -237,25 +274,31 @@ array(
   'choices' => array(
       'white' => 'White',
       'light-blue' => 'Light Blue'
-  )
+  ),
+  'wrapper' => array(
+    'width' => '25'
+  ),
 ),
 array(
   'key' => 'about__mission_pre_heading',
-  'label' => 'Pre Heading',
+  'label' => 'Small Heading',
   'name' => 'mission_pre_heading',
   'type' => 'text',
+  'placeholder' => 'Our Mission',
 ),
 array(
   'key' => 'about__mission_heading',
   'label' => 'Heading',
   'name' => 'mission_heading',
   'type' => 'text',
+  'placeholder' => 'A Healthier Workplace for All',
 ),
 array(
   'key' => 'about__mission_sub_heading',
   'label' => 'Sub Heading',
   'name' => 'mission_sub_heading',
   'type' => 'text',
+  'placeholder' => 'One Mind at Work is a movement of business leaders driving change in global workplaces committed to improving psychological safety and thriving. ',
 ),
 array(
   'key' => 'about__mission_statement',
@@ -307,6 +350,10 @@ array(
         'ui' => 1,
         'ui_on_text' => 'Jump Menu Link On',
         'ui_off_text' => 'Jump Menu Link Off',
+        'instructions' => 'Show or hide this section in the jump menu',
+        'wrapper' => array(
+          'width' => '33'
+        ),
       ),
       array(
         'key' => 'about_story_menu_name',
@@ -315,29 +362,21 @@ array(
         'name' => 'menu-name',
         'type' => 'text',
         'placeholder' => 'Our Story',
+        'wrapper' => array(
+          'width' => '66'
+        ),
       ),
     ),
   ),
   array(
-    'key' => 'about__story_image',
-    'label' => 'Image',
-    'name' => 'story_image',
-    'type' => 'image',
-    'return_format' => 'array',
-  ),
-  array(
-    'key' => 'about__story_image_tile',
-    'label' => 'Extended Image Tile',
-    'name' => 'story_image_tile',
-    'type' => 'image',
-    'return_format' => 'array',
-  ),
-  array(
     'key' => 'about__story_label',
-    'label' => 'Section Label',
+    'label' => 'Small Heading',
     'name' => 'story_label',
     'type' => 'text',
     'default_value' => 'Our Story',
+    'wrapper' => array(
+      'width' => '25'
+    ),
   ),
   array(
     'key' => 'about__story_heading',
@@ -352,6 +391,28 @@ array(
     'type' => 'wysiwyg',
     'toolbar' => 'full',
     'media_upload' => 0,
+  ),
+  array(
+    'key' => 'about__story_image',
+    'label' => 'Image',
+    'name' => 'story_image',
+    'type' => 'image',
+    'return_format' => 'array',
+    'preview_size' => 'medium',
+    'wrapper' => array(
+      'width' => '50'
+    ),
+  ),
+  array(
+    'key' => 'about__story_image_tile',
+    'label' => 'Extended Image Tile',
+    'name' => 'story_image_tile',
+    'type' => 'image',
+    'return_format' => 'array',
+    'preview_size' => 'medium',
+    'wrapper' => array(
+      'width' => '50'
+    ),
   ),
   array(
     'key' => 'about__story_overlay_content',
@@ -395,6 +456,10 @@ array(
         'ui' => 1,
         'ui_on_text' => 'Jump Menu Link On',
         'ui_off_text' => 'Jump Menu Link Off',
+        'instructions' => 'Show or hide this section in the jump menu',
+        'wrapper' => array(
+          'width' => '33'
+        ),
       ),
       array(
         'key' => 'about_quote_menu_name',
@@ -403,34 +468,50 @@ array(
         'name' => 'menu-name',
         'type' => 'text',
         'placeholder' => 'Our Beliefs',
+        'wrapper' => array(
+          'width' => '66'
+        ),
       ),
     ),
-  ),
-  array(
-    'key' => 'about__quote__image',
-    'label' => 'Desktop Image',
-    'name' => 'quote__image',
-    'type' => 'image',
-    'return_format' => 'array'
   ),
   array(
     'key' => 'about__quote__quote',
     'label' => 'Quote',
     'name' => 'quote__quote',
     'type' => 'textarea',
-    'rows' => 2
+    'rows' => 6,
+    'wrapper' => array(
+      'width' => '50'
+    ),
+  ),
+  array(
+    'key' => 'about__quote__image',
+    'label' => 'Image',
+    'name' => 'quote__image',
+    'type' => 'image',
+    'preview_size' => 'thumbnail',
+    'return_format' => 'array',
+    'wrapper' => array(
+      'width' => '50'
+    ),
   ),
   array(
     'key' => 'about__quote__title',
     'label' => 'Title',
     'name' => 'quote__title',
     'type' => 'text',
+    'wrapper' => array(
+      'width' => '50'
+    ),
   ),
   array(
     'key' => 'about__quote__organization',
     'label' => 'Organization',
     'name' => 'quote__organization',
     'type' => 'text',
+    'wrapper' => array(
+      'width' => '50'
+    ),
   ),
 /*  VALUES - CARD SCROLLER
 ============================= */
@@ -464,6 +545,10 @@ array(
         'ui' => 1,
         'ui_on_text' => 'Jump Menu Link On',
         'ui_off_text' => 'Jump Menu Link Off',
+        'instructions' => 'Show or hide this section in the jump menu',
+        'wrapper' => array(
+          'width' => '33'
+        ),
       ),
       array(
         'key' => 'about_scrolling-cards_menu_name',
@@ -472,14 +557,20 @@ array(
         'name' => 'menu-name',
         'type' => 'text',
         'placeholder' => 'Our Values',
+        'wrapper' => array(
+          'width' => '66'
+        ),
       ),
     ),
   ),
   array(
     'key' => 'about__scrolling-cards__heading',
-    'label' => 'Heading',
+    'label' => 'Sticky Scrolling Heading',
     'name' => 'scrolling-cards__heading',
     'type' => 'text',
+    'wrapper' => array(
+      'width' => '50'
+    ),
   ),
   array(
     'key' => 'about__scrolling-cards__cards',
@@ -519,7 +610,9 @@ array(
   'label' => 'Display',
   'name' => 'leadership_display',
   'type' => 'true_false',
-  'message' => 'Check to display this section'
+  'ui' => 1,
+  'ui_on_text' => 'Show this section',
+  'ui_off_text' => 'Hide this section',
 ),
 array(
   'key' => 'about__leadership__jump_menu',
@@ -537,6 +630,10 @@ array(
       'ui' => 1,
       'ui_on_text' => 'Jump Menu Link On',
       'ui_off_text' => 'Jump Menu Link Off',
+      'instructions' => 'Show or hide this section in the jump menu',
+      'wrapper' => array(
+        'width' => '33'
+      ),
     ),
     array(
       'key' => 'about_leadership_menu_name',
@@ -545,6 +642,9 @@ array(
       'name' => 'menu-name',
       'type' => 'text',
       'placeholder' => 'Leadership',
+      'wrapper' => array(
+        'width' => '66'
+      ),
     ),
   ),
 ),
@@ -558,7 +658,10 @@ array(
       'padding-180' => '180px padding',
       'margin-120' => '120px margin',
       'margin-180' => '180px margin'
-  )
+  ),
+  'wrapper' => array(
+    'width' => '25'
+  ),
 ),
 array(
   'key' => 'about__leadership_vertical_alignment',
@@ -569,7 +672,10 @@ array(
       'top' => 'Top',
       'center' => 'Center',
       'bottom' => 'Bottom'
-  )
+  ),
+  'wrapper' => array(
+    'width' => '25'
+  ),
 ),
 array(
   'key' => 'about__leadership_image_alignment',
@@ -579,7 +685,10 @@ array(
   'choices' => array(
       'left' => 'Left',
       'right' => 'Right'
-  )
+  ),
+  'wrapper' => array(
+    'width' => '25'
+  ),
 ),
 
 array(
@@ -588,6 +697,9 @@ array(
   'name' => 'leadership_image',
   'type' => 'image',
   'return_format' => 'array',
+  'wrapper' => array(
+    'width' => '50'
+  ),
 ),
 array(
   'key' => 'about__leadership_image_tile',
@@ -595,6 +707,9 @@ array(
   'name' => 'leadership_image_tile',
   'type' => 'image',
   'return_format' => 'array',
+  'wrapper' => array(
+    'width' => '50'
+  ),
 ),
 array(
   'key' => 'about__leadership_heading',
@@ -640,10 +755,22 @@ array(
   'ui_off_text' => 'Hide this section',
 ),
 array(
+  'key' => 'bc__yellow-cta__padding',
+  'label' => 'Padding',
+  'name' => 'yellow-cta__padding',
+  'type' => 'true_false',
+  'ui' => 1,
+  'ui_on_text' => 'Extra Padding',
+  'ui_off_text' => 'Default',
+),
+array(
   'key' => 'about__yellow-cta__heading',
   'label' => 'Heading',
   'name' => 'yellow-cta__heading',
   'type' => 'text',
+  'wrapper' => array(
+    'width' => '50'
+  ),
 ),
 array(
   'key' => 'about__yellow-cta__content',
@@ -658,6 +785,9 @@ array(
   'label' => 'CTA Link',
   'name' => 'yellow-cta__link',
   'type' => 'link',
+  'wrapper' => array(
+    'width' => '50'
+  ),
 ),
 array(
   'key' => 'about__yellow-cta__img',
@@ -665,6 +795,10 @@ array(
   'name' => 'yellow-cta__image',
   'type' => 'image',
   'return_format' => 'array',
+  'preview_size' => 'medium',
+  'wrapper' => array(
+    'width' => '50'
+  ),
 ),
 
 
