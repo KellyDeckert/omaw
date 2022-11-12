@@ -564,11 +564,16 @@ function my_acf_admin_head() {
 		.acf-field-leadership--sections .acf-editor-wrap iframe {
 			height:auto !important;
 		}
+		/* custom message styling for field type message with class bkomaw */
 		.bkomaw p {
 			font-size:16px;
 			font-weight:bold;
 			margin-bottom:0;
 			width:75%;
+		}
+		/* acf update made labels not bold so Im making them bold again */
+		.acf-field .acf-label label {
+			font-weight:bold;
 		}
 
     </style>
