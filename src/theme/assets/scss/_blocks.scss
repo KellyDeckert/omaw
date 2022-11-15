@@ -2635,7 +2635,11 @@ details {
                 display: flex;
                 
                 align-items: center;
+                -webkit-align-items: center;
+
                 justify-content: space-between;
+                -webkit-justify-content: space-between;
+
                 transition: background-color .25s ease-in-out;
                 
                 svg {

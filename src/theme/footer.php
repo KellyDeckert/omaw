@@ -6,7 +6,7 @@
             <div class="footer__inner layout--1080">
                 <div class="footer__col">
                     <?php get_template_part( 'snippets/omaw-logo' ); ?>
-                    <a href="#" class="button button--alt monitors">Contact Us</a>
+                    <a href="/contact-us/" class="button button--alt monitors">Contact Us</a>
                     <div class="footer__links devices tablet">
                         <?php
                             get_template_part( 'snippets/link-button', null,
