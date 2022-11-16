@@ -665,6 +665,7 @@ function setTabbedSectionIndex(section,index){
 	section.dataset.index = index;
 	setTabbedSectionTabs(section);
 	setTabbedSectionButtons(section);
+	AOS.refreshHard();
 }
 
 function setTabbedSectionTabs(section){
