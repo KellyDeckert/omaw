@@ -30,6 +30,7 @@ footer {
             justify-content:space-between;
             .footer__col:not(.footer__nav) .button {
                 max-width: fit-content;
+                white-space: nowrap;
             }
         }
         &__nav {
@@ -102,7 +103,7 @@ footer {
 // smallest devices
 @media screen and (min-width:320px){
     footer {
-        background-position: right -10px bottom 160px;
+        background-position: right -10px bottom 140px;
         background-size: 100%;
         padding-top:44px;
         .omaw-logo-link img.omaw-logo {
@@ -221,7 +222,6 @@ footer {
 // mobile devices
 @media screen and (min-width:375px){
     footer {
-        background-position: right -20px bottom 140px;
         background-size: 130%;
     }
 }

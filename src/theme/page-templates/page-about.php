@@ -12,6 +12,7 @@ get_header();
             'data'  => array(
                 'id' => 'about-omaw',
                 'display' => get_field('hero_display'),
+                'width' => get_field('hero_width'),
                 'vertical_alignment' => get_field('hero_vertical_alignment'),
                 'image_alignment' => get_field('hero_image_alignment'),
                 'spacing_class' => get_field('hero_spacing'),
@@ -49,6 +50,8 @@ get_header();
         )
     );
 
+    $mission_header = get_field('mission_header_group');
+
     get_template_part( 'sections/section-two-col-block', null,
         array( 
             'data'  => array(
@@ -57,9 +60,10 @@ get_header();
                 'display' => get_field('mission_display'),
                 'jump_menu' => get_field('mission_jump_menu'),
                 'background' => get_field('mission_background'),
-                'pre_heading' => get_field('mission_pre_heading'),
-                'heading' => get_field('mission_heading'),
-                'sub_heading' => get_field('mission_sub_heading'),
+                'header_display' => $mission_header['mission_header_display'],
+                'pre_heading' => $mission_header['mission_pre_heading'],
+                'heading' => $mission_header['mission_heading'],
+                'sub_heading' => $mission_header['mission_sub_heading'],
                 'statement' => get_field('mission_statement'),
                 'content' => get_field('mission_content'),
             )

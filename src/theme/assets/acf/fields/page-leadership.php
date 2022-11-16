@@ -46,6 +46,19 @@ if (function_exists('acf_add_local_field_group')) :
             'ui_on_text' => 'Show this section',
             'ui_off_text' => 'Hide this section',
         ),
+        array(
+            'key' => 'leadership__container_width',
+            'label' => 'Section Width',
+            'name' => 'hero_width',
+            'type' => 'select',
+            'choices' => array(
+                'layout--1440' => 'Default',
+                'layout--1080' => 'Site Width (1080px)',
+            ),
+            'wrapper' => array(
+              'width' => '25'
+            ),
+        ),
         
         array(
             'key' => 'leadership__hero_spacing',

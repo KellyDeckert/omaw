@@ -46,7 +46,19 @@ array(
   'ui_on_text' => 'Show this section',
   'ui_off_text' => 'Hide this section',
 ),
-
+array(
+  'key' => 'about__container_width',
+  'label' => 'Section Width',
+  'name' => 'hero_width',
+  'type' => 'select',
+  'choices' => array(
+      'layout--1440' => 'Default',
+      'layout--1080' => 'Site Width (1080px)',
+  ),
+  'wrapper' => array(
+    'width' => '25'
+  ),
+),
 array(
   'key' => 'about__hero_spacing',
   'label' => 'Section top and bottom spacing',
@@ -280,29 +292,49 @@ array(
   ),
 ),
 array(
-  'key' => 'about__mission_pre_heading',
-  'label' => 'Small Heading',
-  'name' => 'mission_pre_heading',
-  'type' => 'text',
-  'placeholder' => 'Our Mission',
-),
-array(
-  'key' => 'about__mission_heading',
-  'label' => 'Heading',
-  'name' => 'mission_heading',
-  'type' => 'text',
-  'placeholder' => 'A Healthier Workplace for All',
-),
-array(
-  'key' => 'about__mission_sub_heading',
-  'label' => 'Sub Heading',
-  'name' => 'mission_sub_heading',
-  'type' => 'text',
-  'placeholder' => 'One Mind at Work is a movement of business leaders driving change in global workplaces committed to improving psychological safety and thriving. ',
+  'key' => 'about__mission_header_group',
+  'name' => 'mission_header_group',
+  'label' => 'Section Header',
+  'type' => 'group',
+  'sub_fields' => array(
+    array(
+      'key' => 'about__mission_group_display',
+      'label' => 'Display',
+      'name' => 'mission_header_display',
+      'type' => 'true_false',
+      'ui' => 1,
+      'ui_on_text' => 'Show the section header',
+      'ui_off_text' => 'Hide the section header',
+    ),
+    array(
+      'key' => 'about__mission_pre_heading',
+      'label' => 'Small Heading',
+      'name' => 'mission_pre_heading',
+      'type' => 'text',
+      'placeholder' => 'Our Mission',
+      'wrapper' => array(
+        'width' => '50'
+      ),
+    ),
+    array(
+      'key' => 'about__mission_heading',
+      'label' => 'Heading',
+      'name' => 'mission_heading',
+      'type' => 'text',
+      'placeholder' => 'A Healthier Workplace for All',
+    ),
+    array(
+      'key' => 'about__mission_sub_heading',
+      'label' => 'Sub Heading',
+      'name' => 'mission_sub_heading',
+      'type' => 'text',
+      'placeholder' => 'One Mind at Work is a movement of business leaders driving change in global workplaces committed to improving psychological safety and thriving. ',
+    ),
+  ),
 ),
 array(
   'key' => 'about__mission_statement',
-  'label' => 'Statement',
+  'label' => 'Left Column',
   'name' => 'mission_statement',
   'type' => 'wysiwyg',
   'toolbar' => 'full',
@@ -310,7 +342,7 @@ array(
 ),
 array(
   'key' => 'about__mission_content',
-  'label' => 'Content',
+  'label' => 'Right Column',
   'name' => 'mission_content',
   'type' => 'wysiwyg',
   'toolbar' => 'full',
