@@ -610,7 +610,7 @@ main {
             }
             .image-copy__columns:not(.layout--1080) .image-copy__content {
                 order: 0;
-                padding-left: 3.75em;
+                // padding-left: 3.75em;
                 padding-right: 6.25%;
             }
             .image-copy__image-tile {
@@ -673,17 +673,41 @@ main {
             }  
         }
     }
-    @media screen and (min-width:767px) and (max-width:1440px){
+    @media screen and (min-width:767px) {
         &.image-copy--image-right {
             .bg-color-on .image-copy__content {
-                //padding-left:calc(20/960 * 100%);
+                padding-left:calc(20/960 * 100%);
+            }
+            .image-copy__columns:not(.layout--1080) .image-copy__content {
+                padding-left: 3.75em;
+            }
+        }
+        &.image-copy--image-left {
+            .bg-color-on .image-copy__content {
+                padding-right:calc(20/960 * 100%);
+            }
+            .image-copy__columns:not(.layout--1080) .image-copy__content {
+                padding-right: 3.75em;
             }
         }
     }
-    @media screen and (min-width: 1180px) and (max-width: 1439px) {
+    @media screen and (min-width: 1220px) and (max-width:1440px) {
         &.image-copy--image-right {
-            & .image-copy__content {
-                padding-left: calc( (100vw - 1080px) / 2 );
+            .image-copy__columns:not(.layout--1080) {
+                max-width:1080px;
+                .image-copy__content {
+                    padding-left: 0;
+                    padding-right: 4%;
+                }
+            }
+        }
+        &.image-copy--image-left {
+            .image-copy__columns:not(.layout--1080) {
+                max-width:1080px;
+                .image-copy__content {
+                    padding-right: 0;
+                    padding-left: 4%;
+                }
             }
         }
     }
@@ -691,6 +715,11 @@ main {
         &.image-copy--image-right {
             .image-copy__columns:not(.layout--1080) .image-copy__content {
                 padding-left: 12.5%;
+            }
+        }
+        &.image-copy--image-left {
+            .image-copy__columns:not(.layout--1080) .image-copy__content {
+                padding-right: 12.5%;
             }
         }
     }
@@ -2628,38 +2657,49 @@ details {
     &.accordion--faq {
         details {
             summary {
-                position: relative;
-                display: -webkit-box;
-                display: -webkit-flex;
-                display: -ms-flexbox;
-                display: flex;
-                
-                align-items: center;
-                -webkit-align-items: center;
-
-                justify-content: space-between;
-                -webkit-justify-content: space-between;
-
-                transition: background-color .25s ease-in-out;
-                
-                svg {
-                    flex: 0 0 auto;
-                    width: 1.625em;
-                    height: .75em;
-                    polygon {
-                        transition: fill .25s ease-in-out;
-                        fill: #747474;
+                .accordion--inner {
+                    position: relative;
+    
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+    
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+    
+                    -webkit-justify-content: space-between;
+                    -ms-flex-pack: justify;
+                    justify-content: space-between;
+    
+                    -webkit-align-content: center;
+                    -ms-flex-line-pack: center;
+                    align-content: center;
+                    -webkit-align-items: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+    
+                    transition: background-color .25s ease-in-out;
+                    
+                    svg {
+                        flex: 0 0 auto;
+                        width: 1.625em;
+                        height: .75em;
+                        polygon {
+                            transition: fill .25s ease-in-out;
+                            fill: #747474;
+                        }
                     }
-                }
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: -2px;
-                    left: -2px;
-                    bottom: 0;
-                    width: 0;
-                    background-color: $brand-primary;
-                    transition: width .15s ease-in-out;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        top: -2px;
+                        left: -2px;
+                        bottom: 0;
+                        width: 0;
+                        background-color: $brand-primary;
+                        transition: width .15s ease-in-out;
+                    }
                 }
             }
             border: 2px solid $brand-neutral-med;

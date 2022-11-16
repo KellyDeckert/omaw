@@ -13,6 +13,7 @@ get_header();
                 'data'  => array(
                     'id' => 'about-omaw',
                     'display' => get_field('hero_display'),
+                    'width' => get_field('hero_width'),
                     'vertical_alignment' => get_field('hero_vertical_alignment'),
                     'image_alignment' => get_field('hero_image_alignment'),
                     'spacing_class' => get_field('hero_spacing'),
