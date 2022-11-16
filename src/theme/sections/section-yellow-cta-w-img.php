@@ -7,10 +7,14 @@ $heading = isset($args['data']['heading']) ? $args['data']['heading'] : null;
 $content = isset($args['data']['content']) ? $args['data']['content'] : null;
 $cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
 $image = isset($args['data']['image']) ? $args['data']['image'] : null;
-$image_url = $image['sizes']['750x'];
-if( $image['mime_type'] == 'image/png' ){
-    $image_url = $image['url'];
+
+if(isset($image)){
+    $image_url = $image['sizes']['750x'];
+    if( $image['mime_type'] == 'image/png' ){
+        $image_url = $image['url'];
+    }   
 }
+
 if( $padding ) {
     $padding = 'yellow-cta__banner--padded';
 }

@@ -47,7 +47,7 @@ $region_terms = get_terms([
                 <div class="filters__council">
                     <div class="filters__council mdc-form-field">
                     <div class="mdc-checkbox mdc-checkbox--upgraded mdc-ripple-upgraded mdc-ripple-upgraded--unbounded mdc-checkbox--selected" style="--mdc-ripple-fg-size: 24px; --mdc-ripple-fg-scale: 1.6666666666666667; --mdc-ripple-left: 8px; --mdc-ripple-top: 8px;">
-                        <input type="checkbox" class="mdc-checkbox__native-control" id="guiding-council" autocomplete ="off" <?php echo $_GET['council'] == 'true' ? 'checked' : '';?>>
+                        <input type="checkbox" class="mdc-checkbox__native-control" id="guiding-council" autocomplete ="off" <?php echo isset($_GET['council']) && $_GET['council'] == 'true' ? 'checked' : '';?>>
                         <div class="mdc-checkbox__background">
                         <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
                             <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>

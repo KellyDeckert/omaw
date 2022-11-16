@@ -35,7 +35,7 @@ while ( have_posts() ) :the_post();
         <section id="hero" class="post__hero section-h-padding">
             <div class="layout--1080">
                 <?php
-                if($image){
+                if(isset($image)){
                     echo '<div class="post-hero__image" data-aos="smooth-slide-up" data-aos-delay="450" data-aos-duration="650" data-aos-easing="cubic">';
                         echo '<picture class="bg-image">';
                             echo '<source media="(min-width: 750px)" srcset="'.$image['1440x'].'">';

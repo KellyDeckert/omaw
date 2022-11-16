@@ -21,7 +21,7 @@ function serve_members_route( WP_REST_Request $request ) {
             $content = wpautop( get_the_content() );
             $image_array = '';
             $fields = get_fields();
-            $guiding_council = $fields['guiding_council'] ? true : false ;
+            $guiding_council = isset($fields['guiding_council']) ? true : false ;
 
             // get industries 
             $industry_terms = get_the_terms( $post->ID, 'industry' );

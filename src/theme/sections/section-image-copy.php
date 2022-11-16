@@ -25,11 +25,14 @@ $image_mobile_pos = isset($args['data']['image_mobile_pos']) ? $args['data']['im
 $content = isset($args['data']['content']) ? $args['data']['content'] : null;
 $cta = isset($args['data']['cta']) ? $args['data']['cta'] : null;
 
-$image_url = $image['sizes']['750x'];
-if( $image['mime_type'] == 'image/png' ){
-    $image_url = $image['url'];
+if(isset($image)){
+    $image_url = $image['sizes']['750x'];
+    if( $image['mime_type'] == 'image/png' ){
+        $image_url = $image['url'];
+    }
 }
 
+$bg_color_class = '';
 $bg_color = isset($args['data']['bg_color']) ? $args['data']['bg_color'] : null;
 $bg_color_location = isset($args['data']['bg_color_location']) ? $args['data']['bg_color_location'] : 'section';
 $text_color = 'color-brand-primary';

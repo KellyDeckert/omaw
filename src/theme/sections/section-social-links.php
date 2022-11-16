@@ -18,7 +18,7 @@ switch($type){
 <div class="social-media">
     <ul class="social-media-list">        
     <?php
-    if($linkedin_url){
+    if(isset($linkedin_url)){
         echo '<li class="social-media-list-item">';
         get_template_part( 'snippets/social-icon', null,
             array( 
@@ -30,7 +30,7 @@ switch($type){
         );
         echo '</li>';
     }
-    if($twitter_url){
+    if(isset($twitter_url)){
         echo '<li class="social-media-list-item">';
         get_template_part( 'snippets/social-icon', null,
             array( 
@@ -42,7 +42,7 @@ switch($type){
         );
         echo '</li>';
     }
-    if($instagram_url){
+    if(isset($instagram_url)){
         echo '<li class="social-media-list-item">';
         get_template_part( 'snippets/social-icon', null,
             array( 
@@ -54,7 +54,7 @@ switch($type){
         );
         echo '</li>';
     }
-    if($facebook_url){
+    if(isset($facebook_url)){
         echo '<li class="social-media-list-item">';
         get_template_part( 'snippets/social-icon', null,
             array( 

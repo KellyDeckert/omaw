@@ -22,7 +22,7 @@ foreach( $categories as $category ){
     $post_category = $category;
     break;
 }   
-if( $post_category->slug == 'workplace-mental-health-blogs'){
+if( isset($post_category->slug) && $post_category->slug == 'workplace-mental-health-blogs'){
     $permalink_target = '_blank';
     $permalink = get_field('external_url');
 }
