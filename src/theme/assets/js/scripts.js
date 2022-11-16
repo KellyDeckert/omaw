@@ -1127,32 +1127,32 @@ function managePagination(itemCount){
 
 }
 
-jQuery(document).on('click','.pagination__prev-button', function(event){
+jQuery(document).on('click','.post-list .pagination__prev-button', function(event){
 	event.preventDefault();
 	currentPage --;
 	setPaginationIndex();
 	renderPostsList();
 });
 
-jQuery(document).on('click','.pagination__ellipsis-prev', function(event){
+jQuery(document).on('click','.post-list .pagination__ellipsis-prev', function(event){
 	event.preventDefault();
 	paginationIndex --;
 	renderPostsList()
 });
 
-jQuery(document).on('click','.pagination__button', function(event){
+jQuery(document).on('click','.post-list .pagination__button', function(event){
 	currentPage = Number(jQuery(this).data('page'));
 	setPaginationIndex();
 	renderPostsList()
 });
 
-jQuery(document).on('click','.pagination__ellipsis-next', function(event){
+jQuery(document).on('click','.post-list .pagination__ellipsis-next', function(event){
 	event.preventDefault();
 	paginationIndex ++;
 	renderPostsList()
 });
 
-jQuery(document).on('click','.pagination__next-button', function(event){
+jQuery(document).on('click','.post-list .pagination__next-button', function(event){
 	event.preventDefault();
 	currentPage ++;
 	setPaginationIndex();
