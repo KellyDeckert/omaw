@@ -10,7 +10,7 @@ if( $display):
         <div class="layout--860" data-aos="smooth-slide-up" data-aos-delay="400" data-aos-duration="750" data-aos-easing="cubic">
             <?php
             echo $heading ? '<h6 class="citations__heading">'.$heading.'</h6>' : '';
-            echo $content ? '<div class="citations__copy paragraph--xs">'.$content.'</div>' : '';
+            echo $content ? '<div class="citations__copy paragraph--xs break-all">'.$content.'</div>' : '';
             ?>
         </div>        
     </div>

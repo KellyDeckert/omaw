@@ -10,14 +10,14 @@ if($items):
             echo '<summary><div class="accordion--inner">';
                 echo $type == 'agenda' && $accordion_item['type'] ? '<h6 class="details__subheading font-regular">'.$accordion_item['type'].'</h6>' : '';
                 echo $accordion_item['heading'] ? '<'.$heading_tag.' class="details__heading">'.$accordion_item['heading'].'</'.$heading_tag.'>' : '';
-                echo $type == 'agenda' && $accordion_item['description'] ? '<p class="details__description paragraph--sm">'.$accordion_item['description'].'</p>' : '';
+                echo $type == 'agenda' && $accordion_item['description'] ? '<p class="details__description">'.$accordion_item['description'].'</p>' : '';
                 if($accordion_item['content']){
                     get_template_part( 'snippets/icon-down-arrow');
                 }
             echo '</div></summary>';
             if($accordion_item['content']){
                 echo '<div class="details__content">';
-                    echo $accordion_item['content'] ? '<div class="details__text '.( $type == 'agenda' ? 'paragraph--sm' : '').'">'.$accordion_item['content'].'</div>' : '';
+                    echo $accordion_item['content'] ? '<div class="details__text">'.$accordion_item['content'].'</div>' : '';
                 echo '</div>';
             }
         echo '</details>';

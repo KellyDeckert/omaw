@@ -6,6 +6,9 @@
 .uppercase {
     text-transform: uppercase;
 }
+.break-all {
+    word-break: break-all;
+}
 .color {
     &-brand-primary {
         color: $brand-primary;
