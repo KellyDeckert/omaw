@@ -2805,15 +2805,17 @@ details {
                 }
             }
             summary {
-                display: grid;
-                grid-auto-columns: 1fr;
-                grid-template-columns: 1fr 1.875em;
-                grid-template-rows: auto auto auto;
-                gap: 0px 0px;
-                grid-template-areas:
-                  "type ."
-                  "name arrow"
-                  "description .";
+                .accordion--inner {
+                    display: grid;
+                    grid-auto-columns: 1fr;
+                    grid-template-columns: 1fr 1.875em;
+                    grid-template-rows: auto auto auto;
+                    gap: 0px 0px;
+                    grid-template-areas:
+                      "type ."
+                      "name arrow"
+                      "description .";
+                }
             }
             .details__subheading {
                 font-size: .75em;
@@ -2829,7 +2831,7 @@ details {
             details {
                 padding: 1.5em 1.5em 1.5em 2.5em;
             }
-            summary, .details__content {
+            summary .accordion--inner, .details__content {
                 display: grid;
                 grid-auto-columns: 1fr;
                 grid-template-columns: 28.57142857142857% 1fr 56.15763546798029% 4em;
