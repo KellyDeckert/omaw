@@ -714,17 +714,17 @@ main {
             }
         }
     }
-    @media screen and (min-width: 1440px) {
-        // &.image-copy--image-right {
-        //     .image-copy__columns:not(.layout--1080) .image-copy__content {
-        //         padding-left: 12.5%;
-        //     }
-        // }
-        // &.image-copy--image-left {
-        //     .image-copy__columns:not(.layout--1080) .image-copy__content {
-        //         padding-right: 12.5%;
-        //     }
-        // }
+    @media screen and (min-width: 1440px) and (-webkit-max-device-pixel-ratio:1) {
+        &.image-copy--image-right {
+            .image-copy__columns:not(.layout--1080) .image-copy__content {
+                padding-left: 12.5%;
+            }
+        }
+        &.image-copy--image-left {
+            .image-copy__columns:not(.layout--1080) .image-copy__content {
+                padding-right: 12.5%;
+            }
+        }
     }
 }
 
