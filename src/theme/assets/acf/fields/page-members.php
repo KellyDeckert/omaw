@@ -151,7 +151,7 @@ if (function_exists('acf_add_local_field_group')) :
         'key' => 'out-members_msg',
         'name' => 'members_msg',
         'type' => 'message',
-        'message' => 'The members on this page are dynamically generated from the Team Members post type.<br><br>Individual members can be edited via the team Members admin page in the sidebar.',
+        'message' => 'The members on this page are dynamically generated.<br><br>Individual members can be edited via the Members admin page in the sidebar.',
         'wrapper' => array(
             'class' => 'bkomaw'
         ),

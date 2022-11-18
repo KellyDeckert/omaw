@@ -207,16 +207,16 @@ function register_post_types() {
 	 * Post Type: Team Members.
 	*/
 	$labels = array(
-		'name' => _x('Team Members', 'post type general name'),
-		'singular_name' => _x('Team Member', 'post type singular name'),
-		'add_new' => _x('Add New', 'Team Member'),
-		'add_new_item' => __('Add New Team Member'),
-		'edit_item' => __('Edit Team Member'),
-		'new_item' => __('New Team Member'),
-		'view_item' => __('View Team Member'),
-		'search_items' => __('Search Team Members'),
-		'not_found' =>  __('No Team Member found'),
-		'not_found_in_trash' => __('No Team Member found in Trash'),
+		'name' => _x('Leadership', 'post type general name'),
+		'singular_name' => _x('Leadership Team Member', 'post type singular name'),
+		'add_new' => _x('Add New', 'Leadership Team Member'),
+		'add_new_item' => __('Add New Leadership Team Member'),
+		'edit_item' => __('Edit Leadership Team Member'),
+		'new_item' => __('New Leadership Team Member'),
+		'view_item' => __('View Leadership Team Member'),
+		'search_items' => __('Search Leadership Teams'),
+		'not_found' =>  __('No Leadership Team Member found'),
+		'not_found_in_trash' => __('No Leadership Team Member found in Trash'),
 		'parent_item_colon' => ''
 	);
 	$supports = array('title', 'editor','excerpt','thumbnail');

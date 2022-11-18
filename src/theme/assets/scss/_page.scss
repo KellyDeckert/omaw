@@ -157,6 +157,11 @@
             padding-left:3.75em;
         }
     }
+    @media not screen and (max-width: 767px) and (orientation: portrait){
+        .quick-links + .content-story {
+            margin-top:3.75em;
+        }
+    }
 }
 
 .faqs {
