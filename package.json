@@ -9,7 +9,7 @@
   "scripts": {
     "download": "node ./scripts/download.js",
     "clean": "rm dist/bundle.js",
-    "build-dev": "webpack --mode development",
+    "build-dev": "webpack --mode development --watch",
     "build-prod": "webpack --mode production"
   },
   "dependencies": {
